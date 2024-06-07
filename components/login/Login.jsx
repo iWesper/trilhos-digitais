@@ -6,7 +6,7 @@ import {auth, googleProvider} from '../../backend/config/firebase';
 import {signInWithEmailAndPassword, signInWithPopup, onAuthStateChanged, sendPasswordResetEmail} from 'firebase/auth';
 
 //DP PARA PSSWD RESET
-import { db } from '../config/firebase';
+import { db } from '../../backend/config/firebase';
 
 //IMPORTA Os hooks
 import {useState, useEffect} from 'react';
