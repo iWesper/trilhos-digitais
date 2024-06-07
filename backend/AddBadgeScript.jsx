@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState, useCallback} from "react";
 import {addDoc, collection, query, where, getDocs} from "firebase/firestore";
-import {db, auth} from "../config/firebase";
+import {db, auth} from "config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
 const AddBadgeScript = ({ badgeId }) => {
