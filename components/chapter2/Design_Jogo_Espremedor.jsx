@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Picture from 'Design_Espremedor_Drop';
+import Picture from './Design_Espremedor_Drop';
 
 //HOOK QUE PERMITE RECEBER OS DADOS DO ELEMENTO ARRASTADO
 import { useDrop } from 'react-dnd';
@@ -8,9 +8,9 @@ import { useDrop } from 'react-dnd';
 
 //IMAGENS DO TESTE
 import testimg1 from '../../public/img/1.png';
-import testimg2 from '../../public/img/imgs/2.png';
-import testimg3 from '../../public/img/imgs/3.png';
-import correctimg from '../../public/img/imgs/correct.png';
+import testimg2 from '../../public/img/2.png';
+import testimg3 from '../../public/img/3.png';
+import correctimg from '../../public/img/correct.png';
 
 
 
@@ -104,9 +104,6 @@ function DragDrop() {
         return id=== correctId ? 'Exatamente! Esse é o fruto mais aparente para utilizar com este objeto. Muito bem!' : 'Não é bem esse o fruto que queremos. Tenta outra vez!';
     }
 
-    //PARA TESTAR
-    console.log('IDs lá dentro:', board.map((picture) => picture.id).join(', '));
-
     return(
 
         <>
@@ -120,7 +117,7 @@ function DragDrop() {
                 })}
             </div>
 
-            <div className='Board' ref={drop}>
+            <div ref={drop} style={{width:"600px", height:"600px", border:"solid 10px white"}}>
                 {board.map((picture) => {
                     return (
                     <>

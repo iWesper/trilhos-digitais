@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image'
 
 //SABER O ELEMENTO QUE ESTÁ A SER ARRASTADO
 import { useDrag } from "react-dnd";
@@ -26,10 +27,10 @@ function PicturePhones({id,url, onDragStart, board}) {
     //LISTAR IMAGENS A ARRASTAR
     return(
 
-        <img
+        <Image
         ref={drag} 
         src={url} 
-        alt="fruit" 
+        alt="Phone" 
         onMouseDown={() => onDragStart(board)}
         />
         

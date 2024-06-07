@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDrop } from 'react-dnd';
-import PictureStack from 'Design_Cadeiras_Drop';
+import PictureStack from './Design_Cadeiras_Drop';
 
 
 import testimg1 from '../../public/img/chair1.png';
 import testimg2 from '../../public/img/chair2.png';
 import testimg3 from '../../public/img/chair3.png';
+import Image from 'next/image'
 
 
 //LISTA DE ELEMENTOS ARRASTÁVEIS
@@ -177,11 +178,11 @@ function DragDropStack() {
             {orderMessage}
             </h1>
             <div className='boardstack-container'>
-            <div className='Boardstack' ref={drop}>
+            <div ref={drop} style={{width:"600px", height:"600px", border:"solid 10px white"}}>
                 {board.length > 0 && board.map((picture) => {
                     return (
                         <div className="stacked-picture">
-                            <img src={picture.url} />
+                            <Image src={picture.url} />
                         </div>
                     )
                 })}

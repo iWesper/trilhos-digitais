@@ -44,7 +44,9 @@ const Login = () => {
         event.preventDefault();
 
         if (!Email || !Password) {
-            setError("Both fields must be filled out.");
+
+            setError("Os campos devem estar preenchidos.");
+
             return;
         }
 
@@ -52,7 +54,7 @@ const Login = () => {
         if (Password.length < 6) {
 
             //ERRO QUE MOSTRA À PESSOA
-            setError("The password must have, at least, 6 characters.");
+            setError("Por razões de segurança, a password deve ter no mínimo 6 caracteres.");
 
         } else {
 
@@ -63,12 +65,12 @@ const Login = () => {
                 //FAZ LOGIN ÀS PESSOAS
                 await signInWithEmailAndPassword(auth, Email, Password);
 
-                setResult("Logged in successfully! Welcome!");
+               //REDIRECT PARA CHECKTUTORIAL
 
             } catch (error) {
 
                 //ERRO QUE MOSTRA À PESSOA
-                setError("There was an error during the process. Please, try again.")
+                setError("Ocorreu um erro no processo, por favor, tente novamente.");
             }
         }
     }
@@ -82,13 +84,13 @@ const Login = () => {
             //ABRE O POP UP DA GOOGLE
             await signInWithPopup(auth, googleProvider);
 
-            setResult("Logged in successfully! Welcome!");
+            //REDIRECT PARA CHECKTUTORIAL
 
 
         } catch (error) {
 
             //ERRO QUE MOSTRA À PESSOA
-            setError("There was an error during the process. Please, try again.");
+            setError("Ocorreu um erro no processo, por favor, tente novamente.");
 
         }
     }
@@ -98,7 +100,7 @@ const Login = () => {
 
         if(!Email || Email.trim() === "") {
 
-            setError("In order to help you, we will require you email");
+            setError("Para conseguir alterar a password, por favor, insire o teu email.");
         }
         else {
 
@@ -106,8 +108,6 @@ const Login = () => {
             try{
                 //MANDA EMAIL Á PESSOA
                 await sendPasswordResetEmail(auth, Email);
-
-                setError("Email Enviado");
                 
             } catch (error) {
 
@@ -122,24 +122,20 @@ const Login = () => {
             <form onSubmit={handleLogin}>
                 <label htmlFor="email">Email:</label>
                 <input placeholder={"example@mail.com"} onChange={(event) => setEmail(event.target.value)} type={"email"} name="email" aria-describedby="emailHelp"/>
-                <div>
-                    We'll never share your email with anyone else.
-                </div>
                 
                 <div>
                     <label htmlFor="psswd">Password:</label>
                     <input placeholder={"*********"} onChange={(event) => setPassword(event.target.value)} type={"password"} name="psswd"/> 
-                    <p onClick={handlePasswordReset}>Forgot your Password?</p>
+                    <p onClick={handlePasswordReset}>Esqueces-te a Palavra-Passe?</p>
                 </div>
                     {Error && <p>{Error}</p>}
-                    <button type="submit">Log In</button>
+                    <button type="submit">Entrar</button>
                     <p>Or</p>
                     <hr></hr>
                     <button type="button" onClick={handleGoogleSignIn}>
-                        <span>Google</span>
+                        <span>Entrar com Google</span>
                     </button>
                     </form>
-                    {Result && <p>{Result}</p>}
 
         </div>
     )

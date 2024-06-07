@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState, useCallback} from "react";
 import {addDoc, collection, query, where, getDocs} from "firebase/firestore";
-import {db, auth} from "config/firebase";
+import {db, auth} from "./config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
 const AddBadgeScript = ({ badgeId }) => {
@@ -17,9 +17,7 @@ const AddBadgeScript = ({ badgeId }) => {
     //MENSAGEM DE ERRO
     const [Error,setError]= useState("");
 
-
     const AddBadge = useCallback(async () => {
-
 
         //BadgeID -> Number
         const numericBadgeId = +BadgeId;
@@ -53,8 +51,6 @@ const AddBadgeScript = ({ badgeId }) => {
                         userId:UserId
                     });
 
-                    //BADGE ADDED
-                    setError("Badge Added!");
                 }
                 else {
 
@@ -85,6 +81,7 @@ const AddBadgeScript = ({ badgeId }) => {
                 setUserId(currentUser.uid);
 
                 if (UserId) {
+                    
                     AddBadge();
                 }
             } 
@@ -94,11 +91,7 @@ const AddBadgeScript = ({ badgeId }) => {
         });
     },[AddBadge, UserId]);
 
-    return (
-        <div>
-            {Error && <p>{Error}</p>}
-        </div>
-    )
+    
 }
 
 export default AddBadgeScript;

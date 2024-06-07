@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState, useCallback} from "react";
 import {collection, query, where, getDocs, updateDoc, doc} from "firebase/firestore";
-import {db, auth} from "config/firebase";
+import {db, auth} from "./config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
 const SaveBadgeProgressScript = ({ badgeId, progress }) => {
@@ -48,8 +48,6 @@ const SaveBadgeProgressScript = ({ badgeId, progress }) => {
                     });
                 });
 
-                    //BADGE EDITED
-                    setError("Badge Edited!");
             } catch (error) {
 
                 //MENSAGEM
@@ -75,6 +73,7 @@ const SaveBadgeProgressScript = ({ badgeId, progress }) => {
                 setUserId(currentUser.uid);
 
                 if (UserId) {
+
                     AddProgress();
                 }
             } 
@@ -84,11 +83,7 @@ const SaveBadgeProgressScript = ({ badgeId, progress }) => {
         });
     },[AddProgress, UserId]);
 
-    return (
-        <div>
-            {Error && <p>{Error}</p>}
-        </div>
-    )
+
 }
 
 export default SaveBadgeProgressScript;

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image'
 
 //SABER O ELEMENTO QUE ESTÁ A SER ARRASTADO
 import { useDrag } from "react-dnd";
@@ -25,10 +26,10 @@ function PictureStack({id,url, onMouseDown}) {
     //LISTAR IMAGENS A ARRASTAR
     return(
 
-        <img
+        <Image
         ref={drag} 
         src={url} 
-        alt="chair"
+        alt="Chairs"
         onMouseDown={() => onMouseDown(id)} 
         />
         

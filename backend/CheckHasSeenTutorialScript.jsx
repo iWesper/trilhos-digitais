@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState, useCallback} from "react";
 import {collection, query, where, getDocs} from "firebase/firestore";
-import {db, auth} from "config/firebase";
+import {db, auth} from "./config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
 const CheckHasSeenTutorialScript = () => {
@@ -36,13 +35,8 @@ const CheckHasSeenTutorialScript = () => {
                 queryTutorial.forEach(async (docSnapshot) => {
 
                     setTutorialState(docSnapshot.data().hasSeenTutorial);
-
-                    console.log(TutorialState);
                     
                 });
-
-                    //BADGE EDITED
-                    setError("Tutorial State Saved!");
 
             } catch (error) {
 
@@ -74,17 +68,22 @@ const CheckHasSeenTutorialScript = () => {
                 }
             } 
             else {
+
                 setUserId(null);
             }
         });
+
     },[AddTutorialState, UserId]);
 
+
+    //CHAMAR HOMEPAGE COM PROP
     return (
         <div>
-            {Error && <p>{Error}</p>}
-            {TutorialState && <p>Estado:{TutorialState.toString()}</p>}
+            
         </div>
-    )
+    );
+
+
 }
 
 export default CheckHasSeenTutorialScript;

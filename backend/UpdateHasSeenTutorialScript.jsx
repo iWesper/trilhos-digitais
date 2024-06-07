@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, useCallback} from "react";
 import {collection, query, where, getDocs, updateDoc, doc} from "firebase/firestore";
-import {db, auth} from "config/firebase";
+import {db, auth} from "./config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
 const UpdateHasSeenTutorialScript = () => {
@@ -23,7 +23,7 @@ const UpdateHasSeenTutorialScript = () => {
                 const hasSeenTutorialcollection = collection(db, "hasSeenTutorial");
 
                 //QUERY PARA ENCONTRAR O DOCUMENTO
-                const q= query(hasSeenTutorialcollection, where("userId", "==", UserId));
+                const q = query(hasSeenTutorialcollection, where("userId", "==", UserId));
 
                 //EXECUTA A QUERY
                 const queryTutorial = await getDocs(q);
@@ -38,8 +38,6 @@ const UpdateHasSeenTutorialScript = () => {
                     });
                 });
 
-                    //BADGE EDITED
-                    setError("Tutorial Seen!");
 
             } catch (error) {
 
@@ -75,11 +73,6 @@ const UpdateHasSeenTutorialScript = () => {
         });
     },[AddTutorialState, UserId]);
 
-    return (
-        <div>
-            {Error && <p>{Error}</p>}
-        </div>
-    )
 }
 
 export default UpdateHasSeenTutorialScript;

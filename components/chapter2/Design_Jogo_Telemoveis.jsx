@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import PicturePhones from 'Design_Telemoveis_Drop';
+import PicturePhones from './Design_Telemoveis_Drop';
 
 //HOOK QUE PERMITE RECEBER OS DADOS DO ELEMENTO ARRASTADO
 import { useDrop } from 'react-dnd';
@@ -185,8 +185,6 @@ function DragDropOrdenar() {
     //FUNÇÃO QUE ATUALIZA O STATE DO BOARD PARA QUE ELE MOSTRE O QUE LÁ FOI POSTO
     const addImageToBoard = (id,TargetBoard) => {
 
-        console.log(id)
-
         //UPDATES DAS BOARDS
     const setBoards = {
         0: setBoard,
@@ -283,7 +281,7 @@ function DragDropOrdenar() {
         </h1>
         <div className="boards-container">
            
-            <div className='Board2' ref={drop}>
+            <div ref={drop} style={{width:"200px", height:"200px", border:"solid 5px white"}}>
                 {board.map((picture) => {
                     return <PicturePhones url={picture.url} id={picture.id} 
                     onDragStart={handleDragStart} 
@@ -292,7 +290,7 @@ function DragDropOrdenar() {
                 })}
             </div>
 
-            <div className='Board2' ref={drop2}>
+            <div ref={drop2} style={{width:"200px", height:"200px", border:"solid 5px white"}}>
                 {board2.map((picture) => {
                     return <PicturePhones url={picture.url} id={picture.id} 
                     onDragStart={handleDragStart} 
@@ -301,7 +299,7 @@ function DragDropOrdenar() {
                 })}
             </div>
 
-            <div className='Board2' ref={drop3}>
+            <div ref={drop3} style={{width:"200px", height:"200px", border:"solid 5px white"}}>
                 {board3.map((picture) => {
                     return <PicturePhones url={picture.url} id={picture.id} 
                     onDragStart={handleDragStart} 
@@ -309,7 +307,7 @@ function DragDropOrdenar() {
                      />
                 })}
             </div>
-            <div className='Board2' ref={drop4}>
+            <div  ref={drop4} style={{width:"200px", height:"200px", border:"solid 5px white"}}>
                 {board4.map((picture) => {
                     return <PicturePhones url={picture.url} id={picture.id} 
                     onDragStart={handleDragStart} 
