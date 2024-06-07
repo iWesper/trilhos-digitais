@@ -1,3 +1,4 @@
+// 'use client' é apenas necessário quando estamos a usar componentes do lado do cliente, por exemplo, os modelos 3D do react-three-fiber
 'use client'
 
 import { Environment, OrbitControls } from "@react-three/drei";
@@ -16,7 +17,7 @@ import DragDrop from "../components/chapter2/Design_Jogo_Espremedor";
 export default function Home() {
   return (
     <div>
-      {/* <main className="flex h-screen flex-col items-center justify-between p-24">
+      <main className="flex h-screen flex-col items-center justify-between p-24">
       <Canvas>
         <ambientLight color={'red'} />
         <OrbitControls enablePan={false} />
@@ -25,13 +26,13 @@ export default function Home() {
         </Suspense>
         <Environment preset="studio" />
       </Canvas>
-    </main> */}
-    <DndProvider backend={HTML5Backend}>
+    </main>
+    {/* <DndProvider backend={HTML5Backend}>
       <PictureStack />
       <DragDropOrdenar />
       <DragDrop />
 
-    </DndProvider>
+    </DndProvider> */}
     
     </div>
   );
