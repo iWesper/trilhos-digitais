@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback} from "react";
 import {collection, query, where, getDocs} from "firebase/firestore";
 import {db, auth} from "./config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import HomepagePage from "../app/homepage/page"
 
 const CheckHasSeenTutorialScript = () => {
 
@@ -78,9 +79,7 @@ const CheckHasSeenTutorialScript = () => {
 
     //CHAMAR HOMEPAGE COM PROP
     return (
-        <div>
-            
-        </div>
+       <HomepagePage tutorialState={TutorialState}/>
     );
 
 

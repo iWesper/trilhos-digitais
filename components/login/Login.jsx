@@ -8,11 +8,18 @@ import {signInWithEmailAndPassword, signInWithPopup, onAuthStateChanged, sendPas
 //DP PARA PSSWD RESET
 import { db } from '../../backend/config/firebase';
 
+//IMPORTA FUNÇÕES DO FIRESTORE
+import { addDoc, collection, query, where, getDocs } from 'firebase/firestore';
+
 //IMPORTA Os hooks
 import {useState, useEffect} from 'react';
+import {Auth} from '../register/Register';
 
 //FAZER LOGIN COM EMAIL E PASSWORD
 const Login = () => {
+
+    //STATE DO RENDER
+    const [Render, setRender] = useState(true);
 
     //SAVE USER
     const [User, setUser] = useState(null);
@@ -30,8 +37,6 @@ const Login = () => {
 
     //VARIÁVEL DAS MENSAGENS DE ERRO
     const [Error, setError] = useState("");
-
-    const [Result, setResult] = useState("");
 
     //VARIÁVEIS QUE VÃO PERMITIR GUARDAR OS DADOS INTRODUZIDOS
     const [Email, setEmail] = useState("");
@@ -82,9 +87,38 @@ const Login = () => {
         try {
 
             //ABRE O POP UP DA GOOGLE
-            await signInWithPopup(auth, googleProvider);
+            const result = await signInWithPopup(auth, googleProvider);
 
-            //REDIRECT PARA CHECKTUTORIAL
+            //ADICIONA O USERNAME À COLEÇÃO DE USERNAMES
+            const UsernameCollection = collection(db, "usernames");
+
+            //VÊ SE O USERNAME JÁ EXISTE
+            const UsernameQuery = query(UsernameCollection, where("userId", "==", result.user.uid));
+            const UsernameQuerySnapshot = await getDocs(UsernameQuery);
+
+            //GUARDA SÓ SE NÃO EXISTIR
+            if (UsernameQuerySnapshot.empty) {
+    
+                await addDoc(UsernameCollection, {
+                    userId: result.user.uid,
+                    username: result.user.displayName
+                });
+            }
+ 
+            //ADICIONA FALSE NO HAS SEEN TUTORIAL
+            const HasSeenTutorialCollection = collection(db, "hasSeenTutorial");
+            
+            const HasSeenTutorialQuery = query(HasSeenTutorialCollection, where("userId", "==", result.user.uid));
+            const HasSeenTutorialQuerySnapshot = await getDocs(HasSeenTutorialQuery);
+
+            //GUARDA SÓ SE NÃO EXISTIR
+            if (HasSeenTutorialQuerySnapshot.empty) {
+                
+                await addDoc(HasSeenTutorialCollection, {
+                    hasSeenTutorial: false,
+                    userId: result.user.uid
+                });
+            }
 
 
         } catch (error) {
@@ -100,7 +134,7 @@ const Login = () => {
 
         if(!Email || Email.trim() === "") {
 
-            setError("Para conseguir alterar a password, por favor, insire o teu email.");
+            setError("Para conseguir alterar a password, por favor, insere o teu email.");
         }
         else {
 
@@ -117,26 +151,40 @@ const Login = () => {
         }
     }
 
+    //FUNÇÃO QUE TROCA O RENDER
+    const ChangeRender = () => {
+
+        setRender(false);
+    }
+
     return (
         <div>
-            <form onSubmit={handleLogin}>
-                <label htmlFor="email">Email:</label>
-                <input placeholder={"example@mail.com"} onChange={(event) => setEmail(event.target.value)} type={"email"} name="email" aria-describedby="emailHelp"/>
-                
+            {Render === true ? (
                 <div>
-                    <label htmlFor="psswd">Password:</label>
-                    <input placeholder={"*********"} onChange={(event) => setPassword(event.target.value)} type={"password"} name="psswd"/> 
-                    <p onClick={handlePasswordReset}>Esqueces-te a Palavra-Passe?</p>
-                </div>
-                    {Error && <p>{Error}</p>}
-                    <button type="submit">Entrar</button>
-                    <p>Or</p>
-                    <hr></hr>
-                    <button type="button" onClick={handleGoogleSignIn}>
-                        <span>Entrar com Google</span>
-                    </button>
+                    <h4>Bem-vindo!</h4>
+                    <p>Para teres acesso à experiência completa que a "Trilhos Digitais" tem para te oferecer, deverás primeiro entrar na tua conta.</p>
+                    <form onSubmit={handleLogin}>
+                        <label htmlFor="email">Email:</label>
+                        <input placeholder={"example@mail.com"} onChange={(event) => setEmail(event.target.value)} type={"email"} name="email" aria-describedby="emailHelp"/>
+                        
+                        <div>
+                            <label htmlFor="psswd">Password:</label>
+                            <input placeholder={"*********"} onChange={(event) => setPassword(event.target.value)} type={"password"} name="psswd"/> 
+                            <p onClick={handlePasswordReset}>Esqueces-te a Palavra-Passe?</p>
+                        </div>
+                        {Error && <p>{Error}</p>}
+                        <button type="submit">Entrar</button>
+                        <p>Or</p>
+                        <hr></hr>
+                        <button type="button" onClick={handleGoogleSignIn}>
+                            <span>Entrar com Google</span>
+                        </button>
                     </form>
-
+                    <p>Ainda não tens uma conta? <a onClick={ChangeRender}>Regista-te!</a></p>
+                </div>
+            ) : (
+                Render === false && <Auth/>
+            )}
         </div>
     )
 }

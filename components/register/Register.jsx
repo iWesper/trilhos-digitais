@@ -1,44 +1,84 @@
 import { useState } from 'react';
-import { auth, googleProvider } from '../../backend/config/firebase.jsx';
-import { createUserWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { db,auth, googleProvider } from '../../backend/config/firebase.jsx';
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { addDoc,collection } from 'firebase/firestore';
+import HomepagePage from '../../app/homepage/page.tsx';
 
 export const Auth = () => {
 
+    //EMAIL E PASSWORD
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    
+    //USERNAME
+    const [usernameForm, setUsernameForm] = useState("");
+
+    //GO TO HOMePAGE
+    const [goToHomePage, setGoToHomePage] = useState(false);
+    
+    //ERROR FEEDBACK
     const [error,setError] = useState("");
 
-    const [Result, setResult] = useState("");
+    //TABELA DE USERNAMES
+    const UsernameCollection= collection(db,"usernames");
 
-    //INFO DO USER COM LOGIN
-    //console.log(auth?.currentUser?.uid)
+    //TABELA DE VER O TUTORIAL
+    const HasSeenTutorialCollection = collection(db,"hasSeenTutorial");
 
+
+    //FUNÇÃO DE REGISTO
     const SignUp = async () => {
 
-        setError("");
 
-        if (!email || !password) {
-            setError("Both fields must be filled out.");
+        //SE NÃO HOUVER EMAIL, PASSWORD OU USERNAME
+        if (!email || !password || !usernameForm) {
+
+            //PEDE ESSES DADOS
+            setError("Deves preencher os três campos antes de submeter.");
+
             return;
         }
 
+        //SE A PASSWORD TIVER MENOS DE 6 CARACTERES
         if (password.length < 6) {
 
-            setError("Password must be at least 6 characters long");
+            //PEDE UMA PASSWORD MAIS SEGURA
+            setError("Para ser mais segura, a tua password deve ter pelo menos 6 caracteres.");
 
         }
         else {
 
+            //REGISTA O UTILIZADOR
             try {
 
-                await createUserWithEmailAndPassword(auth, email, password);
+                //CRIA O UTILIZADOR
+                const SignUpResult = await createUserWithEmailAndPassword(auth, email, password);
 
-                setResult("Account created successfully! Welcome!");
-            
+                //ID DO UTILIZADOR VINDO DA PROMISE
+                const NewUserID= SignUpResult.user.uid;
+
+                //ADICIONA O USERNAME À COLEÇÃO DE USERNAMES
+                await addDoc(UsernameCollection, {
+
+                    userId:NewUserID,
+                    username:usernameForm
+                });
+
+                //ADICIONA FALSE NO HAS SEEN TUTORIAL
+                await addDoc(HasSeenTutorialCollection, {
+                        
+                        hasSeenTutorial:false,
+                        userId:NewUserID
+                        
+                    });
+
+                //ABRE HOMEPAGE
+                 setGoToHomePage(true);
 
             } catch(error) {
-                    
-                    setError("Failed to create an account", error);
+                
+                //SE HOUVER ERRO, MOSTRA-O
+                setError("Erro ao criar conta", error);
             }
 
             
@@ -47,52 +87,66 @@ export const Auth = () => {
 
     };
 
+    //FUNÇÃO DE REGISTO COM GOOGLE
     const SignInWithGoogle = async () => {
 
-        try {
+        //SE NÃO HOUVER USERNAME
+        if (!usernameForm) {
 
-            await signInWithPopup(auth, googleProvider);
-
-            setResult("Logged in successfully! Welcome!");
-
-        } catch(error) {
-                
-                setError("Failed to create an account", error);
+            //PEDE O USERNAME
+            setError("Deves preencher o campo de username antes de submeter.");
         }
-    };
+        else {
 
-    const LogOut = async () => {
+            try {
 
-        setError("");
-        setEmail("");
-        setPassword("");
-        setResult("Logged out successfully! Bye!");  
+                //CRIA O UTILIZADOR COM O GOOGLE
+                const GoogleSignUpResult = await signInWithPopup(auth, googleProvider);
+    
+                //ID DO UTILIZADOR VINDO DA PROMISE
+                const NewUserID= GoogleSignUpResult.user.uid;
+    
+                //ADICIONA O USERNAME À COLEÇÃO DE USERNAMES
+                await addDoc(UsernameCollection, {
+    
+                    userId:NewUserID,
+                    username:usernameForm
+                });
 
-        try {
+                //ADICIONA FALSE NO HAS SEEN TUTORIAL
+                await addDoc(HasSeenTutorialCollection, {
+                        
+                    hasSeenTutorial:false,
+                    userId:NewUserID
+                    
+                });
 
-            await signOut(auth);
+                //ABRE HOMEPAGE
+                setGoToHomePage(true);
+    
+            } catch(error) {
+                    
+                //SE HOUVER ERRO, MOSTRA-O
+                setError("Erro ao criar conta", error);
+            }
 
-            setError("");
-            setEmail("");
-            setPassword("");
-            setResult("Logged out successfully! Bye!");
-
-        } catch(error) {
-                
-                setError("Failed to Sing Out", error);
         }
+        
     };
-
 
     return(
         <div>
+            <label>
+                <input type="text" placeholder="Username" onChange={(e) => setUsernameForm(e.target.value)}/>
+               Lembra-te que não poderás alterar este nome no futuro.
+            </label>
+            
             <input type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
             <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
             <button onClick={SignUp}>Sign Up</button>
             <button onClick={SignInWithGoogle}>Sign Up with Google</button>
-            <button onClick={LogOut}>Log Out</button>
             {error && <p>{error}</p>}
-            {Result && <p>{Result}</p>}
+            {goToHomePage && <HomepagePage/>}
         </div>
     )
 }
