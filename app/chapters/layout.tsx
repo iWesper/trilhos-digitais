@@ -1,5 +1,6 @@
 import { HomeIcon, TrophyIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import { Progress } from "@/components/ui/progress";
 
 export default function ChaptersLayout({
   children,
@@ -15,11 +16,8 @@ export default function ChaptersLayout({
           <HomeIcon className="w-6 h-6" />
         </Link>
 
-        <div className="w-full mx-4 bg-gray-700 rounded-full h-2.5 dark:bg-gray-700 w-3/12">
-          <div
-            className="bg-blue-600 h-2.5 rounded-full"
-            style={{ width: `${progress}%` }}
-          ></div>
+        <div className="mx-4 bg-gray-700 rounded-full h-2.5 dark:bg-gray-700 w-3/12">
+          <Progress value={33} />
         </div>
 
         <TrophyIcon className="w-6 h-6" />

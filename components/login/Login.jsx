@@ -188,7 +188,11 @@ const Login = () => {
                     onChange={(event) => setPassword(event.target.value)}
                     name="psswd"
                   />
-                  <p onClick={handlePasswordReset} className="underline" style={{cursor:"pointer"}}>
+                  <p
+                    onClick={handlePasswordReset}
+                    className="underline"
+                    style={{ cursor: "pointer" }}
+                  >
                     Esqueceste-te da Palavra-Passe?
                   </p>
                 </div>
@@ -203,7 +207,10 @@ const Login = () => {
                   <FcGoogle size={24} /> Entrar com Google
                 </Button>
               </div>
-              <div className="mt-4 text-center text-sm" style={{cursor:"pointer"}}>
+              <div
+                className="mt-4 text-center text-sm"
+                style={{ cursor: "pointer" }}
+              >
                 Ainda não tens uma conta?{" "}
                 <a onClick={ChangeRender} className="underline">
                   Regista-te!
@@ -213,7 +220,7 @@ const Login = () => {
           </div>
           <div className="hidden bg-muted lg:block">
             <Image
-              src="/img/ecra_login3.svg"
+              src="/img/ecra_login.svg"
               alt="Image"
               width="1920"
               height="1080"

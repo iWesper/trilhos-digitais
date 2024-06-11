@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3380 653">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-family: Effra-Regular, Effra;
+        font-size: 409.94px;
+      }
+
+      .cls-2, .cls-3 {
+        isolation: isolate;
+      }
+
+      .cls-4 {
+        fill: #86be41;
+        stroke-width: 0px;
+      }
+
+      .cls-5 {
+        letter-spacing: -.14em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g>
+        <path class="cls-4" d="M495.56,148.74L360.1,13.29c-18.58-17.84-48.71-17.84-67.29.74l-135.4,134.71h338.14Z"/>
+        <polygon class="cls-4" points="409.49 320.67 393.14 606.03 575.91 423.25 409.49 320.67"/>
+        <path class="cls-4" d="M214.38,197.97h-106.04L13.94,292.91c-18.58,18.58-18.58,48.71,0,67.29l180.19,191.42,20.26-353.64h0Z"/>
+        <path class="cls-4" d="M363.53,262.23l49.15,2.82-.08,1.4.76-1.23,198.34,122.26,27.28-27.28c18.58-18.58,18.58-48.71,0-68.03l-94.19-94.19h-281.09l-23.09,403.01,35.85,38.08c13.84,13.84,43.14,17.36,64.88,10.59l22.2-387.43h-.01Z"/>
+      </g>
+      <g class="cls-3">
+        <text class="cls-2" transform="translate(784.32 451.52)"><tspan class="cls-5" x="0" y="0">T</tspan><tspan class="cls-1" x="197.18" y="0">rilhos Digitais</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -42,15 +42,13 @@ export default function Home() {
     }
   };
   return (
-    <main className="grid grid-cols-12 h-screen items-center justify-between">
-      <div className="col-span-12">
+    <main>
         {ComponentToRender === true ? (
           <CheckHasSeenTutorialScript />
         ) : (
           ComponentToRender === false && <Login />
         )}
-        {/* <Button onClick={LogOut}>Log Out</Button> */}
-      </div>
+        <Button onClick={LogOut}>Log Out</Button>
     </main>
   );
 }
