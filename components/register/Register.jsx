@@ -1,3 +1,11 @@
+import Image from "next/image"
+
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+
+import { FcGoogle } from "react-icons/fc";
+
 import { useState } from 'react';
 import { db,auth, googleProvider } from '../../backend/config/firebase.jsx';
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
@@ -135,18 +143,61 @@ export const Auth = () => {
     };
 
     return(
-        <div>
-            <label>
-                <input type="text" placeholder="Username" onChange={(e) => setUsernameForm(e.target.value)}/>
-               Lembra-te que não poderás alterar este nome no futuro.
-            </label>
-            
-            <input type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
-            <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
-            <button onClick={SignUp}>Sign Up</button>
-            <button onClick={SignInWithGoogle}>Sign Up with Google</button>
-            {error && <p>{error}</p>}
-            {goToHomePage && <HomepagePage/>}
-        </div>
-    )
+        <div className="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
+                <div className="flex items-center justify-center py-12">
+                  <div className="mx-auto grid w-[350px] gap-6">
+                    <div className="grid gap-2 text-center">
+                      <h1 className="text-3xl font-bold">Bem-vindo!</h1>
+                      <p className="text-balance text-muted-foreground">
+                     Cria a tua conta para começares a explorar o mundo dos Trilhos Digitais.
+                     </p>
+                    </div>
+                    <div className="grid gap-4">
+                    <div className="grid gap-2">
+                        <Label htmlFor="email">Username</Label>
+                        <Input
+                          id="usernmae"
+                          type="usernmae"
+                          placeholder="Username"
+                          required
+                          onChange={(e) => setUsernameForm(e.target.value)} name="username"
+                        />
+                      </div>
+                      <div className="grid gap-2">
+                        <Label htmlFor="email">Email</Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="example@mail.com"
+                          required
+                          onChange={(event) => setEmail(event.target.value)} name="email" aria-describedby="emailHelp"
+                        />
+                      </div>
+                      <div className="grid gap-2">
+                        <div className="flex items-center">
+                          <Label htmlFor="password">Password</Label>
+                        </div>
+                        <Input id="password" type="password"  placeholder={"*********"} onChange={(event) => setPassword(event.target.value)} name="psswd" />
+                      </div>
+                      <Button type="submit" className="w-full" onClick={SignUp}>
+                        Registar
+                      </Button>
+                      <Button variant="outline" className="w-full" onClick={SignInWithGoogle}>
+                        <FcGoogle /> Registar com Google
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+                <div className="hidden bg-muted lg:block">
+                  <Image
+                    src="/placeholder.svg"
+                    alt="Image"
+                    width="1920"
+                    height="1080"
+                    className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+                  />
+                </div>
+                {goToHomePage && <HomepagePage/>}
+              </div>
+        )
 }

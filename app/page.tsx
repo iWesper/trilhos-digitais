@@ -7,6 +7,8 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import CheckHasSeenTutorialScript from "../backend/CheckHasSeenTutorialScript";
 import Login from "@/components/login/Login";
 
+import { Button } from "@/components/ui/button";
+
 export default function Home() {
 
   //COMPONENT BOOLEAN COM TIPOS POSSÍVEIS PARA TSX
@@ -52,7 +54,7 @@ export default function Home() {
       <div className="col-span-12 border-2 border-red-600">
         linha 1 - 12 colunas
         {ComponentToRender=== true ? <CheckHasSeenTutorialScript /> : ComponentToRender === false && <Login/>}
-        <button onClick={() => LogOut()}>Log Out</button>
+        <Button onClick={LogOut}>Log Out</Button>
 
         
       </div>
