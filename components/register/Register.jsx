@@ -190,7 +190,7 @@ export const Auth = () => {
                 </div>
                 <div className="hidden bg-muted lg:block">
                   <Image
-                    src="/placeholder.svg"
+                    src="/img/ecra_login3.svg"
                     alt="Image"
                     width="1920"
                     height="1080"

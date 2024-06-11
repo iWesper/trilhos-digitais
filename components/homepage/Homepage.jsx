@@ -132,6 +132,10 @@ export default function Homepage({ tutorialState }) {
             )}
 
             {tutorialSeen && <UpdateHasSeenTutorialScript /> }
+
+            <div className="bg-primary h-screen">
+
+            </div>
         </div>
     );
 }
