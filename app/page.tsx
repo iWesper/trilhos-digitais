@@ -1,42 +1,64 @@
 // 'use client' é apenas necessário quando estamos a usar componentes do lado do cliente, por exemplo, os modelos 3D do react-three-fiber
 "use client";
 
-import { Environment, OrbitControls } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import Image from "next/image";
-import { Suspense } from "react";
-import Bmw from "../public/models/bmw/Bmw";
-
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import PictureStack from "../components/chapter2/Design_Jogo_Cadeiras";
-import DragDropOrdenar from "../components/chapter2/Design_Jogo_Telemoveis";
-import DragDrop from "../components/chapter2/Design_Jogo_Espremedor";
+import React, { useEffect, useState } from "react";
+import {db,auth} from "../backend/config/firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import CheckHasSeenTutorialScript from "../backend/CheckHasSeenTutorialScript";
+import LoginPage from "./login/page";
 
 export default function Home() {
+
+  //COMPONENT BOOLEAN COM TIPOS POSSÍVEIS PARA TSX
+  const [ComponentToRender, setComponentToRender] = useState<boolean | undefined>(undefined);
+
+  //ERROR STRING COM TIPOS POSSÍVEIS PARA TSX
+  const [error, setError] = useState<string | undefined>(undefined);
+
+  //QUANDO COMPONENTE MONTA
+  useEffect(() => {
+
+    //VER SE HÁ LOGIN
+    onAuthStateChanged(auth, (currentUser => {
+
+      if(currentUser) {
+
+        //SE HOUVER LOGIN
+        setComponentToRender(true);
+      }
+      else {
+        //SE NÃO HOUVER LOGIN
+        setComponentToRender(false);
+      }
+
+      
+    }))
+  },[])
+
+  const LogOut = async () => {
+    try {
+
+        //TERMINA A SESSÃO
+        await signOut(auth);
+
+    } catch(error) {
+            
+        //SE HOUVER ERRO, MOSTRA-O    
+        setError("Ocorreu um erro ao terminar a sessão");
+    }
+};
   return (
     <main className="grid grid-cols-12 gap-4 h-screen items-center justify-between p-24">
       <div className="col-span-12 border-2 border-red-600">
         linha 1 - 12 colunas
-        <Canvas>
-          <ambientLight color={"red"} />
-          <OrbitControls enablePan={false} />
-          <Suspense fallback={null}>
-            <Bmw />
-          </Suspense>
-          <Environment preset="studio" />
-        </Canvas>
+        {ComponentToRender=== true ? <CheckHasSeenTutorialScript /> : ComponentToRender === false && <LoginPage/>}
+        <button onClick={() => LogOut()}>Log Out</button>
+
+        
       </div>
       <div className="col-span-12 border-2 border-red-600">
         linha 2 - 12 colunas
-        <DndProvider backend={HTML5Backend}>
-          <div className="col-span-12 flex">
-            <PictureStack />
-          </div>
-
-          <DragDropOrdenar />
-          <DragDrop />
-        </DndProvider>
+        
       </div>
       <div className="col-span-6 border-2 border-red-600">
         linha 3 - 6 colunas
