@@ -1,14 +1,28 @@
-// Importar os componentes dos capítulos
-import Chapter1Page1 from "@/components/chapter1/Chapter1Page1";
+// Import do dynamic para carregar os componentes de cada capítulo de forma dinâmica
+import dynamic from "next/dynamic";
+import React from "react";
 
-// Função que retorna o componente do capítulo correspondente ao caminho da página
+// Importar dinamicamente os componentes de cada capítulo
+const ChapterComponents: { [key: string]: React.ComponentType<{}> } = {
+  Chapter1Page1: dynamic(() => import("@/components/chapter1/Chapter1Page1")),
+  // Adicionar mais capítulos à medida que são necessários
+};
+
+// Função que renderiza o componente do capítulo correto
 export default function Chapters({ params }: { params: { slug: string[] } }) {
-  // Se o caminho for /chapters/chapter1/1, retorna a página 1 do capítulo 1
-  if (params.slug[0] === "chapter1" && params.slug[1] === "1") {
-    return <Chapter1Page1 />;
-  }
-  else {
-    // Se o caminho não corresponder a nenhum capítulo, retorna uma mensagem de erro
+  // Obter o slug da página
+  const { slug } = params;
+  // Formar o ID do componente do capítulo
+  const chapterComponentID = `Chapter${slug[0].charAt(7)}Page${slug[1]}`;
+
+  // Associar o ID do componente do capítulo ao componente correspondente
+  const ChapterComponent = ChapterComponents[chapterComponentID];
+
+  // Se o componente existir, renderizá-lo
+  if (ChapterComponent) {
+    return <ChapterComponent />;
+  } else {
+    // Caso contrário, mostrar uma mensagem de erro
     return <div>Página não encontrada</div>;
   }
 }
