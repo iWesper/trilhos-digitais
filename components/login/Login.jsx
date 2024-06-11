@@ -188,7 +188,7 @@ const Login = () => {
                     onChange={(event) => setPassword(event.target.value)}
                     name="psswd"
                   />
-                  <p onClick={handlePasswordReset}>
+                  <p onClick={handlePasswordReset} className="underline" style={{cursor:"pointer"}}>
                     Esqueceste-te da Palavra-Passe?
                   </p>
                 </div>
@@ -203,7 +203,7 @@ const Login = () => {
                   <FcGoogle size={24} /> Entrar com Google
                 </Button>
               </div>
-              <div className="mt-4 text-center text-sm">
+              <div className="mt-4 text-center text-sm" style={{cursor:"pointer"}}>
                 Ainda não tens uma conta?{" "}
                 <a onClick={ChangeRender} className="underline">
                   Regista-te!

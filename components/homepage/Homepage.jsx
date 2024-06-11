@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from "react";
 import {collection, query, where, getDocs} from "firebase/firestore";
-import {db, auth} from "../../backend/config/firebase";
+import {auth} from "../../backend/config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import UpdateHasSeenTutorialScript from "../../backend/UpdateHasSeenTutorialScript"
-import CheckHasSeenTutorialScript from "@/backend/CheckHasSeenTutorialScript";
-
+ 
 
 export default function Homepage({ tutorialState }) {
 

@@ -11,6 +11,7 @@ import { db,auth, googleProvider } from '../../backend/config/firebase.jsx';
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { addDoc,collection } from 'firebase/firestore';
 import HomepagePage from '../../app/homepage/page.tsx';
+import Login from "../login/Login.jsx";
 
 export const Auth = () => {
 
@@ -23,6 +24,9 @@ export const Auth = () => {
 
     //GO TO HOMePAGE
     const [goToHomePage, setGoToHomePage] = useState(false);
+
+    //STATE DO RENDER
+    const [Render, setRender] = useState(true);
     
     //ERROR FEEDBACK
     const [error,setError] = useState("");
@@ -142,7 +146,14 @@ export const Auth = () => {
         
     };
 
+     //FUNÇÃO QUE TROCA O RENDER
+    const ChangeRender = () => {
+      setRender(false);
+    };
+
     return(
+      <div>
+        {Render === true ? (
         <div className="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
                 <div className="flex items-center justify-center py-12">
                   <div className="mx-auto grid w-[350px] gap-6">
@@ -183,8 +194,13 @@ export const Auth = () => {
                         Registar
                       </Button>
                       <Button variant="outline" className="w-full" onClick={SignInWithGoogle}>
-                        <FcGoogle /> Registar com Google
+                        <FcGoogle size={24} /> Registar com Google
                       </Button>
+                      <div className="mt-4 text-center text-sm" style={{cursor:"pointer"}}>
+                        Já tens uma conta?{" "}
+                        <a onClick={ChangeRender} className="underline">
+                        Entrar
+                        </a>
                     </div>
                   </div>
                 </div>
@@ -197,7 +213,13 @@ export const Auth = () => {
                     className="h-screen w-full object-cover dark:brightness-[0.2] dark:grayscale"
                   />
                 </div>
+                </div>
                 {goToHomePage && <HomepagePage/>}
               </div>
-        )
-}
+
+      ): (
+        Render === false && <Login />
+      )}
+      </div>
+  );
+};
