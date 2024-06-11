@@ -1,3 +1,10 @@
+import Image from "next/image"
+
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+
+import { FcGoogle } from "react-icons/fc";
 
 //IMPORTA A VARIÁVEL DE AUTENTICAÇÃO
 import {auth, googleProvider} from '../../backend/config/firebase';
@@ -160,28 +167,56 @@ const Login = () => {
     return (
         <div>
             {Render === true ? (
-                <div>
-                    <h4>Bem-vindo!</h4>
-                    <p>Para teres acesso à experiência completa que a "Trilhos Digitais" tem para te oferecer, deverás primeiro entrar na tua conta.</p>
-                    <form onSubmit={handleLogin}>
-                        <label htmlFor="email">Email:</label>
-                        <input placeholder={"example@mail.com"} onChange={(event) => setEmail(event.target.value)} type={"email"} name="email" aria-describedby="emailHelp"/>
-                        
-                        <div>
-                            <label htmlFor="psswd">Password:</label>
-                            <input placeholder={"*********"} onChange={(event) => setPassword(event.target.value)} type={"password"} name="psswd"/> 
-                            <p onClick={handlePasswordReset}>Esqueces-te a Palavra-Passe?</p>
+                <div className="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
+                <div className="flex items-center justify-center py-12">
+                  <div className="mx-auto grid w-[350px] gap-6">
+                    <div className="grid gap-2 text-center">
+                      <h1 className="text-3xl font-bold">Bem-vindo!</h1>
+                      <p className="text-balance text-muted-foreground">
+                      Para teres acesso à experiência completa que a Trilhos Digitais tem para te oferecer, deverás primeiro entrar na tua conta.
+                      </p>
+                    </div>
+                    <div className="grid gap-4">
+                      <div className="grid gap-2">
+                        <Label htmlFor="email">Email</Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="example@mail.com"
+                          required
+                          onChange={(event) => setEmail(event.target.value)} name="email" aria-describedby="emailHelp"
+                        />
+                      </div>
+                      <div className="grid gap-2">
+                        <div className="flex items-center">
+                          <Label htmlFor="password">Password</Label>
+                          <p onClick={handlePasswordReset}>Esqueceste-te a Palavra-Passe?</p>
                         </div>
-                        {Error && <p>{Error}</p>}
-                        <button type="submit">Entrar</button>
-                        <p>Or</p>
-                        <hr></hr>
-                        <button type="button" onClick={handleGoogleSignIn}>
-                            <span>Entrar com Google</span>
-                        </button>
-                    </form>
-                    <p>Ainda não tens uma conta? <a onClick={ChangeRender}>Regista-te!</a></p>
+                        <Input id="password" type="password"  placeholder={"*********"} onChange={(event) => setPassword(event.target.value)} name="psswd" />
+                      </div>
+                      <Button type="submit" className="w-full" onClick={handleLogin}>
+                        Entrar
+                      </Button>
+                      <Button variant="outline" className="w-full" onClick={handleGoogleSignIn}>
+                        <FcGoogle /> Entrar com Google
+                      </Button>
+                    </div>
+                    <div className="mt-4 text-center text-sm">
+                    Ainda não tens uma conta?{" "}
+                    <a onClick={ChangeRender} className="underline">Regista-te!</a>
+                    </div>
+                  </div>
                 </div>
+                <div className="hidden bg-muted lg:block">
+                  <Image
+                    src="/placeholder.svg"
+                    alt="Image"
+                    width="1920"
+                    height="1080"
+                    className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+                  />
+                </div>
+              </div>
             ) : (
                 Render === false && <Auth/>
             )}
