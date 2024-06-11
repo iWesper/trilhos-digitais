@@ -190,9 +190,9 @@ const Login = () => {
                       <div className="grid gap-2">
                         <div className="flex items-center">
                           <Label htmlFor="password">Password</Label>
-                          <p onClick={handlePasswordReset}>Esqueceste-te a Palavra-Passe?</p>
                         </div>
                         <Input id="password" type="password"  placeholder={"*********"} onChange={(event) => setPassword(event.target.value)} name="psswd" />
+                        <p onClick={handlePasswordReset}>Esqueceste-te da Palavra-Passe?</p>
                       </div>
                       <Button type="submit" className="w-full" onClick={handleLogin}>
                         Entrar
