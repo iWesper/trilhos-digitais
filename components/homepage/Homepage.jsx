@@ -124,9 +124,6 @@ export default function Homepage({ tutorialState }) {
 
     return (
         <div>
-            I am a Homepage.
-            Este user já viu o tutorial? (Fetched quando montou, vai dizer false quando já é true) {tutorialState.toString()} 
-
             {!tutorialState && !tutorialSeen  && currentMessageIndex < tutorialMessages.length && (
                 <div>
                     <p>{tutorialMessages[currentMessageIndex]}</p>

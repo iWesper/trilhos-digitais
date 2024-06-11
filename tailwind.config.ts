@@ -1,3 +1,4 @@
+import { DEFAULT } from "@react-three/fiber/dist/declarations/src/core/utils";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -18,14 +19,23 @@ const config: Config = {
           100: "#FAF2E7"
         },
         primary: {
-          DEFAULT: "#5D439A",
+          DEFAULT: "#87BE42", //VERDE
         },
         secondary: {
-          DEFAULT: "#93CAF2",
+          DEFAULT: "#456FB5", //AZUL NORMAL
         },
         tertiary: {
-          DEFAULT: "#FFB402",
-        }
+          DEFAULT: "#F59C1B", //LARANJA
+        },
+        quaternary: {
+          DEFAULT: "#87529C", //ROXO
+        },
+        quinternary: {
+          DEFAULT:"#122B3E", //AZUL MARINHO
+        },
+        senary: {
+          DEFAULT: "#FCE3C1", //BEJE
+        },
       }
     },
   },
