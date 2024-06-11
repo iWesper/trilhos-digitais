@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import {db,auth} from "../backend/config/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import CheckHasSeenTutorialScript from "../backend/CheckHasSeenTutorialScript";
-import LoginPage from "./login/page";
+import Login from "@/components/login/Login";
 
 export default function Home() {
 
@@ -51,7 +51,7 @@ export default function Home() {
     <main className="grid grid-cols-12 gap-4 h-screen items-center justify-between p-24">
       <div className="col-span-12 border-2 border-red-600">
         linha 1 - 12 colunas
-        {ComponentToRender=== true ? <CheckHasSeenTutorialScript /> : ComponentToRender === false && <LoginPage/>}
+        {ComponentToRender=== true ? <CheckHasSeenTutorialScript /> : ComponentToRender === false && <Login/>}
         <button onClick={() => LogOut()}>Log Out</button>
 
         
