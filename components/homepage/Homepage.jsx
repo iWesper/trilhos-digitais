@@ -7,16 +7,17 @@ import { HomeIcon, TrophyIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import Image from "next/image";
 import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-  } from "@/components/ui/dialog"
-  import { Button } from "@/components/ui/button";
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
-  import { Comboio } from "./Comboio";
+import { Comboio } from "./Comboio";
+import Navbar from "./Navbar";
 
 export default function Homepage({ tutorialState }) {
   const [tutorialSeen, setTutorialSeen] = useState(false);
@@ -35,7 +36,6 @@ export default function Homepage({ tutorialState }) {
   const GoGetUsername = async () => {
     //SE USERID TIVER CHEGADO
     if (UserId) {
-
       //ERROR HANDLE
       try {
         //COLLECTION PARA IR BUSCAR USERNAME
@@ -49,8 +49,7 @@ export default function Homepage({ tutorialState }) {
 
         //PARA CADA DOC || VAI SER SÓ UM
         queryUsername.forEach(async (docSnapshot) => {
-          
-            //DEFINE AS MENSAGENS
+          //DEFINE AS MENSAGENS
           setTutorialMessages([
             `Olá ${
               docSnapshot.data().username
@@ -93,7 +92,6 @@ export default function Homepage({ tutorialState }) {
 
   //VAI BUSCAR O USER ID QUANDO MONTA
   useEffect(() => {
-
     //SAVE USER
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
@@ -109,48 +107,29 @@ export default function Homepage({ tutorialState }) {
     });
   }, [UserId]);
 
-
   return (
     <>
-      <div className="flex items-center justify-between px-10 p-4 bg-gray-800 text-white">
-        <Link href={"/"}>
-          <HomeIcon className="w-9 h-9" />
-        </Link>
-
-        <div className="mx-4 w-1/5">
-          <Image
-            src="/img/logo_navbar.svg"
-            alt="Image"
-            width="1920"
-            height="1080"
-            className="w-1/2 dark:brightness-[0.2] dark:grayscale"
-            priority={true}
-          />
-        </div>
-
-        <TrophyIcon className="w-9 h-9" />
-      </div>
-
-      {!tutorialState &&
-        !tutorialSeen &&
-        (
-            <Dialog>
-            <DialogTrigger><Button>Clica Aqui</Button></DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Introdução</DialogTitle>
-                <DialogDescription className=" text-black">
+      <Navbar />
+      {!tutorialState && !tutorialSeen && (
+        <Dialog>
+          <DialogTrigger>
+            <Button className="bg-secondary hover:bg-orange-500">Clica Aqui</Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Introdução</DialogTitle>
+              <DialogDescription className=" text-black">
                 {tutorialMessages[currentMessageIndex]}
-                </DialogDescription>
-                <Button onClick={handleContinue}>Continuar</Button>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
-        )}
+              </DialogDescription>
+              <Button onClick={handleContinue}>Continuar</Button>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
+      )}
 
       {tutorialSeen && <UpdateHasSeenTutorialScript />}
 
-      <Comboio />
+      {/* <Comboio /> */}
     </>
   );
 }

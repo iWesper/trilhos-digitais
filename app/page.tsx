@@ -48,7 +48,7 @@ export default function Home() {
         ) : (
           ComponentToRender === false && <Login />
         )}
-        <Button onClick={LogOut}>Log Out</Button>
+        <Button onClick={LogOut} className="bg-secondary hover:bg-orange-500">Log Out</Button>
     </main>
   );
 }
