@@ -16,6 +16,8 @@ import {
   } from "@/components/ui/dialog"
   import { Button } from "@/components/ui/button";
 
+  import { Comboio } from "./Comboio";
+
 export default function Homepage({ tutorialState }) {
   const [tutorialSeen, setTutorialSeen] = useState(false);
 
@@ -147,6 +149,8 @@ export default function Homepage({ tutorialState }) {
         )}
 
       {tutorialSeen && <UpdateHasSeenTutorialScript />}
+
+      <Comboio />
     </>
   );
 }

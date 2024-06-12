@@ -10,7 +10,7 @@ import { useState } from "react";
 import { db, auth, googleProvider } from "../../backend/config/firebase.jsx";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
-import HomepagePage from "../../app/homepage/page.tsx";
+import Homepage from "../homepage/Homepage";
 import Login from "../login/Login.jsx";
 
 export const Auth = () => {
@@ -207,7 +207,7 @@ export const Auth = () => {
               priority={true}
             />
           </div>
-          {goToHomePage && <HomepagePage />}
+          {goToHomePage && <Homepage />}
         </div>
       ) : (
         <Login />
