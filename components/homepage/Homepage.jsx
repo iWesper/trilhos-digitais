@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { auth } from "../../backend/config/firebase";
+import { db, auth } from "../../backend/config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import UpdateHasSeenTutorialScript from "../../backend/UpdateHasSeenTutorialScript";
 import { HomeIcon, TrophyIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import Image from "next/image";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+  } from "@/components/ui/dialog"
+  import { Button } from "@/components/ui/button";
 
 export default function Homepage({ tutorialState }) {
   const [tutorialSeen, setTutorialSeen] = useState(false);
@@ -24,6 +33,7 @@ export default function Homepage({ tutorialState }) {
   const GoGetUsername = async () => {
     //SE USERID TIVER CHEGADO
     if (UserId) {
+
       //ERROR HANDLE
       try {
         //COLLECTION PARA IR BUSCAR USERNAME
@@ -37,7 +47,8 @@ export default function Homepage({ tutorialState }) {
 
         //PARA CADA DOC || VAI SER SÓ UM
         queryUsername.forEach(async (docSnapshot) => {
-          //DEFINE AS MENSAGENS
+          
+            //DEFINE AS MENSAGENS
           setTutorialMessages([
             `Olá ${
               docSnapshot.data().username
@@ -80,6 +91,7 @@ export default function Homepage({ tutorialState }) {
 
   //VAI BUSCAR O USER ID QUANDO MONTA
   useEffect(() => {
+
     //SAVE USER
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
@@ -95,19 +107,9 @@ export default function Homepage({ tutorialState }) {
     });
   }, [UserId]);
 
+
   return (
-    <div>
-      {!tutorialState &&
-        !tutorialSeen &&
-        currentMessageIndex < tutorialMessages.length && (
-          <div>
-            <p>{tutorialMessages[currentMessageIndex]}</p>
-            <button onClick={handleContinue}>Continuar</button>
-          </div>
-        )}
-
-      {tutorialSeen && <UpdateHasSeenTutorialScript />}
-
+    <>
       <div className="flex items-center justify-between px-10 p-4 bg-gray-800 text-white">
         <Link href={"/"}>
           <HomeIcon className="w-9 h-9" />
@@ -126,6 +128,25 @@ export default function Homepage({ tutorialState }) {
 
         <TrophyIcon className="w-9 h-9" />
       </div>
-    </div>
+
+      {!tutorialState &&
+        !tutorialSeen &&
+        (
+            <Dialog>
+            <DialogTrigger><Button>Clica Aqui</Button></DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Introdução</DialogTitle>
+                <DialogDescription className=" text-black">
+                {tutorialMessages[currentMessageIndex]}
+                </DialogDescription>
+                <Button onClick={handleContinue}>Continuar</Button>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+        )}
+
+      {tutorialSeen && <UpdateHasSeenTutorialScript />}
+    </>
   );
 }
