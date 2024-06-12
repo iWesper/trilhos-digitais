@@ -56,7 +56,7 @@ const comboio = [
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
                 {carruagem.id === 0 ? (
-                  <Image src={carruagem.url} alt={`Imagem ${carruagem.id}`} />
+                  <Image src={carruagem.url} alt={`Imagem ${carruagem.id}`} className="select-none" />
               ) : (
                   <Link href={`/chapters/chapter${carruagem.id}/1`}>
                     <Image src={carruagem.url} alt={`Imagem ${carruagem.id}`} />

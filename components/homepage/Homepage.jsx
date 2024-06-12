@@ -128,7 +128,7 @@ export default function Homepage({ tutorialState }) {
       )} */}
 
       {tutorialSeen && <UpdateHasSeenTutorialScript />}
-      <div className="flex justify-center w-full">
+      <div className="flex justify-center w-full select-none" draggable="false">
         <Comboio />
       </div>
     </>
