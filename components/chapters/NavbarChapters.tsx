@@ -4,12 +4,12 @@ import { HomeIcon, TrophyIcon } from "@heroicons/react/24/solid";
 import { Progress } from "@/components/ui/progress";
 
 interface NavbarChaptersProps {
-    progress?: number;
-    }
+  progress?: number;
+}
 
-const NavbarChapters: React.FC<NavbarChaptersProps> = ({ progress}) => {
+const NavbarChapters: React.FC<NavbarChaptersProps> = ({ progress }) => {
   return (
-    <div className="flex items-center justify-between px-10 p-4 bg-gray-800 text-white">
+    <div className="flex items-center justify-between px-10 p-4 bg-gray-800 text-white absolute top-0 left-0 right-0">
       <Link href={"/"}>
         <HomeIcon className="w-9 h-9" />
       </Link>
@@ -18,9 +18,11 @@ const NavbarChapters: React.FC<NavbarChaptersProps> = ({ progress}) => {
         <Progress value={progress || 0} />
       </div>
 
-      <TrophyIcon className="w-9 h-9" />
+      <Link href={"/badges"}>
+        <TrophyIcon className="w-9 h-9" />
+      </Link>
     </div>
   );
-}
+};
 
 export default NavbarChapters;

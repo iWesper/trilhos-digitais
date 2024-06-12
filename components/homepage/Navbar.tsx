@@ -4,7 +4,7 @@ import { HomeIcon, TrophyIcon } from "@heroicons/react/24/solid";
 
 export default function Navbar() {
     return (
-        <div className="flex items-center justify-between px-10 p-4 bg-gray-800 text-white">
+        <nav className="flex items-center justify-between px-10 p-4 bg-gray-800 text-white absolute top-0 left-0 right-0">
         <Link href={"/"}>
           <HomeIcon className="w-9 h-9" />
         </Link>
@@ -21,6 +21,6 @@ export default function Navbar() {
         <Link href={"/badges"}>
           <TrophyIcon className="w-9 h-9" />
         </Link>
-      </div>
+      </nav>
     )
 }

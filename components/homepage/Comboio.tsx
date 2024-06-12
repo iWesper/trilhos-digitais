@@ -48,15 +48,14 @@ const comboio = [
 
 
   return (
-    <Carousel className="w-full max-w-2xl">
+    <Carousel className="h-screen w-full max-h-screen">
       <CarouselContent>
         {comboio.map((carruagem) => (
             <CarouselItem key={carruagem.id}>
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
+              <Card className="h-full w-full">
+                <CardContent className="flex items-center justify-center h-full w-full">
                 {carruagem.id === 0 ? (
-                  <Image src={carruagem.url} alt={`Imagem ${carruagem.id}`} className="select-none" />
+                  <Image src={carruagem.url} alt={`Imagem ${carruagem.id}`} className="select-none h-full w-full" />
               ) : (
                   <Link href={`/chapters/chapter${carruagem.id}/1`}>
                     <Image src={carruagem.url} alt={`Imagem ${carruagem.id}`} />
@@ -64,7 +63,6 @@ const comboio = [
               )}
                 </CardContent>
               </Card>
-            </div>
           </CarouselItem>
         ))}
       </CarouselContent>
