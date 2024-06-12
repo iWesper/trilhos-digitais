@@ -5,6 +5,10 @@ import React from "react";
 // Importar dinamicamente os componentes de cada capítulo
 const ChapterComponents: { [key: string]: React.ComponentType<{}> } = {
   Chapter1Page1: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page1")),
+  Chapter2Page1: dynamic(() => import("@/components/chapters/chapter2/Chapter2Page1")),
+  Chapter3Page1: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page1")),
+  Chapter4Page1: dynamic(() => import("@/components/chapters/chapter4/Chapter4Page1")),
+
   // Adicionar mais capítulos à medida que são necessários
 };
 

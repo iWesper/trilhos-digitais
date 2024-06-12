@@ -129,7 +129,7 @@ export default function Homepage({ tutorialState }) {
 
       {tutorialSeen && <UpdateHasSeenTutorialScript />}
 
-      {/* <Comboio /> */}
+      <Comboio />
     </>
   );
 }
