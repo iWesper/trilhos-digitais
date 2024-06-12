@@ -74,9 +74,19 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage: {
+        'chapter1StartBG': "url('/img/fundo_arte_inicial.svg')",
+        'chapter1BG': "url('/img/fundo_arte.svg')",
+        'chapter2StartBG': "url('/img/fundo_design_inicial.svg')",
+        'chapter2BG': "url('/img/fundo_design.svg')",
+        'chapter3StartBG': "url('/img/fundo_tecnologia_inicial.svg')",
+        'chapter3BG': "url('/img/fundo_tecnologia.svg')",
+        'chapter4StartBG': "url('/img/fundo_comunicacao_inicial.svg')",
+        'chapter4BG': "url('/img/fundo_comunicacao.svg')",
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config
 
-export default config
+export default config;

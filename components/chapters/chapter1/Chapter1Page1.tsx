@@ -7,6 +7,8 @@ import Login from "@/components/login/Login";
 import Lottie from "lottie-react";
 import animationData from "@/public/animations/loading_animation.json";
 import { useRouter } from 'next/navigation';
+import { Button } from "@/components/ui/button";
+import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
 
 export default function Chapter1Page1() {
 
@@ -49,9 +51,15 @@ export default function Chapter1Page1() {
 
   return (
       UserId ? (
-        <div>
-        <h1>Capítulo 1 - Página 1</h1>
-      </div>
+        <>
+        <div className="bg-chapter1StartBG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover flex flex-col items-center justify-center">
+          <h1 className="font-bold text-black text-9xl mb-11">Arte</h1>
+          <p className="mb-11">A nossa primeira paragem é no primeiro dos Quatro Pilares, a Arte.</p>
+          <Button>Continuar</Button>
+          <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end" />
+        </div>
+        </>
+        
         
       ) : (
         router.push("/")
