@@ -6,9 +6,11 @@ import { onAuthStateChanged } from "firebase/auth";
 import Login from "@/components/login/Login";
 import Lottie from "lottie-react";
 import animationData from "@/public/animations/loading_animation.json";
-
+import { useRouter } from 'next/navigation';
 
 export default function Chapter4Page1() {
+
+  const router = useRouter();
   //USER ID
   const [UserId, setUserId] = useState<string | null>(null);
 
@@ -53,7 +55,7 @@ export default function Chapter4Page1() {
   </div>
     
   ) : (
-    <Login />
+    router.push("/")
   )
   
 );

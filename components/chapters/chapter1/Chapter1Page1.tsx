@@ -6,8 +6,11 @@ import { onAuthStateChanged } from "firebase/auth";
 import Login from "@/components/login/Login";
 import Lottie from "lottie-react";
 import animationData from "@/public/animations/loading_animation.json";
+import { useRouter } from 'next/navigation';
 
 export default function Chapter1Page1() {
+
+  const router = useRouter();
    //USER ID
    const [UserId, setUserId] = useState<string | null>(null);
 
@@ -45,14 +48,14 @@ export default function Chapter1Page1() {
   }
 
   return (
-    UserId ? (
-      <div>
-      <h1>Capítulo 1 - Página 1</h1>
-    </div>
+      UserId ? (
+        <div>
+        <h1>Capítulo 1 - Página 1</h1>
+      </div>
+        
+      ) : (
+        router.push("/")
+      )
       
-    ) : (
-      <Login />
-    )
-    
-  );
+    );
 }
