@@ -110,7 +110,7 @@ export default function Homepage({ tutorialState }) {
   return (
     <>
       <Navbar />
-      {!tutorialState && !tutorialSeen && (
+      {/* {!tutorialState && !tutorialSeen && (
         <Dialog>
           <DialogTrigger>
             <Button className="bg-secondary hover:bg-orange-500">Clica Aqui</Button>
@@ -125,11 +125,12 @@ export default function Homepage({ tutorialState }) {
             </DialogHeader>
           </DialogContent>
         </Dialog>
-      )}
+      )} */}
 
       {tutorialSeen && <UpdateHasSeenTutorialScript />}
-
-      <Comboio />
+      <div className="flex justify-center w-full">
+        <Comboio />
+      </div>
     </>
   );
 }

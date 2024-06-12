@@ -42,7 +42,7 @@ export default function Home() {
     }
   };
   return (
-    <main>
+    <main className="max-w-full">
         {ComponentToRender === true ? (
           <CheckHasSeenTutorialScript />
         ) : (
