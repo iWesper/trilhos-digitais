@@ -3,12 +3,12 @@ import React from "react";
 import { useEffect,useState } from "react";
 import { auth } from "../../../backend/config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import Login from "@/components/login/Login";
 import Lottie from "lottie-react";
 import animationData from "@/public/animations/loading_animation.json";
 import { useRouter } from 'next/navigation';
 import { Button } from "@/components/ui/button";
 import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
+import Link from 'next/link';
 
 export default function Chapter1Page1() {
 
@@ -49,17 +49,18 @@ export default function Chapter1Page1() {
   )
   }
 
+
+
   return (
       UserId ? (
         <>
-        <div className="bg-chapter1StartBG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover flex flex-col items-center justify-center">
+        <div className="bg-chapter1StartBG  h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover flex flex-col items-center justify-center">
           <h1 className="font-bold text-black text-9xl mb-11">Arte</h1>
-          <p className="mb-11">A nossa primeira paragem é no primeiro dos Quatro Pilares, a Arte.</p>
-          <Button>Continuar</Button>
-          <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end" />
+          <p className="mb-11 font-medium">A nossa primeira paragem é no primeiro dos Quatro Pilares, a Arte.</p>
+          <Link href="/chapters/chapter1/2"><Button>Continuar</Button></Link>
+          <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" />
         </div>
         </>
-        
         
       ) : (
         router.push("/")

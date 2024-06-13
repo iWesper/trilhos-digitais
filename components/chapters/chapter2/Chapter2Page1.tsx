@@ -50,9 +50,13 @@ export default function Chapter2Page1() {
 
   return (
     UserId ? (
-      <div>
+      <>
+      <div className="bg-chapter2StartBG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover flex flex-col">
       <h1>Capítulo 2 - Página 1</h1>
-    </div>
+
+
+      </div>
+      </>
       
     ) : (
       router.push("/")
