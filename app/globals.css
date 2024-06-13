@@ -76,4 +76,13 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  @keyframes swipeAnimation {
+    0%, 100% { transform: translateX(-20px); }
+    50% { transform: translateX(20px); }
+  }
+
+  .animate-swipe {
+    animation: swipeAnimation 2s ease-in-out infinite;
+  }
 }

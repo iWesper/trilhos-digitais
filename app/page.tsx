@@ -42,13 +42,13 @@ export default function Home() {
     }
   };
   return (
-    <main className="max-w-full">
+    <main className="max-w-full overflow-hidden">
         {ComponentToRender === true ? (
           <CheckHasSeenTutorialScript />
         ) : (
           ComponentToRender === false && <Login />
         )}
-        <Button onClick={LogOut} className="bg-secondary hover:bg-orange-500">Log Out</Button>
+        {/* <Button onClick={LogOut} className="bg-secondary hover:bg-orange-500">Log Out</Button> */}
     </main>
   );
 }

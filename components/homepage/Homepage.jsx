@@ -3,7 +3,8 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { db, auth } from "../../backend/config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import UpdateHasSeenTutorialScript from "../../backend/UpdateHasSeenTutorialScript";
-import { HomeIcon, TrophyIcon } from "@heroicons/react/24/solid";
+import { MdSwipe } from "react-icons/md";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -128,9 +129,38 @@ export default function Homepage({ tutorialState }) {
       )} */}
 
       {tutorialSeen && <UpdateHasSeenTutorialScript />}
-      <div className="flex justify-center w-full select-none" draggable="false">
-        <Comboio />
-      </div>
+      <motion.div
+        className="flex flex-col items-center justify-center w-full select-none h-screen max-h-screen"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <motion.div
+          className="text-center text-5xl font-bold mb-4 mt-4 text-white"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 1 }}
+        >
+          Bem-vindo aos Trilhos Digitais, user!
+        </motion.div>
+        <motion.div
+          draggable="false"
+          initial={{ x: 300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+        >
+          <Comboio />
+        </motion.div>
+        <motion.div
+          className="mt-4 flex flex-col items-center justify-center"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.6, duration: 1 }}
+        >
+          <MdSwipe className="text-4xl text-white animate-swipe" />
+          <p className="text-center text-xl text-white">Arrasta para o lado!</p>
+        </motion.div>
+      </motion.div>
     </>
   );
 }

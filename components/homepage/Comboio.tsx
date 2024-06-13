@@ -48,7 +48,7 @@ const comboio = [
 
 
   return (
-    <Carousel className="h-screen w-full max-h-screen">
+    <Carousel className="w-full h-full">
       <CarouselContent>
         {comboio.map((carruagem) => (
             <CarouselItem key={carruagem.id} className="md:basis-1/2 lg:basis-1/3">
