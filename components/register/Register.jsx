@@ -90,8 +90,10 @@ export const Auth = () => {
   const SignInWithGoogle = async () => {
     //SE NÃO HOUVER USERNAME
     if (!usernameForm) {
+
       //PEDE O USERNAME
-      setError("Deves preencher o campo de username antes de submeter.");
+      setError("Precisamos de um username.");
+
     } else {
       try {
         //CRIA O UTILIZADOR COM O GOOGLE
@@ -185,6 +187,7 @@ export const Auth = () => {
                 >
                   <FcGoogle size={24} /> Registar com Google
                 </Button>
+                <div className="text-center text-sm">{error}</div>
               </div>
               <div
                 className="mt-4 text-center text-sm"
