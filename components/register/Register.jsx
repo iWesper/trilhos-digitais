@@ -133,7 +133,7 @@ export const Auth = () => {
           <div className="flex items-center justify-center py-12">
             <div className="mx-auto grid w-[350px] gap-6">
               <div className="grid gap-2 text-center">
-                <h1 className="text-3xl font-bold">Bem-vindo!</h1>
+                <h1 className="text-3xl font-bold font-effra">Bem-vindo!</h1>
                 <p className="text-balance text-muted-foreground">
                   Cria a tua conta para começares a explorar o mundo dos Trilhos
                   Digitais.

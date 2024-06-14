@@ -34,6 +34,8 @@ export default function Homepage({ tutorialState }) {
 
   const [tutorialMessages, setTutorialMessages] = useState([]);
 
+  const [username,setUsername]= useState("");
+
   const GoGetUsername = async () => {
     //SE USERID TIVER CHEGADO
     if (UserId) {
@@ -68,6 +70,9 @@ export default function Homepage({ tutorialState }) {
 
             "Agora que sabes tudo sobre a tua viagem, estás pronto? Todos a bordo! ",
           ]);
+
+          //SAVE USERNAME
+          setUsername(docSnapshot.data().username);
         });
       } catch (error) {
         //MENSAGEM
@@ -136,12 +141,12 @@ export default function Homepage({ tutorialState }) {
         transition={{ duration: 1 }}
       >
         <motion.div
-          className="text-center text-5xl font-bold mb-4 mt-4 text-white"
+          className="text-center text-5xl font-bold mb-4 mt-4 text-white font-effra"
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 1 }}
         >
-          Bem-vindo aos Trilhos Digitais, user!
+          Bem-vindo aos Trilhos Digitais, {username}!
         </motion.div>
         <motion.div
           draggable="false"
