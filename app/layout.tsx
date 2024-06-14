@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Poppins as FontSans } from "next/font/google"
-import { cn } from "@/lib/utils"
+import { Poppins as FontSans } from "next/font/google";
+import { cn } from "@/lib/utils";
 import "./globals.css";
+import Navbar from "@/components/homepage/Navbar";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
   weight: "400",
-})
+});
 
 export const metadata: Metadata = {
   title: "Trilhos Digitais",
@@ -21,10 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(
+      <body
+        className={cn(
           "min-h-screen bg-primary font-sans antialiased",
           fontSans.variable
-        )}>{children}</body>
+        )}
+      >
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

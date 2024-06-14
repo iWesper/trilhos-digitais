@@ -55,7 +55,6 @@ export default function Badges() {
     
     UserId ? (
       <main>
-        <Navbar />
       </main>
     ) : (
       router.push("/")

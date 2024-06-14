@@ -115,7 +115,6 @@ export default function Homepage({ tutorialState }) {
 
   return (
     <>
-      <Navbar />
       {/* {!tutorialState && !tutorialSeen && (
         <Dialog>
           <DialogTrigger>
