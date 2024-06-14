@@ -1,7 +1,9 @@
+"use client";
 import { HomeIcon, TrophyIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { Progress } from "@/components/ui/progress";
 import NavbarChapters from "@/components/chapters/NavbarChapters";
+import { useState } from "react";
 
 export default function ChaptersLayout({
   children,
@@ -9,10 +11,10 @@ export default function ChaptersLayout({
   children: React.ReactNode;
 }>) {
   // Example progress value
-  const progress = 1; // This should be dynamic based on actual progress
+const [progress,setProgress]= useState(25) // This should be dynamic based on actual progress
   return (
     <main>
-      <NavbarChapters progress={1} />
+      <NavbarChapters progress={progress} />
       {children}
     </main>
   );

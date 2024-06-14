@@ -11,7 +11,8 @@ import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
 import { IoChevronBack } from "react-icons/io5";
 import Link from 'next/link';
 import Image from "next/image";
-import { MdQuestionMark } from "react-icons/md";
+import { Tilt } from "react-tilt";
+
 
 export default function Chapter1Page4() {
 
@@ -21,6 +22,19 @@ export default function Chapter1Page4() {
 
    //LOADING
    const [loading, setLoading] = useState<boolean>(true);
+
+   //CONTROLO DA ANIMAÇÃO
+  const defaultOptions = {
+    reverse: false, // reverse the tilt direction
+    max: 10, // max tilt rotation (degrees)
+    perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
+    scale: 1, // 2 = 200%, 1.5 = 150%, etc..
+    speed: 2500, // Speed of the enter/exit transition
+    transition: true, // Set a transition on enter/exit.
+    axis: null, // What axis should be disabled. Can be X or Y.
+    reset: true, // If the tilt effect has to be reset on exit.
+    easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
+  };
 
    //VAI BUSCAR O USER ID QUANDO MONTA
    useEffect(() => {
@@ -65,11 +79,10 @@ export default function Chapter1Page4() {
                 <Link href="/chapters/chapter1/5"><Button>Continuar</Button></Link>
             </div>
             <div className="flex justify-center items-center">
-            <Link href="/chapters/chapter1/3">
-              <Image src="/img/chapter1/chapter1Teatro.svg" alt="Foto de um Teatro" width={600} height={600} className="rounded" />
-            </Link>
+              <Tilt options={defaultOptions}>
+                <Image src="/img/chapter1/chapter1Teatro.svg" alt="Foto de um Teatro" width={600} height={600} className="rounded" />
+              </Tilt>
             </div>
-            <MdQuestionMark className="text-black h-10 w-10 justify-start items-start absolute bottom-5 left-5" />
             <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" />
         </div>
         </>

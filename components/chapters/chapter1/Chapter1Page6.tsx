@@ -9,7 +9,6 @@ import { useRouter } from 'next/navigation';
 import { Button } from "@/components/ui/button";
 import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
 import { IoChevronBack } from "react-icons/io5";
-import { MdQuestionMark } from "react-icons/md";
 import Link from 'next/link';
 import Image from "next/image";
 import { Tilt } from 'react-tilt';
@@ -85,10 +84,9 @@ export default function Chapter1Page6() {
               </div>
               <div className="flex justify-center items-center">
                   <Tilt options={defaultOptions}>
-                      <Image src="/img/chapter1/chapter1Cinema.svg" alt="Foto de um Cinema" width={500} height={500} className="rounded" />
+                      <Image src="/img/chapter1/chapter1Cinema.svg" alt="Foto de um Cinema" width={600} height={600} className="rounded" />
                   </Tilt>
               </div>
-              <MdQuestionMark className="text-black h-10 w-10 justify-start items-start absolute bottom-5 left-5" />
               <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" />
           </div>
           </>

@@ -9,12 +9,12 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
 import { IoChevronBack } from "react-icons/io5";
-import { MdQuestionMark } from "react-icons/md";
 import Link from "next/link";
 import Image from "next/image";
 import { Tilt } from "react-tilt";
 
 export default function Chapter1Page2() {
+
   const router = useRouter();
   //USER ID
   const [UserId, setUserId] = useState<string | null>(null);
@@ -103,7 +103,6 @@ export default function Chapter1Page2() {
           </Tilt>
         </div>
         <div className="h-full col-span-1"></div>
-        <MdQuestionMark className="text-black h-10 w-10 justify-start items-start absolute bottom-5 left-5" />
         <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" />
       </div>
     </>

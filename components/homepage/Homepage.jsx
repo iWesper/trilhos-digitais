@@ -68,7 +68,7 @@ export default function Homepage({ tutorialState }) {
 
             "Quando desbloqueares o badge, vais ser notificado no ícone situado no topo do teu ecrã, e caso queiras inspecionar os badges que já tens, ou verificar os que tens por desbloquear, basta clicares nesse ícone.",
 
-            "Agora que sabes tudo sobre a tua viagem, estás pronto? Todos a bordo! ",
+            "Agora que sabes tudo sobre a tua viagem, estás pronto? Todos a bordo!",
           ]);
 
           //SAVE USERNAME
