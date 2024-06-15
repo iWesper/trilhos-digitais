@@ -76,6 +76,11 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       backgroundImage: {
+        'comboioParallaxFundo1': "url('/img/comboio/comboioParallaxFundo1.svg')",
+        'comboioParallaxFundo2': "url('/img/comboio/comboioParallaxFundo2.svg')",
+        'comboioParallaxFundo3': "url('/img/comboio/comboioParallaxFundo3.svg')",
+        'comboioParallaxFundo4': "url('/img/comboio/comboioParallaxFundo4.svg')",
+        'comboioTrilhosFundo5': "url('/img/comboio/comboioTrilhosFundo5.svg')",
         'chapter1StartBG': "url('/img/fundo_arte_inicial.svg')",
         'chapter1BG': "url('/img/fundo_arte.svg')",
         'chapter2StartBG': "url('/img/fundo_design_inicial.svg')",

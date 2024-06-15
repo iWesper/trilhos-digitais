@@ -9,7 +9,7 @@ interface NavbarChaptersProps {
 
 const NavbarChapters: React.FC<NavbarChaptersProps> = ({ progress }) => {
   return (
-    <div className="flex items-center justify-between px-10 p-4 bg-gray-800 text-white absolute top-0 left-0 right-0">
+    <div className="flex items-center justify-between px-10 p-4 bg-gray-800 text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-md bg-opacity-80">
       <Link href={"/"}>
         <HomeIcon className="w-9 h-9" />
       </Link>
