@@ -89,6 +89,7 @@ const config = {
         'chapter3BG': "url('/img/fundo_tecnologia.svg')",
         'chapter4StartBG': "url('/img/fundo_comunicacao_inicial.svg')",
         'chapter4BG': "url('/img/fundo_comunicacao.svg')",
+        'quadroBadges': "url('/img/badges/quadrobadges.svg')",
       },
       
     },

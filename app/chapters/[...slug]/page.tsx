@@ -6,22 +6,22 @@ import React from "react";
 const ChapterComponents: { [key: string]: React.ComponentType<{}> } = {
 
   //1
-  Chapter1Page1: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page1")),
-  Chapter1Page2: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page2")),
-  Chapter1Page3: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page3")),
-  Chapter1Page4: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page4")),
-  Chapter1Page5: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page5")),
-  Chapter1Page6: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page6")),
-  Chapter1Page7: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page7")),
+  Chapter1Page1: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page1").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter1Page2: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page2").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter1Page3: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page3").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter1Page4: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page4").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter1Page5: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page5").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter1Page6: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page6").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter1Page7: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page7").then((module) => module.default) as Promise<React.ComponentType<{}>>),
 
   //2
-  Chapter2Page1: dynamic(() => import("@/components/chapters/chapter2/Chapter2Page1")),
+  Chapter2Page1: dynamic(() => import("@/components/chapters/chapter2/Chapter2Page1").then((module) => module.default) as Promise<React.ComponentType<{}>>),
   
   
-  Chapter3Page1: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page1")),
+  Chapter3Page1: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page1").then((module) => module.default) as Promise<React.ComponentType<{}>>),
   
   
-  Chapter4Page1: dynamic(() => import("@/components/chapters/chapter4/Chapter4Page1")),
+  Chapter4Page1: dynamic(() => import("@/components/chapters/chapter4/Chapter4Page1").then((module) => module.default) as Promise<React.ComponentType<{}>>),
 
   // Adicionar mais capítulos à medida que são necessários
 };
