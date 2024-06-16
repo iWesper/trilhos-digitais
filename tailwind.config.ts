@@ -85,6 +85,7 @@ const config = {
         'chapter1BG': "url('/img/fundo_arte.svg')",
         'chapter2StartBG': "url('/img/fundo_design_inicial.svg')",
         'chapter2BG': "url('/img/fundo_design.svg')",
+        'espremedorBG': "url('/img/chapter2/espremedor.svg')",
         'chapter3StartBG': "url('/img/fundo_tecnologia_inicial.svg')",
         'chapter3BG': "url('/img/fundo_tecnologia.svg')",
         'chapter4StartBG': "url('/img/fundo_comunicacao_inicial.svg')",
