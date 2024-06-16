@@ -18,17 +18,23 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
+import { useProgress } from "@/components/context/ProgressContext";
 
 export default function Chapter1Page3() {
-
   //BADGE DO CAPÍTULO
-  const badgeId=1;
-  
+  const badgeId = 1;
+
   //PERCENTAGEM CONFERIDA AQUI
-  const percentage=50; 
+  const percentage = 50;
+
+  //PROGRESS
+  const { setProgress } = useProgress();
+
+  //PROGRESS VALUE
+  setProgress(16.66 + 16.66);
 
   //GO TO
-  const nextPage="/chapters/chapter1/4";
+  const nextPage = "/chapters/chapter1/4";
 
   const router = useRouter();
   //USER ID
@@ -77,12 +83,10 @@ export default function Chapter1Page3() {
   }
 
   //FUNÇÃO QUE VAI GUARDAR O PROGRESSO DO BADGE NA BD E FAZER O ROUTER PUSH
-  const SaveBadgeProgressAndGoToNextPage =  () => {
-
-       //PODE IR GUARDAR
-       setProgressSave(true);
-
-  }
+  const SaveBadgeProgressAndGoToNextPage = () => {
+    //PODE IR GUARDAR
+    setProgressSave(true);
+  };
 
   return UserId ? (
     <>
@@ -109,15 +113,16 @@ export default function Chapter1Page3() {
           </p>
         </div>
         <div className="flex justify-center items-center">
-            <Image onClick={SaveBadgeProgressAndGoToNextPage}
-              src="/img/chapter1/chapter1Teatro.svg"
-              alt="Foto de um Teatro"
-              width={600}
-              height={600}
-              className="rounded"
-              priority={true}
-              style={{ cursor: "pointer" }} 
-            />
+          <Image
+            onClick={SaveBadgeProgressAndGoToNextPage}
+            src="/img/chapter1/chapter1Teatro.svg"
+            alt="Foto de um Teatro"
+            width={600}
+            height={600}
+            className="rounded"
+            priority={true}
+            style={{ cursor: "pointer" }}
+          />
         </div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider>
@@ -134,7 +139,13 @@ export default function Chapter1Page3() {
         <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" />
       </div>
 
-      {progressSave && progressSave===true && <SaveBadgeProgressScript badgeId={badgeId} progress={percentage} nextPage={nextPage} />}
+      {progressSave && progressSave === true && (
+        <SaveBadgeProgressScript
+          badgeId={badgeId}
+          progress={percentage}
+          nextPage={nextPage}
+        />
+      )}
     </>
   ) : (
     router.push("/")

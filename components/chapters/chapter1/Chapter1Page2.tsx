@@ -12,6 +12,8 @@ import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
 import { Tilt } from "react-tilt";
+import { useProgress } from "@/components/context/ProgressContext";
+
 
 export default function Chapter1Page2() {
 
@@ -21,6 +23,12 @@ export default function Chapter1Page2() {
 
   //LOADING
   const [loading, setLoading] = useState<boolean>(true);
+
+  //PROGRESS
+  const { setProgress } = useProgress();
+
+  //PROGRESS VALUE
+  setProgress(16.66);
 
   //CONTROLO DA ANIMAÇÃO
   const defaultOptions = {

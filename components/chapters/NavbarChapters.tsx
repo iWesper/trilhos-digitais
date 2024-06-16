@@ -2,12 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { HomeIcon, TrophyIcon } from "@heroicons/react/24/solid";
 import { Progress } from "@/components/ui/progress";
+import { useProgress } from "@/components/context/ProgressContext";
 
-interface NavbarChaptersProps {
-  progress?: number;
-}
 
-const NavbarChapters: React.FC<NavbarChaptersProps> = ({ progress }) => {
+const NavbarChapters: React.FC = () => {
+
+  //PROGRESSO
+  const { progress } = useProgress();
+
   return (
     <div className="flex items-center justify-between px-10 p-4 bg-gray-800 text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-md bg-opacity-80">
       <Link href={"/"}>

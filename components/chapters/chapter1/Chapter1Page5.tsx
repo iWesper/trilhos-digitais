@@ -18,18 +18,23 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
+import { useProgress } from "@/components/context/ProgressContext";
 
 export default function Chapter1Page5() {
-
   //BADGE DO CAPÍTULO
-  const badgeId=1;
-  
+  const badgeId = 1;
+
   //PERCENTAGEM CONFERIDA AQUI
-  const percentage=100; 
+  const percentage = 100;
 
   //GO TO
-  const nextPage="/chapters/chapter1/6";
+  const nextPage = "/chapters/chapter1/6";
 
+  //PROGRESS
+  const { setProgress } = useProgress();
+
+  //PROGRESS VALUE
+  setProgress(16.66 + 16.66 + 16.66 + 16.66);
 
   const router = useRouter();
 
@@ -46,8 +51,7 @@ export default function Chapter1Page5() {
   const [progressSave, setProgressSave] = useState<boolean>(false);
 
   //TIP
-  const Tip =
-    "Uma experiência para sempre melhor com uma caixa de pipocas.";
+  const Tip = "Uma experiência para sempre melhor com uma caixa de pipocas.";
 
   //VAI BUSCAR O USER ID QUANDO MONTA
   useEffect(() => {
@@ -96,12 +100,11 @@ export default function Chapter1Page5() {
         "Não me parece que seja esta a evolução da “Obra Total”, tenta outra vez!"
       );
     } else if (resposta === "Cinema") {
-
       //STATE A MOSTRAR À PESSOA
       setResposta("Exatamente, o cinema é a 7ª Arte!");
 
-       //PODE IR GUARDAR NA BD
-       setProgressSave(true);
+      //PODE IR GUARDAR NA BD
+      setProgressSave(true);
 
       //VAI PARA A PRÓXIMA PAGINA DEPOIS DE UM ATRASO
       setTimeout(() => {
@@ -183,8 +186,13 @@ export default function Chapter1Page5() {
         <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" />
       </div>
 
-      {progressSave && progressSave===true && <SaveBadgeProgressScript badgeId={badgeId} progress={percentage} nextPage={nextPage} />}
-
+      {progressSave && progressSave === true && (
+        <SaveBadgeProgressScript
+          badgeId={badgeId}
+          progress={percentage}
+          nextPage={nextPage}
+        />
+      )}
     </>
   ) : (
     router.push("/")
