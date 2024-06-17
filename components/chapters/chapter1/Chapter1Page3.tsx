@@ -133,6 +133,7 @@ export default function Chapter1Page3() {
                 className="rounded"
                 priority={true}
                 style={{ cursor: "pointer" }}
+                draggable={false}
               />
             </DialogTrigger>
             <DialogContent>

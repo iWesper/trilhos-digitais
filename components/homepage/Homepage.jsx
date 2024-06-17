@@ -21,18 +21,7 @@ import { Comboio } from "./Comboio";
 import Navbar from "./Navbar";
 
 export default function Homepage({ tutorialState }) {
-  // Animação do parallax
-  const animacaoParallax = (speed) => ({
-    // Definir a posição inicial e final
-    x: [-100 + "vw", 0],
-    // Definir a duração da animação
-    transition: {
-      repeat: Infinity,
-      repeatType: "loop",
-      duration: 10,
-      ease: "linear",
-    },
-  });
+
   const [tutorialSeen, setTutorialSeen] = useState(false);
 
   //USER ID
@@ -148,57 +137,42 @@ export default function Homepage({ tutorialState }) {
       {tutorialSeen && <UpdateHasSeenTutorialScript />}
       {/* Container dos fundos para o parallax */}
       <div className="absolute h-screen w-screen overflow-hidden">
+        {/* Container do conteúdo da página */}
+        {/* Trilhos */}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioTrilhosFundo5"
-          animate={animacaoParallax()}
+          className="absolute w-screen h-screen bg-comboioTrilhosFundo5 bg-center bg-no-repeat bg-cover"
           style={{
             zIndex: 0,
-            backgroundRepeat: "repeat-x",
-            width: "200%",
-            height: "100vh",
           }}
         ></motion.div>
+        {/* Verde */}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo1"
-          animate={animacaoParallax()}
+          className="absolute w-screen h-screen bg-comboioParallaxFundo1 bg-center bg-no-repeat bg-cover"
           style={{
             zIndex: -1,
-            backgroundRepeat: "repeat-x",
-            width: "200%",
-            height: "100vh",
           }}
         ></motion.div>
+        {/* Arbustos */}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo2"
-          animate={animacaoParallax()}
+          className="absolute w-screen h-screen bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-cover"
           style={{
             zIndex: -2,
-            backgroundRepeat: "repeat-x",
-            width: "200%",
-            height: "100vh",
           }}
         ></motion.div>
+        {/* Árvores */}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo3"
-          animate={animacaoParallax()}
+          className="absolute w-screen h-screen bg-comboioParallaxFundo3 bg-center bg-no-repeat bg-cover"
           style={{
             zIndex: -3,
-            backgroundRepeat: "repeat-x",
-            width: "200%",
-            height: "100vh",
           }}
         ></motion.div>
+        {/* Fog */}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo4"
-          animate={animacaoParallax()}
+          className="absolute w-screen h-screen bg-comboioParallaxFundo4 bg-center bg-no-repeat bg-cover"
           style={{
             zIndex: -4,
-            backgroundRepeat: "repeat-x",
-            width: "200%",
-            height: "100vh",
           }}
         ></motion.div>
-        {/* Container do conteúdo da página */}
         <motion.div
           className="flex flex-col items-center w-full select-none h-screen max-h-screen"
           initial={{ opacity: 0 }}
