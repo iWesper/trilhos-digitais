@@ -13,10 +13,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
-
+import { motion } from "framer-motion";
 
 export default function Chapter1Page2() {
-
   const router = useRouter();
   //USER ID
   const [UserId, setUserId] = useState<string | null>(null);
@@ -33,10 +32,10 @@ export default function Chapter1Page2() {
   //CONTROLO DA ANIMAÇÃO
   const defaultOptions = {
     reverse: false, // reverse the tilt direction
-    max: 10, // max tilt rotation (degrees)
+    max: 15, // max tilt rotation (degrees)
     perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-    scale: 1, // 2 = 200%, 1.5 = 150%, etc..
-    speed: 2500, // Speed of the enter/exit transition
+    scale: 1.1, // 2 = 200%, 1.5 = 150%, etc..
+    speed: 5000, // Speed of the enter/exit transition
     transition: true, // Set a transition on enter/exit.
     axis: null, // What axis should be disabled. Can be X or Y.
     reset: true, // If the tilt effect has to be reset on exit.
@@ -85,8 +84,18 @@ export default function Chapter1Page2() {
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
         </Link>
-        <div className="col-span-1 h-full"></div>
-        <div className="col-span-6 h-full">
+        <motion.div
+          className="col-span-1 h-full"
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1 }}
+        ></motion.div>
+        <motion.div
+          className="col-span-6 h-full"
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1 }}
+        >
           <div className="h-full flex flex-col justify-center items-center p-10 ">
             <p className="font-medium mb-10">
               A arte sempre foi pensada como uma peça singular. Um quadro, uma
@@ -98,19 +107,30 @@ export default function Chapter1Page2() {
               <Button>Continuar</Button>
             </Link>
           </div>
-        </div>
-        <div className="h-full col-span-4 flex justify-center items-center">
+        </motion.div>
+        <motion.div
+          className="h-full col-span-4 flex justify-center items-center"
+          initial={{ x: 100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1 }}
+        >
           <Tilt options={defaultOptions}>
             <Image
               src="/img/chapter1/chapter1Wagner.svg"
               alt="Foto de Richard Wagner"
               width={350}
               height={350}
-              className="rounded"
+              className="rounded tiltableImage"
+              draggable={false}
             />
           </Tilt>
-        </div>
-        <div className="h-full col-span-1"></div>
+        </motion.div>
+        <motion.div
+          className="h-full col-span-1"
+          initial={{ x: 100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1 }}
+        ></motion.div>
         <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" />
       </div>
     </>

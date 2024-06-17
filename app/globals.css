@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Effra';
-  src: url('/fonts/Effra.ttf') format('truetype');
+  font-family: "Effra";
+  src: url("/fonts/Effra.ttf") format("truetype");
 }
 
 @layer base {
@@ -83,11 +83,39 @@
   }
 
   @keyframes swipeAnimation {
-    0%, 100% { transform: translateX(-20px); }
-    50% { transform: translateX(20px); }
+    0%,
+    100% {
+      transform: translateX(-20px);
+    }
+    50% {
+      transform: translateX(20px);
+    }
   }
 
   .animate-swipe {
     animation: swipeAnimation 2s ease-in-out infinite;
+  }
+
+  @keyframes tiltAnimation {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  .tiltableImage {
+    animation: tiltAnimation 0.5s ease-in-out 1;
+    animation-delay: 2s;
   }
 }
