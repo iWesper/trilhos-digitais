@@ -20,7 +20,7 @@ export const getMilestonesForChapter = (chapterId: string): number[] => {
 const Progress = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root> & {
-    milestones?: number[]; // Array of milestone percentages
+    milestones?: number[]; // Array de números que representam os milestones
   }
 >(({ className, value, milestones, ...props }, ref) => (
   // Container para conseguir posicionar os milestones fora do overflow
