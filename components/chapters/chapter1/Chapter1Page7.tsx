@@ -94,7 +94,7 @@ export default function Chapter1Page7() {
           <p className="font-medium mb-10">{content}</p>
           <Button onClick={handleContentSwap}>Continuar</Button>
         </div>
-        <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" />
+        {/* <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
     </>
   ) : (

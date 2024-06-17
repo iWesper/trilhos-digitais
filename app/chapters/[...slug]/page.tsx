@@ -20,6 +20,8 @@ const ChapterComponents: { [key: string]: React.ComponentType<{}> } = {
   Chapter2Page3: dynamic(() => import("@/components/chapters/chapter2/Chapter2Page3").then((module) => module.default) as Promise<React.ComponentType<{}>>),
   Chapter2Page4: dynamic(() => import("@/components/chapters/chapter2/Chapter2Page4").then((module) => module.default) as Promise<React.ComponentType<{}>>),
   Chapter2Page5: dynamic(() => import("@/components/chapters/chapter2/Chapter2Page5").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter2Page6: dynamic(() => import("@/components/chapters/chapter2/Chapter2Page6").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter2Page7: dynamic(() => import("@/components/chapters/chapter2/Chapter2Page7").then((module) => module.default) as Promise<React.ComponentType<{}>>),
   
   
   

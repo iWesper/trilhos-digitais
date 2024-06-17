@@ -18,6 +18,14 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 
 import { DndProvider } from "react-dnd";
@@ -28,10 +36,10 @@ import { useDrop } from "react-dnd";
 import Picture from "./Design_Espremedor_Drop";
 
 //IMAGENS DO TESTE
-import testimg1 from "@/public/img/chapter2/1.svg";
-import testimg2 from "@/public/img/chapter2/2.svg";
-import testimg3 from "@/public/img/chapter2/3.svg";
-import correctimg from "@/public/img/chapter2/correct.svg";
+import testimg1 from "@/public/img/chapter2/chapter2frutas_morango.svg";
+import testimg2 from "@/public/img/chapter2/chapter2frutas_maca.svg";
+import testimg3 from "@/public/img/chapter2/chapter2frutas_laranja.svg";
+import correctimg from "@/public/img/chapter2/chapter2frutas_laranjapartida.svg";
 
 export default function Chapter2Page3() {
   //LISTA DE ELEMENTOS ARRASTÁVEIS
@@ -63,6 +71,8 @@ export default function Chapter2Page3() {
 
   //USER ID
   const [UserId, setUserId] = useState<string | null>(null);
+
+  const [showDialog, setShowDialog] = useState<boolean>(false);
 
   //LOADING
   const [loading, setLoading] = useState<boolean>(true);
@@ -96,7 +106,7 @@ export default function Chapter2Page3() {
       setBoard([CorrectPic[0]]);
 
       //SALVA O PROGRESSO
-      setProgressSave(true);
+      setShowDialog(true);
 
     } else {
       //IR BUSCAR À LISTA DE ELEMENTOS DISPONÍVEIS, AQUELE QUE TEM O ID IGUALZINHO
@@ -116,6 +126,8 @@ export default function Chapter2Page3() {
   const clearBoard = () => {
     //STATE RESET
     setBoard([]);
+
+    setShowDialog(false);
   };
 
   //FUNÇÃO DE VALIDAÇÃO DO ID COLOCADO DENTRO DA ZONA DO DROP
@@ -125,7 +137,7 @@ export default function Chapter2Page3() {
 
     //MENSAGEM DE VALIDAÇÃO
     return id === correctId
-      ? "Exatamente! Esse é o fruto mais aparente para utilizar com este objeto. Muito bem!"
+      ? ""
       : "Não é bem esse o fruto que queremos. Tenta outra vez!";
   };
 
@@ -197,7 +209,7 @@ export default function Chapter2Page3() {
     return (
       <div
         ref={dropRef}
-        className="bg-espremedorBG w-1/2 h-full bg-origin-border bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center"
+        className="bg-espremedorBG w-1/2 h-full bg-origin-border bg-center bg-no-repeat bg-cover flex flex-col justify-start items-start"
       >
         {board.map((picture) => {
           return <Picture url={picture.url} id={picture.id} />;
@@ -205,6 +217,12 @@ export default function Chapter2Page3() {
       </div>
     );
   }
+  //FUNÇÃO QUE VAI GUARDAR O PROGRESSO DO BADGE NA BD E FAZER O ROUTER PUSH
+  const SaveBadgeProgressAndGoToNextPage = () => {
+    //PODE IR GUARDAR
+    setProgressSave(true);
+  };
+
   return UserId ? (
     <DndProvider backend={HTML5Backend}>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1">
@@ -215,24 +233,36 @@ export default function Chapter2Page3() {
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
         </Link>
-        <div className="col-span-7 h-full flex flex-col justify-center items-center p-10 text-white ">
-          <p className="font-medium mb-4 mt-8">
+        <div className="col-span-7 h-full flex flex-col justify-center p-10 text-white ">
+          <p className="font-medium mb-4 pt-8">
             Hm, que design interessante, e parece que é utilizado em conjunto
             com outros objetos, pergunto-me para que serve.
           </p>
-          <p className="font-medium mb-10">
+          <p className="font-medium pb-10">
             Arrasta-os para o objeto e vamos descobrir como funciona.
           </p>
-          <div className="Pictures flex flex-row">
+          <div className="flex flex-row">
             {PictureList.map((picture) => {
               return <Picture url={picture.url} id={picture.id} />;
             })}
 
           </div>
-          <Button onClick={clearBoard} className="text-white flex flex-row">Limpar Tentativa</Button>
+          <Button onClick={clearBoard} className="text-white flex flex-row mt-4 mx-auto">Limpar Tentativa</Button>
           {board.map((picture) => {
               return <p className="text-white font-medium mt-2">{validateId(picture.id)}</p>;
             })}
+            {showDialog && (<Dialog>
+            <DialogTrigger>
+              <Button className="text-white">Continuar</Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Exatamente! Esse é o fruto mais aparente para utilizar com este objeto. Muito bem!</DialogTitle>
+                <DialogDescription>Vamos continuar?</DialogDescription>
+                <Button onClick={SaveBadgeProgressAndGoToNextPage}>Sim</Button>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>)}
         </div>
         <div className="col-span-5 h-full justify-center items-center flex flex-col">
           <DropArea
@@ -254,7 +284,7 @@ export default function Chapter2Page3() {
             </Tooltip>
           </TooltipProvider>
         </div>
-        <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end absolute bottom-5 right-5" />
+        {/* <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
 
       {progressSave && progressSave === true && (

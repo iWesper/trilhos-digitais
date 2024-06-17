@@ -85,35 +85,44 @@ export default function Chapter2Page4() {
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
         </Link>
-        <div className="col-span-7 h-full">
-          <div className="h-full flex flex-col justify-center items-center p-10 ">
+        <div className="col-span-7">
+          <div className="h-full flex flex-col justify-center  p-10 ">
             <p className="font-medium mb-10 text-white">
-            Parece que descobriste, é um espremedor!
+            Parece que descobriste, é um espremedor!     
             </p>
             <p className="mb-10 font-medium text-white">
             Fascinante como algo tão distinto pode ter uma finalidade tão simples, mostrando perfeitamente como a forma do mesmo segue a sua função (<span className="italic">Form Follows Function</span>).
             </p>
-            <p className="mb-10 font-medium text-white">
+            <p className="mb-10 font-medium text-white text-center">
                 Vamos a outro exemplo?
             </p>
+            <div className="mx-auto">
             <Link href="/chapters/chapter2/5">
               <Button className="text-white">Continuar</Button>
             </Link>
+            </div>
           </div>
         </div>
-        <div className="h-full col-span-4 flex justify-center items-center">
+        <div className="h-full col-span-4 flex justify-center items-center relative">
           <Tilt options={defaultOptions}>
             <Image
-              src="/img/chapter2/espremedor.svg"
+              src="/img/chapter2/chapter2espremedor.svg"
               alt="Foto de Um Espremedor de Citrinos"
-              width={350}
-              height={350}
+              width={500}
+              height={500}
               className="rounded"
+            />
+            <Image
+              src="/img/chapter2/chapter2frutas_copocheio.svg"
+              alt="Foto de um copo de sumo de  Laranja"
+              width={200}
+              height={200}
+              className="absolute bottom-0 right-26 left-24 ms-4"
             />
           </Tilt>
         </div>
         <div className="h-full col-span-1"></div>
-        <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end absolute bottom-5 right-5" />
+        {/* <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
     </>
   ) : (

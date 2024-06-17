@@ -18,6 +18,14 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 
@@ -90,6 +98,8 @@ export default function Chapter2Page5() {
   //ID
   const [draggingId, setDraggingId] = useState(0);
 
+  const [showDialog, setShowDialog] = useState<boolean>(false);
+
   //ORDEM CORRETA DE IMAGENS
   const correctOrder = [3, 2, 1];
 
@@ -146,28 +156,30 @@ export default function Chapter2Page5() {
       }
 
       //MENSAGEM
-      let message;
+      let message = "";
 
       //CONSOANTE AS VEZES QUE ACERTOU
       switch (correctCount) {
         case 1:
+          //MENSAGEM DE FEEDBACK
+          setOrderMessage(message);
           message = "Acertaste 1!";
           break;
         case 2:
+          //MENSAGEM DE FEEDBACK
+          setOrderMessage(message);
           message = "Acertaste 2!";
           break;
         case 3:
-          message = "Acertaste todos!";
-
           //SALVA O PROGRESSO
-          setProgressSave(true);
+          setShowDialog(true);
           break;
+
         default:
+          //MENSAGEM DE FEEDBACK
+          setOrderMessage(message);
           message = "Não acertaste nenhum.";
       }
-
-      //MENSAGEM DE FEEDBACK
-      setOrderMessage(message);
     }
   };
 
@@ -176,6 +188,7 @@ export default function Chapter2Page5() {
     setBoard([]);
     setOrderMessage("");
     setPictureListCopy([...PictureList]);
+    setShowDialog(false);
   };
 
   //VER A ORDEM
@@ -230,7 +243,7 @@ export default function Chapter2Page5() {
     return (
       <div
         ref={dropRef}
-        className="w-full h-full border-4 border-white flex flex-col items-center justify-center relative"
+        className="w-full border-4 border-dotted border-white flex flex-col items-center justify-center relative min-h-[60vh] h-[60vh]"
       >
         {board.length > 0 &&
           board.map((picture) => {
@@ -276,6 +289,12 @@ export default function Chapter2Page5() {
     );
   }
 
+  //FUNÇÃO QUE VAI GUARDAR O PROGRESSO DO BADGE NA BD E FAZER O ROUTER PUSH
+  const SaveBadgeProgressAndGoToNextPage = () => {
+    //PODE IR GUARDAR
+    setProgressSave(true);
+  };
+
   return UserId ? (
     <DndProvider backend={HTML5Backend}>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  p-4">
@@ -300,7 +319,7 @@ export default function Chapter2Page5() {
         <div className="col-span-2"></div>
 
         <div className="col-span-2 mt-6">
-        <Button className="text-white text-center" onClick={clearBoard}>
+          <Button className="text-white text-center" onClick={clearBoard}>
             Limpar Tentativa
           </Button>
         </div>
@@ -311,18 +330,33 @@ export default function Chapter2Page5() {
             checkOrder={checkOrder}
           />
         </div>
-        <div className="col-span-2 flex flex-row justify-center items-center">
+        <div className="col-span-2 flex flex-col justify-center items-center overflow-hidden h-[60vh]">
           {PictureListCopy.map((picture) => {
             return (
               <PictureStack
-               
                 url={picture.url}
                 id={picture.id}
                 onMouseDown={handleMouseDown}
               />
             );
           })}
-            <p className="text-white font-medium mb-2">{orderMessage}</p>
+          <p className="text-white font-medium mb-2">{orderMessage}</p>
+          {showDialog && (
+            <Dialog>
+              <DialogTrigger>
+                <Button className="text-white">Continuar</Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Acertaste todos!</DialogTitle>
+                  <DialogDescription>Vamos continuar?</DialogDescription>
+                  <Button onClick={SaveBadgeProgressAndGoToNextPage}>
+                    Sim
+                  </Button>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+          )}
         </div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider>
@@ -336,7 +370,7 @@ export default function Chapter2Page5() {
             </Tooltip>
           </TooltipProvider>
         </div>
-        <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end absolute bottom-5 right-5" />
+        {/* <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
 
       {progressSave && progressSave === true && (

@@ -17,6 +17,14 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { useProgress } from "@/components/context/ProgressContext";
 
@@ -99,23 +107,19 @@ export default function Chapter1Page5() {
       setResposta(
         "Não me parece que seja esta a evolução da “Obra Total”, tenta outra vez!"
       );
-    } else if (resposta === "Cinema") {
-      //STATE A MOSTRAR À PESSOA
-      setResposta("Exatamente, o cinema é a 7ª Arte!");
-
-      //PODE IR GUARDAR NA BD
-      setProgressSave(true);
-
-      //VAI PARA A PRÓXIMA PAGINA DEPOIS DE UM ATRASO
-      setTimeout(() => {
-        router.push("/chapters/chapter1/6");
-      }, 2000);
-    } else if (resposta === "VR") {
+    }  else if (resposta === "VR") {
       //STATE A MOSTRAR À PESSOA
       setResposta(
         "Não me parece que seja esta a evolução da “Obra Total”, tenta outra vez!"
       );
     }
+  };
+
+  //CINEMA CLICADO
+  const SaveBadgeProgressAndGoToNextPage = () => {
+    
+    //PODE IR GUARDAR
+    setProgressSave(true);
   };
 
   return UserId ? (
@@ -150,14 +154,24 @@ export default function Chapter1Page5() {
             >
               Videojogos
             </Button>
-            <Button
-              type="button"
-              value="Cinema"
-              onClick={handleFormSubmit}
-              className=" m-3"
-            >
-              Cinema
-            </Button>
+            <Dialog>
+            <DialogTrigger>
+              <Button
+                type="button"
+                value="Cinema"
+                className=" m-3"
+              >
+                Cinema
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Exatamente, o cinema é a 7ª Arte!</DialogTitle>
+                <DialogDescription>Vamos continuar?</DialogDescription>
+                <Button onClick={SaveBadgeProgressAndGoToNextPage}>Sim</Button>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
             <Button
               type="button"
               value="VR"
@@ -183,7 +197,7 @@ export default function Chapter1Page5() {
             </Tooltip>
           </TooltipProvider>
         </div>
-        <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" />
+        {/* <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
 
       {progressSave && progressSave === true && (

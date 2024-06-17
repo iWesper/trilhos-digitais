@@ -108,7 +108,7 @@ export default function Chapter2Page2() {
           </Tilt>
         </div>
         <div className="h-full col-span-1"></div>
-        <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end absolute bottom-5 right-5" />
+        {/* <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
     </>
   ) : (

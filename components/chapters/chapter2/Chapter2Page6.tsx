@@ -1,21 +1,31 @@
 "use client";
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { auth } from "../../../backend/config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import Lottie from "lottie-react";
 import animationData from "@/public/animations/loading_animation.json";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
+import { useProgress } from "@/components/context/ProgressContext";
 import Image from "next/image";
 import { Tilt } from "react-tilt";
-import { useProgress } from "@/components/context/ProgressContext";
 
-export default function Chapter1Page4() {
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+
+export default function Chapter2Page6() {
   const router = useRouter();
+
   //USER ID
   const [UserId, setUserId] = useState<string | null>(null);
 
@@ -25,8 +35,11 @@ export default function Chapter1Page4() {
   //PROGRESS
   const { setProgress } = useProgress();
 
+  //SAVE PROGRESS STATE
+  const [progressSave, setProgressSave] = useState<boolean>(false);
+
   //PROGRESS VALUE
-  setProgress(16.66 + 16.66 + 16.66);
+  setProgress(16.66);
 
   //CONTROLO DA ANIMAÇÃO
   const defaultOptions = {
@@ -40,6 +53,8 @@ export default function Chapter1Page4() {
     reset: true, // If the tilt effect has to be reset on exit.
     easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
   };
+
+  const [showDialog, setShowDialog] = useState<boolean>(false);
 
   //VAI BUSCAR O USER ID QUANDO MONTA
   useEffect(() => {
@@ -75,38 +90,38 @@ export default function Chapter1Page4() {
 
   return UserId ? (
     <>
-      <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-2">
+      <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  p-4">
         <Link
-          href="/chapters/chapter1/3"
-          className="text-black absolute top-20 left-15 flex items-center cursor-pointer"
+          href="/chapters/chapter2/5"
+          className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
         >
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
         </Link>
-        <div className="flex flex-col justify-center items-center p-10 mt-20 ">
-          <p className="font-medium mb-10">
-            <span className="italic">Wagner</span> implementou uma “fossa de
-            orquestra” em palcos de teatro, reintroduzindo harmonia às peças
-            neles tocadas através da música ao vivo, unindo todos estes
-            elementos numa única obra, dando ao espectador uma experiência e
-            sensação única.
+        <div className="col-span-2"></div>
+        <div className="col-span-8 flex justify-start items-center text-center flex-col pt-20">
+          <p className="text-white font-medium p-6">
+            Como te dissémos, estas cadeiras foram pensadas de modo a ocupar o
+            menor espaço possível, e conseguem isto inserindo-se dentro umas das
+            outras.
           </p>
-          <Link href="/chapters/chapter1/5">
-            <Button>Continuar</Button>
-          </Link>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="col-span-2"></div>
+        <div className="col-span-2"></div>
+        <div className="col-span-8 flex flex-col items-center justify-center">
           <Tilt options={defaultOptions}>
             <Image
-              src="/img/chapter1/chapter1Teatro.svg"
-              alt="Foto de um Teatro"
-              width={600}
-              height={600}
-              className="rounded"
+              src="/img/chapter2/chapter2cadeiras_cadeirasempilhadas.svg"
+              alt="Cadeiras empilhadas"
+              width={400}
+              height={400}
             />
           </Tilt>
+          <Link href={"/chapters/chapter2/7"}>
+            <Button className="text-white">Continuar</Button>
+          </Link>
         </div>
-        {/* <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
+        <div className="col-span-2"></div>
       </div>
     </>
   ) : (

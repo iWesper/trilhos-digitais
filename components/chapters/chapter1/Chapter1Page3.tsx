@@ -17,8 +17,18 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { useProgress } from "@/components/context/ProgressContext";
+import { Button } from "@/components/ui/button";
 
 export default function Chapter1Page3() {
   //BADGE DO CAPÍTULO
@@ -113,16 +123,26 @@ export default function Chapter1Page3() {
           </p>
         </div>
         <div className="flex justify-center items-center">
-          <Image
-            onClick={SaveBadgeProgressAndGoToNextPage}
-            src="/img/chapter1/chapter1Teatro.svg"
-            alt="Foto de um Teatro"
-            width={600}
-            height={600}
-            className="rounded"
-            priority={true}
-            style={{ cursor: "pointer" }}
-          />
+          <Dialog>
+            <DialogTrigger>
+              <Image
+                src="/img/chapter1/chapter1Teatro.svg"
+                alt="Foto de um Teatro"
+                width={600}
+                height={600}
+                className="rounded"
+                priority={true}
+                style={{ cursor: "pointer" }}
+              />
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Partir para a próxima etapa</DialogTitle>
+                <DialogDescription>Vamos continuar?</DialogDescription>
+                <Button onClick={SaveBadgeProgressAndGoToNextPage}>Sim</Button>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
         </div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider>
@@ -136,10 +156,10 @@ export default function Chapter1Page3() {
             </Tooltip>
           </TooltipProvider>
         </div>
-        <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" />
+        {/* <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
 
-      {progressSave && progressSave === true && (
+      {progressSave && progressSave == true && (
         <SaveBadgeProgressScript
           badgeId={badgeId}
           progress={percentage}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Vector_layer" data-name="Vector layer" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Gradiente_sem_nome);
+        opacity: .3;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        fill: url(#Gradiente_sem_nome_6);
+      }
+
+      .cls-3, .cls-4, .cls-5 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: url(#Gradiente_sem_nome_3);
+      }
+
+      .cls-2, .cls-5 {
+        opacity: .59;
+      }
+
+      .cls-4 {
+        fill: #f4c15b;
+      }
+
+      .cls-5 {
+        fill: #a3a5a8;
+      }
+    </style>
+    <linearGradient id="Gradiente_sem_nome_3" data-name="Gradiente sem nome 3" x1="12583.25" y1="7.83" x2="12636.11" y2="16.74" gradientTransform="translate(12659.38) rotate(-180) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#bdbdbd" stop-opacity=".5"/>
+    </linearGradient>
+    <linearGradient id="Gradiente_sem_nome_6" data-name="Gradiente sem nome 6" x1="12588.06" y1="63.72" x2="12633" y2="71.07" gradientTransform="translate(12659.38) rotate(-180) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#eaa822"/>
+      <stop offset="1" stop-color="#c97e2c"/>
+    </linearGradient>
+    <linearGradient id="Gradiente_sem_nome" data-name="Gradiente sem nome" x1="12583.57" y1="48.61" x2="12636.47" y2="57.27" gradientTransform="translate(12659.38) rotate(-180) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#231f20"/>
+    </linearGradient>
+  </defs>
+  <ellipse class="cls-5" cx="49.78" cy="87.9" rx="20.07" ry="9.29"/>
+  <path class="cls-2" d="M23.2,12.07c0,5.13,12,9.26,26.8,9.29,12.53.03,19.85-1.67,23.67-4.74,1.8-1.45,3.14-3.01,3.14-4.55,0-5.13-12-9.29-26.8-9.29s-26.8,4.16-26.8,9.29Z"/>
+  <path class="cls-3" d="M73.49,40.81s-4.53,46.3-4.77,47.09-1.91,8.06-17.39,8.3c-20.73.32-20.85-9.29-20.85-9.29l-4.17-45.51s7.97,4.41,22.28,4.41c12.75,0,24.9-5,24.9-5Z"/>
+  <ellipse class="cls-4" cx="50" cy="41.48" rx="23.59" ry="6.12"/>
+  <path class="cls-1" d="M76.8,12.07l-6.95,75.83s-.84,9.1-18.11,9.31c-19.54.24-22.04-7.76-22.04-9.31,0-3.07-6.51-75.83-6.51-75.83,0,0-.45,8.71,26.8,9.29,26.35.56,26.8-9.29,26.8-9.29Z"/>
+</svg>

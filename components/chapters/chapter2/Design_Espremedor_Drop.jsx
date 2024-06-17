@@ -29,7 +29,8 @@ function Picture({id,url}) {
         <Image
         ref={drag} 
         src={url} 
-        alt="fruit" 
+        alt="fruit"
+        className="mx-4 px-5"
         />
         
     )
