@@ -77,7 +77,7 @@ export default function Chapter2Page3() {
   const badgeId = 2;
 
   //PERCENTAGEM CONFERIDA AQUI
-  const percentage = 33.33;
+  const percentage = 25;
 
   //GO TO
   const nextPage = "/chapters/chapter2/4";
