@@ -51,7 +51,7 @@ const comboio = [
     <Carousel className="w-full h-full">
       <CarouselContent>
         {comboio.map((carruagem) => (
-            <CarouselItem key={carruagem.id} className="md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={carruagem.id} className="md:basis-1/2">
               <Card className="h-full w-full">
                 <CardContent className="flex items-center justify-center h-full w-full">
                 {carruagem.id === 0 ? (
