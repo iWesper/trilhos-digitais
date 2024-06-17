@@ -24,12 +24,12 @@ export default function Homepage({ tutorialState }) {
   // Animação do parallax
   const animacaoParallax = (speed) => ({
     // Definir a posição inicial e final
-    x: [-100 * speed + "vw", 0 ],
+    x: [-100 + "vw", 0],
     // Definir a duração da animação
     transition: {
       repeat: Infinity,
       repeatType: "loop",
-      duration: 20,
+      duration: 10,
       ease: "linear",
     },
   });
@@ -147,130 +147,105 @@ export default function Homepage({ tutorialState }) {
 
       {tutorialSeen && <UpdateHasSeenTutorialScript />}
       {/* Container dos fundos para o parallax */}
-      <div className="absolute w-screen h-screen overflow-hidden">
-        {/* Container dos fundos para o parallax */}
+      <div className="absolute h-screen w-screen overflow-hidden">
         <motion.div
-          className="absolute w-[600vw] h-full flex"
-          animate={animacaoParallax(3)}
-          style={{ zIndex: 0 }}
-        >
-          {/* Fundo camada 5 trilhos */}
-          <div
-            className="w-[200vw] h-full bg-comboioTrilhosFundo5 bg-center"
-            style={{ zIndex: 0 }}
-          ></div>
-          <div
-            className="w-[200vw] h-full bg-comboioTrilhosFundo5 bg-center"
-            style={{ zIndex: 0 }}
-          ></div>
-        </motion.div>
-        {/* Fundo camada 1 */}
+          className="absolute w-screen h-screen bg-comboioTrilhosFundo5"
+          animate={animacaoParallax()}
+          style={{
+            zIndex: 0,
+            backgroundRepeat: "repeat-x",
+            width: "200%",
+            height: "100vh",
+          }}
+        ></motion.div>
         <motion.div
-          className="absolute w-[600vw] h-full flex"
-          animate={animacaoParallax(3)}
-          style={{ zIndex: -1 }}
-        >
-          <div
-            className="w-[200vw] h-full bg-comboioParallaxFundo1 bg-center"
-            style={{ zIndex: -1 }}
-          ></div>
-          <div
-            className="w-[200vw] h-full bg-comboioParallaxFundo1 bg-center"
-            style={{ zIndex: -1 }}
-          ></div>
-        </motion.div>
-        {/* Fundo camada 2 */}
+          className="absolute w-screen h-screen bg-comboioParallaxFundo1"
+          animate={animacaoParallax()}
+          style={{
+            zIndex: -1,
+            backgroundRepeat: "repeat-x",
+            width: "200%",
+            height: "100vh",
+          }}
+        ></motion.div>
         <motion.div
-          className="absolute w-[600vw] h-full flex"
-          animate={animacaoParallax(2)}
-          style={{ zIndex: -2 }}
-        >
-          <div
-            className="w-[200vw] h-full bg-comboioParallaxFundo2 bg-center"
-            style={{ zIndex: -2 }}
-          ></div>
-          <div
-            className="w-[200vw] h-full bg-comboioParallaxFundo2 bg-center"
-            style={{ zIndex: -2 }}
-          ></div>
-        </motion.div>
-        {/* Fundo camada 3 */}
+          className="absolute w-screen h-screen bg-comboioParallaxFundo2"
+          animate={animacaoParallax()}
+          style={{
+            zIndex: -2,
+            backgroundRepeat: "repeat-x",
+            width: "200%",
+            height: "100vh",
+          }}
+        ></motion.div>
         <motion.div
-          className="absolute w-[600vw] h-full flex"
-          animate={animacaoParallax(1)}
-          style={{ zIndex: -3 }}
-        >
-          <div
-            className="w-[200vw] h-full bg-comboioParallaxFundo3 bg-center"
-            style={{ zIndex: -3 }}
-          ></div>
-          <div
-            className="w-[200vw] h-full bg-comboioParallaxFundo3 bg-center"
-            style={{ zIndex: -3 }}
-          ></div>
-        </motion.div>
-        {/* Fundo camada 4 */}
+          className="absolute w-screen h-screen bg-comboioParallaxFundo3"
+          animate={animacaoParallax()}
+          style={{
+            zIndex: -3,
+            backgroundRepeat: "repeat-x",
+            width: "200%",
+            height: "100vh",
+          }}
+        ></motion.div>
         <motion.div
-          className="absolute w-[600vw] h-full flex"
-          animate={animacaoParallax(0.5)}
-          style={{ zIndex: -4 }}
-        >
-          <div
-            className="w-[200vw] h-full bg-comboioParallaxFundo4 bg-center"
-            style={{ zIndex: -4 }}
-          ></div>
-          <div
-            className="w-[200vw] h-full bg-comboioParallaxFundo4 bg-center"
-            style={{ zIndex: -4 }}
-          ></div>
-        </motion.div>
-      </div>
-      <motion.div
-        className="flex flex-col items-center justify-center w-full select-none h-screen max-h-screen"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+          className="absolute w-screen h-screen bg-comboioParallaxFundo4"
+          animate={animacaoParallax()}
+          style={{
+            zIndex: -4,
+            backgroundRepeat: "repeat-x",
+            width: "200%",
+            height: "100vh",
+          }}
+        ></motion.div>
+        {/* Container do conteúdo da página */}
         <motion.div
-          className="text-center text-5xl font-bold rounded-xl p-4 mb-4 mt-4 bg-gray-800 text-white font-effra z-50 backdrop-filter backdrop-blur-md bg-opacity-80"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-        >
-          Bem-vindo aos Trilhos Digitais, {username}!
-        </motion.div>
-
-        {/* Comboio Component with higher z-index */}
-        <motion.div
-          draggable="false"
-          initial={{ x: 300, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          <Comboio />
-        </motion.div>
-        <motion.div
-          className="mt-4 flex flex-col items-center justify-center backdrop-filter p-4 bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-80"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 5, duration: 1 }}
+          className="flex flex-col items-center w-full select-none h-screen max-h-screen"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
         >
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 5.5, duration: 1 }}
-          >
-            <MdSwipe className="text-4xl text-white animate-swipe" />
-          </motion.div>
-          <motion.p
-            className="text-center text-xl text-white"
+            className="text-center text-5xl font-bold rounded-xl p-4 absolute lg:top-[20%] bg-gray-800 text-white font-effra z-50 backdrop-filter backdrop-blur-md bg-opacity-80"
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ delay: 1, duration: 1 }}
           >
-            Arrasta para o lado!
-          </motion.p>
+            Bem-vindo aos Trilhos Digitais, {username}!
+          </motion.div>
+          <motion.div
+            className="mt-4 flex flex-col items-center justify-center absolute lg:top-[80%] backdrop-filter p-4 bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-80"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 5, duration: 1 }}
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 5.5, duration: 1 }}
+            >
+              <MdSwipe className="text-4xl text-white animate-swipe" />
+            </motion.div>
+            <motion.p
+              className="text-center text-xl text-white"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
+            >
+              Arrasta para o lado!
+            </motion.p>
+          </motion.div>
         </motion.div>
+      </div>
+      {/* Comboio */}
+      <motion.div
+        className="absolute w-screen h-screen"
+        draggable="false"
+        initial={{ x: 300, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+      >
+        <Comboio />
       </motion.div>
     </>
   );
