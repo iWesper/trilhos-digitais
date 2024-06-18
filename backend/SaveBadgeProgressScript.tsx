@@ -1,6 +1,3 @@
-//DEVER SER CHAMADO ASSIM
-//<SaveBadgeProgressScript badgeId={badgeId} progress={percentage}          const badgeId=4 const percentage=25; const nextPage="/chapters/chapter1/4";
-
 import React, { useEffect, useState } from "react";
 import {
   collection,
@@ -10,6 +7,7 @@ import {
   updateDoc,
   doc,
   addDoc,
+  deleteDoc
 } from "firebase/firestore";
 import { db, auth } from "./config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
@@ -33,6 +31,14 @@ const SaveBadgeProgressScript: React.FC<SaveBadgeProgressScriptProps> = ({
 
   //GUARDA O ID DO BADGE QUE TE FOI COMUNICADO
   const BadgeId = badgeId;
+  const Percentage = progress;
+  const NextPage = nextPage;
+
+   //COLLECTION
+   const isEarningBadgesCollection = collection(db, "isEarningBadges");
+
+   //COLLECTION
+   const badgesEarnedCollection = collection(db, "badgesEarned");
 
   //MENSAGEM DE ERRO
   const [Error, setError] = useState<string>("");
@@ -43,51 +49,109 @@ const SaveBadgeProgressScript: React.FC<SaveBadgeProgressScriptProps> = ({
 
     //SE JÁ TIVER O UID
     if (UserId) {
-      //ERROR HANDLE
-      try {
-        //COLLECTION
-        const isEarningBadgesCollection = collection(db, "isEarningBadges");
+      //SE A PERCENTAGEM FOR 100%
+      if (Percentage === 100) {
+        
+        //ERROR HANDLE
+        try {
+          //QUERY
+          const q = query(
+            badgesEarnedCollection,
+            where("userId", "==", UserId)
+          );
 
-        //QUERY PARA ENCONTRAR O DOCUMENTO
-        const q = query(
-          isEarningBadgesCollection,
-          where("userId", "==", UserId),
-          where("badgeId", "==", numericBadgeId)
-        );
+          //FILTRADOS
+          const queryFilter = await getDocs(q);
 
-        //EXECUTA A QUERY
-        const queryEdit = await getDocs(q);
+          const FilteredData = queryFilter.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+            badgeId: doc.data().badgeId,
+            userId: doc.data().userId,
+          }));
 
-        //SE O DOCUMENTO EXISTIR ATUALIZA SE NÃO CRIA UM NOVO
-        if (!queryEdit.empty) {
+          //PROCURAR DUPLICADOS
+          const duplicate = FilteredData.some(
+            (doc) => doc.badgeId === numericBadgeId && doc.userId === UserId
+          );
 
-          //PARA CADA DO || VAI SER SÓ UM
-          queryEdit.forEach(async (docSnapshot) => {
+          //SE NÃO HOUVER
+          if (!duplicate) {
+            //ADD BADGE
+            await addDoc(badgesEarnedCollection, {
+              badgeId: numericBadgeId,
+              userId: UserId,
+            });
+          }
 
-            //ATUALIZA O CAMPO PERCENTAGE
-            await updateDoc(doc(db, "isEarningBadges", docSnapshot.id), {
+          //APAGA DA TABELA DE PROGRESSO
+          //USA ESTA QUERY
+          const queryDeleteDefinition = query(
+            isEarningBadgesCollection,
+            where("userId", "==", UserId),
+            where("badgeId", "==", numericBadgeId)
+          );
 
+          //EXECUTA A QUERY
+          const queryDelete = await getDocs(queryDeleteDefinition);
+
+          //SE EXISTIR APAGA
+          if (!queryDelete.empty) {
+
+            //PARA CADA DOCUMENTO
+            queryDelete.forEach(async (docSnapshot) => {
+
+              //APAGA O DOCUMENTO
+              await deleteDoc(doc(db, "isEarningBadges", docSnapshot.id));
+
+            });
+          }
+
+          //ROUTER PARA A PÁGINA SEGUINTE
+          router.push(NextPage);
+        } catch (error) {
+          //MENSAGEM
+          setError("Erro na adição do Badge");
+        }
+      } else {
+        //ERROR HANDLE
+        try {
+         
+
+          //QUERY PARA ENCONTRAR O DOCUMENTO
+          const q = query(
+            isEarningBadgesCollection,
+            where("userId", "==", UserId),
+            where("badgeId", "==", numericBadgeId)
+          );
+
+          //EXECUTA A QUERY
+          const queryEdit = await getDocs(q);
+
+          //SE O DOCUMENTO EXISTIR ATUALIZA SE NÃO CRIA UM NOVO
+          if (!queryEdit.empty) {
+            //PARA CADA DO || VAI SER SÓ UM
+            queryEdit.forEach(async (docSnapshot) => {
+              //ATUALIZA O CAMPO PERCENTAGE
+              await updateDoc(doc(db, "isEarningBadges", docSnapshot.id), {
+                percentage: Percentage,
+              });
+            });
+          } else {
+            //CRIA UM NOVO DOCUMENTO
+            await addDoc(isEarningBadgesCollection, {
+              userId: UserId,
+              badgeId: numericBadgeId,
               percentage: progress,
             });
-          });
+          }
 
-        } else {
-
-          //CRIA UM NOVO DOCUMENTO
-          await addDoc(isEarningBadgesCollection, {
-
-            userId: UserId,
-            badgeId: numericBadgeId,
-            percentage: progress,
-          });
+          //ROUTER PARA A PÁGINA SEGUINTE
+          router.push(NextPage);
+        } catch (error) {
+          //MENSAGEM
+          setError("Erro na atualização do Badge");
         }
-
-        //ROUTER PARA A PÁGINA SEGUINTE
-        router.push(nextPage);
-      } catch (error) {
-
-        //MENSAGEM
-        setError("Erro na atualização do Badge");
       }
     } else {
       setError("Nenhum Utilizador Encontrado");

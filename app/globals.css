@@ -6,6 +6,18 @@
   font-family: "Effra";
   src: url("/fonts/Effra.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Tomatoes";
+  src: url("/fonts/Tomatoes-O8L8.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LoveDays";
+  src: url("/fonts/LoveDays-2v7Oe.ttf") format("truetype");
+}
+@font-face {
+  font-family: "BeautifulEveryTime";
+  src: url("/fonts/BeautifulEveryTime-Dg4m.ttf") format("truetype");
+}
 
 @layer base {
   :root {

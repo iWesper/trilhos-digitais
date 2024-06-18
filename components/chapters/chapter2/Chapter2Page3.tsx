@@ -80,9 +80,9 @@ export default function Chapter2Page3() {
   //PROGRESS
   const { setProgress } = useProgress();
 
-   //SAVE PROGRESS STATE
-   const [progressSave, setProgressSave] = useState<boolean>(false);
-
+  //SAVE PROGRESS STATE
+  const [progressSave, setProgressSave] = useState<boolean>(false);
+  
   //BADGE DO CAPÍTULO
   const badgeId = 2;
 
@@ -107,7 +107,6 @@ export default function Chapter2Page3() {
 
       //SALVA O PROGRESSO
       setShowDialog(true);
-
     } else {
       //IR BUSCAR À LISTA DE ELEMENTOS DISPONÍVEIS, AQUELE QUE TEM O ID IGUALZINHO
       const PictureListCopy = PictureList.filter(
@@ -151,7 +150,7 @@ export default function Chapter2Page3() {
 
         if (UserId) {
           //PROGRESS VALUE
-          setProgress(16.66);
+          setProgress(20);
           return;
         }
       } else {
@@ -245,24 +244,39 @@ export default function Chapter2Page3() {
             {PictureList.map((picture) => {
               return <Picture url={picture.url} id={picture.id} />;
             })}
-
           </div>
-          <Button onClick={clearBoard} className="text-white flex flex-row mt-4 mx-auto">Limpar Tentativa</Button>
+          <Button
+            onClick={clearBoard}
+            className="text-white flex flex-row mt-4 mx-auto"
+          >
+            Limpar Tentativa
+          </Button>
           {board.map((picture) => {
-              return <p className="text-white font-medium mt-2">{validateId(picture.id)}</p>;
-            })}
-            {showDialog && (<Dialog>
-            <DialogTrigger>
-              <Button className="text-white">Continuar</Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Exatamente! Esse é o fruto mais aparente para utilizar com este objeto. Muito bem!</DialogTitle>
-                <DialogDescription>Vamos continuar?</DialogDescription>
-                <Button onClick={SaveBadgeProgressAndGoToNextPage}>Sim</Button>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>)}
+            return (
+              <p className="text-white font-medium mt-2">
+                {validateId(picture.id)}
+              </p>
+            );
+          })}
+          {showDialog && (
+            <Dialog>
+              <DialogTrigger>
+                <Button className="text-white">Continuar</Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>
+                    Exatamente! Esse é o fruto mais aparente para utilizar com
+                    este objeto. Muito bem!
+                  </DialogTitle>
+                  <DialogDescription>Vamos continuar?</DialogDescription>
+                  <Button onClick={SaveBadgeProgressAndGoToNextPage}>
+                    Sim
+                  </Button>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+          )}
         </div>
         <div className="col-span-5 h-full justify-center items-center flex flex-col">
           <DropArea

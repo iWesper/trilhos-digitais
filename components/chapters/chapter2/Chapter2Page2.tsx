@@ -14,9 +14,7 @@ import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 
-
 export default function Chapter2Page2() {
-
   const router = useRouter();
   //USER ID
   const [UserId, setUserId] = useState<string | null>(null);
@@ -28,7 +26,7 @@ export default function Chapter2Page2() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(16.66);
+  setProgress(10);
 
   //CONTROLO DA ANIMAÇÃO
   const defaultOptions = {
@@ -89,10 +87,13 @@ export default function Chapter2Page2() {
         <div className="col-span-6 h-full">
           <div className="h-full flex flex-col justify-center items-center p-10 text-white ">
             <p className="font-medium mb-4">
-            A <span className="italic">Bauhaus</span> foi das maiores influências da história no Design, transformando a perceção da sociedade quanto à arte através da sua integração das artes plásticas com o artesanato. 
+              A <span className="italic">Bauhaus</span> foi das maiores
+              influências da história no Design, transformando a perceção da
+              sociedade quanto à arte através da sua integração das artes
+              plásticas com o artesanato.
             </p>
             <p className="font-medium mb-10">
-            Que dizes de explorarmos o seu método de criação? Anda daí! 
+              Que dizes de explorarmos o seu método de criação? Anda daí!
             </p>
           </div>
         </div>

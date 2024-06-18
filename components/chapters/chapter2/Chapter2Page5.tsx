@@ -82,7 +82,7 @@ export default function Chapter2Page5() {
   const nextPage = "/chapters/chapter2/6";
 
   //PROGRESS VALUE
-  setProgress(16.66);
+  setProgress(40);
 
   //DICA
   const Tip = "Um por cima do outro, como arrumar a casa";

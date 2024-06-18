@@ -14,9 +14,7 @@ import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 
-
 export default function Chapter2Page4() {
-
   const router = useRouter();
   //USER ID
   const [UserId, setUserId] = useState<string | null>(null);
@@ -28,7 +26,7 @@ export default function Chapter2Page4() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(16.66);
+  setProgress(30);
 
   //CONTROLO DA ANIMAÇÃO
   const defaultOptions = {
@@ -78,7 +76,7 @@ export default function Chapter2Page4() {
   return UserId ? (
     <>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1">
-      <Link
+        <Link
           href="/chapters/chapter2/3"
           className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
         >
@@ -88,18 +86,20 @@ export default function Chapter2Page4() {
         <div className="col-span-7">
           <div className="h-full flex flex-col justify-center  p-10 ">
             <p className="font-medium mb-10 text-white">
-            Parece que descobriste, é um espremedor!     
+              Parece que descobriste, é um espremedor!
             </p>
             <p className="mb-10 font-medium text-white">
-            Fascinante como algo tão distinto pode ter uma finalidade tão simples, mostrando perfeitamente como a forma do mesmo segue a sua função (<span className="italic">Form Follows Function</span>).
+              Fascinante como algo tão distinto pode ter uma finalidade tão
+              simples, mostrando perfeitamente como a forma do mesmo segue a sua
+              função (<span className="italic">Form Follows Function</span>).
             </p>
             <p className="mb-10 font-medium text-white text-center">
-                Vamos a outro exemplo?
+              Vamos a outro exemplo?
             </p>
             <div className="mx-auto">
-            <Link href="/chapters/chapter2/5">
-              <Button className="text-white">Continuar</Button>
-            </Link>
+              <Link href="/chapters/chapter2/5">
+                <Button className="text-white">Continuar</Button>
+              </Link>
             </div>
           </div>
         </div>

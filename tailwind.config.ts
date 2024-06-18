@@ -20,6 +20,9 @@ const config = {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
         effra: ["Effra", "sans-serif"],
+        tomatoes: ["Tomatoes", "sans-serif"],
+        lovedays: ["LoveDays", "sans-serif"],
+        beautifulEveryTime:["BeautifulEveryTime", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -86,6 +89,13 @@ const config = {
         'chapter2StartBG': "url('/img/fundo_design_inicial.svg')",
         'chapter2BG': "url('/img/fundo_design.svg')",
         'espremedorBG': "url('/img/chapter2/chapter2espremedor.svg')",
+
+
+        'chapter2BGTexto1': "url('/img/chapter2/chapter2BGTexto1.svg')",
+        'chapter2BGTexto2': "url('/img/chapter2/chapter2BGTexto2.svg')",
+        'chapter2BGTexto3': "url('/img/chapter2/chapter2BGTexto3.svg')",
+
+
         'chapter3StartBG': "url('/img/fundo_tecnologia_inicial.svg')",
         'chapter3BG': "url('/img/fundo_tecnologia.svg')",
         'chapter4StartBG': "url('/img/fundo_comunicacao_inicial.svg')",

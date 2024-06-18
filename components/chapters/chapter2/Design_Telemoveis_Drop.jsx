@@ -30,7 +30,8 @@ function PicturePhones({id,url, onDragStart, board}) {
         <Image
         ref={drag} 
         src={url} 
-        alt="Phone" 
+        alt="Phone"
+        className=" w-40 h-40" 
         onMouseDown={() => onDragStart(board)}
         />
         

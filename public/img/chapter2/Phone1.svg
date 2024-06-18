@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="PHONE_04" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 458 964.25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+        stroke: #020302;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-4 {
+        stroke-width: 6px;
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-5, .cls-6, .cls-7 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        stroke: #303030;
+        stroke-width: .75px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #020302;
+      }
+
+      .cls-6 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-3 {
+        stroke: #1e1e1e;
+        stroke-width: .5px;
+      }
+
+      .cls-7 {
+        fill: #b3b3b4;
+      }
+
+      .cls-4 {
+        fill: #1d1d1d;
+        stroke: #c6c6c6;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="2112.39" y1="2735.72" x2="3016.42" y2="2735.72" gradientTransform="translate(-2336.13 -2255.32)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a3d4e7" stop-opacity="0"/>
+      <stop offset=".06" stop-color="rgba(173, 211, 230, .15)" stop-opacity=".15"/>
+      <stop offset=".14" stop-color="rgba(187, 209, 228, .35)" stop-opacity=".35"/>
+      <stop offset=".24" stop-color="rgba(200, 208, 227, .53)" stop-opacity=".53"/>
+      <stop offset=".33" stop-color="rgba(210, 207, 226, .67)" stop-opacity=".67"/>
+      <stop offset=".43" stop-color="rgba(219, 207, 226, .79)" stop-opacity=".79"/>
+      <stop offset=".54" stop-color="rgba(225, 206, 225, .88)" stop-opacity=".88"/>
+      <stop offset=".66" stop-color="rgba(230, 206, 225, .95)" stop-opacity=".95"/>
+      <stop offset=".8" stop-color="rgba(233, 206, 225, .99)" stop-opacity=".99"/>
+      <stop offset="1" stop-color="#eacee1"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="410.66" y1="602.19" x2="498.54" y2="602.19" gradientTransform="translate(-397.21 -121.37)" gradientUnits="userSpaceOnUse">
+      <stop offset=".36" stop-color="#272525" stop-opacity="0"/>
+      <stop offset=".65" stop-color="rgba(40, 38, 38, .02)" stop-opacity=".02"/>
+      <stop offset=".76" stop-color="rgba(44, 42, 42, .09)" stop-opacity=".09"/>
+      <stop offset=".83" stop-color="rgba(51, 49, 49, .21)" stop-opacity=".21"/>
+      <stop offset=".89" stop-color="rgba(60, 60, 60, .39)" stop-opacity=".39"/>
+      <stop offset=".94" stop-color="rgba(73, 73, 73, .61)" stop-opacity=".61"/>
+      <stop offset=".98" stop-color="rgba(89, 90, 90, .89)" stop-opacity=".89"/>
+      <stop offset="1" stop-color="#606161"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="-260.51" y1="723.03" x2="-141.25" y2="723.03" gradientTransform="translate(583.99 -243.04)" gradientUnits="userSpaceOnUse">
+      <stop offset=".36" stop-color="#272525" stop-opacity="0"/>
+      <stop offset=".65" stop-color="rgba(40, 38, 38, .02)" stop-opacity=".02"/>
+      <stop offset=".75" stop-color="rgba(44, 42, 42, .09)" stop-opacity=".09"/>
+      <stop offset=".83" stop-color="rgba(51, 49, 49, .21)" stop-opacity=".21"/>
+      <stop offset=".89" stop-color="rgba(60, 60, 60, .39)" stop-opacity=".39"/>
+      <stop offset=".94" stop-color="rgba(73, 73, 73, .61)" stop-opacity=".61"/>
+      <stop offset=".98" stop-color="rgba(89, 90, 90, .89)" stop-opacity=".89"/>
+      <stop offset="1" stop-color="#606161"/>
+    </linearGradient>
+  </defs>
+  <rect class="cls-4" x="13.46" y="17" width="429.64" height="926" rx="54.9" ry="54.9"/>
+  <rect class="cls-1" x="-223.74" y="273.72" width="904.03" height="413.36" rx="54.9" ry="54.9" transform="translate(708.68 252.13) rotate(90)"/>
+  <rect class="cls-5" x="13.46" y="18.63" width="87.88" height="924.37" rx="43.66" ry="43.66" transform="translate(114.79 961.63) rotate(180)"/>
+  <rect class="cls-6" x="323.48" y="17.81" width="119.25" height="924.37" rx="50.56" ry="50.56"/>
+  <rect class="cls-2" x="186.78" y="53.62" width="83.81" height="21.88" rx="9.5" ry="9.5"/>
+  <circle class="cls-3" cx="254.72" cy="62.97" r="6.51"/>
+  <rect class="cls-7" x="445.54" y="161.84" width="2.46" height="104.15" rx=".35" ry=".35"/>
+  <rect class="cls-7" x="445.54" y="344.11" width="2.46" height="44.75" rx=".35" ry=".35"/>
+</svg>

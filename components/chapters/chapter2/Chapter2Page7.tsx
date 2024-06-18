@@ -26,11 +26,11 @@ export default function Chapter2Page7() {
   //PROGRESS
   const { setProgress } = useProgress();
 
+    //PROGRESS VALUE
+    setProgress(60);
+
   //SAVE PROGRESS STATE
   const [progressSave, setProgressSave] = useState<boolean>(false);
-
-  //PROGRESS VALUE
-  setProgress(16.66);
 
   //VAI BUSCAR O USER ID QUANDO MONTA
   useEffect(() => {
@@ -76,7 +76,7 @@ export default function Chapter2Page7() {
         </Link>
         <div className="col-span-2"></div>
         <div className="col-span-8 flex justify-start items-center text-center flex-col pt-20">
-          <p className="text-white font-medium p-6 pb-10">
+          <p className="text-white font-medium p-6 pb-8">
           Foi outro dos grandes designs da Bauhaus que mostra como, para além de visuais intrigantes, uma peça deve ser feita de modo que siga a sua função (<span className="italic">Form Follows Function</span>), e que dê uma experiência única.
           </p>
           <p className="text-white font-medium pb-8">
