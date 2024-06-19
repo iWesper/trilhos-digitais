@@ -31,7 +31,12 @@ const ChapterComponents: { [key: string]: React.ComponentType<{}> } = {
   Chapter3Page1: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page1").then((module) => module.default) as Promise<React.ComponentType<{}>>),
   
   
+  
   Chapter4Page1: dynamic(() => import("@/components/chapters/chapter4/Chapter4Page1").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter4Page2: dynamic(() => import("@/components/chapters/chapter4/Chapter4Page2").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter4Page3: dynamic(() => import("@/components/chapters/chapter4/Chapter4Page3").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter4Page4: dynamic(() => import("@/components/chapters/chapter4/Chapter4Page4").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter4Page5: dynamic(() => import("@/components/chapters/chapter4/Chapter4Page5").then((module) => module.default) as Promise<React.ComponentType<{}>>),
 
   // Adicionar mais capítulos à medida que são necessários
 };

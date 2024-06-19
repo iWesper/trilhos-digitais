@@ -46,13 +46,13 @@ const defaultItems = [
         <div className="relative md:mt-40 lg:mt-20 sm:w-[528px] sm:h-[396px] lg:w-[792px] lg:h-[594px] 2xl:w-[1055px] 2xl:h-[791px] bg-quadroBadges bg-cover bg-no-repeat bg-center">
           {/* Grid overlay */}
           <div className="absolute top-0 left-0 w-full h-full grid grid-cols-4 grid-rows-2 gap-5 p-20">
-            {/* Grid items  Abaixo temos se badge existir mete a percentagem, senão mete 0 */}
+            {/* Grid items  Abaixo temos se badge existir mete a percentagem, senão mete */}
             {defaultItems.map((item, index) => {
               const badge = BadgeList.find(badge => badge.badgeInfo.nome === item.BadgeName);
               const progress = badge ? badge.percentage : 0;
     
               return (
-                <div key={index} className={`relative ${item.bg} flex justify-center items-center`}>
+                <div key={index} className={` ${item.bg} flex justify-center items-center`}>
                   <div className="bg-[url('/path/to/background-image.jpg')] bg-cover bg-center bg-no-repeat w-full h-full absolute top-0 left-0 opacity-75"></div>
                   <div className="z-10 text-center w-[50%]">
                     <p className="text-white font-bold">{item.name}</p>
