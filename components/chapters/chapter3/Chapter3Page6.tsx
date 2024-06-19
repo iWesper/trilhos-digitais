@@ -5,6 +5,25 @@ import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import SaveBadgeProgressScript from "@/backend/SaveBadgeProgressScript";
+
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+  } from "@/components/ui/dialog";
+
+  import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+  } from "@/components/ui/tooltip";
+  import { MdQuestionMark } from "react-icons/md";
 
 export default function Chapter3Page6() {
 
@@ -15,13 +34,29 @@ export default function Chapter3Page6() {
     setProgress(60);
 
     //LISTA de PALAVRAS POSSÍVEIS
-    const words = ['Ecrã', 'Papel', 'Papel', 'Falas e Sons', 'Sons', 'Imagens', 'Curta-Metragem', 'Verídico', 'Ficção','errado1','errado2','errado3'];
+    const words = ['Ecrã', 'Cartaz', 'Papel', 'Falas e Sons', 'Sons', 'Imagens', 'Curta-Metragem', 'Verídico', 'Ficção','Ruído','Post-its'];
 
         //BARALHA O ARRAY
         const shuffledWords= ArrayShuffle(words);
 
             //ESTADO DA TENTATIVA
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+
+    //COLUNA ERRADA
+    const [wrongColumn,setWrongColumn] = useState<string>("");
+      //SAVE PROGRESS STATE
+  const [progressSave, setProgressSave] = useState<boolean>(false);
+
+  const Tip="Ordena as palavras de cada coluna de acordo com a sua categoria."
+
+   //BADGE DO CAPÍTULO
+   const badgeId = 3;
+
+   //PERCENTAGEM CONFERIDA AQUI
+   const percentage = 100;
+ 
+   //GO TO
+   const nextPage = "/chapters/chapter3/7";
 
     //BARALHAR A ORDEM DO ARRAY
     function ArrayShuffle(array: string[]) {
@@ -80,9 +115,12 @@ export default function Chapter3Page6() {
     const [selectedWords, setSelectedWords] = useState({
 
         //PALAVRAS EM FILME, LIVRO E JOGO INICIAIS ALEATÓRIAS	
-        filme: [shuffledWords[randomIndexes[0]], shuffledWords[randomIndexes[1]], shuffledWords[randomIndexes[2]]],
-        livro: [shuffledWords[randomIndexes[3]], shuffledWords[randomIndexes[4]], shuffledWords[randomIndexes[5]]],
-        jogo: [shuffledWords[randomIndexes[6]], shuffledWords[randomIndexes[7]], shuffledWords[randomIndexes[8]]]
+        'Meios Técnicos de Exposição': [shuffledWords[randomIndexes[0]], shuffledWords[randomIndexes[1]], shuffledWords[randomIndexes[2]]],
+        'Meios Básicos': [shuffledWords[randomIndexes[3]], shuffledWords[randomIndexes[4]], shuffledWords[randomIndexes[5]]],
+        'Meios Qualificados': [shuffledWords[randomIndexes[6]], shuffledWords[randomIndexes[7]], shuffledWords[randomIndexes[8]]],
+        'Meios técnicos de Exposição': [],
+        'Meios básicos': [],
+        'Meios qualificados': []
 
     });
 
@@ -124,15 +162,22 @@ export default function Chapter3Page6() {
 });
 }
 
+  //Acertou
+  const SaveBadgeProgressAndGoToNextPage = () => {
+    
+    //PODE IR GUARDAR
+    setProgressSave(true);
+  };
+
 
     //VER SE USER ACERTOU
     const verifyWords = () => {
 
         //OBJETO COM AS PALAVRAS CORRETAS
         const correctWords = {
-            filme: ['Ecrã', 'Falas e Sons', 'Curta-Metragem'],
-            livro: ['Papel', 'sons', 'Verídico'],
-            jogo: ['Papel', 'Imagens', 'Ficção']
+            'Meios Técnicos de Exposição': ['Ecrã', 'Falas e Sons', 'Curta-Metragem'],
+      'Meios básicos': ['Cartaz', 'Sons', 'Verídico'],
+      'Meios qualificados': ['Papel', 'Imagens', 'Ficção']
         };
     
         //PARA CADA COLUNA
@@ -146,7 +191,7 @@ export default function Chapter3Page6() {
             if (!sortedSelectedWords.every((word, index) => word === sortedCorrectWords[index])) {
 
                 //MOSTRA ERRO
-                console.log(`Incorrect words selected for ${column}`);
+                setWrongColumn(column);
                 setIsCorrect(false);
 
                 return;
@@ -154,7 +199,6 @@ export default function Chapter3Page6() {
         }
 
         //MOSTRA QUE ESTÁ TUDO CORRETO
-        console.log('All words are correct!');
         setIsCorrect(true);
 
         
@@ -162,7 +206,7 @@ export default function Chapter3Page6() {
 
   return (
     <>
-      <div className="bg-chapter3BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center p-4">
+      <div className="bg-chapter3BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 justify-center items-center p-4">
         <Link
           href="/chapters/chapter3/4"
           className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
@@ -172,12 +216,102 @@ export default function Chapter3Page6() {
         </Link>
         <div className="col-span-2"></div>
         <div className="col-span-8 flex justify-start items-center text-center flex-col pt-20">
-          <p className="text-white font-medium p-6 pb-8">
+          <p className="text-white font-medium p-6">
           Abaixo, tens três colunas diretamente relacionadas com o <span className="italic">“Spider-Man”</span> enquanto banda-desenhada, filme e jogo. Indica quais os meios de cada um para continuar!
           </p>
         </div>
         <div className="col-span-2"></div>
-      </div>
+        
+        <div className="col-span-2"></div>
+            <div className="col-span-8 flex justify-center items-center">
+            {isCorrect !== null && isCorrect === false && (<p className="text-white font-medium text-center" >Ora parece que te confundiste nos {wrongColumn}. Vamos, tenta de novo. </p>)}
+            </div>
+            <div className="col-span-2"></div>
+
+        <div className="col-span-4 flex justify-center items-center">
+        <Image
+              src="/img/chapter3/chapter3SpiderManFilme.svg"
+              alt="Imagem de capa The SpiderMan"
+              width={150}
+              height={150}
+              className="rounded"
+              draggable={false}
+            />
+        </div>
+        <div className="col-span-4 flex justify-center items-center">
+        <Image
+              src="/img/chapter3/chapter3SpiderManGame.svg"
+              alt="Imagem de capa The SpiderMan"
+              width={150}
+              height={150}
+              className="rounded"
+              draggable={false}
+            />
+        </div>
+        <div className="col-span-4 flex justify-center items-center">
+        <Image
+              src="/img/chapter3/chapter3SpiderManBD.svg"
+              alt="Imagem de capa The SpiderMan"
+              width={150}
+              height={150}
+              className="rounded"
+              draggable={false}
+            />
+        </div>
+        <div className="flex flex-col w-screen">
+        {['Meios Técnicos de Exposição', 'Meios Básicos', 'Meios Qualificados'].map(column => (
+                <div key={column} className=" flex flex-row col-span-4 text-center mt-8 text-white">
+                    <h2 className="font-bold text-white mb-8">{column}</h2>
+                    {selectedWords[column as keyof typeof selectedWords].map((word: string, index : number) => (
+                        <div key={index}>
+                            <button onClick={() => changeWord(column, index, -1)}><FaArrowLeft className="text-white"/></button>
+                            <span className="px-6">{word}</span>
+                            <button onClick={() => changeWord(column, index, 1)}><FaArrowRight className="text-white"/></button>
+                        </div>
+                    ))}
+                </div>
+            ))}
+        </div>
+            <div className="col-span-4"></div>
+            <div className="col-span-4 flex justify-center items-center">
+                <Button className="text-white" onClick={verifyWords}>Verificar</Button>
+
+                {isCorrect !== null && isCorrect === true && <Dialog>
+            <DialogTrigger>
+            <Button>Continuar</Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>É isso, conseguiste!</DialogTitle>
+                <DialogDescription>Vamos continuar?</DialogDescription>
+                <Button onClick={SaveBadgeProgressAndGoToNextPage}>Sim</Button>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>}
+            </div>
+            <div className="col-span-4"></div>
+        </div>
+
+          <div className="fixed bottom-5 left-5">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <MdQuestionMark className="text-white h-10 w-10 justify-start items-start" />
+              </TooltipTrigger>
+              <TooltipContent className="bg-foreground border-none shadow-none text-white">
+                <p>{Tip}</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
+
+          {progressSave && progressSave === true && (
+        <SaveBadgeProgressScript
+          badgeId={badgeId}
+          progress={percentage}
+          nextPage={nextPage}
+        />
+      )}
     </>
   );
 }
