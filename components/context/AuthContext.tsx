@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 // Definição do tipo de dados que o AuthContext vai ter
 interface AuthContextType {
   currentUser: User | null;
+  isLoading: boolean;
   logout: () => Promise<void>;
   handleLogin: (email: string, password: string) => Promise<void>;
   handleGoogleSignIn: () => Promise<void>;
@@ -57,11 +58,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [tutorialState, setTutorialState] = useState(false);
   // Lista de Badges
   const [BadgeList,setBadgeList] = useState<any[]>([]);
+  // Estado para guardar se a página está a carregar
+  const [isLoading, setIsLoading] = useState(true);
 
   // Efeito para verificar se o utilizador está autenticado
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
+      setIsLoading(false);
     });
 
     return () => unsubscribe();
@@ -306,6 +310,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     username,
     error,
     tutorialState,
+    isLoading,
   };
 
   // Retorna o provider com o valor

@@ -16,28 +16,27 @@ export default function Home() {
   const router = useRouter();
 
   const [isLoading, setIsLoading] = useState(true);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
-  // Verifica se o utilizador está autenticado
   useEffect(() => {
-    if (!currentUser) {
+    if (!currentUser && !isCheckingAuth) {
       router.push("/authentication");
-    } else {
+    } else if (currentUser) {
       setIsLoading(false);
     }
-  }, [currentUser, router]);
+    setIsCheckingAuth(false);
+  }, [currentUser, router, isCheckingAuth]);
 
-  // Se estiver a carregar, mostra a animação de loading
-  if (isLoading) {
+  if (isLoading || isCheckingAuth) {
     return (
       <div className="h-screen w-screen flex justify-center items-center">
         <Lottie
           animationData={animationData}
-          className="bg-foreground h-20 w-20 "
+          className="bg-foreground h-20 w-20"
         />
       </div>
     );
   }
-
 
   return (
     <main className="max-w-full overflow-hidden">

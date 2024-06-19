@@ -13,25 +13,30 @@ export default function BadgesLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { currentUser } = useAuth();
+  const { currentUser, isLoading } = useAuth();
   const router = useRouter();
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
+  // Verifica se o utilizador está autenticado
   useEffect(() => {
-    if (!currentUser) {
-      router.push("/authentication");
-    } else {
-      setIsLoading(false); // User is authenticated, proceed to render the component
+    if (!isLoading) {
+      if (currentUser === null) {
+        setIsCheckingAuth(false);
+        router.push("/authentication");
+      } else {
+        setIsCheckingAuth(false);
+      }
     }
-  }, [currentUser, router]);
+  }, [currentUser, isLoading, router]);
 
-  if (isLoading) {
+  // Se o utilizador estiver a ser autenticado, mostra um loading
+  if (isLoading || isCheckingAuth) {
     return (
       <div className="h-screen w-screen flex justify-center items-center">
         <Lottie
           animationData={animationData}
-          className="bg-foreground h-20 w-20 "
+          className="bg-foreground h-20 w-20"
         />
       </div>
     );
