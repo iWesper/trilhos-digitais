@@ -63,9 +63,6 @@ export default function Chapter2Page5() {
   //USER ID
   const [UserId, setUserId] = useState<string | null>(null);
 
-  //LOADING
-  const [loading, setLoading] = useState<boolean>(true);
-
   //PROGRESS
   const { setProgress } = useProgress();
 
@@ -257,45 +254,13 @@ export default function Chapter2Page5() {
     );
   }
 
-  //VAI BUSCAR O USER ID QUANDO MONTA
-  useEffect(() => {
-    //SAVE USER
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        //SAVE
-        setUserId(currentUser.uid);
-
-        if (UserId) {
-          return;
-        }
-      } else {
-        setUserId(null);
-      }
-
-      //ACABA O LOAD
-      setLoading(false);
-    });
-  }, [UserId]);
-
-  //SE ESTIVER A CARREGAR
-  if (loading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center">
-        <Lottie
-          animationData={animationData}
-          className="bg-foreground h-20 w-20 "
-        />
-      </div>
-    );
-  }
-
   //FUNÇÃO QUE VAI GUARDAR O PROGRESSO DO BADGE NA BD E FAZER O ROUTER PUSH
   const SaveBadgeProgressAndGoToNextPage = () => {
     //PODE IR GUARDAR
     setProgressSave(true);
   };
 
-  return UserId ? (
+  return (
     <DndProvider backend={HTML5Backend}>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  p-4">
         <Link
@@ -381,7 +346,5 @@ export default function Chapter2Page5() {
         />
       )}
     </DndProvider>
-  ) : (
-    router.push("/")
   );
 }

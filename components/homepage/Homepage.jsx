@@ -20,20 +20,19 @@ import { Button } from "@/components/ui/button";
 import { Comboio } from "./Comboio";
 import Navbar from "./Navbar";
 
-export default function Homepage({ tutorialState }) {
+export default function Homepage() {
+   const [tutorialSeen, setTutorialSeen] = useState(false);
 
-  const [tutorialSeen, setTutorialSeen] = useState(false);
+   //USER ID
+   const [UserId, setUserId] = useState(null);
 
-  //USER ID
-  const [UserId, setUserId] = useState(null);
+   //ERRO
+   const [Error, setError] = useState("");
 
-  //ERRO
-  const [Error, setError] = useState("");
+   //MENSAGEM
+   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
-  //MENSAGEM
-  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-
-  const [tutorialMessages, setTutorialMessages] = useState([]);
+   const [tutorialMessages, setTutorialMessages] = useState([]);
 
   const [username, setUsername] = useState("");
 
@@ -97,22 +96,22 @@ export default function Homepage({ tutorialState }) {
     }
   };
 
-  //VAI BUSCAR O USER ID QUANDO MONTA
-  useEffect(() => {
-    //SAVE USER
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        //SAVE
-        setUserId(currentUser.uid);
+   //VAI BUSCAR O USER ID QUANDO MONTA
+   useEffect(() => {
+     //SAVE USER
+     onAuthStateChanged(auth, (currentUser) => {
+       if (currentUser) {
+         //SAVE
+         setUserId(currentUser.uid);
 
-        if (UserId) {
-          GoGetUsername();
-        }
-      } else {
-        setUserId(null);
-      }
-    });
-  }, [UserId]);
+         if (UserId) {
+           GoGetUsername();
+         }
+       } else {
+         setUserId(null);
+       }
+     });
+   }, [UserId]);
 
   return (
     <>
@@ -134,7 +133,7 @@ export default function Homepage({ tutorialState }) {
         </Dialog>
       )} */}
 
-      {tutorialSeen && <UpdateHasSeenTutorialScript />}
+      {/* {tutorialSeen && <UpdateHasSeenTutorialScript />} */}
       {/* Container dos fundos para o parallax */}
       <div className="absolute h-screen w-screen overflow-hidden">
         {/* Container do conteúdo da página */}

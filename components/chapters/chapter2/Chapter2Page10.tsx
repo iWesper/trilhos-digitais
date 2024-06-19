@@ -427,39 +427,7 @@ export default function Chapter2Page10() {
     );
   }
 
-  //VAI BUSCAR O USER ID QUANDO MONTA
-  useEffect(() => {
-    //SAVE USER
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        //SAVE
-        setUserId(currentUser.uid);
-
-        if (UserId) {
-          return;
-        }
-      } else {
-        setUserId(null);
-      }
-
-      //ACABA O LOAD
-      setLoading(false);
-    });
-  }, [UserId]);
-
-  //SE ESTIVER A CARREGAR
-  if (loading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center">
-        <Lottie
-          animationData={animationData}
-          className="bg-foreground h-20 w-20 "
-        />
-      </div>
-    );
-  }
-
-  return UserId ? (
+  return (
     <DndProvider backend={HTML5Backend}>
       <div className="bg-chapter2BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center gap-4">
         <Link
@@ -521,7 +489,5 @@ export default function Chapter2Page10() {
         />
       )}
     </DndProvider>
-  ) : (
-    router.push("/")
   );
 }

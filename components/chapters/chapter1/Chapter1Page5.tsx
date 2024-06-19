@@ -1,12 +1,6 @@
 "use client";
 import React from "react";
-import { useEffect, useState } from "react";
-import { auth } from "../../../backend/config/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import Lottie from "lottie-react";
-import animationData from "@/public/animations/loading_animation.json";
-import { useRouter } from "next/navigation";
-import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { MdQuestionMark } from "react-icons/md";
@@ -44,11 +38,6 @@ export default function Chapter1Page5() {
   //PROGRESS VALUE
   setProgress(16.66 + 16.66 + 16.66 + 16.66);
 
-  const router = useRouter();
-
-  //USER ID
-  const [UserId, setUserId] = useState<string | null>(null);
-
   //ESTADO DA RESPOSTA
   const [resposta, setResposta] = useState<string | null>(null);
 
@@ -60,38 +49,6 @@ export default function Chapter1Page5() {
 
   //TIP
   const Tip = "Uma experiência para sempre melhor com uma caixa de pipocas.";
-
-  //VAI BUSCAR O USER ID QUANDO MONTA
-  useEffect(() => {
-    //SAVE USER
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        //SAVE
-        setUserId(currentUser.uid);
-
-        if (UserId) {
-          return;
-        }
-      } else {
-        setUserId(null);
-      }
-
-      //ACABA O LOAD
-      setLoading(false);
-    });
-  }, [UserId]);
-
-  //SE ESTIVER A CARREGAR
-  if (loading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center">
-        <Lottie
-          animationData={animationData}
-          className="bg-foreground h-20 w-20 "
-        />
-      </div>
-    );
-  }
 
   //REPOSTAS FORM
   const handleFormSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -122,7 +79,7 @@ export default function Chapter1Page5() {
     setProgressSave(true);
   };
 
-  return UserId ? (
+  return (
     <>
       <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover  ">
         <Link
@@ -208,7 +165,5 @@ export default function Chapter1Page5() {
         />
       )}
     </>
-  ) : (
-    router.push("/")
   );
 }

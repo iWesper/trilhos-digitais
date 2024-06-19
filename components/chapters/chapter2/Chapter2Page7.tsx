@@ -1,11 +1,6 @@
 "use client";
 import React from "react";
-import { useEffect, useState, useRef } from "react";
-import { auth } from "../../../backend/config/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import Lottie from "lottie-react";
-import animationData from "@/public/animations/loading_animation.json";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
@@ -15,13 +10,6 @@ import { Tilt } from "react-tilt";
 import { Button } from "@/components/ui/button";
 
 export default function Chapter2Page7() {
-  const router = useRouter();
-
-  //USER ID
-  const [UserId, setUserId] = useState<string | null>(null);
-
-  //LOADING
-  const [loading, setLoading] = useState<boolean>(true);
 
   //PROGRESS
   const { setProgress } = useProgress();
@@ -32,39 +20,7 @@ export default function Chapter2Page7() {
   //SAVE PROGRESS STATE
   const [progressSave, setProgressSave] = useState<boolean>(false);
 
-  //VAI BUSCAR O USER ID QUANDO MONTA
-  useEffect(() => {
-    //SAVE USER
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        //SAVE
-        setUserId(currentUser.uid);
-
-        if (UserId) {
-          return;
-        }
-      } else {
-        setUserId(null);
-      }
-
-      //ACABA O LOAD
-      setLoading(false);
-    });
-  }, [UserId]);
-
-  //SE ESTIVER A CARREGAR
-  if (loading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center">
-        <Lottie
-          animationData={animationData}
-          className="bg-foreground h-20 w-20 "
-        />
-      </div>
-    );
-  }
-
-  return UserId ? (
+  return (
     <>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center p-4">
         <Link
@@ -89,7 +45,5 @@ export default function Chapter2Page7() {
         <div className="col-span-2"></div>
       </div>
     </>
-  ) : (
-    router.push("/")
   );
 }

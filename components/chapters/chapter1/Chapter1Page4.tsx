@@ -41,39 +41,7 @@ export default function Chapter1Page4() {
     easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
   };
 
-  //VAI BUSCAR O USER ID QUANDO MONTA
-  useEffect(() => {
-    //SAVE USER
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        //SAVE
-        setUserId(currentUser.uid);
-
-        if (UserId) {
-          return;
-        }
-      } else {
-        setUserId(null);
-      }
-
-      //ACABA O LOAD
-      setLoading(false);
-    });
-  }, [UserId]);
-
-  //SE ESTIVER A CARREGAR
-  if (loading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center">
-        <Lottie
-          animationData={animationData}
-          className="bg-foreground h-20 w-20 "
-        />
-      </div>
-    );
-  }
-
-  return UserId ? (
+  return (
     <>
       <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-2">
         <Link
@@ -109,7 +77,5 @@ export default function Chapter1Page4() {
         {/* <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
     </>
-  ) : (
-    router.push("/")
   );
 }

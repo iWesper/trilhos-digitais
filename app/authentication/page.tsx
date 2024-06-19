@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
@@ -8,13 +10,20 @@ import { FcGoogle } from "react-icons/fc";
 
 //IMPORTA Os hooks
 import { useState, useEffect } from "react";
-import { Auth } from "../register/Register";
+import { Auth } from "@/components/register/Register";
 
-//FAZER LOGIN COM EMAIL E PASSWORD
+// Importa os hooks de autenticação e de navegação
+import { useAuth } from "@/components/context/AuthContext";
+import { useRouter } from "next/navigation";
+
+// Página de login
 const Login = () => {
+  const router = useRouter();
+  const { handleLogin, handleGoogleSignIn, handlePasswordReset, currentUser } =
+    useAuth();
+
   //STATE DO RENDER
   const [Render, setRender] = useState(true);
-
 
   //VARIÁVEL DAS MENSAGENS DE ERRO
   const [Error, setError] = useState("");
@@ -27,6 +36,13 @@ const Login = () => {
   const ChangeRender = () => {
     setRender(false);
   };
+
+  // Verifica se o utilizador está autenticado
+  useEffect(() => {
+    if (currentUser) {
+      router.push("/");
+    }
+  }, [currentUser, router]);
 
   return (
     <>
@@ -67,14 +83,17 @@ const Login = () => {
                     name="psswd"
                   />
                   <p
-                    onClick={handlePasswordReset}
-                    className="underline"
-                    style={{ cursor: "pointer" }}
+                    onClick={() => handlePasswordReset(Email)}
+                    className="underline cursor-pointer"
                   >
                     Esqueceste-te da Palavra-Passe?
                   </p>
                 </div>
-                <Button type="submit" className="w-full" onClick={handleLogin}>
+                <Button
+                  type="submit"
+                  className="w-full"
+                  onClick={() => handleLogin(Email, Password)}
+                >
                   Entrar
                 </Button>
                 <Button

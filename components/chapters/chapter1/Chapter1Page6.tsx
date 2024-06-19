@@ -1,11 +1,6 @@
 "use client";
 import React from "react";
-import { useEffect, useState } from "react";
-import { auth } from "../../../backend/config/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import Lottie from "lottie-react";
-import animationData from "@/public/animations/loading_animation.json";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
 import { IoChevronBack } from "react-icons/io5";
@@ -20,8 +15,6 @@ export default function Chapter1Page6() {
 
   //PROGRESS VALUE
   setProgress(16.66 + 16.66 + 16.66 + 16.66 + 16.66);
-
-  const router = useRouter();
 
   //CONTROLO DA ANIMAÇÃO
   const defaultOptions = {
@@ -42,42 +35,8 @@ export default function Chapter1Page6() {
   //ESTADO DA RESPOSTA
   const [resposta, setResposta] = useState<string | null>(null);
 
-  //LOADING
-  const [loading, setLoading] = useState<boolean>(true);
 
-  //VAI BUSCAR O USER ID QUANDO MONTA
-  useEffect(() => {
-    //SAVE USER
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        //SAVE
-        setUserId(currentUser.uid);
-
-        if (UserId) {
-          return;
-        }
-      } else {
-        setUserId(null);
-      }
-
-      //ACABA O LOAD
-      setLoading(false);
-    });
-  }, [UserId]);
-
-  //SE ESTIVER A CARREGAR
-  if (loading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center">
-        <Lottie
-          animationData={animationData}
-          className="bg-foreground h-20 w-20 "
-        />
-      </div>
-    );
-  }
-
-  return UserId ? (
+  return (
     <>
       <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-2">
         <Link
@@ -113,7 +72,5 @@ export default function Chapter1Page6() {
         {/* <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
     </>
-  ) : (
-    router.push("/")
   );
 }

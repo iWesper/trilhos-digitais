@@ -24,13 +24,6 @@ import {
 import { Button } from "@/components/ui/button";
 
 export default function Chapter2Page6() {
-  const router = useRouter();
-
-  //USER ID
-  const [UserId, setUserId] = useState<string | null>(null);
-
-  //LOADING
-  const [loading, setLoading] = useState<boolean>(true);
 
   //PROGRESS
   const { setProgress } = useProgress();
@@ -56,39 +49,7 @@ export default function Chapter2Page6() {
 
   const [showDialog, setShowDialog] = useState<boolean>(false);
 
-  //VAI BUSCAR O USER ID QUANDO MONTA
-  useEffect(() => {
-    //SAVE USER
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        //SAVE
-        setUserId(currentUser.uid);
-
-        if (UserId) {
-          return;
-        }
-      } else {
-        setUserId(null);
-      }
-
-      //ACABA O LOAD
-      setLoading(false);
-    });
-  }, [UserId]);
-
-  //SE ESTIVER A CARREGAR
-  if (loading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center">
-        <Lottie
-          animationData={animationData}
-          className="bg-foreground h-20 w-20 "
-        />
-      </div>
-    );
-  }
-
-  return UserId ? (
+  return (
     <>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  p-4">
         <Link
@@ -124,7 +85,5 @@ export default function Chapter2Page6() {
         <div className="col-span-2"></div>
       </div>
     </>
-  ) : (
-    router.push("/")
   );
 }

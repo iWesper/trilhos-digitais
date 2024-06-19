@@ -2,53 +2,46 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { db, auth } from "../backend/config/firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+
 import CheckHasSeenTutorialScript from "../backend/CheckHasSeenTutorialScript";
-import Login from "@/components/login/Login";
 
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/components/context/AuthContext";
+import { useRouter } from "next/navigation";
+import Lottie from "lottie-react";
+import animationData from "@/public/animations/loading_animation.json";
 
 export default function Home() {
-  //COMPONENT BOOLEAN COM TIPOS POSSÍVEIS PARA TSX
-  const [ComponentToRender, setComponentToRender] = useState<
-    boolean | undefined
-  >(undefined);
+  const { currentUser, logout } = useAuth();
+  const router = useRouter();
 
-  //ERROR STRING COM TIPOS POSSÍVEIS PARA TSX
-  const [error, setError] = useState<string | undefined>(undefined);
+  const [isLoading, setIsLoading] = useState(true);
 
-  //QUANDO COMPONENTE MONTA
+  // Verifica se o utilizador está autenticado
   useEffect(() => {
-    //VER SE HÁ LOGIN
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        //SE HOUVER LOGIN
-        setComponentToRender(true);
-      } else {
-        //SE NÃO HOUVER LOGIN
-        setComponentToRender(false);
-      }
-    });
-  }, []);
-
-  const LogOut = async () => {
-    try {
-      //TERMINA A SESSÃO
-      await signOut(auth);
-    } catch (error) {
-      //SE HOUVER ERRO, MOSTRA-O
-      setError("Ocorreu um erro ao terminar a sessão");
+    if (!currentUser) {
+      router.push("/authentication");
+    } else {
+      setIsLoading(false);
     }
-  };
+  }, [currentUser, router]);
+
+  // Se estiver a carregar, mostra a animação de loading
+  if (isLoading) {
+    return (
+      <div className="h-screen w-screen flex justify-center items-center">
+        <Lottie
+          animationData={animationData}
+          className="bg-foreground h-20 w-20 "
+        />
+      </div>
+    );
+  }
+
+
   return (
     <main className="max-w-full overflow-hidden">
-        {ComponentToRender === true ? (
-          <CheckHasSeenTutorialScript />
-        ) : (
-          ComponentToRender === false && <Login />
-        )}
-        {/* <Button onClick={LogOut} className="bg-secondary hover:bg-orange-500">Log Out</Button> */}
+      <CheckHasSeenTutorialScript />
     </main>
   );
 }

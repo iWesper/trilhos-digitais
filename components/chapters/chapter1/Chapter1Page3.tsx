@@ -46,13 +46,6 @@ export default function Chapter1Page3() {
   //GO TO
   const nextPage = "/chapters/chapter1/4";
 
-  const router = useRouter();
-  //USER ID
-  const [UserId, setUserId] = useState<string | null>(null);
-
-  //LOADING
-  const [loading, setLoading] = useState<boolean>(true);
-
   //SAVE PROGRESS STATE
   const [progressSave, setProgressSave] = useState<boolean>(false);
 
@@ -60,45 +53,13 @@ export default function Chapter1Page3() {
   const Tip =
     "Parece que o palco esconde um segredo escondido algures, perguntamo-nos onde…";
 
-  //VAI BUSCAR O USER ID QUANDO MONTA
-  useEffect(() => {
-    //SAVE USER
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        //SAVE
-        setUserId(currentUser.uid);
-
-        if (UserId) {
-          return;
-        }
-      } else {
-        setUserId(null);
-      }
-
-      //ACABA O LOAD
-      setLoading(false);
-    });
-  }, [UserId]);
-
-  //SE ESTIVER A CARREGAR
-  if (loading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center">
-        <Lottie
-          animationData={animationData}
-          className="bg-foreground h-20 w-20 "
-        />
-      </div>
-    );
-  }
-
   //FUNÇÃO QUE VAI GUARDAR O PROGRESSO DO BADGE NA BD E FAZER O ROUTER PUSH
   const SaveBadgeProgressAndGoToNextPage = () => {
     //PODE IR GUARDAR
     setProgressSave(true);
   };
 
-  return UserId ? (
+  return (
     <>
       <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-2">
         <Link
@@ -168,7 +129,5 @@ export default function Chapter1Page3() {
         />
       )}
     </>
-  ) : (
-    router.push("/")
-  );
+  )
 }

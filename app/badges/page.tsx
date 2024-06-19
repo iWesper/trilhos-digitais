@@ -12,51 +12,19 @@ import animationData from "@/public/animations/loading_animation.json";
 import { useRouter } from "next/navigation";
 import { Progress } from "@/components/ui/progress";
 import { useProgress } from "@/components/context/ProgressContext";
+import { useAuth } from "@/components/context/AuthContext";
 
 export default function Badges() {
   const router = useRouter();
-  //USER ID
-  const [UserId, setUserId] = useState<string | null>(null);
-
-  //LOADING
-  const [loading, setLoading] = useState<boolean>(true);
-
-  //VAI BUSCAR O USER ID QUANDO MONTA
-  useEffect(() => {
-    //SAVE USER
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        //SAVE
-        setUserId(currentUser.uid);
-
-        if (UserId) {
-          return;
-        }
-      } else {
-        setUserId(null);
-      }
-
-      //ACABA O LOAD
-      setLoading(false);
-    });
-  }, [UserId]);
-
-  //SE ESTIVER A CARREGAR
-  if (loading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center">
-        <Lottie
-          animationData={animationData}
-          className="bg-foreground h-20 w-20 "
-        />
-      </div>
-    );
-  }
-
+  const { currentUser } = useAuth();
   //PROGRESSO
   const { progress } = useProgress();
 
-  return UserId ? (
+  if (!currentUser) {
+    router.push("/authentication");
+  }
+
+  return (
     <main className="flex justify-center items-center h-screen bg-gray-500">
       <div className="relative md:mt-40 lg:mt-20 sm:w-[528px] sm:h-[396px] lg:w-[792px] lg:h-[594px] 2xl:w-[1055px] 2xl:h-[791px] bg-quadroBadges bg-cover bg-no-repeat bg-center">
         {/* Grid overlay */}
@@ -121,7 +89,5 @@ export default function Badges() {
         </div>
       </div>
     </main>
-  ) : (
-    router.push("/")
-  );
+  )
 }

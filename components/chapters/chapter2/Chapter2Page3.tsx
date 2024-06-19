@@ -1,11 +1,6 @@
 "use client";
 import React from "react";
-import { useEffect, useState, useRef } from "react";
-import { auth } from "../../../backend/config/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import Lottie from "lottie-react";
-import animationData from "@/public/animations/loading_animation.json";
-import { useRouter } from "next/navigation";
+import { useState, useRef } from "react";
 import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
@@ -41,7 +36,9 @@ import testimg2 from "@/public/img/chapter2/chapter2frutas_maca.svg";
 import testimg3 from "@/public/img/chapter2/chapter2frutas_laranja.svg";
 import correctimg from "@/public/img/chapter2/chapter2frutas_laranjapartida.svg";
 
+
 export default function Chapter2Page3() {
+
   //LISTA DE ELEMENTOS ARRASTÁVEIS
   //AQUI, URL É A LOCALIZAÇÃO
   const PictureList = [
@@ -67,15 +64,7 @@ export default function Chapter2Page3() {
     },
   ];
 
-  const router = useRouter();
-
-  //USER ID
-  const [UserId, setUserId] = useState<string | null>(null);
-
   const [showDialog, setShowDialog] = useState<boolean>(false);
-
-  //LOADING
-  const [loading, setLoading] = useState<boolean>(true);
 
   //PROGRESS
   const { setProgress } = useProgress();
@@ -140,40 +129,6 @@ export default function Chapter2Page3() {
       : "Não é bem esse o fruto que queremos. Tenta outra vez!";
   };
 
-  //VAI BUSCAR O USER ID QUANDO MONTA
-  useEffect(() => {
-    //SAVE USER
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        //SAVE
-        setUserId(currentUser.uid);
-
-        if (UserId) {
-          //PROGRESS VALUE
-          setProgress(20);
-          return;
-        }
-      } else {
-        setUserId(null);
-      }
-
-      //ACABA O LOAD
-      setLoading(false);
-    });
-  }, [UserId]);
-
-  //SE ESTIVER A CARREGAR
-  if (loading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center">
-        <Lottie
-          animationData={animationData}
-          className="bg-foreground h-20 w-20 "
-        />
-      </div>
-    );
-  }
-
   //COMPONENTE QUE RECEBE OS ELEMENTOS ARRASTÁVEIS. TEM DE SER COMPONENTE PARA ACEDER A UM CONTEXT
   function DropArea({
     addImageToBoard,
@@ -222,7 +177,7 @@ export default function Chapter2Page3() {
     setProgressSave(true);
   };
 
-  return UserId ? (
+  return (
     <DndProvider backend={HTML5Backend}>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1">
         <Link
@@ -309,7 +264,5 @@ export default function Chapter2Page3() {
         />
       )}
     </DndProvider>
-  ) : (
-    router.push("/")
-  );
+  )
 }

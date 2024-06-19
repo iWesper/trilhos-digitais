@@ -13,14 +13,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
+import { useAuth } from "@/components/context/AuthContext";
 
 export default function Chapter2Page2() {
-  const router = useRouter();
-  //USER ID
-  const [UserId, setUserId] = useState<string | null>(null);
-
-  //LOADING
-  const [loading, setLoading] = useState<boolean>(true);
 
   //PROGRESS
   const { setProgress } = useProgress();
@@ -41,39 +36,7 @@ export default function Chapter2Page2() {
     easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
   };
 
-  //VAI BUSCAR O USER ID QUANDO MONTA
-  useEffect(() => {
-    //SAVE USER
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        //SAVE
-        setUserId(currentUser.uid);
-
-        if (UserId) {
-          return;
-        }
-      } else {
-        setUserId(null);
-      }
-
-      //ACABA O LOAD
-      setLoading(false);
-    });
-  }, [UserId]);
-
-  //SE ESTIVER A CARREGAR
-  if (loading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center">
-        <Lottie
-          animationData={animationData}
-          className="bg-foreground h-20 w-20 "
-        />
-      </div>
-    );
-  }
-
-  return UserId ? (
+  return (
     <>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1">
         <Link
@@ -112,7 +75,5 @@ export default function Chapter2Page2() {
         {/* <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
     </>
-  ) : (
-    router.push("/")
-  );
+  )
 }
