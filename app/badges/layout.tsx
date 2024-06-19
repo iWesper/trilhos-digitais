@@ -44,7 +44,7 @@ export default function BadgesLayout({
 
   return (
     <ProgressProvider>
-      <main>
+      <main className="overflow-hidden">
         <Navbar />
         {children}
       </main>

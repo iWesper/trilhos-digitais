@@ -45,7 +45,7 @@ export default function ChaptersLayout({
 
   return (
     <ProgressProvider>
-      <main>
+      <main className="overflow-hidden">
         <NavbarChapters />
         {children}
       </main>
