@@ -96,10 +96,10 @@ const config = {
         'chapter2BGTexto3': "url('/img/chapter2/chapter2BGTexto3.svg')",
 
 
-        'chapter3StartBG': "url('/img/fundo_tecnologia_inicial.svg')",
+        'chapter3StartBG': "url('/img/fundo_comunicacao_inicial.svg')",
         'chapter3BG': "url('/img/fundo_tecnologia.svg')",
 
-        'chapter4StartBG': "url('/img/fundo_comunicacao_inicial.svg')",
+        'chapter4StartBG':"url('/img/fundo_tecnologia_inicial.svg')",
         'chapter4BG': "url('/img/fundo_comunicacao.svg')",
 
         'quadroBadges': "url('/img/badges/quadrobadges.svg')",

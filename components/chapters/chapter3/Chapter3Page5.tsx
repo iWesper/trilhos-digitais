@@ -1,13 +1,12 @@
 "use client";
 import React from "react";
-import { useState } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 
 import { Button } from "@/components/ui/button";
 
-export default function Chapter4Page5() {
+export default function Chapter3Page5() {
 
   //PROGRESS
   const { setProgress } = useProgress();
@@ -17,9 +16,9 @@ export default function Chapter4Page5() {
 
   return (
     <>
-      <div className="bg-chapter4BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center p-4">
+      <div className="bg-chapter3BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center p-4">
         <Link
-          href="/chapters/chapter4/4"
+          href="/chapters/chapter3/4"
           className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
         >
           <IoChevronBack className=" h-8 w-8" />
@@ -33,7 +32,7 @@ export default function Chapter4Page5() {
           <p className="text-white font-medium pb-8">
           Clica no continuar para começares um minijogo.
           </p>
-          <Link href={"/chapters/chapter4/6"}>
+          <Link href={"/chapters/chapter3/6"}>
             <Button className="text-white">Continuar</Button>
           </Link>
         </div>

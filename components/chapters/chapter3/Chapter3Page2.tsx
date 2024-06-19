@@ -8,7 +8,7 @@ import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
 
-export default function Chapter4Page3() {
+export default function Chapter3Page2() {
 
   //PROGRESS
   const { setProgress } = useProgress();
@@ -31,9 +31,9 @@ export default function Chapter4Page3() {
 
   return (
     <>
-      <div className="bg-chapter4BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1">
+      <div className="bg-chapter3BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1">
         <Link
-          href="/chapters/chapter4/2"
+          href="/chapters/chapter3/1"
           className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
         >
           <IoChevronBack className=" h-8 w-8" />
@@ -53,9 +53,9 @@ export default function Chapter4Page3() {
         >
           <div className="h-full flex flex-col justify-center items-center p-10 ">
             <p className="font-medium mb-10 text-white">
-                E perguntas tu, como é que isto acontece? Bem, acontece devido aos diferentes meios técnicos de exposição, meios básicos e meios qualificados utilizados em cada um deles.
+            Para isto, vamos usar o exemplo do “<span className="italic">The Godfather</span>”. Este clássico foi apresentado como um livro, filme e jogo, sempre com as mesmas personagens e história, mas cada um passando uma mensagem ligeiramente diferente.
             </p>
-            <Link href="/chapters/chapter4/4">
+            <Link href="/chapters/chapter3/3">
               <Button className="text-white">Continuar</Button>
             </Link>
           </div>
@@ -68,8 +68,8 @@ export default function Chapter4Page3() {
         >
           <Tilt options={defaultOptions}>
             <Image
-              src="/img/chapter4/chapter4GodfatherCover.svg"
-              alt="Imagem de capa de The Godfather"
+               src="/img/chapter3/chapter3GodfatherCover.svg"
+              alt="Imagem de capa deo The Godfather"
               width={350}
               height={350}
               className="rounded tiltableImage"

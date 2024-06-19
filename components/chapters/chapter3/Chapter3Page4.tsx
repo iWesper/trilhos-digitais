@@ -8,7 +8,7 @@ import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
 
-export default function Chapter4Page4() {
+export default function Chapter3Page4() {
 
   //PROGRESS
   const { setProgress } = useProgress();
@@ -31,9 +31,9 @@ export default function Chapter4Page4() {
 
   return (
     <>
-      <div className="bg-chapter4BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-3">
+      <div className="bg-chapter3BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-3">
         <Link
-          href="/chapters/chapter4/3"
+          href="/chapters/chapter3/3"
           className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
         >
           <IoChevronBack className=" h-8 w-8" />
@@ -71,7 +71,7 @@ export default function Chapter4Page4() {
           transition={{ duration: 1 }}
         >
             <Image
-              src="/img/chapter4/chapter4GodfatherCover.svg"
+              src="/img/chapter3/chapter3GodfatherCover.svg"
               alt="Imagem de capa de  The Godfather"
               width={250}
               height={250}
@@ -86,7 +86,7 @@ export default function Chapter4Page4() {
           transition={{ duration: 1 }}
         >
             <Image
-              src="/img/chapter4/chapter4GodfatherCoverXBOX.svg"
+              src="/img/chapter3/chapter3GodfatherCoverXBOX.svg"
               alt="Imagem de capa de The Godfather"
               width={250}
               height={250}
@@ -102,7 +102,7 @@ export default function Chapter4Page4() {
         >
 
             <Image
-              src="/img/chapter4/chapter4GodfatherCoverBook.svg"
+              src="/img/chapter3/chapter3GodfatherCoverBook.svg"
               alt="Imagem de capa de The Godfather"
               width={250}
               height={250}
@@ -123,7 +123,7 @@ export default function Chapter4Page4() {
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
         >
-            <Link href="/chapters/chapter4/5">
+            <Link href="/chapters/chapter3/5">
               <Button className="text-white mt-36">Continuar</Button>
             </Link>
         </motion.div>
