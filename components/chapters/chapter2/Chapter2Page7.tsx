@@ -4,8 +4,6 @@ import { useState } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
-import Image from "next/image";
-import { Tilt } from "react-tilt";
 
 import { Button } from "@/components/ui/button";
 
@@ -16,9 +14,6 @@ export default function Chapter2Page7() {
 
     //PROGRESS VALUE
     setProgress(60);
-
-  //SAVE PROGRESS STATE
-  const [progressSave, setProgressSave] = useState<boolean>(false);
 
   return (
     <>

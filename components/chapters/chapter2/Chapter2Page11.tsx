@@ -1,11 +1,5 @@
 "use client";
 import React from "react";
-import { useEffect, useState, useRef } from "react";
-import { auth } from "../../../backend/config/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import Lottie from "lottie-react";
-import animationData from "@/public/animations/loading_animation.json";
-import { useRouter } from "next/navigation";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
@@ -19,9 +13,6 @@ export default function Chapter2Page11() {
 
   //PROGRESS VALUE
   setProgress(100);
-
-  //SAVE PROGRESS STATE
-  const [progressSave, setProgressSave] = useState<boolean>(false);
 
   return (
     <>

@@ -1,11 +1,6 @@
 "use client";
 import React from "react";
 import { useEffect, useState, useRef } from "react";
-import { auth } from "../../../backend/config/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import Lottie from "lottie-react";
-import animationData from "@/public/animations/loading_animation.json";
-import { useRouter } from "next/navigation";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
@@ -92,14 +87,6 @@ export default function Chapter2Page10() {
     3: board3,
     4: board4,
   } as Record<number, Picture[]>;
-
-  const router = useRouter();
-
-  //USER ID
-  const [UserId, setUserId] = useState<string | null>(null);
-
-  //LOADING
-  const [loading, setLoading] = useState<boolean>(true);
 
   //PROGRESS
   const { setProgress } = useProgress();

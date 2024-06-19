@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
@@ -78,7 +77,6 @@ export default function Chapter2Page4() {
           </Tilt>
         </div>
         <div className="h-full col-span-1"></div>
-        {/* <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
     </>
   );

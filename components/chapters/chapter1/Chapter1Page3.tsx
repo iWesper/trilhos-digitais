@@ -1,12 +1,6 @@
 "use client";
 import React from "react";
-import { useEffect, useState } from "react";
-import { auth } from "../../../backend/config/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import Lottie from "lottie-react";
-import animationData from "@/public/animations/loading_animation.json";
-import { useRouter } from "next/navigation";
-import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";

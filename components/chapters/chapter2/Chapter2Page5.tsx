@@ -1,12 +1,7 @@
 "use client";
 import React from "react";
 import { useEffect, useState, useRef } from "react";
-import { auth } from "../../../backend/config/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import Lottie from "lottie-react";
-import animationData from "@/public/animations/loading_animation.json";
 import { useRouter } from "next/navigation";
-import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
@@ -335,9 +330,7 @@ export default function Chapter2Page5() {
             </Tooltip>
           </TooltipProvider>
         </div>
-        {/* <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
-
       {progressSave && progressSave === true && (
         <SaveBadgeProgressScript
           badgeId={badgeId}

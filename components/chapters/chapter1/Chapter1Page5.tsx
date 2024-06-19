@@ -41,9 +41,6 @@ export default function Chapter1Page5() {
   //ESTADO DA RESPOSTA
   const [resposta, setResposta] = useState<string | null>(null);
 
-  //LOADING
-  const [loading, setLoading] = useState<boolean>(true);
-
   //SAVE PROGRESS STATE
   const [progressSave, setProgressSave] = useState<boolean>(false);
 
@@ -154,7 +151,6 @@ export default function Chapter1Page5() {
             </Tooltip>
           </TooltipProvider>
         </div>
-        {/* <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
 
       {progressSave && progressSave === true && (

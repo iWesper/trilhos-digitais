@@ -2,7 +2,6 @@
 import React from "react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
@@ -28,14 +27,6 @@ export default function Chapter1Page6() {
     reset: true, // If the tilt effect has to be reset on exit.
     easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
   };
-
-  //USER ID
-  const [UserId, setUserId] = useState<string | null>(null);
-
-  //ESTADO DA RESPOSTA
-  const [resposta, setResposta] = useState<string | null>(null);
-
-
   return (
     <>
       <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-2">
@@ -69,7 +60,6 @@ export default function Chapter1Page6() {
             />
           </Tilt>
         </div>
-        {/* <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
     </>
   );

@@ -1,16 +1,8 @@
 "use client";
 import React from "react";
-import { useEffect, useState } from "react";
-import { auth } from "../../../backend/config/firebase";
-import { onAuthStateChanged } from "firebase/auth";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
-import Lottie from "lottie-react";
-import animationData from "@/public/animations/loading_animation.json";
-import { useRouter } from "next/navigation";
 import { useProgress } from "@/components/context/ProgressContext";
-import { useAuth } from "@/components/context/AuthContext";
 
 export default function Chapter2Page1() {
   //PROGRESS
@@ -41,7 +33,6 @@ export default function Chapter2Page1() {
         <Link href="/chapters/chapter2/2">
           <Button className="text-white">Continuar</Button>
         </Link>
-        {/* <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
     </>
   )

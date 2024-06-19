@@ -1,10 +1,6 @@
 "use client";
 import React from "react";
-import { useEffect, useState, useRef } from "react";
-import { auth } from "../../../backend/config/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import Lottie from "lottie-react";
-import animationData from "@/public/animations/loading_animation.json";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
@@ -27,14 +23,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 export default function Chapter2Page9() {
-  const router = useRouter();
-
-  //USER ID
-  const [UserId, setUserId] = useState<string | null>(null);
-
-  //LOADING
-  const [loading, setLoading] = useState<boolean>(true);
-
   //PROGRESS
   const { setProgress } = useProgress();
 

@@ -21,7 +21,6 @@ export default function Chapter1Page1() {
         <Link href="/chapters/chapter1/2">
           <Button>Continuar</Button>
         </Link>
-        {/* <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
     </>
   );

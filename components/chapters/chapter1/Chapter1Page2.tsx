@@ -1,13 +1,6 @@
 "use client";
 import React from "react";
-import { useEffect, useState } from "react";
-import { auth } from "../../../backend/config/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import Lottie from "lottie-react";
-import animationData from "@/public/animations/loading_animation.json";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
@@ -93,7 +86,6 @@ export default function Chapter1Page2() {
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
         ></motion.div>
-        {/* <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
     </>
   )

@@ -1,26 +1,11 @@
 "use client";
 import React from "react";
-import { useEffect, useState, useRef } from "react";
-import { auth } from "../../../backend/config/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import Lottie from "lottie-react";
-import animationData from "@/public/animations/loading_animation.json";
-import { useRouter } from "next/navigation";
-import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
+import {  useState } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import Image from "next/image";
 import { Tilt } from "react-tilt";
-
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
 export default function Chapter2Page6() {
@@ -30,9 +15,6 @@ export default function Chapter2Page6() {
 
   //PROGRESS VALUE
   setProgress(50);
-
-  //SAVE PROGRESS STATE
-  const [progressSave, setProgressSave] = useState<boolean>(false);
 
   //CONTROLO DA ANIMAÇÃO
   const defaultOptions = {

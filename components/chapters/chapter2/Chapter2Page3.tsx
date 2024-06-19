@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { useState, useRef } from "react";
-import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
@@ -253,7 +252,6 @@ export default function Chapter2Page3() {
             </Tooltip>
           </TooltipProvider>
         </div>
-        {/* <SpeakerWaveIcon className="text-white h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
 
       {progressSave && progressSave === true && (
