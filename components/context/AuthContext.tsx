@@ -22,9 +22,11 @@ interface AuthContextType {
   handleGoogleSignIn: () => Promise<void>;
   handlePasswordReset: (email: string) => Promise<void>;
   goGetUsername: (userId: string) => Promise<void>;
+  goGetBadges: () => Promise<void>;
   username: string;
   error: string | null;
   tutorialState: boolean;
+  BadgeList: any[];
 }
 
 // Criação do contexto
@@ -53,6 +55,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [error, setError] = useState<string | null>(null);
   // Estado para guardar o estado do tutorial
   const [tutorialState, setTutorialState] = useState(false);
+  // Lista de Badges
+  const [BadgeList,setBadgeList] = useState<any[]>([]);
 
   // Efeito para verificar se o utilizador está autenticado
   useEffect(() => {
@@ -164,6 +168,131 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  // Handler para ir buscar os badges ganhos e o progresso dos não ganhos
+  const goGetBadges= async () => {
+
+    // Primeira tabela
+    const BadgeListCollection = collection(db, "badgesEarned");
+
+    // Segunda tabela
+    const isEarningBadgesCollection = collection(db, "isEarningBadges");
+
+    // Se houver User
+    if(currentUser) {
+
+      try{
+
+              // Primeira Query
+              const q = query(BadgeListCollection, where("userId", "==", currentUser.uid));
+
+              // Buscar Dados
+              const queryFilter = await getDocs(q);
+
+              // Array Badges
+              let FilteredData: Array<any> = [];
+
+              // Para cada id
+              for (let doc of queryFilter.docs) {
+
+                // Dados
+                const data = doc.data();
+
+                // Se houver badge id
+                if(data.badgeId) {
+
+                  // Buscar info do badge
+                  const badgeInfoArray = await getBadgeInfo(data.badgeId);
+
+                  // Para cada badge
+                  badgeInfoArray.forEach((badgeInfo) => {
+
+                    // Adicionar badge ao array
+                    FilteredData.push({...data, badgeInfo, id: doc.id, percentage:100 });
+                });
+              } else {
+
+                // Erro sem badge id
+                setError(`Document ${doc.id} does not have a badgeId`);
+              }
+      }
+
+      // Agora vai buscar os badges que estão em progresso
+      
+      // Segunda Query
+      const q2= query(isEarningBadgesCollection, where("userId","==", currentUser.uid));
+
+      // Buscar Dados
+      const queryFilter2 = await getDocs(q2);
+
+      // Para cada badge
+      for (let doc of queryFilter2.docs){
+
+        // Dados
+        const data = doc.data();
+
+        // Se houver badge id
+        if (data.badgeId) {
+
+          // Buscar info do badge
+          const badgeInfoArray = await getBadgeInfo(data.badgeId);
+
+          // Para cada badge
+          badgeInfoArray.forEach(badgeInfo => {
+
+            // Adicionar badge ao array
+            FilteredData.push({...data, badgeInfo, id:doc.id, percentage:data.percentage});
+          });
+
+        } else {
+            
+            // Erro sem badge id
+            setError(`Document ${doc.id} does not have a badgeId`);
+        }
+      }
+
+      // Save no estado
+      setBadgeList(FilteredData);
+
+
+    } catch (e) {
+
+      // Temp log do erro
+      console.error(e);
+      setError(`Erro no fetch dos dados: ${e}`);
+    }
+  } else {
+
+    // Erro sem User
+    setError("Não há User logado.");
+  }
+}
+
+  // Função dos detalhes do badge
+  const getBadgeInfo = async (badgeId: number) => {
+
+    // Primeira tabela
+    const BadgeCollection= collection(db, "badges");
+
+    // Query
+    const q= query(BadgeCollection, where("idManual", "==", badgeId));
+
+    // Buscar Dados
+    const queryFilter= await getDocs(q);
+
+    // Array de Badges
+    const FilteredData = queryFilter.docs.map((doc) => ({
+      ...doc.data(),
+      id:doc.id
+
+    }));
+
+    return FilteredData;
+  }
+
+
+
+
+
   // Valor do contexto
   const value = {
     currentUser,
@@ -172,6 +301,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     handleGoogleSignIn,
     handlePasswordReset,
     goGetUsername,
+    goGetBadges,
+    BadgeList,
     username,
     error,
     tutorialState,

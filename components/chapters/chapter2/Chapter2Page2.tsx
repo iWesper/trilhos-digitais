@@ -7,6 +7,7 @@ import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 import { useAuth } from "@/components/context/AuthContext";
 
+
 export default function Chapter2Page2() {
 
   //PROGRESS
@@ -62,6 +63,7 @@ export default function Chapter2Page2() {
               className="rounded"
             />
           </Tilt>
+          <Link href="/chapters/chapter2/3">Temp go to next</Link>
         </div>
         <div className="h-full col-span-1"></div>
       </div>

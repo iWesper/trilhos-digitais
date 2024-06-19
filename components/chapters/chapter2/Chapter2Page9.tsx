@@ -56,7 +56,7 @@ export default function Chapter2Page9() {
   );
 
   //FONTE INICIAL DO TEXTO
-  const [TextFont, setTextFont] = useState<string>("font-tomatoes");
+  const [TextFont, setTextFont] = useState<string>("font-lovedays");
 
   //MOSTRAR OS BOTÕES DO FORM
   const [ButtonsForm, setButtonsForm] = useState<boolean>(false);

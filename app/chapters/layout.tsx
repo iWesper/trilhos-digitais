@@ -19,24 +19,24 @@ export default function ChaptersLayout({
 
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    if (!currentUser) {
-      router.push("/authentication");
-    } else {
-      setIsLoading(false); // User is authenticated, proceed to render the component
-    }
-  }, [currentUser, router]);
+  // useEffect(() => {
+  //   if (!currentUser) {
+  //     router.push("/authentication");
+  //   } else {
+  //     setIsLoading(false); // User is authenticated, proceed to render the component
+  //   }
+  // }, [currentUser, router]);
 
-  if (isLoading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center">
-        <Lottie
-          animationData={animationData}
-          className="bg-foreground h-20 w-20 "
-        />
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="h-screen w-screen flex justify-center items-center">
+  //       <Lottie
+  //         animationData={animationData}
+  //         className="bg-foreground h-20 w-20 "
+  //       />
+  //     </div>
+  //   );
+  // }
   
   return (
     <ProgressProvider>

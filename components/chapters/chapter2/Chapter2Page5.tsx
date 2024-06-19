@@ -93,7 +93,7 @@ export default function Chapter2Page5() {
   const [showDialog, setShowDialog] = useState<boolean>(false);
 
   //ORDEM CORRETA DE IMAGENS
-  const correctOrder = [3, 2, 1];
+  const correctOrder = [1, 2, 3];
 
   //AO CLIQUE PARA ARRASTAR
   const handleMouseDown = (id: number) => {
@@ -235,7 +235,7 @@ export default function Chapter2Page5() {
     return (
       <div
         ref={dropRef}
-        className="w-full border-4 border-dotted border-white flex flex-col items-center justify-center relative min-h-[60vh] h-[60vh]"
+        className="w-full border-4 border-dotted z border-white flex flex-col items-center justify-center relative min-h-[60vh] h-[60vh]"
       >
         {board.length > 0 &&
           board.map((picture) => {

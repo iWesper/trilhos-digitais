@@ -49,8 +49,20 @@ const SaveBadgeProgressScript: React.FC<SaveBadgeProgressScriptProps> = ({
 
     //SE JÁ TIVER O UID
     if (UserId) {
+
+      //VER SE O BADGE EM QUESTÃO JÁ FOI GANHO
+      const earnedBadgesQuery = query(badgesEarnedCollection, where("userId", "==", UserId), where("badgeId", "==", numericBadgeId));
+
+      //RESULTADOS
+      const earnedBadgesQueryResults = await getDocs(earnedBadgesQuery);
+
+      //SE O BADGE JÁ TIVER SIDO GANHO
+      if(!earnedBadgesQueryResults.empty){
+
+        return router.push(NextPage);
+      }
       //SE A PERCENTAGEM FOR 100%
-      if (Percentage === 100) {
+      else if (Percentage === 100) {
         
         //ERROR HANDLE
         try {
