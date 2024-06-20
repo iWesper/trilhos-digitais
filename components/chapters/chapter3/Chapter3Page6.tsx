@@ -327,7 +327,7 @@ export default function Chapter3Page6() {
           {isCorrect !== null && isCorrect === true && (
             <Dialog>
               <DialogTrigger>
-                <Button>Continuar</Button>
+                <Button className=" text-white ms-5">Continuar</Button>
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>

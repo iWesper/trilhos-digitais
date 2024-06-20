@@ -34,6 +34,13 @@ const ChapterComponents: { [key: string]: React.ComponentType<{}> } = {
   Chapter3Page4: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page4").then((module) => module.default) as Promise<React.ComponentType<{}>>),
   Chapter3Page5: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page5").then((module) => module.default) as Promise<React.ComponentType<{}>>),
   Chapter3Page6: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page6").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter3Page7: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page7").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter3Page8: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page8").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter3Page9: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page9").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter3Page10: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page10").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter3Page11: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page11").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter3Page12: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page12").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter3Page13: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page13").then((module) => module.default) as Promise<React.ComponentType<{}>>),
   
   
   Chapter4Page1: dynamic(() => import("@/components/chapters/chapter4/Chapter4Page1").then((module) => module.default) as Promise<React.ComponentType<{}>>),
