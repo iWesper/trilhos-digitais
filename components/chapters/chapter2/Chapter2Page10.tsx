@@ -19,6 +19,10 @@ import { useDrop } from "react-dnd";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import PicturePhones from "./Design_Telemoveis_Drop";
+import { useToast } from "@/components/ui/use-toast";
+import { useAuth } from "@/components/context/AuthContext";
+
+
 
 import testimg1 from "@/public/img/chapter2/Phone1.svg";
 import testimg2 from "@/public/img/chapter2/Phone2.svg";
@@ -31,6 +35,13 @@ interface Picture {
 }
 
 export default function Chapter2Page10() {
+
+   //TOAST
+   const { toast } = useToast();
+
+   //AUTH Se for false tem badge, true não tem
+   const { WillShowToast, willShowToastState } = useAuth();
+
   //LISTA DE ELEMENTOS ARRASTÁVEIS
   //AQUI, URL É A LOCALIZAÇÃO
   const PictureList = [
@@ -51,6 +62,8 @@ export default function Chapter2Page10() {
       url: testimg4,
     },
   ];
+
+
   //STATE ATUALIZÁVEL COM OS ELEMENTOS QUE LÁ ESTÃO
   const [board, setBoard] = useState<Picture[]>([]);
 
@@ -116,6 +129,8 @@ export default function Chapter2Page10() {
 
   //MENSAGEM A ESCREVER
   let message = "";
+
+  useEffect(() => { WillShowToast(badgeId)}, []);
 
   //DICA
   const Tip = "Arrasta os telemóveis para os ordenares.";
@@ -254,7 +269,15 @@ export default function Chapter2Page10() {
     ) {
       message = "Não nos parece ser essa a ordem, anda, tenta de novo.";
     } else if (correctPositions == 4) {
+
       message = "Acertaste, parabéns!";
+
+      if(willShowToastState === true){
+        toast({
+          title: "Nova conquista registada.",
+          description: "Ganhaste o teu segundo badge!",
+        });
+      }
 
       setPcontent(
         "O telemóvel é um objeto que sofreu enormes alterações no seu design ao longo do tempo, deixando de ser algo apenas funcional, mas com alguns, como o iPhone, tornando-se também um símbolo, representando perfeitamente aquele que é o pico do design, e como este segue tanto a função como o significado (Form Follows It All)."

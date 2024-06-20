@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { MdQuestionMark } from "react-icons/md";
@@ -12,14 +12,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+
+import { useToast } from "@/components/ui/use-toast";
+import { useAuth } from "@/components/context/AuthContext";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { useProgress } from "@/components/context/ProgressContext";
 
@@ -36,6 +31,12 @@ export default function Chapter3Page14() {
   //PROGRESS
   const { setProgress } = useProgress();
 
+    //TOAST
+    const { toast } = useToast();
+
+    //AUTH Se for false tem badge, true não tem
+    const { WillShowToast, willShowToastState } = useAuth();
+
   //PROGRESS VALUE
   setProgress(7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571);
 
@@ -47,6 +48,8 @@ export default function Chapter3Page14() {
 
   //MOSTRA O BOTÃO
     const [showButton, setShowButton] = useState<boolean>(false);
+
+    useEffect(() => { WillShowToast(badgeId)}, []);
 
   //TIP
   const Tip = "As modalidades referem-se à mensagem e seu significado, não apenas à sua passagem.";
@@ -66,7 +69,13 @@ export default function Chapter3Page14() {
       setResposta(
         "É isso mesmo, parabéns!"
       );
-
+ 
+      if(willShowToastState === true){
+        toast({
+          title: "Nova conquista registada.",
+          description: "Ganhaste o teu terceiro badge!",
+        });
+      }
             //MOSTRA O CONTINUAR
             setShowButton(true);
 

@@ -62,7 +62,13 @@ const config = {
           DEFAULT: "hsl(var(--hover))",
           foreground: "hsl(var(--hover-foreground))",
 
-        }
+        },
+        golden: {
+          DEFAULT: "hsl(var(--golden))",
+          foreground: "hsl(var(--golden-foreground))",
+
+        },
+        
       },
       borderRadius: {
         lg: "var(--radius)",

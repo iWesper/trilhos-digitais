@@ -24,10 +24,12 @@ interface AuthContextType {
   handlePasswordReset: (email: string) => Promise<void>;
   goGetUsername: (userId: string) => Promise<void>;
   goGetBadges: () => Promise<void>;
+  WillShowToast: (BadgeId: number) => Promise<boolean>;
   username: string;
   error: string | null;
   tutorialState: boolean;
   BadgeList: any[];
+  willShowToastState: boolean;
 }
 
 // Criação do contexto
@@ -57,9 +59,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   // Estado para guardar o estado do tutorial
   const [tutorialState, setTutorialState] = useState(false);
   // Lista de Badges
-  const [BadgeList,setBadgeList] = useState<any[]>([]);
+  const [BadgeList, setBadgeList] = useState<any[]>([]);
   // Estado para guardar se a página está a carregar
   const [isLoading, setIsLoading] = useState(true);
+  //SABER SE USER TEM O BADGE OU NÃO
+  const [willShowToastState, setwillShowToastState] = useState<boolean>(false);
 
   // Efeito para verificar se o utilizador está autenticado
   useEffect(() => {
@@ -133,18 +137,18 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const handlePasswordReset = async (email: string) => {
     setError(null); // Reset error state
     if (!email || email.trim() === "") {
-        setError(
-          "Para conseguir alterar a password, por favor, insere o teu email."
-        );
-      } else {
-        //TRY
-        try {
-          //MANDA EMAIL Á PESSOA
-          await sendPasswordResetEmail(auth, email);
-        } catch (e) {
-          setError("Ocorreu um erro no processo, por favor, tente novamente.");
-        }
+      setError(
+        "Para conseguir alterar a password, por favor, insere o teu email."
+      );
+    } else {
+      //TRY
+      try {
+        //MANDA EMAIL Á PESSOA
+        await sendPasswordResetEmail(auth, email);
+      } catch (e) {
+        setError("Ocorreu um erro no processo, por favor, tente novamente.");
       }
+    }
   };
 
   // Handler para fazer logout
@@ -173,8 +177,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   // Handler para ir buscar os badges ganhos e o progresso dos não ganhos
-  const goGetBadges= async () => {
-
+  const goGetBadges = async () => {
     // Primeira tabela
     const BadgeListCollection = collection(db, "badgesEarned");
 
@@ -182,120 +185,155 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const isEarningBadgesCollection = collection(db, "isEarningBadges");
 
     // Se houver User
-    if(currentUser) {
+    if (currentUser) {
+      try {
+        // Primeira Query
+        const q = query(
+          BadgeListCollection,
+          where("userId", "==", currentUser.uid)
+        );
 
-      try{
+        // Buscar Dados
+        const queryFilter = await getDocs(q);
 
-              // Primeira Query
-              const q = query(BadgeListCollection, where("userId", "==", currentUser.uid));
+        // Array Badges
+        let FilteredData: Array<any> = [];
 
-              // Buscar Dados
-              const queryFilter = await getDocs(q);
+        // Para cada id
+        for (let doc of queryFilter.docs) {
+          // Dados
+          const data = doc.data();
 
-              // Array Badges
-              let FilteredData: Array<any> = [];
+          // Se houver badge id
+          if (data.badgeId) {
+            // Buscar info do badge
+            const badgeInfoArray = await getBadgeInfo(data.badgeId);
 
-              // Para cada id
-              for (let doc of queryFilter.docs) {
-
-                // Dados
-                const data = doc.data();
-
-                // Se houver badge id
-                if(data.badgeId) {
-
-                  // Buscar info do badge
-                  const badgeInfoArray = await getBadgeInfo(data.badgeId);
-
-                  // Para cada badge
-                  badgeInfoArray.forEach((badgeInfo) => {
-
-                    // Adicionar badge ao array
-                    FilteredData.push({...data, badgeInfo, id: doc.id, percentage:100 });
-                });
-              } else {
-
-                // Erro sem badge id
-                setError(`Document ${doc.id} does not have a badgeId`);
-              }
-      }
-
-      // Agora vai buscar os badges que estão em progresso
-      
-      // Segunda Query
-      const q2= query(isEarningBadgesCollection, where("userId","==", currentUser.uid));
-
-      // Buscar Dados
-      const queryFilter2 = await getDocs(q2);
-
-      // Para cada badge
-      for (let doc of queryFilter2.docs){
-
-        // Dados
-        const data = doc.data();
-
-        // Se houver badge id
-        if (data.badgeId) {
-
-          // Buscar info do badge
-          const badgeInfoArray = await getBadgeInfo(data.badgeId);
-
-          // Para cada badge
-          badgeInfoArray.forEach(badgeInfo => {
-
-            // Adicionar badge ao array
-            FilteredData.push({...data, badgeInfo, id:doc.id, percentage:data.percentage});
-          });
-
-        } else {
-            
+            // Para cada badge
+            badgeInfoArray.forEach((badgeInfo) => {
+              // Adicionar badge ao array
+              FilteredData.push({
+                ...data,
+                badgeInfo,
+                id: doc.id,
+                percentage: 100,
+              });
+            });
+          } else {
             // Erro sem badge id
             setError(`Document ${doc.id} does not have a badgeId`);
+          }
         }
+
+        // Agora vai buscar os badges que estão em progresso
+
+        // Segunda Query
+        const q2 = query(
+          isEarningBadgesCollection,
+          where("userId", "==", currentUser.uid)
+        );
+
+        // Buscar Dados
+        const queryFilter2 = await getDocs(q2);
+
+        // Para cada badge
+        for (let doc of queryFilter2.docs) {
+          // Dados
+          const data = doc.data();
+
+          // Se houver badge id
+          if (data.badgeId) {
+            // Buscar info do badge
+            const badgeInfoArray = await getBadgeInfo(data.badgeId);
+
+            // Para cada badge
+            badgeInfoArray.forEach((badgeInfo) => {
+              // Adicionar badge ao array
+              FilteredData.push({
+                ...data,
+                badgeInfo,
+                id: doc.id,
+                percentage: data.percentage,
+              });
+            });
+          } else {
+            // Erro sem badge id
+            setError(`Document ${doc.id} does not have a badgeId`);
+          }
+        }
+
+        // Save no estado
+        setBadgeList(FilteredData);
+      } catch (e) {
+        // Temp log do erro
+        console.error(e);
+        setError(`Erro no fetch dos dados: ${e}`);
       }
-
-      // Save no estado
-      setBadgeList(FilteredData);
-
-
-    } catch (e) {
-
-      // Temp log do erro
-      console.error(e);
-      setError(`Erro no fetch dos dados: ${e}`);
+    } else {
+      // Erro sem User
+      setError("Não há User logado.");
     }
-  } else {
-
-    // Erro sem User
-    setError("Não há User logado.");
-  }
-}
+  };
 
   // Função dos detalhes do badge
   const getBadgeInfo = async (badgeId: number) => {
-
     // Primeira tabela
-    const BadgeCollection= collection(db, "badges");
+    const BadgeCollection = collection(db, "badges");
 
     // Query
-    const q= query(BadgeCollection, where("idManual", "==", badgeId));
+    const q = query(BadgeCollection, where("idManual", "==", badgeId));
 
     // Buscar Dados
-    const queryFilter= await getDocs(q);
+    const queryFilter = await getDocs(q);
 
     // Array de Badges
     const FilteredData = queryFilter.docs.map((doc) => ({
       ...doc.data(),
-      id:doc.id
-
+      id: doc.id,
     }));
 
     return FilteredData;
-  }
+  };
 
+  // Função para dar trigger ao toast
+  const WillShowToast = async (BadgeId: number): Promise<boolean> => {
+    // Primeira tabela
+    const BadgeListCollection = collection(db, "badgesEarned");
 
+    // Se houver user
+    if (currentUser) {
+      try {
+        // Query
+        const q = query(
+          BadgeListCollection,
+          where("userId", "==", currentUser.uid),
+          where("badgeId", "==", BadgeId)
+        );
 
+        // Buscar Dados
+        const queryFilter = await getDocs(q);
 
+        // Se houver não docs faz if not empty que será false
+        if (!queryFilter.empty) {
+
+          setwillShowToastState(false);
+
+        } else {
+          // Se não houver docs, dá true
+         setwillShowToastState(true);
+        }
+      } catch (e) {
+        // Erro
+        setError(`Erro no fetch dos dados: ${e}`);
+      }
+    } else {
+      // Erro
+      setError("Não há User logado.");
+    }
+
+    return false;
+
+  };
 
   // Valor do contexto
   const value = {
@@ -307,10 +345,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     goGetUsername,
     goGetBadges,
     BadgeList,
+    WillShowToast,
     username,
     error,
     tutorialState,
     isLoading,
+    willShowToastState,
   };
 
   // Retorna o provider com o valor

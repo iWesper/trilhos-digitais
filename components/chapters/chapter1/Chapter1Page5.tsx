@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { MdQuestionMark } from "react-icons/md";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/components/context/AuthContext";
 import {
   Tooltip,
   TooltipContent,
@@ -19,10 +20,18 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useToast } from "@/components/ui/use-toast";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { useProgress } from "@/components/context/ProgressContext";
 
 export default function Chapter1Page5() {
+
+  //TOAST
+  const { toast } = useToast();
+
+  //AUTH Se for false tem badge, true não tem
+  const { WillShowToast, willShowToastState } = useAuth();
+
   //BADGE DO CAPÍTULO
   const badgeId = 1;
 
@@ -31,6 +40,14 @@ export default function Chapter1Page5() {
 
   //GO TO
   const nextPage = "/chapters/chapter1/6";
+
+  
+  //CHAMAR A FUNÇÃO ONMOUNT
+  useEffect(() => {
+
+    WillShowToast(badgeId);
+
+  }, []);
 
   //PROGRESS
   const { setProgress } = useProgress();
@@ -120,7 +137,19 @@ export default function Chapter1Page5() {
           <div className="col-span-2 flex justify-center items-center w-full">
             <Dialog className="w-full">
               <DialogTrigger className="w-full">
-                <Button type="button" value="Cinema" className="w-full m-3">
+                <Button
+                  type="button"
+                  value="Cinema"
+                  className="w-full m-3"
+                  onClick={() => {
+                    if (willShowToastState) {
+                      toast({
+                        title: "Nova conquista registada.",
+                        description: "Ganhaste o teu primeiro badge!",
+                      });
+                    }
+                  }}
+                >
                   Cinema
                 </Button>
               </DialogTrigger>

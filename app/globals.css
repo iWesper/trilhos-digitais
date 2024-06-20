@@ -55,6 +55,10 @@
     --hover:206, 46%, 23%;
     --hover-foreground: 0 0% 98%;
 
+    --golden: 51, 100%, 50%;
+    --golden-foreground: 0 0% 98%;
+ 
+
     --radius: 0.5rem;
   }
 

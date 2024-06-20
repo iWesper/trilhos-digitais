@@ -1,5 +1,5 @@
 "use client"
-
+import { GiAchievement } from "react-icons/gi";
 import {
   Toast,
   ToastClose,
@@ -17,15 +17,16 @@ export function Toaster() {
     <ToastProvider>
       {toasts.map(function ({ id, title, description, action, ...props }) {
         return (
-          <Toast key={id} {...props}>
-            <div className="grid gap-1">
+          <Toast key={id} {...props} className="bg-white">
+            <GiAchievement className="w-16 h-16 text-golden" />
+            <div className="grid gap-1 text-foreground">
               {title && <ToastTitle>{title}</ToastTitle>}
               {description && (
                 <ToastDescription>{description}</ToastDescription>
               )}
             </div>
             {action}
-            <ToastClose />
+            <ToastClose  />
           </Toast>
         )
       })}
