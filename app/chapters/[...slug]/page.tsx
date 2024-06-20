@@ -1,4 +1,5 @@
 // Import do dynamic para carregar os componentes de cada capítulo de forma dinâmica
+import Chapter3Page15 from "@/components/chapters/chapter3/Chapter3Page15";
 import dynamic from "next/dynamic";
 import React from "react";
 
@@ -41,9 +42,12 @@ const ChapterComponents: { [key: string]: React.ComponentType<{}> } = {
   Chapter3Page11: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page11").then((module) => module.default) as Promise<React.ComponentType<{}>>),
   Chapter3Page12: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page12").then((module) => module.default) as Promise<React.ComponentType<{}>>),
   Chapter3Page13: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page13").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter3Page14: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page14").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter3Page15: dynamic(() => import("@/components/chapters/chapter3/Chapter3Page15").then((module) => module.default) as Promise<React.ComponentType<{}>>),
   
-  
+  //4
   Chapter4Page1: dynamic(() => import("@/components/chapters/chapter4/Chapter4Page1").then((module) => module.default) as Promise<React.ComponentType<{}>>),
+  Chapter4Page2: dynamic(() => import("@/components/chapters/chapter4/Chapter4Page2").then((module) => module.default) as Promise<React.ComponentType<{}>>),
 
   // Adicionar mais capítulos à medida que são necessários
 };

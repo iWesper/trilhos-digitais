@@ -6,19 +6,19 @@ import { useProgress } from "@/components/context/ProgressContext";
 
 import { Button } from "@/components/ui/button";
 
-export default function Chapter3Page7() {
+export default function Chapter3Page15() {
 
   //PROGRESS
   const { setProgress } = useProgress();
 
     //PROGRESS VALUE
-    setProgress(7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571);
+    setProgress(7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571);
 
   return (
     <>
       <div className="bg-chapter3BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center p-4">
         <Link
-          href="/chapters/chapter3/6"
+          href="/chapters/chapter3/14"
           className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
         >
           <IoChevronBack className=" h-8 w-8" />
@@ -27,12 +27,13 @@ export default function Chapter3Page7() {
         <div className="col-span-2"></div>
         <div className="col-span-8 flex justify-start items-center text-center flex-col pt-20">
           <p className="text-white font-medium p-6 pb-8">
-          Uau, parece que percebeste bem como são distinguidos os meios técnicos. No entanto, existem também quatro modalidades que permitem distinguir os <span className="italic">media</span>.
+          Parece que percebeste como é que estes meios técnicos e modalidades são utilizadas para definir a especificidade dos <span className="italic">media</span>, e deste modo como nos é passada a mensagem, muito bem!
           </p>
           <p className="text-white font-medium pb-8">
-          Vamos descobri-las!
+          Agora, para acabar a nossa aventura pelos pilares, vamos ver como evoluíram as ferramentas de comunicação.
           </p>
-          <Link href={"/chapters/chapter3/8"}>
+          <p className="text-white font-medium pb-8">Próxima paragem: Tecnologia!</p>
+          <Link href={"/chapters/chapter4/1"}>
             <Button className="text-white">Continuar</Button>
           </Link>
         </div>

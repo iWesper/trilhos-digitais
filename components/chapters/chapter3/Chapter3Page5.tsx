@@ -12,7 +12,7 @@ export default function Chapter3Page5() {
   const { setProgress } = useProgress();
 
     //PROGRESS VALUE
-    setProgress(60);
+    setProgress(7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571);
 
   return (
     <>

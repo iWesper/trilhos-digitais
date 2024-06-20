@@ -30,7 +30,7 @@ export default function Chapter3Page6() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(60);
+  setProgress(7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571);
 
   //LISTA de PALAVRAS POSSÍVEIS
   const words = [
@@ -65,7 +65,7 @@ export default function Chapter3Page6() {
   const badgeId = 3;
 
   //PERCENTAGEM CONFERIDA AQUI
-  const percentage = 100;
+  const percentage = 50;
 
   //GO TO
   const nextPage = "/chapters/chapter3/7";
@@ -226,7 +226,7 @@ export default function Chapter3Page6() {
     <>
       <div className="bg-chapter3BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 justify-center items-center p-4">
         <Link
-          href="/chapters/chapter3/4"
+          href="/chapters/chapter3/5"
           className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
         >
           <IoChevronBack className=" h-8 w-8" />

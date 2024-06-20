@@ -12,18 +12,38 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { useProgress } from "@/components/context/ProgressContext";
 
-export default function Chapter3Page13() {
+export default function Chapter3Page14() {
+  //BADGE DO CAPÍTULO
+  const badgeId = 3;
+
+  //PERCENTAGEM CONFERIDA AQUI
+  const percentage = 100;
+
+  //GO TO
+  const nextPage = "/chapters/chapter3/15";
 
   //PROGRESS
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571);
+  setProgress(7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571);
 
   //ESTADO DA RESPOSTA
   const [resposta, setResposta] = useState<string | null>(null);
+
+  //SAVE PROGRESS STATE
+  const [progressSave, setProgressSave] = useState<boolean>(false);
 
   //MOSTRA O BOTÃO
     const [showButton, setShowButton] = useState<boolean>(false);
@@ -40,35 +60,38 @@ export default function Chapter3Page13() {
     const resposta = (e.target as HTMLButtonElement).value;
 
     //VERIFICA SE A RESPOSTA ESTÁ CORRETA
-    if (resposta === "Sensorial") {
+    if (resposta === "Como Percebemos a Mensagem no Espaço e no Tempo") {
+
       //STATE A MOSTRAR À PESSOA
       setResposta(
-        "Exatamente! Vamos a mais uma pergunta."
+        "É isso mesmo, parabéns!"
       );
 
             //MOSTRA O CONTINUAR
             setShowButton(true);
 
-    }  else if (resposta === "Semiótica") {
+    }  else if (resposta === "Tempo de Espera para a Receção da Mensagem no Espaço") {
+
       //STATE A MOSTRAR À PESSOA
       setResposta(
-        "Não me parece ser a modalidade certa, anda tenta de novo."
-      );
+        "Tens a certeza? Tenta de novo.");
 
+  };
 
+};
 
-    } else if(resposta === "Material"){
-      setResposta(
-        "Não me parece ser a modalidade certa, anda tenta de novo."
-      );
-    }
+  //CINEMA CLICADO
+  const SaveBadgeProgressAndGoToNextPage = () => {
+    
+    //PODE IR GUARDAR
+    setProgressSave(true);
   };
 
   return (
     <>
       <div className="bg-chapter3BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12">
         <Link
-          href="/chapters/chapter3/12"
+          href="/chapters/chapter3/13"
           className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
         >
           <IoChevronBack className=" h-8 w-8" />
@@ -77,8 +100,7 @@ export default function Chapter3Page13() {
         <div className="col-span-2 mt-24 mb-4"></div>
         <div className="flex items-center justify-center col-span-8 mt-24 mb-4">
             <p className="font-bold text-white text-center">
-            Qual modalidade que se refere a como os <span className="italic">media</span> interagem com os nossos orgãos
-            como os olhos, ouvidos, entre outros?
+            De que forma se reflete a modalidade espaciotemporal?
             </p>
           </div>
           <div className="col-span-2 mt-24 mb-4"></div>
@@ -95,8 +117,8 @@ export default function Chapter3Page13() {
         <div className="col-span-4 flex justify-center items-center">
             
             <Image
-               src="/img/chapter3/chapter3folhear.svg"
-              alt="Imagem de um livro"
+               src="/img/chapter3/chapter3instax.svg"
+              alt="Imagem de uma foto instantânea"
               width={300}
               height={300}
               className="rounded text-center"
@@ -108,31 +130,24 @@ export default function Chapter3Page13() {
           {!showButton && (<form className="flex flex-row items-center justify-center mt-3">
             <Button
               type="button"
-              value="Material"
+              value="Como Percebemos a Mensagem no Espaço e no Tempo"
               onClick={handleFormSubmit}
               className=" m-3 text-white"
             >
-              Material
+              Como Percebemos a Mensagem no Espaço e no Tempo
             </Button>
               <Button
                 type="button"
-                value="Sensorial"
+                value="Tempo de Espera para a Receção da Mensagem no Espaço"
                 onClick={handleFormSubmit}
                 className=" m-3 text-white"
               >
-                Sensorial
+                Tempo de Espera para a Receção da Mensagem no Espaço
               </Button>
-            <Button
-              type="button"
-              value="Semiótica"
-              onClick={handleFormSubmit}
-              className=" m-3 text-white"
-            >
-              Semiótica
-            </Button>
+            
           </form>)}
 
-          {showButton && (<Link href="/chapters/chapter3/14"><Button className="text-white" >Continuar</Button></Link>)}
+          {showButton && (<Button className="text-white" onClick={SaveBadgeProgressAndGoToNextPage}>Continuar</Button>)}
           
         </div>
         <div className="fixed bottom-5 left-5">
@@ -148,6 +163,14 @@ export default function Chapter3Page13() {
           </TooltipProvider>
         </div>
       </div>
+
+      {progressSave && progressSave === true && (
+        <SaveBadgeProgressScript
+          badgeId={badgeId}
+          progress={percentage}
+          nextPage={nextPage}
+        />
+      )}
     </>
   );
 }

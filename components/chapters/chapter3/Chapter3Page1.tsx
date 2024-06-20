@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 
-export default function Chapter3Page1() {
+export default function Chapter4Page1() {
   //PROGRESS
   const { setProgress } = useProgress();
 

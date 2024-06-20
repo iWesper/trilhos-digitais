@@ -14,7 +14,7 @@ export default function Chapter3Page3() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(16.66);
+  setProgress(7.1428571428571428571428571428571+7.1428571428571428571428571428571);
 
   //CONTROLO DA ANIMAÇÃO
   const defaultOptions = {
