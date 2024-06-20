@@ -132,7 +132,7 @@ export default function Chapter3Page14() {
               type="button"
               value="Como Percebemos a Mensagem no Espaço e no Tempo"
               onClick={handleFormSubmit}
-              className=" m-3 text-white"
+              className=" m-3 text-white bg-foreground hover:bg-hover"
             >
               Como Percebemos a Mensagem no Espaço e no Tempo
             </Button>
@@ -140,14 +140,14 @@ export default function Chapter3Page14() {
                 type="button"
                 value="Tempo de Espera para a Receção da Mensagem no Espaço"
                 onClick={handleFormSubmit}
-                className=" m-3 text-white"
+                className=" m-3 text-white bg-foreground hover:bg-hover"
               >
                 Tempo de Espera para a Receção da Mensagem no Espaço
               </Button>
             
           </form>)}
 
-          {showButton && (<Button className="text-white" onClick={SaveBadgeProgressAndGoToNextPage}>Continuar</Button>)}
+          {showButton && (<Button className="text-white bg-foreground hover:bg-hover" onClick={SaveBadgeProgressAndGoToNextPage}>Continuar</Button>)}
           
         </div>
         <div className="fixed bottom-5 left-5">

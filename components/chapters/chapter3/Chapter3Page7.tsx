@@ -33,7 +33,7 @@ export default function Chapter3Page7() {
           Vamos descobri-las!
           </p>
           <Link href={"/chapters/chapter3/8"}>
-            <Button className="text-white">Continuar</Button>
+            <Button className="text-white bg-foreground hover:bg-hover">Continuar</Button>
           </Link>
         </div>
         <div className="col-span-2"></div>

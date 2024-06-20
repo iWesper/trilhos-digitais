@@ -56,7 +56,7 @@ export default function Chapter3Page3() {
                 E perguntas tu, como é que isto acontece? Bem, acontece devido aos diferentes meios técnicos de exposição, meios básicos e meios qualificados utilizados em cada um deles.
             </p>
             <Link href="/chapters/chapter3/4">
-              <Button className="text-white">Continuar</Button>
+              <Button className="text-white bg-foreground hover:bg-hover">Continuar</Button>
             </Link>
           </div>
         </motion.div>

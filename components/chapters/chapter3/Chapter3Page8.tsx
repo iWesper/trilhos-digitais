@@ -56,7 +56,7 @@ export default function Chapter3Page8() {
             As modalidades materiais, consistindo na forma como experiencias aquele <span className="italic">media</span>, por exemplo, uma música só te deixa ouvir a mensagem, não vê-la.
             </p>
             <Link href="/chapters/chapter3/9">
-              <Button className="text-white">Continuar</Button>
+              <Button className="text-white bg-foreground hover:bg-hover">Continuar</Button>
             </Link>
           </div>
         </motion.div>

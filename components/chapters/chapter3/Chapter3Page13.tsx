@@ -110,7 +110,7 @@ export default function Chapter3Page13() {
               type="button"
               value="Material"
               onClick={handleFormSubmit}
-              className=" m-3 text-white"
+              className=" m-3 text-white bg-foreground hover:bg-hover"
             >
               Material
             </Button>
@@ -118,7 +118,7 @@ export default function Chapter3Page13() {
                 type="button"
                 value="Sensorial"
                 onClick={handleFormSubmit}
-                className=" m-3 text-white"
+                className=" m-3 text-white bg-foreground hover:bg-hover"
               >
                 Sensorial
               </Button>
@@ -126,13 +126,13 @@ export default function Chapter3Page13() {
               type="button"
               value="Semiótica"
               onClick={handleFormSubmit}
-              className=" m-3 text-white"
+              className=" m-3 text-white bg-foreground hover:bg-hover"
             >
               Semiótica
             </Button>
           </form>)}
 
-          {showButton && (<Link href="/chapters/chapter3/14"><Button className="text-white" >Continuar</Button></Link>)}
+          {showButton && (<Link href="/chapters/chapter3/14"><Button className="text-white bg-foreground hover:bg-hover" >Continuar</Button></Link>)}
           
         </div>
         <div className="fixed bottom-5 left-5">

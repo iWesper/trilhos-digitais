@@ -31,7 +31,7 @@ const NavbarChapters: React.FC = () => {
   }
 
   return (
-    <div className="flex items-center justify-between px-10 p-4 bg-gray-800 text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-md bg-opacity-80">
+    <div className="flex items-center justify-between px-10 p-4 bg-foreground text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-md bg-opacity-80">
       <Link href={"/"}>
         <div className="relative group">
           <HomeIcon className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" />

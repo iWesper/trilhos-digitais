@@ -34,7 +34,7 @@ export default function Chapter3Page15() {
           </p>
           <p className="text-white font-medium pb-8">Próxima paragem: Tecnologia!</p>
           <Link href={"/chapters/chapter4/1"}>
-            <Button className="text-white">Continuar</Button>
+            <Button className="text-white bg-foreground hover:bg-hover">Continuar</Button>
           </Link>
         </div>
         <div className="col-span-2"></div>

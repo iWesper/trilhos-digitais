@@ -56,7 +56,7 @@ export default function Chapter3Page9() {
             As modalidades sensoriais, sendo a forma como os <span className="italic">media</span> comunicam com os nossos órgãos sensoriais, por exemplo, ouvimos o desfolhar de um livro e sentimos a página virar, mas concentramo-nos no texto.
             </p>
             <Link href="/chapters/chapter3/10">
-              <Button className="text-white">Continuar</Button>
+              <Button className="text-white bg-foreground hover:bg-hover">Continuar</Button>
             </Link>
           </div>
         </motion.div>

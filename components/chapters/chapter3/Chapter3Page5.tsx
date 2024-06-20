@@ -33,7 +33,7 @@ export default function Chapter3Page5() {
           Clica no continuar para começares um minijogo.
           </p>
           <Link href={"/chapters/chapter3/6"}>
-            <Button className="text-white">Continuar</Button>
+            <Button className="text-white bg-foreground hover:bg-hover">Continuar</Button>
           </Link>
         </div>
         <div className="col-span-2"></div>
