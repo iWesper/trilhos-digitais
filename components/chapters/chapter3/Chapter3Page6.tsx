@@ -189,9 +189,9 @@ export default function Chapter3Page6() {
   const verifyWords = () => {
     //OBJETO COM AS PALAVRAS CORRETAS
     const correctWords = {
-      "Meios Técnicos de Exposição": ["Ecrã", "Falas e Sons", "Curta-Metragem"],
-      "Meios básicos": ["Cartaz", "Sons", "Verídico"],
-      "Meios qualificados": ["Papel", "Imagens", "Ficção"],
+      "Meios Técnicos de Exposição": ["Ecrã","Cartaz", "Papel"],
+      "Meios Básicos": ["Falas e Sons", "Sons", "Imagens"],
+      "Meios Qualificados": ["Curta-Metragem", "Verídico", "Ficção"],
     };
 
     //PARA CADA COLUNA
