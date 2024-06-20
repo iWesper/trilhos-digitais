@@ -232,16 +232,16 @@ export default function Chapter3Page6() {
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
         </Link>
-        <div className="col-span-4"></div>
-        <div className="col-span-4 flex justify-start items-center text-center flex-col pt-20">
+        <div className="col-span-3"></div>
+        <div className="col-span-6 flex justify-start items-center text-center flex-col pt-20">
           <p className="text-white font-medium p-6">
-            Abaixo, tens três colunas diretamente relacionadas com o{" "}
+            Abaixo, tens três colunas diretamente relacionadas com o
             <span className="italic">“Spider-Man”</span> enquanto
             banda-desenhada, filme e jogo. Indica quais os meios de cada um para
             continuar!
           </p>
         </div>
-        <div className="col-span-4"></div>
+        <div className="col-span-3"></div>
 
         <div className="col-span-2"></div>
         <div className="col-span-8 flex justify-center items-center">

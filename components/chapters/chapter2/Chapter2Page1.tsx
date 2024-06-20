@@ -13,27 +13,31 @@ export default function Chapter2Page1() {
 
   return (
     <>
-      <div className="bg-chapter2StartBG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover flex flex-col items-center justify-center">
-        <h1 className="font-bold text-white text-9xl mb-11 font-effra">
-          Design
-        </h1>
-        <p className="mb-7 text-white font-medium">
-          Vamos ao segundo pilar, o Design.
-        </p>
-        <p className=" text-white mx-8 mb-5 font-medium">
-          Podemos considerar o Design como estando entre a arte e a engenharia,
-          focando também no visual das obras, mas, principalmente, na
-          funcionalidade. E qual o melhor sítio para estudar Design, senão a sua
-          principal escola?
-        </p>
+      <div className="bg-chapter2StartBG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover flex-col items-center justify-center grid grid-cols-12">
+        <div className="col-span-3"></div>
+        <div className="col-span-6 flex flex-col justify-center items-center">
+          <h1 className="font-bold text-white text-9xl mb-11 font-effra">
+            Design
+          </h1>
+          <p className="mb-7 text-white font-medium">
+            Vamos ao segundo pilar, o Design.
+          </p>
+          <p className=" text-white mx-8 mb-5 font-medium text-center">
+            Podemos considerar o Design como estando entre a arte e a
+            engenharia, focando também no visual das obras, mas, principalmente,
+            na funcionalidade. E qual o melhor sítio para estudar Design, senão
+            a sua principal escola?
+          </p>
 
-        <p className=" text-white mb-6 mx-8 font-medium">
-          Exatamente, vamos até à <span className="italic">Bauhaus</span>!
-        </p>
-        <Link href="/chapters/chapter2/2">
-          <Button className="text-white">Continuar</Button>
-        </Link>
+          <p className=" text-white mb-6 mx-8 font-medium">
+            Exatamente, vamos até à <span className="italic">Bauhaus</span>!
+          </p>
+          <Link href="/chapters/chapter2/2">
+            <Button className="text-white">Continuar</Button>
+          </Link>
+        </div>
+        <div className="col-span-3"></div>
       </div>
     </>
-  )
+  );
 }

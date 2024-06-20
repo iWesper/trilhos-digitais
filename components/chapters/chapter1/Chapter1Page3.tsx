@@ -64,7 +64,7 @@ export default function Chapter1Page3() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-1"></div>
-        <div className="col-span-6 flex flex-col justify-center items-center p-10 mt-20 ">
+        <div className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 ">
           <p className="font-medium mb-10">
             Segundo <span className="italic">Wagner</span>, com a queda de
             Atenas, as artes fragmentaram-se, separando a palavra, a música e a
@@ -78,6 +78,7 @@ export default function Chapter1Page3() {
             vê a sua criação ganhar vida!
           </p>
         </div>
+        <div className="col-span-1"></div>
         <div className="col-span-4 flex justify-center items-center">
           <Dialog>
             <DialogTrigger>

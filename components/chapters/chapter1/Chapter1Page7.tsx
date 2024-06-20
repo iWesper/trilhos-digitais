@@ -40,7 +40,7 @@ export default function Chapter1Page7() {
 
   return (
     <>
-      <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid">
+      <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12">
         <Link
           href="/chapters/chapter1/6"
           className="text-black absolute top-20 left-15 flex items-center cursor-pointer"
@@ -48,10 +48,12 @@ export default function Chapter1Page7() {
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
         </Link>
-        <div className="flex flex-col justify-center items-center p-10 mt-20 ">
+        <div className="col-span-3"></div>
+        <div className="col-span-6 flex flex-col justify-center items-center p-10 mt-20 ">
           <p className="font-medium mb-10">{content}</p>
           <Button onClick={handleContentSwap}>Continuar</Button>
         </div>
+        <div className="col-span-3"></div>
       </div>
     </>
   );

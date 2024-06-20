@@ -38,7 +38,7 @@ export default function Chapter1Page4() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-1"></div>
-        <div className="col-span-6 flex flex-col justify-center items-center p-10 mt-20 ">
+        <div className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 ">
           <p className="font-medium mb-10">
             <span className="italic">Wagner</span> implementou uma “fossa de
             orquestra” em palcos de teatro, reintroduzindo harmonia às peças
@@ -50,6 +50,7 @@ export default function Chapter1Page4() {
             <Button>Continuar</Button>
           </Link>
         </div>
+        <div className="col-span-1"></div>
         <div className="col-span-4 flex justify-center items-center">
           <Tilt options={defaultOptions}>
             <Image

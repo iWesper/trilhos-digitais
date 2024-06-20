@@ -29,7 +29,7 @@ export default function Chapter1Page6() {
   };
   return (
     <>
-      <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-2">
+      <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12">
         <Link
           href="/chapters/chapter1/5"
           className="text-black absolute top-20 left-15 flex items-center cursor-pointer"
@@ -37,7 +37,8 @@ export default function Chapter1Page6() {
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
         </Link>
-        <div className="flex flex-col justify-center items-center p-10 mt-20 ">
+        <div className="col-span-1"></div>
+        <div className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 ">
           <p className="font-medium mb-10">
             O cinema é considerado a 7ª Arte, e a evolução do conceito de{" "}
             <span className="italic">Wagner</span>, pois utiliza a síntese de
@@ -49,7 +50,8 @@ export default function Chapter1Page6() {
             <Button>Continuar</Button>
           </Link>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="col-span-1"></div>
+        <div className="col-span-4 flex justify-center items-center">
           <Tilt options={defaultOptions}>
             <Image
               src="/img/chapter1/chapter1Cinema.svg"
