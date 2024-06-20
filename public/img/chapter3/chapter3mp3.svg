@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="MP3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 528 872">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #cdcccc;
+      }
+
+      .cls-3, .cls-7, .cls-8 {
+        fill: #abd7e7;
+      }
+
+      .cls-9 {
+        fill: #e6e6e6;
+      }
+
+      .cls-9, .cls-10, .cls-7, .cls-8, .cls-11 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-9, .cls-7, .cls-11 {
+        stroke-width: 5px;
+      }
+
+      .cls-9, .cls-11 {
+        stroke: #bbbcbf;
+      }
+
+      .cls-4 {
+        fill: #cbe6fa;
+      }
+
+      .cls-10 {
+        fill: none;
+        stroke: #cae6fa;
+        stroke-width: 7px;
+      }
+
+      .cls-5 {
+        fill: #020302;
+      }
+
+      .cls-6 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-7 {
+        stroke: #15373e;
+      }
+
+      .cls-8 {
+        stroke: #cbe6fa;
+        stroke-width: 8px;
+      }
+
+      .cls-11 {
+        fill: #fff;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="369" y1="437" x2="512" y2="437" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#cdcccc"/>
+      <stop offset=".52" stop-color="#cbcaca"/>
+      <stop offset=".71" stop-color="#c4c3c3"/>
+      <stop offset=".84" stop-color="#b8b8b8"/>
+      <stop offset=".95" stop-color="#a7a8a9"/>
+      <stop offset="1" stop-color="#9c9d9e"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-544" y1="423" x2="-401" y2="423" gradientTransform="translate(556 14)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#cdcccc"/>
+      <stop offset=".52" stop-color="#cbcaca"/>
+      <stop offset=".71" stop-color="#c4c3c3"/>
+      <stop offset=".84" stop-color="#b8b8b8"/>
+      <stop offset=".95" stop-color="#a7a8a9"/>
+      <stop offset="1" stop-color="#9c9d9e"/>
+    </linearGradient>
+  </defs>
+  <rect class="cls-2" x="12" y="12" width="500" height="850"/>
+  <rect class="cls-1" x="369" y="12" width="143" height="850"/>
+  <rect class="cls-6" x="12" y="12" width="143" height="850" transform="translate(167 874) rotate(-180)"/>
+  <rect class="cls-7" x="62" y="62" width="400" height="393" rx="13.12" ry="13.12"/>
+  <ellipse class="cls-11" cx="262" cy="654" rx="163" ry="159"/>
+  <ellipse class="cls-9" cx="261.5" cy="653.87" rx="61.5" ry="59.99"/>
+  <path class="cls-5" d="M248.5,562h0v-23h0c4.49,4.49,7.01,7.01,11.5,11.5h0c-4.49,4.49-7.01,7.01-11.5,11.5Z"/>
+  <rect class="cls-5" x="265" y="539" width="2" height="23"/>
+  <rect class="cls-5" x="273" y="539" width="2" height="23"/>
+  <rect class="cls-5" x="260.5" y="763.5" width="2" height="23" transform="translate(-513.5 1036.5) rotate(-90)"/>
+  <rect class="cls-5" x="260.5" y="755.5" width="2" height="23" transform="translate(-505.5 1028.5) rotate(-90)"/>
+  <rect class="cls-5" x="260.5" y="747.5" width="2" height="23" transform="translate(-497.5 1020.5) rotate(-90)"/>
+  <path class="cls-5" d="M359.03,667.01h0v-23h0c4.49,4.49,7.01,7.01,11.5,11.5h0c-4.49,4.49-7.01,7.01-11.5,11.5Z"/>
+  <path class="cls-5" d="M371.03,667.01h0v-23h0c4.49,4.49,7.01,7.01,11.5,11.5h0c-4.49,4.49-7.01,7.01-11.5,11.5Z"/>
+  <rect class="cls-5" x="385" y="644" width="2" height="23"/>
+  <path class="cls-5" d="M166.35,643.88h0v23h0c-4.49-4.49-7.01-7.01-11.5-11.5h0c4.49-4.49,7.01-7.01,11.5-11.5Z"/>
+  <path class="cls-5" d="M154.35,643.88h0v23h0c-4.49-4.49-7.01-7.01-11.5-11.5h0c4.49-4.49,7.01-7.01,11.5-11.5Z"/>
+  <rect class="cls-5" x="138.38" y="643.9" width="2" height="23" transform="translate(278.76 1310.79) rotate(180)"/>
+  <path class="cls-10" d="M328.12,250.98c-38.09,37.17-98.82,37.17-136.92,0-.56-.55-.88-1.31-.88-2.09h0c0-.78.31-1.55.88-2.09,38.09-37.17,98.82-37.17,136.92,0,.56.55.88,1.31.88,2.09h0c0,.78-.31,1.55-.88,2.09Z"/>
+  <circle class="cls-8" cx="259.67" cy="249.14" r="25.26"/>
+  <rect class="cls-3" x="249.27" y="182.29" width="20.8" height="133.71" transform="translate(252.22 -110.64) rotate(45)"/>
+  <rect class="cls-4" x="255.95" y="182.96" width="7.43" height="132.37" transform="translate(252.22 -110.64) rotate(45)"/>
+</svg>
