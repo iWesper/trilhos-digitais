@@ -31,6 +31,7 @@ function PictureStack({id,url, onMouseDown}) {
         src={url} 
         alt="Chairs"
         onMouseDown={() => onMouseDown(id)} 
+        className="max-h-full"
         />
         
     )

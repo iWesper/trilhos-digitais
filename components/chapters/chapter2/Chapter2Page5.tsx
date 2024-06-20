@@ -235,7 +235,7 @@ export default function Chapter2Page5() {
     return (
       <div
         ref={dropRef}
-        className="w-full border-4 border-dotted z border-white flex flex-col items-center justify-center relative min-h-[60vh] h-[60vh]"
+        className="w-full flex flex-col items-center justify-center relative min-h-[60vh] h-[60vh]"
       >
         {board.length > 0 &&
           board.map((picture) => {
@@ -290,14 +290,16 @@ export default function Chapter2Page5() {
             checkOrder={checkOrder}
           />
         </div>
-        <div className="col-span-2 flex flex-col justify-center items-center overflow-hidden h-[60vh]">
+        <div className="col-span-2 flex flex-col justify-center items-center overflow-visible h-[60vh]">
           {PictureListCopy.map((picture) => {
             return (
-              <PictureStack
-                url={picture.url}
-                id={picture.id}
-                onMouseDown={handleMouseDown}
-              />
+              <div className="h-[33.33%] w-full">
+                <PictureStack
+                  url={picture.url}
+                  id={picture.id}
+                  onMouseDown={handleMouseDown}
+                />
+              </div>
             );
           })}
           <p className="text-white font-medium mb-2">{orderMessage}</p>
