@@ -12,21 +12,24 @@ import Lottie from "lottie-react";
 import animationData from "@/public/animations/loading_animation.json";
 
 export default function Home() {
-  const { currentUser, logout } = useAuth();
+  const { currentUser, isLoading } = useAuth();
   const router = useRouter();
 
-  const [isLoading, setIsLoading] = useState(true);
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
+  // Verifica se o utilizador está autenticado
   useEffect(() => {
-    if (!currentUser && !isCheckingAuth) {
-      router.push("/authentication");
-    } else if (currentUser) {
-      setIsLoading(false);
+    if (!isLoading) {
+      if (currentUser === null) {
+        setIsCheckingAuth(false);
+        router.push("/authentication");
+      } else {
+        setIsCheckingAuth(false);
+      }
     }
-    setIsCheckingAuth(false);
-  }, [currentUser, router, isCheckingAuth]);
+  }, [currentUser, isLoading, router]);
 
+  // Se o utilizador estiver a ser autenticado, mostra um loading
   if (isLoading || isCheckingAuth) {
     return (
       <div className="h-screen w-screen flex justify-center items-center">
