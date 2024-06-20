@@ -49,7 +49,7 @@ export default function Chapter3Page14() {
     const [showButton, setShowButton] = useState<boolean>(false);
 
   //TIP
-  const Tip = "Uma experiência para sempre melhor com uma caixa de pipocas.";
+  const Tip = "As modalidades referem-se à mensagem e seu significado, não apenas à sua passagem.";
 
   //REPOSTAS FORM
   const handleFormSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {

@@ -29,7 +29,7 @@ export default function Chapter3Page13() {
     const [showButton, setShowButton] = useState<boolean>(false);
 
   //TIP
-  const Tip = "Uma experiência para sempre melhor com uma caixa de pipocas.";
+  const Tip = "Lembra-te que estas são interações que tu sentes.";
 
   //REPOSTAS FORM
   const handleFormSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
