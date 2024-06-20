@@ -51,7 +51,7 @@ export default function Chapter3Page6() {
   const shuffledWords = ArrayShuffle(words);
 
   //ESTADO DA TENTATIVA
-  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const [isCorrect, setIsCorrect] = useState<boolean>(false);
 
   //COLUNA ERRADA
   const [wrongColumn, setWrongColumn] = useState<string>("");
@@ -245,7 +245,7 @@ export default function Chapter3Page6() {
 
         <div className="col-span-2"></div>
         <div className="col-span-8 flex justify-center items-center">
-          {isCorrect !== null && isCorrect === false && (
+          {isCorrect === false && (
             <p className="text-white font-medium text-center">
               Ora parece que te confundiste nos {wrongColumn}. Vamos, tenta de
               novo.{" "}
@@ -320,11 +320,11 @@ export default function Chapter3Page6() {
         <div className="col-span-2"></div>
         <div className="col-span-4"></div>
         <div className="col-span-4 flex justify-center items-center">
-          <Button className="text-white" onClick={verifyWords}>
+          {isCorrect === false && (<Button className="text-white" onClick={verifyWords}>
             Verificar
-          </Button>
+          </Button>)}
 
-          {isCorrect !== null && isCorrect === true && (
+          {isCorrect === true && (
             <Dialog>
               <DialogTrigger>
                 <Button className=" text-white ms-5">Continuar</Button>
