@@ -55,7 +55,7 @@ export default function Chapter1Page3() {
 
   return (
     <>
-      <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-2">
+      <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12">
         <Link
           href="/chapters/chapter1/2"
           className="text-black absolute top-20 left-15 flex items-center cursor-pointer"
@@ -63,7 +63,8 @@ export default function Chapter1Page3() {
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
         </Link>
-        <div className="flex flex-col justify-center items-center p-10 mt-20 ">
+        <div className="col-span-1"></div>
+        <div className="col-span-6 flex flex-col justify-center items-center p-10 mt-20 ">
           <p className="font-medium mb-10">
             Segundo <span className="italic">Wagner</span>, com a queda de
             Atenas, as artes fragmentaram-se, separando a palavra, a música e a
@@ -77,7 +78,7 @@ export default function Chapter1Page3() {
             vê a sua criação ganhar vida!
           </p>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="col-span-4 flex justify-center items-center">
           <Dialog>
             <DialogTrigger>
               <Image
@@ -100,6 +101,7 @@ export default function Chapter1Page3() {
             </DialogContent>
           </Dialog>
         </div>
+        <div className="col-span-1"></div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider>
             <Tooltip>

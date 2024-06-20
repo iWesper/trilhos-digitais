@@ -61,7 +61,7 @@ export default function Chapter1Page5() {
       setResposta(
         "Não me parece que seja esta a evolução da “Obra Total”, tenta outra vez!"
       );
-    }  else if (resposta === "VR") {
+    } else if (resposta === "VR") {
       //STATE A MOSTRAR À PESSOA
       setResposta(
         "Não me parece que seja esta a evolução da “Obra Total”, tenta outra vez!"
@@ -71,14 +71,13 @@ export default function Chapter1Page5() {
 
   //CINEMA CLICADO
   const SaveBadgeProgressAndGoToNextPage = () => {
-    
     //PODE IR GUARDAR
     setProgressSave(true);
   };
 
   return (
     <>
-      <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover  ">
+      <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12">
         <Link
           href="/chapters/chapter1/4"
           className="text-black absolute top-20 left-15 flex items-center cursor-pointer"
@@ -86,7 +85,8 @@ export default function Chapter1Page5() {
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
         </Link>
-        <div className="flex items-center justify-center h-screen flex-col">
+        <div className="col-span-3"></div>
+        <div className="col-span-6 flex items-center justify-end flex-col pb-10">
           <div>
             <h3 className="text-black text-center mb-5">
               Este conceito tornou-se o novo{" "}
@@ -99,46 +99,58 @@ export default function Chapter1Page5() {
               evolução?
             </p>
           </div>
-          <form className="flex flex-row items-center justify-center mt-3">
-            <Button
-              type="button"
-              value="Videojogos"
-              onClick={handleFormSubmit}
-              className=" m-3"
-            >
-              Videojogos
-            </Button>
-            <Dialog>
-            <DialogTrigger>
-              <Button
-                type="button"
-                value="Cinema"
-                className=" m-3"
-              >
-                Cinema
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Exatamente, o cinema é a 7ª Arte!</DialogTitle>
-                <DialogDescription>Vamos continuar?</DialogDescription>
-                <Button onClick={SaveBadgeProgressAndGoToNextPage}>Sim</Button>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
-            <Button
-              type="button"
-              value="VR"
-              onClick={handleFormSubmit}
-              className=" m-3"
-            >
-              VR
-            </Button>
-          </form>
           {resposta && (
             <p className="text-black text-center mt-2">{resposta}</p>
           )}
         </div>
+        <div className="col-span-3"></div>
+        <div className="col-span-2"></div>
+        <form className="col-span-8 items-start justify-center mt-3 grid grid-cols-8 grid-rows-1">
+          <div className="col-span-2 flex justify-center items-center">
+            <Button
+              type="button"
+              value="Videojogos"
+              onClick={handleFormSubmit}
+              className="w-full m-3"
+            >
+              Videojogos
+            </Button>
+          </div>
+          <div className="col-span-1"></div>
+          <div className="col-span-2 flex justify-center items-center w-full">
+            <Dialog className="w-full">
+              <DialogTrigger className="w-full">
+                <Button type="button" value="Cinema" className="w-full m-3">
+                  Cinema
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="w-full">
+                <DialogHeader>
+                  <DialogTitle>Exatamente, o cinema é a 7ª Arte!</DialogTitle>
+                  <DialogDescription>Vamos continuar?</DialogDescription>
+                  <Button
+                    onClick={SaveBadgeProgressAndGoToNextPage}
+                    className="w-full"
+                  >
+                    Sim
+                  </Button>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+          </div>
+          <div className="col-span-1"></div>
+          <div className="col-span-2 flex justify-center items-center">
+            <Button
+              type="button"
+              value="VR"
+              onClick={handleFormSubmit}
+              className="w-full m-3"
+            >
+              VR
+            </Button>
+          </div>
+        </form>
+        <div className="col-span-2"></div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider>
             <Tooltip>

@@ -6,6 +6,14 @@ import { X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+// Props do componente Dialog. Esta linha de código permite que o componente aceite todas as props de um elemento 'div'
+type DialogProps = React.ComponentPropsWithoutRef<'div'>;
+
+// Extender as props do Dialog com a propriedade className de modo a que o Dialog possa aceitar uma className
+interface CustomDialogProps extends DialogProps {
+  className?: string; // Making className optional
+}
+
 const Dialog = DialogPrimitive.Root
 
 const DialogTrigger = DialogPrimitive.Trigger
@@ -108,8 +116,17 @@ const DialogDescription = React.forwardRef<
 ))
 DialogDescription.displayName = DialogPrimitive.Description.displayName
 
+// Criação de um componente customizado CustomDialog que aceita className
+const CustomDialog: React.FC<CustomDialogProps> = ({ className, ...props }) => {
+  return (
+    <div className={className}>
+      <Dialog {...props} />
+    </div>
+  );
+};
+
 export {
-  Dialog,
+  CustomDialog as Dialog,
   DialogPortal,
   DialogOverlay,
   DialogClose,
