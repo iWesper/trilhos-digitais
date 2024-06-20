@@ -51,7 +51,7 @@ export default function Chapter3Page6() {
   const shuffledWords = ArrayShuffle(words);
 
   //ESTADO DA TENTATIVA
-  const [isCorrect, setIsCorrect] = useState<boolean>(false);
+  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
 
   //COLUNA ERRADA
   const [wrongColumn, setWrongColumn] = useState<string>("");
@@ -233,8 +233,8 @@ export default function Chapter3Page6() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-3"></div>
-        <div className="col-span-6 flex justify-end items-end text-center flex-col">
-          <p className="text-white font-medium">
+        <div className="col-span-6 flex justify-start items-center text-center flex-col pt-20">
+          <p className="text-white font-medium p-6">
             Abaixo, tens três colunas diretamente relacionadas com o
             <span className="italic">“Spider-Man”</span> enquanto
             banda-desenhada, filme e jogo. Indica quais os meios de cada um para
@@ -245,7 +245,7 @@ export default function Chapter3Page6() {
 
         <div className="col-span-2"></div>
         <div className="col-span-8 flex justify-center items-center">
-          {isCorrect === false && (
+          {isCorrect !== null && isCorrect === false && (
             <p className="text-white font-medium text-center">
               Ora parece que te confundiste nos {wrongColumn}. Vamos, tenta de
               novo.{" "}
@@ -320,11 +320,11 @@ export default function Chapter3Page6() {
         <div className="col-span-2"></div>
         <div className="col-span-4"></div>
         <div className="col-span-4 flex justify-center items-center">
-          {isCorrect === false && (<Button className="text-white" onClick={verifyWords}>
+          <Button className="text-white" onClick={verifyWords}>
             Verificar
-          </Button>)}
+          </Button>
 
-          {isCorrect === true && (
+          {isCorrect !== null && isCorrect === true && (
             <Dialog>
               <DialogTrigger>
                 <Button className=" text-white ms-5">Continuar</Button>

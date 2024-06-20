@@ -6,6 +6,9 @@ import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 import { useAuth } from "@/components/context/AuthContext";
+import { Canvas } from "@react-three/fiber";
+import Badge_bauhaus from "@/public/models/bauhaus/Badge_bauhaus";
+import { Environment, OrbitControls } from "@react-three/drei";
 
 
 export default function Chapter2Page2() {
@@ -54,15 +57,11 @@ export default function Chapter2Page2() {
           </div>
         </div>
         <div className="h-full col-span-4 flex justify-center items-center">
-          <Tilt options={defaultOptions}>
-            <Image
-              src="/img/chapter2/chapter2Bauhaus.svg"
-              alt="Foto da Escola de Design Bauhaus"
-              width={350}
-              height={350}
-              className="rounded"
-            />
-          </Tilt>
+          <Canvas>
+            <OrbitControls />
+            <Badge_bauhaus />
+            <Environment preset="sunset" />
+          </Canvas>
           <Link href="/chapters/chapter2/3">Temp go to next</Link>
         </div>
         <div className="h-full col-span-1"></div>
