@@ -124,7 +124,7 @@ export default function Chapter3Page4() {
           transition={{ duration: 1 }}
         >
             <Link href="/chapters/chapter3/5">
-              <Button className="text-white mt-36">Continuar</Button>
+              <Button className="text-white mt-36 bg-foreground hover:bg-hover">Continuar</Button>
             </Link>
         </motion.div>
         <motion.div

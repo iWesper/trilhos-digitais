@@ -56,7 +56,7 @@ export default function Chapter3Page2() {
             Para isto, vamos usar o exemplo do “<span className="italic">The Godfather</span>”. Este clássico foi apresentado como um livro, filme e jogo, sempre com as mesmas personagens e história, mas cada um passando uma mensagem ligeiramente diferente.
             </p>
             <Link href="/chapters/chapter3/3">
-              <Button className="text-white">Continuar</Button>
+              <Button className="text-white bg-foreground hover:bg-hover">Continuar</Button>
             </Link>
           </div>
         </motion.div>

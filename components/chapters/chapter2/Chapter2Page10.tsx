@@ -352,7 +352,7 @@ export default function Chapter2Page10() {
       <>
         <div
           ref={dropRef}
-          className=" w-56 h-56 flex justify-center items-center  border-4 border-dotted border-white col-span-3"
+          className=" w-56 h-56 flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-3"
         >
           {board.map((picture) => {
             return (
@@ -367,7 +367,7 @@ export default function Chapter2Page10() {
         </div>
         <div
           ref={dropRef2}
-          className=" w-56 h-56 flex justify-center items-center border-4 border-dotted border-white col-span-3"
+          className=" w-56 h-56 flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-3"
         >
           {board2.map((picture) => {
             return (
@@ -382,7 +382,7 @@ export default function Chapter2Page10() {
         </div>
         <div
           ref={dropRef3}
-          className=" w-56 h-56 flex justify-center items-center border-4 border-dotted border-white col-span-3"
+          className=" w-56 h-56 flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-3"
         >
           {board3.map((picture) => {
             return (
@@ -397,7 +397,7 @@ export default function Chapter2Page10() {
         </div>
         <div
           ref={dropRef4}
-          className=" w-56 h-56 flex justify-center items-center  border-4 border-dotted border-white col-span-3"
+          className=" w-56 h-56 flex justify-center items-center  rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-3"
         >
           {board4.map((picture) => {
             return (

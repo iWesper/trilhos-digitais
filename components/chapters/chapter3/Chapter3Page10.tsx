@@ -56,7 +56,7 @@ export default function Chapter3Page10() {
             As modalidades espaciotemporais, sendo a forma como percebemos a mensagem no espaço e tempo, por exemplo, enquanto numa foto temos um único <span className="italic">frame</span> para ler a mensagem, mas num filme de 15s já temos mais contexto.
             </p>
             <Link href="/chapters/chapter3/11">
-              <Button className="text-white">Continuar</Button>
+              <Button className="text-white bg-foreground hover:bg-hover">Continuar</Button>
             </Link>
           </div>
         </motion.div>

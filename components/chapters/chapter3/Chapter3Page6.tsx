@@ -320,14 +320,14 @@ export default function Chapter3Page6() {
         <div className="col-span-2"></div>
         <div className="col-span-4"></div>
         <div className="col-span-4 flex justify-center items-center">
-          <Button className="text-white" onClick={verifyWords}>
+          {isCorrect === false && (<Button className="text-white bg-foreground hover:bg-hover" onClick={verifyWords}>
             Verificar
           </Button>
 
           {isCorrect !== null && isCorrect === true && (
             <Dialog>
               <DialogTrigger>
-                <Button className=" text-white ms-5">Continuar</Button>
+                <Button className=" text-white ms-5 bg-foreground hover:bg-hover">Continuar</Button>
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
