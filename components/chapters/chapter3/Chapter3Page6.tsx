@@ -233,8 +233,8 @@ export default function Chapter3Page6() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-3"></div>
-        <div className="col-span-6 flex justify-start items-center text-center flex-col pt-20">
-          <p className="text-white font-medium p-6">
+        <div className="col-span-6 flex justify-end items-end text-center flex-col">
+          <p className="text-white font-medium">
             Abaixo, tens três colunas diretamente relacionadas com o
             <span className="italic">“Spider-Man”</span> enquanto
             banda-desenhada, filme e jogo. Indica quais os meios de cada um para
