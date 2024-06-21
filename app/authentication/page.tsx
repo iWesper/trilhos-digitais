@@ -17,7 +17,6 @@ import { useAuth } from "@/components/context/AuthContext";
 
 // Página de login
 const Login = () => {
-  const router = useRouter();
   const { handleLogin, handleGoogleSignIn, handlePasswordReset, currentUser, error } =
     useAuth();
 
