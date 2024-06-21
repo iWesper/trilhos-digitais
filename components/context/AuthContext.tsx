@@ -35,9 +35,6 @@ interface AuthContextType {
 // Criação do contexto
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Estado para guardar o erro
-const [error, setError] = useState<string | null>(null);
-
 // Hook para usar o contexto
 export const useAuth = () => {
   // Verifica se o contexto foi usado fora do provider
@@ -55,6 +52,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   // Estado para guardar o utilizador atual
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  // Estado para guardar o erro
+  const [error, setError] = useState<string | null>(null);
   // Estado para guardar o username
   const [username, setUsername] = useState("");
   // Estado para guardar o estado do tutorial
