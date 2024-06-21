@@ -8,7 +8,7 @@ import { useAuth } from "@/components/context/AuthContext";
 import { Button } from "@/components/ui/button";
 
 export default function Chapter4Page5() {
-  const { goGetUsername, username, currentUser } = useAuth();
+  const { goGetUsername, username, currentUser, error } = useAuth();
 
   useEffect(() => {
     //PROGRESS VALUE
@@ -50,6 +50,7 @@ export default function Chapter4Page5() {
           <Link href="/">
             <Button className="text-white">Continuar</Button>
           </Link>
+          {error && (<p className=" text-red-600 text-center text-sm">{error}</p>)}
         </div>
         <div className="col-span-2"></div>
       </div>

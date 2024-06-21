@@ -40,7 +40,7 @@ export default function Chapter2Page10() {
    const { toast } = useToast();
 
    //AUTH Se for false tem badge, true não tem
-   const { WillShowToast, willShowToastState } = useAuth();
+   const { WillShowToast, willShowToastState, error } = useAuth();
 
   //LISTA DE ELEMENTOS ARRASTÁVEIS
   //AQUI, URL É A LOCALIZAÇÃO
@@ -477,6 +477,7 @@ export default function Chapter2Page10() {
           )}
         </div>
         <div className="col-span-4"></div>
+        {error && (<p className=" text-red-600 text-center text-sm">{error}</p>)}
 
         <div className="fixed bottom-5 left-5">
           <TooltipProvider>

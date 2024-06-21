@@ -30,7 +30,7 @@ export default function Chapter1Page5() {
   const { toast } = useToast();
 
   //AUTH Se for false tem badge, true não tem
-  const { WillShowToast, willShowToastState } = useAuth();
+  const { WillShowToast, willShowToastState, error } = useAuth();
 
   //BADGE DO CAPÍTULO
   const badgeId = 1;
@@ -179,6 +179,7 @@ export default function Chapter1Page5() {
             </Button>
           </div>
         </form>
+        {error && (<p className=" text-red-600 text-center text-sm">{error}</p>)}
         <div className="col-span-2"></div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider>

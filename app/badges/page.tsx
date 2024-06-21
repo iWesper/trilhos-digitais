@@ -15,7 +15,7 @@ import { useAuth } from "@/components/context/AuthContext";
 
 export default function Badges() {
   const router = useRouter();
-  const { currentUser, goGetBadges, BadgeList } = useAuth();
+  const { currentUser, goGetBadges, BadgeList, error } = useAuth();
 
   //Info dos Badges Default
 const defaultItems = [
@@ -62,6 +62,7 @@ const defaultItems = [
               );
             })}
           </div>
+          {error && (<p className=" text-red-600 text-center text-sm">{error}</p>)}
         </div>
       </main>
     );

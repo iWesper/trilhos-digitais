@@ -35,7 +35,7 @@ export default function Chapter3Page14() {
     const { toast } = useToast();
 
     //AUTH Se for false tem badge, true não tem
-    const { WillShowToast, willShowToastState } = useAuth();
+    const { WillShowToast, willShowToastState,error } = useAuth();
 
   //PROGRESS VALUE
   setProgress(7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571);
@@ -157,6 +157,7 @@ export default function Chapter3Page14() {
           </form>)}
 
           {showButton && (<Button className="text-white bg-foreground hover:bg-hover" onClick={SaveBadgeProgressAndGoToNextPage}>Continuar</Button>)}
+          {error && (<p className=" text-red-600 text-center text-sm">{error}</p>)}
           
         </div>
         <div className="fixed bottom-5 left-5">

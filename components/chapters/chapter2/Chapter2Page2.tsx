@@ -3,10 +3,7 @@ import React, { Suspense, useState } from "react";
 import { useRouter } from "next/navigation";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
-import Image from "next/image";
-import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
-import { useAuth } from "@/components/context/AuthContext";
 import { Canvas } from "@react-three/fiber";
 import Bauhaus from "@/public/models/bauhaus/Bauhaus";
 import {
