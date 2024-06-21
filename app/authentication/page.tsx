@@ -14,19 +14,14 @@ import { Auth } from "@/components/register/Register";
 
 // Importa os hooks de autenticação e de navegação
 import { useAuth } from "@/components/context/AuthContext";
-import { useRouter } from "next/navigation";
 
 // Página de login
 const Login = () => {
-  const router = useRouter();
-  const { handleLogin, handleGoogleSignIn, handlePasswordReset, currentUser } =
+  const { handleLogin, handleGoogleSignIn, handlePasswordReset } =
     useAuth();
 
   //STATE DO RENDER
   const [Render, setRender] = useState(true);
-
-  //VARIÁVEL DAS MENSAGENS DE ERRO
-  const [Error, setError] = useState("");
 
   //VARIÁVEIS QUE VÃO PERMITIR GUARDAR OS DADOS INTRODUZIDOS
   const [Email, setEmail] = useState("");
@@ -37,17 +32,10 @@ const Login = () => {
     setRender(false);
   };
 
-  // Verifica se o utilizador está autenticado
-  useEffect(() => {
-    if (currentUser) {
-      router.push("/");
-    }
-  }, [currentUser, router]);
-
   return (
     <>
       {Render === true ? (
-        <div className="w-full h-screen bg-white lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
+        <div className="w-full h-screen bg-white lg:grid lg:grid-cols-2 lg:grid-rows-1 overflow-hidden">
           <div className="flex items-center justify-center py-12">
             <div className="mx-auto grid w-[350px] gap-6">
               <div className="grid gap-2 text-center">

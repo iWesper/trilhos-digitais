@@ -8,7 +8,6 @@ import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 
 export default function Chapter2Page4() {
-
   //PROGRESS
   const { setProgress } = useProgress();
 
@@ -59,7 +58,7 @@ export default function Chapter2Page4() {
           </div>
         </div>
         <div className="h-full col-span-4 flex justify-center items-center relative">
-          <Tilt options={defaultOptions}>
+          <div className="flex flex-col items-center">
             <Image
               src="/img/chapter2/chapter2espremedor.svg"
               alt="Foto de Um Espremedor de Citrinos"
@@ -74,7 +73,7 @@ export default function Chapter2Page4() {
               height={200}
               className="absolute bottom-0 right-26 left-24 ms-4"
             />
-          </Tilt>
+          </div>
         </div>
         <div className="h-full col-span-1"></div>
       </div>
