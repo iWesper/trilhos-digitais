@@ -4,7 +4,7 @@ import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
-
+import { debounce } from 'lodash';
 import { Slider } from "@/components/ui/slider";
 import { MdQuestionMark } from "react-icons/md";
 import {
@@ -27,6 +27,7 @@ export default function Chapter4Page2() {
 
   //ESTADO DOS PONTOS E DO SLIDER
   const [currentSliderValue, setCurrentSliderValue] = useState(0);
+  const [isSliderDisabled, setIsSliderDisabled] = useState(false);
   const [score, setScore] = useState(0);
 
   //PROGRESS
@@ -39,7 +40,7 @@ export default function Chapter4Page2() {
   }, []);
 
   //GUARDAR A MUDANÇA DO VALOR DO SLIDER
-  const handleSlideChange = (e: number[]) => {
+  const handleSlideChange =  debounce((e: number[]) => {
 
     //MEXER NO SLIDER
     const newSlide = Number(e[0]);
@@ -52,7 +53,13 @@ export default function Chapter4Page2() {
       //GUARDA O PONTO
       setScore(score + 1);
     }
-  };
+
+    //DISABLE SLIDER
+    setIsSliderDisabled(true);
+
+    //ENABLE SLIDER
+    setTimeout(() => setIsSliderDisabled(false), 3000);
+  },300);
 
   //COMPONENTE QUE VAI DAR RENDER
   let RenderComponent;
@@ -129,6 +136,7 @@ export default function Chapter4Page2() {
             step={1}
             defaultValue={[0]}
             onValueChange={(e) => {handleSlideChange(e)}}
+            disabled={isSliderDisabled}
           />
         </motion.div>
         <motion.div
