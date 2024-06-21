@@ -1,33 +1,85 @@
 "use client";
-import React from "react";
-import { Button } from "@/components/ui/button";
+import React, { useState, useEffect } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
-import Image from "next/image";
-import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
 
+import { Slider } from "@/components/ui/slider";
+import { MdQuestionMark } from "react-icons/md";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+//SLIDERS
+import Slide0 from "./Slides/Slide0";
+import Slide1 from "./Slides/Slide1";
+import Slide2 from "./Slides/Slide2";
+import Slide3 from "./Slides/Slide3";
+import Slide4 from "./Slides/Slide4";
+
 export default function Chapter4Page2() {
+  //DICA
+  const Tip = "Arrasta o slider para veres mais informação-";
+
+  //ESTADO DOS PONTOS E DO SLIDER
+  const [currentSliderValue, setCurrentSliderValue] = useState(0);
+  const [score, setScore] = useState(0);
 
   //PROGRESS
   const { setProgress } = useProgress();
 
-  //PROGRESS VALUE
-  setProgress(7.1428571428571428571428571428571);
+  useEffect(() => {
+    //PROGRESS VALUE
 
-  //CONTROLO DA ANIMAÇÃO
-  const defaultOptions = {
-    reverse: false, // reverse the tilt direction
-    max: 15, // max tilt rotation (degrees)
-    perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-    scale: 1.1, // 2 = 200%, 1.5 = 150%, etc..
-    speed: 5000, // Speed of the enter/exit transition
-    transition: true, // Set a transition on enter/exit.
-    axis: null, // What axis should be disabled. Can be X or Y.
-    reset: true, // If the tilt effect has to be reset on exit.
-    easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
+    setProgress(25);
+  }, []);
+
+  //GUARDAR A MUDANÇA DO VALOR DO SLIDER
+  const handleSlideChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //MEXER NO SLIDER
+    const newSlide = Number(event.target.value);
+
+    console.log(newSlide);
+
+    //GUARDAR O VALOR ONDE PAROU
+    setCurrentSliderValue(newSlide);
+
+    //SE O UTILIZADOR TIVER MEXIDO O SLIDES, ESTE VAI SER SUPERIOR AOS SEUS PONTOS ATUAIS
+    if (newSlide > score) {
+      //GUARDA O PONTO
+      setScore(score + 1);
+    }
   };
+
+  //COMPONENTE QUE VAI DAR RENDER
+  let RenderComponent;
+
+  //TODOS OS CASOS
+  switch (currentSliderValue) {
+    case 0:
+      RenderComponent = <Slide0 />;
+      break;
+
+    case 1:
+      RenderComponent = <Slide1 />;
+      break;
+
+    case 2:
+      RenderComponent = <Slide2 />;
+      break;
+
+    case 3:
+      RenderComponent = <Slide3 />;
+      break;
+
+    case 4:
+      RenderComponent = <Slide4 />;
+      break;
+  }
 
   return (
     <>
@@ -40,50 +92,66 @@ export default function Chapter4Page2() {
           <span>Voltar</span>
         </Link>
         <motion.div
-          className="col-span-1 h-full"
-          initial={{ x: -100 }}
+          className="h-full col-span-2"
+          initial={{ x: 100 }}
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
         ></motion.div>
         <motion.div
-          className="col-span-6 h-full"
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <div className="h-full flex flex-col justify-center items-center p-10 ">
-            <p className="font-medium mb-10 text-white">
-            Para isto, vamos usar o exemplo do “<span className="italic">The Godfather</span>”. Este clássico foi apresentado como um livro, filme e jogo, sempre com as mesmas personagens e história, mas cada um passando uma mensagem ligeiramente diferente.
-            </p>
-            <Link href="/chapters/chapter4/3">
-              <Button className="text-white">Continuar</Button>
-            </Link>
-          </div>
-        </motion.div>
-        <motion.div
-          className="h-full col-span-4 flex justify-center items-center"
+          className="h-full col-span-8"
           initial={{ x: 100 }}
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
         >
-          <Tilt options={defaultOptions}>
-            <Image
-               src="/img/chapter3/chapter3GodfatherCover.svg"
-              alt="Imagem de capa deo The Godfather"
-              width={350}
-              height={350}
-              className="rounded tiltableImage"
-              draggable={false}
-            />
-          </Tilt>
+          {RenderComponent}
         </motion.div>
         <motion.div
-          className="h-full col-span-1"
+          className="h-full col-span-2"
+          initial={{ x: 100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1 }}
+        ></motion.div>
+        <motion.div
+          className="h-full col-span-2 mb-14"
+          initial={{ x: 100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1 }}
+        ></motion.div>
+        <motion.div
+          className="h-full col-span-8 mb-14"
+          initial={{ x: 100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <Slider
+            className="w-full"
+            max={4}
+            min={0}
+            step={1}
+            defaultValue={[0]}
+            value={[currentSliderValue]}
+            onChange={handleSlideChange}
+          />
+        </motion.div>
+        <motion.div
+          className="h-full col-span-2 mb-14"
           initial={{ x: 100 }}
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
         ></motion.div>
       </div>
+      <div className="fixed bottom-5 left-5">
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger>
+              <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
+            </TooltipTrigger>
+            <TooltipContent className="bg-foreground border-none shadow-none text-white">
+              <p>{Tip}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      </div>
     </>
-  )
+  );
 }

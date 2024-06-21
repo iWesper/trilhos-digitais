@@ -16,8 +16,18 @@ import {
   OrbitControls,
   Text3D,
 } from "@react-three/drei";
+import { MdQuestionMark } from "react-icons/md";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function Chapter2Page2() {
+
+  //Dica
+  const Tip ="Interage com o modelo da Bauhaus para avançares."
   const router = useRouter();
   //PROGRESS
   const { setProgress } = useProgress();
@@ -108,6 +118,18 @@ export default function Chapter2Page2() {
           {/* <Link href="/chapters/chapter2/3">Temp go to next</Link> */}
         </div>
         <div className="h-full col-span-1"></div>
+      </div>
+      <div className="fixed bottom-5 left-5">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
+              </TooltipTrigger>
+              <TooltipContent className="bg-foreground border-none shadow-none text-white">
+                <p>{Tip}</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
       </div>
     </>
   );

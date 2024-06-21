@@ -161,7 +161,7 @@ export default function Chapter2Page9() {
             setButtonsForm(false);
             break;
 
-          case "Receio": //ERRADO NESTA RUN
+          case "Calma": //ERRADO NESTA RUN
             //MUDA TEXTO DE CIMA
             setP1(
               "Parece-nos ser algo mais feliz, mas as sensações mudam de pessoa para pessoa! O que importa é que, como pudeste ver, uma simples alteração de design consegue alterar o significado da frase. ."
@@ -222,7 +222,7 @@ export default function Chapter2Page9() {
             setButtonsForm(false);
             break;
 
-          case "Receio": //ERRADO NESTA RUN
+          case "Calma": //ERRADO NESTA RUN
             //MUDA TEXTO DE CIMA
             setP1(
               "Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pessoa! O que importa é que, como pudeste ver, uma simples alteração de design consegue alterar o significado da frase. ."
@@ -272,7 +272,7 @@ export default function Chapter2Page9() {
             setButtonsForm(false);
             break;
 
-          case "Receio": //CERTO NESTA RUN
+          case "Calma": //CERTO NESTA RUN
             //MUDA TEXTO DE CIMA
             setP1(
               "Exatamente o que pensámos! Como pudeste ver, uma simples alteração de design consegue alterar o significado da frase."
@@ -354,11 +354,11 @@ export default function Chapter2Page9() {
               </Button>
               <Button
                 type="button"
-                value="Receio"
+                value="Calma"
                 className="text-white"
                 onClick={handleFormButtonClick}
               >
-                Receio
+                Calma
               </Button>
             </form>
           )}

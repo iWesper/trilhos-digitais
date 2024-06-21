@@ -51,7 +51,7 @@ export default function Chapter3Page6() {
   const shuffledWords = ArrayShuffle(words);
 
   //ESTADO DA TENTATIVA
-  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const [isCorrect, setIsCorrect] = useState<boolean>(false);
 
   //COLUNA ERRADA
   const [wrongColumn, setWrongColumn] = useState<string>("");
