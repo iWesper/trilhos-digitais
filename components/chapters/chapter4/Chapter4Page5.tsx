@@ -14,8 +14,10 @@ export default function Chapter4Page5() {
     //PROGRESS VALUE
     setProgress(25 + 25 + 25 + 25);
 
-    //USERNAME
-    goGetUsername(currentUser.uid);
+   if(currentUser !== null){
+     //USERNAME
+     goGetUsername(currentUser.uid);
+   }
   }, []);
 
   //PROGRESS

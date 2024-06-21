@@ -19,7 +19,7 @@ const Slide2 = () => {
   return (
     <>
       <div className="grid grid-cols-12 grid-rows-1 gap-4 ">
-        <div className="col-span-12 h-64"></div>
+        <div className="col-span-12 h-48"></div>
         <motion.div
           className="col-span-9 h-full"
           initial={{ x: -100 }}

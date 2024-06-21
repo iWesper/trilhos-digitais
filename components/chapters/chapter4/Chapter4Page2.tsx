@@ -23,7 +23,7 @@ import Slide4 from "./Slides/Slide4";
 
 export default function Chapter4Page2() {
   //DICA
-  const Tip = "Arrasta o slider para veres mais informação-";
+  const Tip = "Arrasta o slider para veres mais informação.";
 
   //ESTADO DOS PONTOS E DO SLIDER
   const [currentSliderValue, setCurrentSliderValue] = useState(0);
@@ -39,11 +39,10 @@ export default function Chapter4Page2() {
   }, []);
 
   //GUARDAR A MUDANÇA DO VALOR DO SLIDER
-  const handleSlideChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //MEXER NO SLIDER
-    const newSlide = Number(event.target.value);
+  const handleSlideChange = (e: number[]) => {
 
-    console.log(newSlide);
+    //MEXER NO SLIDER
+    const newSlide = Number(e[0]);
 
     //GUARDAR O VALOR ONDE PAROU
     setCurrentSliderValue(newSlide);
@@ -129,8 +128,7 @@ export default function Chapter4Page2() {
             min={0}
             step={1}
             defaultValue={[0]}
-            value={[currentSliderValue]}
-            onChange={handleSlideChange}
+            onValueChange={(e) => {handleSlideChange(e)}}
           />
         </motion.div>
         <motion.div
