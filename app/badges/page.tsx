@@ -43,7 +43,7 @@ const defaultItems = [
 
     return (
       <main className="bg-BadgesBG flex justify-center items-center h-screen bg-cover bg-no-repeat bg-center">
-        <div className="relative md:mt-40 lg:mt-20 md:mb-40 lg:mb-20 sm:w-[528px] sm:h-[396px] lg:w-[992px] lg:h-[794px] 2xl:w-[1055px] 2xl:h-[891px] bg-quadroBadges bg-cover bg-no-repeat bg-center">
+        <div className="relative md:mt-40 lg:mt-20 md:mb-40 lg:mb-20 sm:w-[528px] sm:h-[396px] lg:w-[992px] lg:h-[744px] 2xl:w-[1055px] 2xl:h-[891px] bg-quadroBadges bg-cover bg-no-repeat bg-center">
           {/* Grid overlay */}
           <div className="absolute top-0 left-0 w-full h-full grid grid-cols-4 grid-rows-2 gap-5 p-20">
             {/* Grid items  Abaixo temos se badge existir mete a percentagem, senão mete */}
