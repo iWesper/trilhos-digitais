@@ -31,8 +31,8 @@ const NavbarChapters: React.FC = () => {
   }
 
   return (
-    <div className="flex items-center justify-between px-10 p-4 bg-foreground text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-md bg-opacity-80">
-      <Link href={"/"}>
+    <div className="grid grid-cols-12 gap-4 items-center justify-between px-10 p-4 bg-foreground text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-md bg-opacity-80">
+      <Link href={"/"} className="col-span-3">
         <div className="relative group">
           <HomeIcon className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" />
           <span className="absolute left-0 top-0 opacity-0 pt-2 group-hover:opacity-100 transition-all duration-300 ease-in-out">
@@ -41,18 +41,18 @@ const NavbarChapters: React.FC = () => {
         </div>
       </Link>
 
-      <div className="mx-4 bg-gray-700 rounded-full h-2.5 dark:bg-gray-700 w-3/12">
+      <div className="col-span-6 bg-gray-700 rounded-full h-2.5 dark:bg-gray-700">
         <Progress value={progress || 0} milestones={milestones.map(Number)} />
       </div>
 
-      <Link href={"/badges"}>
-        <div className="relative group">
+      <div className="col-span-3 flex justify-end">
+        <Link href={"/badges"} className="relative group">
           <TrophyIcon className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" />
           <span className="absolute left-[-50%] top-0 opacity-0 pt-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-in-out">
             Badges
           </span>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </div>
   );
 };

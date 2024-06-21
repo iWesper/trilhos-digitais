@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import React, { Suspense, useState } from "react";
+import { useRouter } from "next/navigation";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,14 +8,25 @@ import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 import { useAuth } from "@/components/context/AuthContext";
 import { Canvas } from "@react-three/fiber";
-import Badge_bauhaus from "@/public/models/bauhaus/Badge_bauhaus";
-import { Environment, OrbitControls } from "@react-three/drei";
-
+import Bauhaus from "@/public/models/bauhaus/Bauhaus";
+import {
+  Center,
+  Environment,
+  Loader,
+  OrbitControls,
+  Text3D,
+} from "@react-three/drei";
 
 export default function Chapter2Page2() {
-
+  const router = useRouter();
   //PROGRESS
   const { setProgress } = useProgress();
+  const [text3DIsHovered, setText3DIsHovered] = useState(false);
+  const [modelIsHovered, setModelIsHovered] = useState(false);
+
+  const handleText3DClick = () => {
+    router.push("/chapters/chapter2/3");
+  };
 
   //PROGRESS VALUE
   setProgress(10);
@@ -34,7 +46,7 @@ export default function Chapter2Page2() {
 
   return (
     <>
-      <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1">
+      <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1 text-lg">
         <Link
           href="/chapters/chapter2/1"
           className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
@@ -43,29 +55,60 @@ export default function Chapter2Page2() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-1 h-full"></div>
-        <div className="col-span-6 h-full">
+        <div className="col-span-4 h-full">
           <div className="h-full flex flex-col justify-center items-center p-10 text-white ">
             <p className="font-medium mb-4">
-              A <span className="italic">Bauhaus</span> foi das maiores
-              influências da história no Design, transformando a perceção da
-              sociedade quanto à arte através da sua integração das artes
-              plásticas com o artesanato.
+              A <span className="italic text-secondary">Bauhaus</span> foi das
+              maiores influências da história no Design, transformando a
+              perceção da sociedade quanto à arte através da sua integração das
+              artes plásticas com o artesanato.
             </p>
             <p className="font-medium mb-10">
               Que dizes de explorarmos o seu método de criação? Anda daí!
             </p>
           </div>
         </div>
-        <div className="h-full col-span-4 flex justify-center items-center">
+        <div className="h-full col-span-6 flex justify-center items-center">
           <Canvas>
-            <OrbitControls />
-            <Badge_bauhaus />
-            <Environment preset="sunset" />
+            <Suspense fallback={null}>
+              <OrbitControls
+                autoRotate={modelIsHovered ? false : true}
+                autoRotateSpeed={0.2}
+                enableZoom={false}
+                enablePan={false}
+              />
+              {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
+              <Center
+                position={[0, 1.5, 0]}
+                onPointerEnter={(event) => (
+                  event.stopPropagation(), setText3DIsHovered(true)
+                )}
+                onPointerLeave={() => setText3DIsHovered(false)}
+                onClick={handleText3DClick}
+              >
+                <Text3D size={0.5} font={"/fonts/Effra_Regular.json"}>
+                  Bauhaus
+                  <meshStandardMaterial
+                    color={text3DIsHovered ? "orange" : "white"}
+                  />
+                </Text3D>
+              </Center>
+              <Bauhaus
+                rotation={[0, 3.7, 0]}
+                scale={0.3}
+                onPointerEnter={(event: React.PointerEvent) => (
+                  event.stopPropagation(), setModelIsHovered(true)
+                )}
+                onPointerLeave={() => setModelIsHovered(false)}
+              />
+              <Environment preset="sunset" />
+            </Suspense>
           </Canvas>
-          <Link href="/chapters/chapter2/3">Temp go to next</Link>
+          <Loader />
+          {/* <Link href="/chapters/chapter2/3">Temp go to next</Link> */}
         </div>
         <div className="h-full col-span-1"></div>
       </div>
     </>
-  )
+  );
 }

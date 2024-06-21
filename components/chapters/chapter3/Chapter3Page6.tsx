@@ -322,7 +322,7 @@ export default function Chapter3Page6() {
         <div className="col-span-4 flex justify-center items-center">
           {isCorrect === false && (<Button className="text-white bg-foreground hover:bg-hover" onClick={verifyWords}>
             Verificar
-          </Button>)};
+          </Button>)}
 
           {isCorrect !== null && isCorrect === true && (
             <Dialog>
