@@ -37,7 +37,7 @@ export default function Chapter4Page3() {
     //ANIMAÇÃO
     if (Button) {
       //TRANSIÇÃO DO MOVIMENTO
-      Button.style.transition = "left 0.5s, top 0.5s";
+      Button.style.transition = "left 0.2s, top 0.2s";
 
       //TAMANHO DO SCREEN
       const screenWidth = window.innerWidth;
