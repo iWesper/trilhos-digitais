@@ -14,19 +14,14 @@ import { Auth } from "@/components/register/Register";
 
 // Importa os hooks de autenticação e de navegação
 import { useAuth } from "@/components/context/AuthContext";
-import { useRouter } from "next/navigation";
 
 // Página de login
 const Login = () => {
-  const router = useRouter();
   const { handleLogin, handleGoogleSignIn, handlePasswordReset, currentUser, error } =
     useAuth();
 
   //STATE DO RENDER
   const [Render, setRender] = useState(true);
-
-  //VARIÁVEL DAS MENSAGENS DE ERRO
-  const [Error, setError] = useState("");
 
   //VARIÁVEIS QUE VÃO PERMITIR GUARDAR OS DADOS INTRODUZIDOS
   const [Email, setEmail] = useState("");
@@ -36,13 +31,6 @@ const Login = () => {
   const ChangeRender = () => {
     setRender(false);
   };
-
-  // Verifica se o utilizador está autenticado
-  useEffect(() => {
-    if (currentUser) {
-      router.push("/");
-    }
-  }, [currentUser, router]);
 
   return (
     <>

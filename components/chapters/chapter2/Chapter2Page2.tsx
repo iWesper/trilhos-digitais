@@ -53,7 +53,7 @@ export default function Chapter2Page2() {
 
   return (
     <>
-      <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1 text-lg">
+      <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1">
         <Link
           href="/chapters/chapter2/1"
           className="text-white absolute top-20 left-15 flex items-center cursor-pointer"

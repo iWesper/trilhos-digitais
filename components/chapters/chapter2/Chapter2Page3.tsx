@@ -35,9 +35,7 @@ import testimg2 from "@/public/img/chapter2/chapter2frutas_maca.svg";
 import testimg3 from "@/public/img/chapter2/chapter2frutas_laranja.svg";
 import correctimg from "@/public/img/chapter2/chapter2frutas_laranjapartida.svg";
 
-
 export default function Chapter2Page3() {
-
   //LISTA DE ELEMENTOS ARRASTÁVEIS
   //AQUI, URL É A LOCALIZAÇÃO
   const PictureList = [
@@ -70,7 +68,7 @@ export default function Chapter2Page3() {
 
   //SAVE PROGRESS STATE
   const [progressSave, setProgressSave] = useState<boolean>(false);
-  
+
   //BADGE DO CAPÍTULO
   const badgeId = 2;
 
@@ -162,7 +160,7 @@ export default function Chapter2Page3() {
     return (
       <div
         ref={dropRef}
-        className="bg-espremedorBG w-1/2 h-full bg-origin-border bg-center bg-no-repeat bg-cover flex flex-col justify-start items-start"
+        className="bg-espremedorBG w-1/2 h-full bg-origin-border bg-center bg-no-repeat bg-cover flex flex-col justify-start items-center relative"
       >
         {board.map((picture) => {
           return <Picture url={picture.url} id={picture.id} />;
@@ -186,7 +184,8 @@ export default function Chapter2Page3() {
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
         </Link>
-        <div className="col-span-7 h-full flex flex-col justify-center p-10 text-white ">
+        <div className="col-span-1"></div>
+        <div className="col-span-5 h-full flex flex-col justify-center p-10 text-white ">
           <p className="font-medium mb-4 pt-8">
             Hm, que design interessante, e parece que é utilizado em conjunto
             com outros objetos, pergunto-me para que serve.
@@ -199,12 +198,14 @@ export default function Chapter2Page3() {
               return <Picture url={picture.url} id={picture.id} />;
             })}
           </div>
-          <Button
-            onClick={clearBoard}
-            className="text-white flex flex-row mt-4 mx-auto"
-          >
-            Limpar Tentativa
-          </Button>
+          {!showDialog && (
+            <Button
+              onClick={clearBoard}
+              className="text-white flex flex-row mt-4 mx-auto"
+            >
+              Limpar Tentativa
+            </Button>
+          )}
           {board.map((picture) => {
             return (
               <p className="text-white font-medium mt-2">
@@ -213,7 +214,7 @@ export default function Chapter2Page3() {
             );
           })}
           {showDialog && (
-            <Dialog>
+            <Dialog className="text-white flex flex-row mt-4 mx-auto">
               <DialogTrigger>
                 <Button className="text-white">Continuar</Button>
               </DialogTrigger>
@@ -239,6 +240,7 @@ export default function Chapter2Page3() {
             validateId={validateId}
           />
         </div>
+        <div className="col-span-1"></div>
 
         <div className="fixed bottom-5 left-5">
           <TooltipProvider>
@@ -262,5 +264,5 @@ export default function Chapter2Page3() {
         />
       )}
     </DndProvider>
-  )
+  );
 }

@@ -21,34 +21,10 @@ export default function ChaptersLayout({
 
   // Verifica se o utilizador está autenticado
   useEffect(() => {
-    if (!isLoading) {
-      if (currentUser === null) {
-        setIsCheckingAuth(false);
-        router.push("/authentication");
-      } else {
-        setIsCheckingAuth(false);
-      }
+    if (currentUser) {
+      router.push("/");
     }
-  }, [currentUser, isLoading, router]);
+  }, [currentUser, router]);
 
-  // Se o utilizador estiver a ser autenticado, mostra um loading
-  if (isLoading || isCheckingAuth) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center">
-        <Lottie
-          animationData={animationData}
-          className="bg-foreground h-20 w-20"
-        />
-      </div>
-    );
-  }
-
-  return (
-    <ProgressProvider>
-      <main className="overflow-hidden text-xl">
-        <NavbarChapters />
-        {children}
-      </main>
-    </ProgressProvider>
-  );
+  return <main className="overflow-hidden">{children}</main>;
 }
