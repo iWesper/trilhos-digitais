@@ -11,8 +11,7 @@ import { db, auth, googleProvider } from "../../backend/config/firebase.jsx";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import Homepage from "../homepage/Homepage";
-import Login from "../login/Login.jsx";
-
+import Login from "@/app/authentication/page.tsx";
 export const Auth = () => {
   //EMAIL E PASSWORD
   const [email, setEmail] = useState("");
@@ -187,7 +186,7 @@ export const Auth = () => {
                 >
                   <FcGoogle size={24} /> Registar com Google
                 </Button>
-                <div className="text-center text-sm">{error}</div>
+                {error && (<p className=" text-red-600 text-center text-sm">{error}</p>)}
               </div>
               <div
                 className="mt-4 text-center text-sm"

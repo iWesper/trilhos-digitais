@@ -19,7 +19,7 @@ import { useRouter } from "next/navigation";
 // Página de login
 const Login = () => {
   const router = useRouter();
-  const { handleLogin, handleGoogleSignIn, handlePasswordReset, currentUser } =
+  const { handleLogin, handleGoogleSignIn, handlePasswordReset, currentUser, error } =
     useAuth();
 
   //STATE DO RENDER
@@ -47,7 +47,7 @@ const Login = () => {
   return (
     <>
       {Render === true ? (
-        <div className="w-full h-screen bg-white lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
+        <div className="w-full h-screen bg-white lg:grid lg:grid-cols-2 overflow-hidden">
           <div className="flex items-center justify-center py-12">
             <div className="mx-auto grid w-[350px] gap-6">
               <div className="grid gap-2 text-center">
@@ -103,6 +103,7 @@ const Login = () => {
                 >
                   <FcGoogle size={24} /> Entrar com Google
                 </Button>
+                {error && (<p className=" text-red-600 text-center text-sm">{error}</p>)}
               </div>
               <div
                 className="mt-4 text-center text-sm"

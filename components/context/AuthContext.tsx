@@ -35,6 +35,9 @@ interface AuthContextType {
 // Criação do contexto
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+// Estado para guardar o erro
+const [error, setError] = useState<string | null>(null);
+
 // Hook para usar o contexto
 export const useAuth = () => {
   // Verifica se o contexto foi usado fora do provider
@@ -54,8 +57,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   // Estado para guardar o username
   const [username, setUsername] = useState("");
-  // Estado para guardar o erro
-  const [error, setError] = useState<string | null>(null);
   // Estado para guardar o estado do tutorial
   const [tutorialState, setTutorialState] = useState(false);
   // Lista de Badges
@@ -83,7 +84,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       await signInWithEmailAndPassword(auth, email, password);
       router.push("/");
     } catch (e) {
-      setError("Login failed. Please try again.");
+      setError("Ocorreu um erro no login. Por favor, tenta novamente.");
     }
   };
 
@@ -129,7 +130,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         });
       }
     } catch (e) {
-      setError("Google sign-in failed. Please try again.");
+      setError(
+        "Ocorreu um erro no login da Google. Por favor, tenta novamente."
+      );
     }
   };
 
@@ -137,9 +140,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const handlePasswordReset = async (email: string) => {
     setError(null); // Reset error state
     if (!email || email.trim() === "") {
-      setError(
-        "Para conseguir alterar a password, por favor, insere o teu email."
-      );
+      setError("Por favor, insere o teu email.");
     } else {
       //TRY
       try {
@@ -157,7 +158,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       await signOut(auth);
     } catch (e) {
-      setError("Logout failed. Please try again.");
+      setError("Ocorreu um erro no logout. Por favor, tenta novamente.");
     }
   };
 
@@ -172,7 +173,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setUsername(doc.data().username);
       });
     } catch (e) {
-      setError("Failed to fetch username. Please try again.");
+      setError("Erro a ir buscar o username.");
     }
   };
 
@@ -221,7 +222,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             });
           } else {
             // Erro sem badge id
-            setError(`Document ${doc.id} does not have a badgeId`);
+            setError(`O Documento não tem um Badge Id.`);
           }
         }
 
@@ -258,7 +259,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             });
           } else {
             // Erro sem badge id
-            setError(`Document ${doc.id} does not have a badgeId`);
+            setError(`O Documento não tem um Badge Id.`);
           }
         }
 
@@ -266,8 +267,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setBadgeList(FilteredData);
       } catch (e) {
         // Temp log do erro
-        console.error(e);
-        setError(`Erro no fetch dos dados: ${e}`);
+        setError(`Ocorreu um erro na busca dos dados.`);
       }
     } else {
       // Erro sem User
@@ -315,16 +315,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
         // Se houver não docs faz if not empty que será false
         if (!queryFilter.empty) {
-
           setwillShowToastState(false);
-
         } else {
           // Se não houver docs, dá true
-         setwillShowToastState(true);
+          setwillShowToastState(true);
         }
       } catch (e) {
         // Erro
-        setError(`Erro no fetch dos dados: ${e}`);
+        setError(`Ocorreu um erro na busca dos dados.`);
       }
     } else {
       // Erro
@@ -332,7 +330,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
 
     return false;
-
   };
 
   // Valor do contexto
