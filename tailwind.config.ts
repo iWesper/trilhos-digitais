@@ -95,17 +95,19 @@ const config = {
         'comboioParallaxFundo3': "url('/img/comboio/comboioParallaxFundo3.svg')",
         'comboioParallaxFundo4': "url('/img/comboio/comboioParallaxFundo4.svg')",
         'comboioTrilhosFundo5': "url('/img/comboio/comboioTrilhosFundo5.svg')",
+
+        'BadgesBG': "url('/img/badges/fundo_badges.svg')",
+
+
         'chapter1StartBG': "url('/img/fundo_arte_inicial.svg')",
         'chapter1BG': "url('/img/fundo_arte.svg')",
+
         'chapter2StartBG': "url('/img/fundo_design_inicial.svg')",
         'chapter2BG': "url('/img/fundo_design.svg')",
         'espremedorBG': "url('/img/chapter2/chapter2espremedor.svg')",
-
-
         'chapter2BGTexto1': "url('/img/chapter2/chapter2BGTexto1.svg')",
         'chapter2BGTexto2': "url('/img/chapter2/chapter2BGTexto2.svg')",
         'chapter2BGTexto3': "url('/img/chapter2/chapter2BGTexto3.svg')",
-
 
         'chapter3StartBG': "url('/img/fundo_comunicacao_inicial.svg')",
         'chapter3BG': "url('/img/fundo_comunicacao.svg')",

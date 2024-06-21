@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 286.3 270.1">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fbe1a8;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #ecc4d4;
+      }
+
+      .cls-5 {
+        opacity: .4;
+      }
+
+      .cls-3 {
+        fill: #ebc296;
+      }
+
+      .cls-4 {
+        fill: #5896c4;
+      }
+    </style>
+  </defs>
+  <g class="cls-5">
+    <image width="1442" height="1300" transform="translate(-54 -4.8) scale(.2)" xlink:href="fundo_badges_paper4_Prancheta 1 cópia-1.png"/>
+  </g>
+  <rect class="cls-4" x="38" y="25.8" width="184.7" height="184.7" transform="translate(19.5 -18.4) rotate(8.7)"/>
+  <g class="cls-5">
+    <image width="1051" height="1300" transform="translate(-19.9 -39.2) scale(.2)" xlink:href="fundo_badges_paper4_Prancheta 1 cópia-2.png"/>
+  </g>
+  <rect class="cls-2" x="22.5" y="51.7" width="184.7" height="184.7" transform="translate(-12.6 11) rotate(-5.2)"/>
+  <g class="cls-5">
+    <image width="1051" height="1300" transform="translate(5.8 -30.5) scale(.2)" xlink:href="fundo_badges_paper4_Prancheta 1 cópia-3.png"/>
+  </g>
+  <rect class="cls-3" x="69.2" y="34.9" width="184.7" height="184.7" transform="translate(45.7 -42.6) rotate(17.5)"/>
+  <g class="cls-5">
+    <image width="1077" height="1281" transform="translate(30.8 -.8) scale(.2)" xlink:href="fundo_badges_paper4_Prancheta 1 cópia-4.png"/>
+  </g>
+  <rect class="cls-1" x="47.1" y="46.1" width="184.7" height="184.7" transform="translate(22.6 -19.6) rotate(8.7)"/>
+</svg>

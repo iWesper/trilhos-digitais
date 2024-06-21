@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 343 414.1">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: .7;
+      }
+
+      .cls-2 {
+        fill: #f9f3b0;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g class="cls-1">
+    <image width="969" height="1563" transform="translate(11.7 62.6) scale(.2)" xlink:href="fundo_badges_paper2_Prancheta 1 cópia-1.png"/>
+  </g>
+  <rect class="cls-2" x="79.2" y="30.2" width="183.6" height="294.5" transform="translate(28.9 -23.9) rotate(8.7)"/>
+</svg>
