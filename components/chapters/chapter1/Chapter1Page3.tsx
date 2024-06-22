@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { MdQuestionMark } from "react-icons/md";
 import {
   Tooltip,
@@ -19,12 +20,31 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Center,
+  Environment,
+  Loader,
+  OrbitControls,
+  Text3D,
+} from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import Wagner from "@/public/models/wagner/Wagner";
 
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { useProgress } from "@/components/context/ProgressContext";
 import { Button } from "@/components/ui/button";
 
 export default function Chapter1Page3() {
+  const router = useRouter();
+
+  // Estados relativos ao 3D
+  const [text3DIsHovered, setText3DIsHovered] = useState(false);
+  const [modelIsHovered, setModelIsHovered] = useState(false);
+
+  const handleText3DClick = () => {
+    router.push("/chapters/chapter2/3");
+  };
+
   //BADGE DO CAPÍTULO
   const badgeId = 1;
 
@@ -80,7 +100,43 @@ export default function Chapter1Page3() {
         </div>
         <div className="col-span-1"></div>
         <div className="col-span-4 flex justify-center items-center">
-          <Dialog>
+          <Canvas>
+            <Suspense fallback={null}>
+              <OrbitControls
+                autoRotate={modelIsHovered ? false : true}
+                autoRotateSpeed={0.2}
+                enableZoom={true}
+                enablePan={false}
+              />
+              {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
+              <Center
+                position={[0, 1.5, 0]}
+                onPointerEnter={(event) => (
+                  event.stopPropagation(), setText3DIsHovered(true)
+                )}
+                onPointerLeave={() => setText3DIsHovered(false)}
+                onClick={handleText3DClick}
+              >
+                <Text3D size={0.5} font={"/fonts/Effra_Regular.json"}>
+                  Wagner
+                  <meshStandardMaterial
+                    color={text3DIsHovered ? "orange" : "white"}
+                  />
+                </Text3D>
+              </Center>
+              <Wagner
+                rotation={[0, 3.7, 0]}
+                scale={0.1}
+                onPointerEnter={(event: React.PointerEvent) => (
+                  event.stopPropagation(), setModelIsHovered(true)
+                )}
+                onPointerLeave={() => setModelIsHovered(false)}
+              />
+              <Environment preset="sunset" />
+            </Suspense>
+          </Canvas>
+          <Loader />
+          {/* <Dialog>
             <DialogTrigger>
               <Image
                 src="/img/chapter1/chapter1Teatro.svg"
@@ -100,7 +156,7 @@ export default function Chapter1Page3() {
                 <Button onClick={SaveBadgeProgressAndGoToNextPage}>Sim</Button>
               </DialogHeader>
             </DialogContent>
-          </Dialog>
+          </Dialog> */}
         </div>
         <div className="col-span-1"></div>
         <div className="fixed bottom-5 left-5">
@@ -126,5 +182,5 @@ export default function Chapter1Page3() {
         />
       )}
     </>
-  )
+  );
 }

@@ -28,6 +28,8 @@ export default function Chapter2Page2() {
   const router = useRouter();
   //PROGRESS
   const { setProgress } = useProgress();
+
+  // Estados relativos ao 3D
   const [text3DIsHovered, setText3DIsHovered] = useState(false);
   const [modelIsHovered, setModelIsHovered] = useState(false);
 

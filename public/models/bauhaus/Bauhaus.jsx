@@ -6,7 +6,6 @@ Files: bauhaus.glb [263.74KB] > C:\Users\luisp\OneDrive\Ambiente de Trabalho\Pro
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF('/models/bauhaus/bauhaus-transformed.glb')
