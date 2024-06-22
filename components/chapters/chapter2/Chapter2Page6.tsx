@@ -42,7 +42,7 @@ export default function Chapter2Page6() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-2"></div>
-        <div className="col-span-8 flex justify-start items-center text-center flex-col pt-24">
+        <div className="col-span-8 flex justify-end items-center text-center flex-col">
           <p className="text-white font-medium p-6">
             Como te dissémos, estas cadeiras foram pensadas de modo a ocupar o
             menor espaço possível, e conseguem isto inserindo-se dentro umas das
@@ -51,7 +51,7 @@ export default function Chapter2Page6() {
         </div>
         <div className="col-span-2"></div>
         <div className="col-span-2"></div>
-        <div className="col-span-8 flex flex-col items-center justify-center">
+        <div className="col-span-8 flex flex-col items-center justify-start">
           <Tilt options={defaultOptions}>
             <Image
               src="/img/chapter2/chapter2cadeiras_cadeirasempilhadas.svg"
@@ -60,7 +60,7 @@ export default function Chapter2Page6() {
               height={400}
             />
           </Tilt>
-          <Link href={"/chapters/chapter2/7"}>
+          <Link href={"/chapters/chapter2/7"} className="mt-10">
             <Button className="text-white">Continuar</Button>
           </Link>
         </div>

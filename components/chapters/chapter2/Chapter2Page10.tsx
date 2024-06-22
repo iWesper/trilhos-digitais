@@ -21,8 +21,8 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import PicturePhones from "./Design_Telemoveis_Drop";
 import { useToast } from "@/components/ui/use-toast";
 import { useAuth } from "@/components/context/AuthContext";
-
-
+import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 
 import testimg1 from "@/public/img/chapter2/Phone1.svg";
 import testimg2 from "@/public/img/chapter2/Phone2.svg";
@@ -35,12 +35,11 @@ interface Picture {
 }
 
 export default function Chapter2Page10() {
+  //TOAST
+  const { toast } = useToast();
 
-   //TOAST
-   const { toast } = useToast();
-
-   //AUTH Se for false tem badge, true não tem
-   const { WillShowToast, willShowToastState, error } = useAuth();
+  //AUTH Se for false tem badge, true não tem
+  const { WillShowToast, willShowToastState, error } = useAuth();
 
   //LISTA DE ELEMENTOS ARRASTÁVEIS
   //AQUI, URL É A LOCALIZAÇÃO
@@ -62,7 +61,6 @@ export default function Chapter2Page10() {
       url: testimg4,
     },
   ];
-
 
   //STATE ATUALIZÁVEL COM OS ELEMENTOS QUE LÁ ESTÃO
   const [board, setBoard] = useState<Picture[]>([]);
@@ -130,7 +128,9 @@ export default function Chapter2Page10() {
   //MENSAGEM A ESCREVER
   let message = "";
 
-  useEffect(() => { WillShowToast(badgeId)}, []);
+  useEffect(() => {
+    WillShowToast(badgeId);
+  }, []);
 
   //DICA
   const Tip = "Arrasta os telemóveis para os ordenares.";
@@ -269,10 +269,9 @@ export default function Chapter2Page10() {
     ) {
       message = "Não nos parece ser essa a ordem, anda, tenta de novo.";
     } else if (correctPositions == 4) {
-
       message = "Acertaste, parabéns!";
 
-      if(willShowToastState === true){
+      if (willShowToastState === true) {
         toast({
           title: "Nova conquista registada.",
           description: "Ganhaste o teu segundo badge!",
@@ -375,7 +374,7 @@ export default function Chapter2Page10() {
       <>
         <div
           ref={dropRef}
-          className=" w-56 h-56 flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-3"
+          className=" w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
         >
           {board.map((picture) => {
             return (
@@ -390,7 +389,7 @@ export default function Chapter2Page10() {
         </div>
         <div
           ref={dropRef2}
-          className=" w-56 h-56 flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-3"
+          className=" w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
         >
           {board2.map((picture) => {
             return (
@@ -405,7 +404,7 @@ export default function Chapter2Page10() {
         </div>
         <div
           ref={dropRef3}
-          className=" w-56 h-56 flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-3"
+          className=" w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
         >
           {board3.map((picture) => {
             return (
@@ -420,7 +419,7 @@ export default function Chapter2Page10() {
         </div>
         <div
           ref={dropRef4}
-          className=" w-56 h-56 flex justify-center items-center  rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-3"
+          className=" w-full h-full flex justify-center items-center  rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
         >
           {board4.map((picture) => {
             return (
@@ -449,10 +448,10 @@ export default function Chapter2Page10() {
         </Link>
         <div className="col-span-2"></div>
         <div className="col-span-8 flex justify-start items-center text-center flex-col pt-20">
-          <p className="text-white font-medium p-6 pb-8">{PContent}</p>
+          <p className="text-white font-medium pb-8">{PContent}</p>
         </div>
         <div className="col-span-2"></div>
-
+        <div className="col-span-2"> </div>
         <DropAreas
           addImageToBoard={addImageToBoard}
           board={board}
@@ -460,6 +459,7 @@ export default function Chapter2Page10() {
           board3={board3}
           board4={board4}
         />
+        <div className="col-span-2"> </div>
 
         <div className="col-span-4"></div>
         <div className="col-span-4 text-center text-white">{orderMessage}</div>
@@ -468,16 +468,25 @@ export default function Chapter2Page10() {
         <div className="col-span-4"></div>
         <div className="col-span-4 flex justify-center items-center">
           {showContinuar && (
-            <Button
-              className="mt-2 text-white text-center"
-              onClick={SaveBadgeProgressAndGoToNextPage}
+            <motion.div
+              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              className="group"
             >
-              Continuar
-            </Button>
+              <Button
+                asChild
+                className="text-white bg-foreground hover:bg-hover"
+                onClick={SaveBadgeProgressAndGoToNextPage}
+              >
+                <Link href="/chapters/chapter3/14">
+                  Continuar
+                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+                </Link>
+              </Button>
+            </motion.div>
           )}
         </div>
         <div className="col-span-4"></div>
-        {error && (<p className=" text-red-600 text-center text-sm">{error}</p>)}
+        {error && <p className=" text-red-600 text-center text-sm">{error}</p>}
 
         <div className="fixed bottom-5 left-5">
           <TooltipProvider>

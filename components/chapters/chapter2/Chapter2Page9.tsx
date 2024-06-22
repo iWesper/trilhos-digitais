@@ -318,9 +318,9 @@ export default function Chapter2Page9() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-2"></div>
-        <div className="col-span-8 flex justify-start items-center text-center flex-col pt-20">
-          <p className="text-white font-medium p-6 pb-8">{P1}</p>
-          <p className="text-white font-medium pb-8">{P2}</p>
+        <div className="col-span-8 flex justify-start items-center text-center flex-col">
+          <p className="text-white font-medium pb-10">{P1}</p>
+          <p className="text-white font-medium pb-10">{P2}</p>
           {!showDialog && (
             <div className={BGText}>
               <p className={`text-white px-20 py-10 text-6xl ${TextFont}`}>

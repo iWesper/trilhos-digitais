@@ -4,17 +4,20 @@ import { Button } from "@/components/ui/button";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
-import { Tilt } from "react-tilt";
+import { FaArrowRight } from "react-icons/fa6";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
 
 export default function Chapter3Page4() {
-
   //PROGRESS
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571);
+  setProgress(
+    7.1428571428571428571428571428571 +
+      7.1428571428571428571428571428571 +
+      7.1428571428571428571428571428571
+  );
 
   //CONTROLO DA ANIMAÇÃO
   const defaultOptions = {
@@ -51,9 +54,14 @@ export default function Chapter3Page4() {
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
         >
-          <div className="h-full flex justify-center items-center mt-20">
+          <div className="h-full flex justify-center items-center mt-10">
             <p className="font-medium mb-10 text-white text-center">
-            Dando o exemplo do "<span className="italic">The Godfather</span>”, enquanto filme. O seu meio técnico de exposição é o ecrã, os meios básicos são imagens, sons e falas, e os seus meios qualificados seriam longa-metragem e ficção policial. Se fosse o livro, estes aspetos formadores seriam outros, passando assim uma mensagem diferente.
+              Dando o exemplo do "<span className="italic">The Godfather</span>
+              ”, enquanto filme. O seu meio técnico de exposição é o ecrã, os
+              meios básicos são imagens, sons e falas, e os seus meios
+              qualificados seriam longa-metragem e ficção policial. Se fosse o
+              livro, estes aspetos formadores seriam outros, passando assim uma
+              mensagem diferente.
             </p>
           </div>
         </motion.div>
@@ -62,79 +70,83 @@ export default function Chapter3Page4() {
           initial={{ x: 100 }}
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
+        ></motion.div>
+        <motion.div
+          className="h-full col-span-4 flex justify-center items-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
         >
+          <Image
+            src="/img/chapter3/chapter3GodfatherCover.svg"
+            alt="Imagem de capa de  The Godfather"
+            width={250}
+            height={250}
+            className="rounded mt-20"
+            draggable={false}
+          />
         </motion.div>
         <motion.div
           className="h-full col-span-4 flex justify-center items-center"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
         >
-            <Image
-              src="/img/chapter3/chapter3GodfatherCover.svg"
-              alt="Imagem de capa de  The Godfather"
-              width={250}
-              height={250}
-              className="rounded tiltableImage mt-44"
-              draggable={false}
-            />
+          <Image
+            src="/img/chapter3/chapter3GodfatherCoverXBOX.svg"
+            alt="Imagem de capa de The Godfather"
+            width={250}
+            height={250}
+            className="rounded mt-20"
+            draggable={false}
+          />
         </motion.div>
         <motion.div
           className="h-full col-span-4 flex justify-center items-center"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2, duration: 1 }}
         >
-            <Image
-              src="/img/chapter3/chapter3GodfatherCoverXBOX.svg"
-              alt="Imagem de capa de The Godfather"
-              width={250}
-              height={250}
-              className="rounded tiltableImage mt-44"
-              draggable={false}
-            />
-        </motion.div>
-        <motion.div
-          className="h-full col-span-4 flex justify-center items-center"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        >
-
-            <Image
-              src="/img/chapter3/chapter3GodfatherCoverBook.svg"
-              alt="Imagem de capa de The Godfather"
-              width={250}
-              height={250}
-              className="rounded tiltableImage mt-44"
-              draggable={false}
-            />
+          <Image
+            src="/img/chapter3/chapter3GodfatherCoverBook.svg"
+            alt="Imagem de capa de The Godfather"
+            width={250}
+            height={250}
+            className="rounded mt-20"
+            draggable={false}
+          />
         </motion.div>
         <motion.div
           className="h-full col-span-4"
           initial={{ x: 100 }}
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
-        >
-        </motion.div>
+        ></motion.div>
         <motion.div
           className="h-full col-span-4 flex justify-center items-center"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-            <Link href="/chapters/chapter3/5">
-              <Button className="text-white mt-36 bg-foreground hover:bg-hover">Continuar</Button>
-            </Link>
+          <motion.div
+            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+            className="group"
+          >
+            <Button asChild className="text-white bg-foreground hover:bg-hover">
+              <Link href="/chapters/chapter3/5">
+                Continuar
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+              </Link>
+            </Button>
+          </motion.div>
         </motion.div>
         <motion.div
           className="h-full col-span-4"
           initial={{ x: 100 }}
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
-        >
-        </motion.div>
+        ></motion.div>
       </div>
     </>
-  )
+  );
 }

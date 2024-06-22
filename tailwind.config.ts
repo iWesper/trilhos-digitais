@@ -97,6 +97,12 @@ const config = {
         'comboioTrilhosFundo5': "url('/img/comboio/comboioTrilhosFundo5.svg')",
 
         'BadgesBG': "url('/img/badges/fundo_badges.svg')",
+        'quadroBadges': "url('/img/badges/quadrobadges.svg')",
+        'papelBadges1': "url('/img/badges/fundo_badges_paper1.svg')",
+        'papelBadges2': "url('/img/badges/fundo_badges_paper2.svg')",
+        'papelBadges3': "url('/img/badges/fundo_badges_paper3.svg')",
+        'papelBadges4': "url('/img/badges/fundo_badges_paper4.svg')",
+        'papelBadges5': "url('/img/badges/fundo_badges_paper5.svg')",
 
 
         'chapter1StartBG': "url('/img/fundo_arte_inicial.svg')",
@@ -114,8 +120,6 @@ const config = {
 
         'chapter4StartBG':"url('/img/fundo_tecnologia_inicial.svg')",
         'chapter4BG': "url('/img/fundo_tecnologia.svg')",
-
-        'quadroBadges': "url('/img/badges/quadrobadges.svg')",
       },
       
     },

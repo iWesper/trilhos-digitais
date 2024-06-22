@@ -7,9 +7,9 @@ import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter3Page2() {
-
   //PROGRESS
   const { setProgress } = useProgress();
 
@@ -39,36 +39,46 @@ export default function Chapter3Page2() {
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
         </Link>
-        <motion.div
-          className="col-span-1 h-full"
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        ></motion.div>
+        <div className="col-span-1 h-full"></div>
         <motion.div
           className="col-span-6 h-full"
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1}}
           transition={{ duration: 1 }}
         >
           <div className="h-full flex flex-col justify-center items-center p-10 ">
             <p className="font-medium mb-10 text-white">
-            Para isto, vamos usar o exemplo do “<span className="italic">The Godfather</span>”. Este clássico foi apresentado como um livro, filme e jogo, sempre com as mesmas personagens e história, mas cada um passando uma mensagem ligeiramente diferente.
+              Para isto, vamos usar o exemplo do “
+              <span className="italic">The Godfather</span>”. Este clássico foi
+              apresentado como um livro, filme e jogo, sempre com as mesmas
+              personagens e história, mas cada um passando uma mensagem
+              ligeiramente diferente.
             </p>
-            <Link href="/chapters/chapter3/3">
-              <Button className="text-white bg-foreground hover:bg-hover">Continuar</Button>
-            </Link>
+            <motion.div
+              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              className="group"
+            >
+              <Button
+                asChild
+                className="text-white bg-foreground hover:bg-hover"
+              >
+                <Link href="/chapters/chapter3/3">
+                  Continuar
+                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+                </Link>
+              </Button>
+            </motion.div>
           </div>
         </motion.div>
         <motion.div
           className="h-full col-span-4 flex justify-center items-center"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1}}
           transition={{ duration: 1 }}
         >
           <Tilt options={defaultOptions}>
             <Image
-               src="/img/chapter3/chapter3GodfatherCover.svg"
+              src="/img/chapter3/chapter3GodfatherCover.svg"
               alt="Imagem de capa deo The Godfather"
               width={350}
               height={350}
@@ -77,13 +87,8 @@ export default function Chapter3Page2() {
             />
           </Tilt>
         </motion.div>
-        <motion.div
-          className="h-full col-span-1"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        ></motion.div>
+        <div className="h-full col-span-1"></div>
       </div>
     </>
-  )
+  );
 }

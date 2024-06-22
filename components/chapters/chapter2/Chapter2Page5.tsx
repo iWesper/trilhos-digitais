@@ -235,7 +235,7 @@ export default function Chapter2Page5() {
     return (
       <div
         ref={dropRef}
-        className="w-full rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 flex flex-col items-center justify-center relative min-h-[60vh] h-[60vh]"
+        className="w-full rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 flex flex-col items-center justify-center relative min-h-[60vh] h-full"
       >
         {board.length > 0 &&
           board.map((picture) => {
@@ -278,12 +278,12 @@ export default function Chapter2Page5() {
         </div>
         <div className="col-span-2"></div>
 
-        <div className="col-span-2 mt-6">
+        <div className="col-span-2 flex justify-end pe-10">
           <Button className="text-white text-center" onClick={clearBoard}>
             Limpar Tentativa
           </Button>
         </div>
-        <div className="col-span-8 flex flex-col items-center justify-center">
+        <div className="col-span-8 flex flex-col items-center justify-center mb-10">
           <DroppingArea
             addImageToBoard={addImageToBoard}
             board={board}

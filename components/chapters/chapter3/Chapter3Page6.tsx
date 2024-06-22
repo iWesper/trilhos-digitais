@@ -7,6 +7,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import SaveBadgeProgressScript from "@/backend/SaveBadgeProgressScript";
+import { motion } from "framer-motion";
 
 import {
   Dialog,
@@ -30,7 +31,13 @@ export default function Chapter3Page6() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571);
+  setProgress(
+    7.1428571428571428571428571428571 +
+      7.1428571428571428571428571428571 +
+      7.1428571428571428571428571428571 +
+      7.1428571428571428571428571428571 +
+      7.1428571428571428571428571428571
+  );
 
   //LISTA de PALAVRAS POSSÍVEIS
   const words = [
@@ -189,7 +196,7 @@ export default function Chapter3Page6() {
   const verifyWords = () => {
     //OBJETO COM AS PALAVRAS CORRETAS
     const correctWords = {
-      "Meios Técnicos de Exposição": ["Ecrã","Cartaz", "Papel"],
+      "Meios Técnicos de Exposição": ["Ecrã", "Cartaz", "Papel"],
       "Meios Básicos": ["Falas e Sons", "Sons", "Imagens"],
       "Meios Qualificados": ["Curta-Metragem", "Verídico", "Ficção"],
     };
@@ -233,29 +240,44 @@ export default function Chapter3Page6() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-3"></div>
-        <div className="col-span-6 flex justify-start items-center text-center flex-col pt-20">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-6 flex justify-start items-center text-center flex-col pt-20"
+        >
           <p className="text-white font-medium p-6">
             Abaixo, tens três colunas diretamente relacionadas com o
             <span className="italic">“Spider-Man”</span> enquanto
             banda-desenhada, filme e jogo. Indica quais os meios de cada um para
             continuar!
           </p>
-        </div>
+        </motion.div>
         <div className="col-span-3"></div>
 
         <div className="col-span-2"></div>
-        <div className="col-span-8 flex justify-center items-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-8 flex justify-center items-center"
+        >
           {isCorrect !== null && isCorrect === false && (
             <p className="text-white font-medium text-center">
               Ora parece que te confundiste nos {wrongColumn}. Vamos, tenta de
               novo.{" "}
             </p>
           )}
-        </div>
+        </motion.div>
         <div className="col-span-2"></div>
         {/* Images */}
         <div className="col-span-3"></div>
-        <div className="col-span-2 flex justify-center items-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+          className="col-span-2 flex justify-center items-center"
+        >
           <Image
             src="/img/chapter3/chapter3SpiderManFilme.svg"
             alt="Imagem de capa The SpiderMan"
@@ -264,8 +286,13 @@ export default function Chapter3Page6() {
             className="rounded"
             draggable={false}
           />
-        </div>
-        <div className="col-span-2 flex justify-center items-center">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.5 }}
+          className="col-span-2 flex justify-center items-center"
+        >
           <Image
             src="/img/chapter3/chapter3SpiderManGame.svg"
             alt="Imagem de capa The SpiderMan"
@@ -274,8 +301,13 @@ export default function Chapter3Page6() {
             className="rounded"
             draggable={false}
           />
-        </div>
-        <div className="col-span-2 flex justify-center items-center">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 2 }}
+          className="col-span-2 flex justify-center items-center"
+        >
           <Image
             src="/img/chapter3/chapter3SpiderManBD.svg"
             alt="Imagem de capa The SpiderMan"
@@ -284,11 +316,16 @@ export default function Chapter3Page6() {
             className="rounded"
             draggable={false}
           />
-        </div>
+        </motion.div>
         <div className="col-span-3"></div>
         {/* Word rows */}
         <div className="col-span-2"></div>
-        <div className="flex flex-col mt-8 col-span-8">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 2.5 }}
+          className="flex flex-col mt-8 col-span-8"
+        >
           {[
             "Meios Técnicos de Exposição",
             "Meios Básicos",
@@ -302,7 +339,10 @@ export default function Chapter3Page6() {
               <div className="flex flex-row justify-between w-full me-40">
                 {selectedWords[column as keyof typeof selectedWords].map(
                   (word: string, index: number) => (
-                    <div key={index} className="flex justify-center items-center mx-2 w-full">
+                    <div
+                      key={index}
+                      className="flex justify-center items-center mx-2 w-full"
+                    >
                       <button onClick={() => changeWord(column, index, -1)}>
                         <FaArrowLeft className="text-white" />
                       </button>
@@ -316,18 +356,36 @@ export default function Chapter3Page6() {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
         <div className="col-span-2"></div>
         <div className="col-span-4"></div>
-        <div className="col-span-4 flex justify-center items-center">
-          {isCorrect === false && (<Button className="text-white bg-foreground hover:bg-hover" onClick={verifyWords}>
-            Verificar
-          </Button>)}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 3 }}
+          className="col-span-4 flex justify-center items-center"
+        >
+          {isCorrect === false && (
+            <Button
+              asChild
+              className="text-white bg-foreground hover:bg-hover"
+              onClick={verifyWords}
+            >
+              <motion.div
+                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                className="cursor-pointer"
+              >
+                Verificar
+              </motion.div>
+            </Button>
+          )}
 
           {isCorrect !== null && isCorrect === true && (
             <Dialog>
               <DialogTrigger>
-                <Button className=" text-white ms-5 bg-foreground hover:bg-hover">Continuar</Button>
+                <Button className=" text-white ms-5 bg-foreground hover:bg-hover">
+                  Continuar
+                </Button>
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
@@ -340,7 +398,7 @@ export default function Chapter3Page6() {
               </DialogContent>
             </Dialog>
           )}
-        </div>
+        </motion.div>
         <div className="col-span-4"></div>
       </div>
 

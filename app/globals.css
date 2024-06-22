@@ -137,4 +137,17 @@
     animation: tiltAnimation 0.5s ease-in-out 1;
     animation-delay: 2s;
   }
+
+  @keyframes moveRightAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(5px);
+    }
+  }
+
+  .moveRight {
+    animation: moveRightAnimation 0.2s ease-in-out 1 forwards;
+  }
 }

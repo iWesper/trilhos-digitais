@@ -24,16 +24,16 @@ export default function Chapter2Page8() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-2"></div>
-        <div className="col-span-8 flex justify-start items-center text-center flex-col pt-20">
-          <p className="text-white font-medium p-6 pb-8">
+        <div className="col-span-8 flex justify-start items-center text-center flex-col">
+          <p className="text-white font-medium pb-10">
             Para que possas verificar este conceito, montámos o seguinte
             showcase, onde vais poder ver como o design pode alterar o
             significado de algo, neste caso, a frase “Hello there”.
           </p>
-          <p className="text-white font-medium pb-8">
+          <p className="text-white font-medium pb-10">
             Altera o design e diz-nos que tipo de mensagem te transmite.
           </p>
-          <div className=" bg-opacity-50 bg-black rounded-xl mb-6">
+          <div className=" bg-opacity-50 bg-black rounded-xl mb-10">
             <p className="text-white px-10 py-10 text-6xl font-effra">
               Hello There.
             </p>

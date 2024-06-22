@@ -16,7 +16,7 @@ export default function Chapter2Page11() {
 
   return (
     <>
-      <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center p-4">
+      <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 justify-center items-center p-4">
         <Link
           href="/chapters/chapter2/10"
           className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
@@ -25,15 +25,15 @@ export default function Chapter2Page11() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-2"></div>
-        <div className="col-span-8 flex justify-start items-center text-center flex-col pt-20">
-          <p className="text-white font-medium p-6 pb-8">
+        <div className="col-span-8 flex justify-start items-center text-center flex-col">
+          <p className="text-white font-medium pb-10">
             Parece que chegámos ao fim do segundo pilar.
           </p>
-          <p className="text-white font-medium pb-8">
+          <p className="text-white font-medium pb-10">
             Agora, vamos analisar mais de perto como uma mensagem pode ser
             passada.
           </p>
-          <p className="text-white font-medium pb-8">
+          <p className="text-white font-medium pb-10">
             Próxima paragem, e o terceiro pilar: Comunicação!
           </p>
 

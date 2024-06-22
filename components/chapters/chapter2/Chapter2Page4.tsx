@@ -37,7 +37,8 @@ export default function Chapter2Page4() {
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
         </Link>
-        <div className="col-span-7">
+        <div className="col-span-1"></div>
+        <div className="col-span-5">
           <div className="h-full flex flex-col justify-center  p-10 ">
             <p className="font-medium mb-10 text-white">
               Parece que descobriste, é um espremedor!
@@ -57,8 +58,8 @@ export default function Chapter2Page4() {
             </div>
           </div>
         </div>
+        <div className="col-span-1"></div>
         <div className="h-full col-span-4 flex justify-center items-center relative">
-          <div className="flex flex-col items-center">
             <Image
               src="/img/chapter2/chapter2espremedor.svg"
               alt="Foto de Um Espremedor de Citrinos"
@@ -73,9 +74,8 @@ export default function Chapter2Page4() {
               height={200}
               className="absolute bottom-0 right-26 left-24 ms-4"
             />
-          </div>
         </div>
-        <div className="h-full col-span-1"></div>
+        <div className="col-span-1"></div>
       </div>
     </>
   );

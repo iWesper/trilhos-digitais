@@ -7,14 +7,22 @@ import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter3Page8() {
-
   //PROGRESS
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571+7.1428571428571428571428571428571);
+  setProgress(
+    7.1428571428571428571428571428571 +
+      7.1428571428571428571428571428571 +
+      7.1428571428571428571428571428571 +
+      7.1428571428571428571428571428571 +
+      7.1428571428571428571428571428571 +
+      7.1428571428571428571428571428571 +
+      7.1428571428571428571428571428571
+  );
 
   //CONTROLO DA ANIMAÇÃO
   const defaultOptions = {
@@ -41,34 +49,47 @@ export default function Chapter3Page8() {
         </Link>
         <motion.div
           className="col-span-1 h-full"
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         ></motion.div>
         <motion.div
           className="col-span-6 h-full"
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
           <div className="h-full flex flex-col justify-center items-center p-10 ">
             <p className="font-medium mb-10 text-white">
-            As modalidades materiais, consistindo na forma como experiencias aquele <span className="italic">media</span>, por exemplo, uma música só te deixa ouvir a mensagem, não vê-la.
+              As modalidades materiais, consistindo na forma como experiencias
+              aquele <span className="italic">media</span>, por exemplo, uma
+              música só te deixa ouvir a mensagem, não vê-la.
             </p>
-            <Link href="/chapters/chapter3/9">
-              <Button className="text-white bg-foreground hover:bg-hover">Continuar</Button>
-            </Link>
+            <motion.div
+              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              className="group"
+            >
+              <Button
+                asChild
+                className="text-white bg-foreground hover:bg-hover"
+              >
+                <Link href="/chapters/chapter3/9">
+                  Continuar
+                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+                </Link>
+              </Button>
+            </motion.div>
           </div>
         </motion.div>
         <motion.div
           className="h-full col-span-4 flex justify-center items-center"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
           <Tilt options={defaultOptions}>
             <Image
-               src="/img/chapter3/chapter3mp3.svg"
+              src="/img/chapter3/chapter3mp3.svg"
               alt="Imagem de um mp3"
               width={300}
               height={300}
@@ -79,11 +100,11 @@ export default function Chapter3Page8() {
         </motion.div>
         <motion.div
           className="h-full col-span-1"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         ></motion.div>
       </div>
     </>
-  )
+  );
 }
