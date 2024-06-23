@@ -10,7 +10,7 @@ import {
   User,
 } from "firebase/auth";
 import { auth, googleProvider, db } from "@/backend/config/firebase";
-import { addDoc, collection, query, where, getDocs } from "firebase/firestore";
+import { addDoc, collection, query, where, getDocs, updateDoc, doc } from "firebase/firestore";
 
 import { useRouter } from "next/navigation";
 
@@ -25,11 +25,16 @@ interface AuthContextType {
   goGetUsername: (userId: string) => Promise<void>;
   goGetBadges: () => Promise<void>;
   WillShowToast: (BadgeId: number) => Promise<boolean>;
+  hasSeenBadgeTutorial: () => Promise<void>;
+  UpdateBadgesTutorial: () => Promise<void>;
+  UpdateHasSeenTutorialScript: () => Promise<void>;
+  CheckHasSeenTutorialScript: () => Promise<void>;
   username: string;
   error: string | null;
   tutorialState: boolean;
   BadgeList: any[];
   willShowToastState: boolean;
+  tutorialBadge: boolean;
 }
 
 // Criação do contexto
@@ -64,6 +69,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true);
   //SABER SE USER TEM O BADGE OU NÃO
   const [willShowToastState, setwillShowToastState] = useState<boolean>(false);
+  // Tutorial dos badges
+  const [tutorialBadge, setTutorialBadge] = useState<boolean>(false);;
 
   // Efeito para verificar se o utilizador está autenticado
   useEffect(() => {
@@ -331,6 +338,162 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     return false;
   };
 
+  //Função para ver se o user já viu o tutorial dos badges
+  const hasSeenBadgeTutorial = async () => {
+
+    //SE JÁ TIVER O UID
+    if (currentUser) {
+
+      //ERROR HANDLE
+      try {
+        //COLLECTION
+        const hasSeenTutorialcollection = collection(db, "hasSeenTutorial");
+
+        //QUERY PARA ENCONTRAR O DOCUMENTO
+        const q = query(
+          hasSeenTutorialcollection,
+          where("userId", "==", currentUser.uid)
+        );
+
+        //EXECUTA A QUERY
+        const queryTutorial = await getDocs(q);
+
+        //PARA CADA DO || VAI SER SÓ UM
+        queryTutorial.forEach(async (docSnapshot) => {
+
+          setTutorialBadge(docSnapshot.data().hasSeenBadgeTutorial);
+        });
+
+      } catch (error) {
+
+        //MENSAGEM
+        setError("Erro na atualização do Tutorial");
+      }
+    } else {
+      setError("Nenhum Utilizador Encontrado");
+    }
+
+  }
+
+  // Função para atualizar que o user já viu o tutorial dos badges
+  const UpdateBadgesTutorial = async () => {
+
+    //SE JÁ TIVER O UID
+    if (currentUser) {
+
+      //ERROR HANDLE
+      try {
+          //COLLECTION
+          const hasSeenTutorialcollection = collection(db, "hasSeenTutorial");
+
+          //QUERY PARA ENCONTRAR O DOCUMENTO
+          const q = query(hasSeenTutorialcollection, where("userId", "==", currentUser.uid));
+
+          //EXECUTA A QUERY
+          const queryTutorial = await getDocs(q);
+
+          //PARA CADA DO || VAI SER SÓ UM
+          queryTutorial.forEach(async (docSnapshot) => {
+
+          //ATUALIZA O CAMPO DE VER TUTORIAL
+              await updateDoc(doc(db, "hasSeenTutorial", docSnapshot.id), {
+
+                hasSeenBadgeTutorial: true
+              });
+          });
+
+
+      } catch (error) {
+
+          //MENSAGEM
+          setError("Erro na atualização do Tutorial");
+      }
+  }
+  else {
+
+      setError("Nenhum Utilizador Encontrado");
+
+  }
+  }
+
+  //Função para saber se viu o tutorial
+  const CheckHasSeenTutorialScript = async () => {
+
+    //SE JÁ TIVER O UID
+    if (currentUser) {
+      //ERROR HANDLE
+      try {
+        //COLLECTION
+        const hasSeenTutorialcollection = collection(db, "hasSeenTutorial");
+
+        //QUERY PARA ENCONTRAR O DOCUMENTO
+        const q = query(
+          hasSeenTutorialcollection,
+          where("userId", "==", currentUser.uid)
+        );
+
+        //EXECUTA A QUERY
+        const queryTutorial = await getDocs(q);
+
+        //PARA CADA DO || VAI SER SÓ UM
+        queryTutorial.forEach(async (docSnapshot) => {
+
+          setTutorialState(docSnapshot.data().hasSeenMainTutorial);
+
+        });
+      } catch (error) {
+
+        //MENSAGEM
+        setError("Erro na atualização do Tutorial");
+      }
+    } else {
+      setError("Nenhum Utilizador Encontrado");
+    }
+  }
+
+  // Função de update de ter visto o tutorial principal
+  const UpdateHasSeenTutorialScript = async () => {
+
+     //SE JÁ TIVER O UID
+     if (currentUser) {
+
+      //ERROR HANDLE
+      try {
+          //COLLECTION
+          const hasSeenTutorialcollection = collection(db, "hasSeenTutorial");
+
+          //QUERY PARA ENCONTRAR O DOCUMENTO
+          const q = query(hasSeenTutorialcollection, where("userId", "==", currentUser.uid));
+
+          //EXECUTA A QUERY
+          const queryTutorial = await getDocs(q);
+
+          //PARA CADA DO || VAI SER SÓ UM
+          queryTutorial.forEach(async (docSnapshot) => {
+
+          //ATUALIZA O CAMPO DE VER TUTORIAL
+              await updateDoc(doc(db, "hasSeenTutorial", docSnapshot.id), {
+
+                  hasSeenMainTutorial: true
+              });
+          });
+
+
+      } catch (error) {
+
+          //MENSAGEM
+          setError("Erro na atualização do Tutorial");
+      }
+  }
+  else {
+
+      setError("Nenhum Utilizador Encontrado");
+
+  }
+
+
+  }
+
   // Valor do contexto
   const value = {
     currentUser,
@@ -347,6 +510,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     tutorialState,
     isLoading,
     willShowToastState,
+    tutorialBadge,
+    hasSeenBadgeTutorial,
+    UpdateBadgesTutorial,
+    UpdateHasSeenTutorialScript,
+    CheckHasSeenTutorialScript,
   };
 
   // Retorna o provider com o valor

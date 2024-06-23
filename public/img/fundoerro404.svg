@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Gradiente_sem_nome_4);
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 14px;
+      }
+    </style>
+    <radialGradient id="Gradiente_sem_nome_4" data-name="Gradiente sem nome 4" cx="960" cy="540" fx="960" fy="540" r="1120.74" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#4d4d4d"/>
+    </radialGradient>
+  </defs>
+  <rect class="cls-1" width="1920" height="1080"/>
+  <g>
+    <polygon class="cls-2" points="744.71 366.75 1175.66 366.75 1177.25 713.61 744.71 713.61 744.71 366.75"/>
+    <path class="cls-2" d="M738.14,425.35s269.44-2.22,279.85-.79c22.86,3.15,37.89,25.48,52.55,26.28,38.89,2.1,104.32.53,104.32.53"/>
+    <line class="cls-2" x1="846.14" y1="518.37" x2="898.96" y2="571.98"/>
+    <line class="cls-2" x1="898.96" y1="518.37" x2="846.14" y2="571.98"/>
+    <line class="cls-2" x1="1019.57" y1="518.37" x2="1072.39" y2="575.13"/>
+    <line class="cls-2" x1="1076.33" y1="518.37" x2="1023.51" y2="575.13"/>
+    <polyline class="cls-2" points="893.44 636.62 927.34 654.75 960.18 636.62 993.55 654.75 1029.03 632.68"/>
+  </g>
+</svg>

@@ -3,13 +3,12 @@
 
 import React, { useEffect, useState } from "react";
 
-import CheckHasSeenTutorialScript from "../backend/CheckHasSeenTutorialScript";
-
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/components/context/AuthContext";
 import { useRouter } from "next/navigation";
 import Lottie from "lottie-react";
 import animationData from "@/public/animations/loading_animation.json";
+import Homepage from "@/components/homepage/Homepage";
 
 export default function Home() {
   const { currentUser, isLoading } = useAuth();
@@ -43,7 +42,7 @@ export default function Home() {
 
   return (
     <main className="max-w-full overflow-hidden">
-      <CheckHasSeenTutorialScript />
+      <Homepage />
     </main>
   );
 }

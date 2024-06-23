@@ -72,7 +72,8 @@ export const Auth = () => {
 
         //ADICIONA FALSE NO HAS SEEN TUTORIAL
         await addDoc(HasSeenTutorialCollection, {
-          hasSeenTutorial: false,
+          hasSeenMainTutorial: false,
+          hasSeenBadgeTutorial: false,
           userId: NewUserID,
         });
 
@@ -80,7 +81,7 @@ export const Auth = () => {
         setGoToHomePage(true);
       } catch (error) {
         //SE HOUVER ERRO, MOSTRA-O
-        setError("Erro ao criar conta", error);
+        setError(`Erro ao criar conta ${error}`);
       }
     }
   };
@@ -109,7 +110,8 @@ export const Auth = () => {
 
         //ADICIONA FALSE NO HAS SEEN TUTORIAL
         await addDoc(HasSeenTutorialCollection, {
-          hasSeenTutorial: false,
+          hasSeenMainTutorial: false,
+          hasSeenBadgeTutorial: false,
           userId: NewUserID,
         });
 

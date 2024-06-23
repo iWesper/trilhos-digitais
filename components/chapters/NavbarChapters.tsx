@@ -47,7 +47,7 @@ const NavbarChapters: React.FC = () => {
 
       <div className="col-span-2 flex justify-end">
         <Link href={"/badges"} className="relative group">
-          <TrophyIcon className="w-9 h-9 t</div>ransition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" />
+          <TrophyIcon className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" />
           <span className="absolute left-[-50%] top-0 opacity-0 pt-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-in-out">
             Badges
           </span>

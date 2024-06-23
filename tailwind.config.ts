@@ -103,7 +103,8 @@ const config = {
         'papelBadges3': "url('/img/badges/fundo_badges_paper3.svg')",
         'papelBadges4': "url('/img/badges/fundo_badges_paper4.svg')",
         'papelBadges5': "url('/img/badges/fundo_badges_paper5.svg')",
-
+        'BadgeDetailsBG': "url('/img/badges/fundo_badge_detalhes.svg')",
+        'papelMaisBadges': "url('/img/badges/fundo_mais_badges.svg')",
 
         'chapter1StartBG': "url('/img/fundo_arte_inicial.svg')",
         'chapter1BG': "url('/img/fundo_arte.svg')",
@@ -120,6 +121,8 @@ const config = {
 
         'chapter4StartBG':"url('/img/fundo_tecnologia_inicial.svg')",
         'chapter4BG': "url('/img/fundo_tecnologia.svg')",
+
+        '404PageBG': "url('/img/fundoerro404.svg')",
       },
       
     },
