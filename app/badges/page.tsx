@@ -161,7 +161,7 @@ export default function Badges() {
               })}
               <div className="col-span-2 mt-4"></div>
               <div className="bg-papelMaisBadges max-h-[100%] flex justify-center items-center h-screen bg-cover bg-no-repeat bg-center col-span-8 mt-4">
-                <h1 className="text-black shadow text-center text-2xl font-bold font-efrra w-full ">
+                <h1 className="text-black shadow text-center text-xl font-bold font-efrra w-full ">
                   Mais <span className="italic">Badges</span> em Breve
                 </h1>
               </div>
