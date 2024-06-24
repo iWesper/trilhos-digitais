@@ -246,12 +246,13 @@ export default function Chapter3Page6() {
           transition={{ duration: 1 }}
           className="col-span-6 flex justify-start items-center text-center flex-col pt-20"
         >
-          <p className="text-white font-medium p-6">
-            Abaixo, tens três colunas diretamente relacionadas com o
-            <span className="italic">“Spider-Man”</span> enquanto
-            banda-desenhada, filme e jogo. Indica quais os meios de cada um para
-            continuar!
+          <p className="text-white font-medium pt-6">
+            Vamos analisar o “
+            <span className="italic">Spider-Man</span>” enquanto
+            banda-desenhada, filme e jogo.
           </p>
+          <p className="text-white font-medium pb-4">Indica quais os meios de cada um para
+          continuar!</p>
         </motion.div>
         <div className="col-span-3"></div>
 
@@ -324,7 +325,7 @@ export default function Chapter3Page6() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 2.5 }}
-          className="flex flex-col mt-8 col-span-8"
+          className="flex flex-col mt-4 col-span-8"
         >
           {[
             "Meios Técnicos de Exposição",
@@ -333,9 +334,9 @@ export default function Chapter3Page6() {
           ].map((column) => (
             <div
               key={column}
-              className="flex flex-row justify-center items-center text-white mb-8"
+              className="flex flex-row justify-center items-center text-white mt-4"
             >
-              <h2 className="font-bold w-[15%] text-white mr-4">{column}</h2>
+              <h2 className="font-bold text-base w-[15%] text-white mr-4">{column}</h2>
               <div className="flex flex-row justify-between w-full me-40">
                 {selectedWords[column as keyof typeof selectedWords].map(
                   (word: string, index: number) => (
@@ -346,7 +347,7 @@ export default function Chapter3Page6() {
                       <button onClick={() => changeWord(column, index, -1)}>
                         <FaArrowLeft className="text-white" />
                       </button>
-                      <span className="px-6">{word}</span>
+                      <span className="px-6 text-sm">{word}</span>
                       <button onClick={() => changeWord(column, index, 1)}>
                         <FaArrowRight className="text-white" />
                       </button>

@@ -54,14 +54,13 @@ export default function Chapter3Page4() {
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
         >
-          <div className="h-full flex justify-center items-center mt-10">
+          <div className="h-full flex justify-center items-center mt-20">
             <p className="font-medium mb-10 text-white text-center">
-              Dando o exemplo do "<span className="italic">The Godfather</span>
-              ”, enquanto filme. O seu meio técnico de exposição é o ecrã, os
-              meios básicos são imagens, sons e falas, e os seus meios
-              qualificados seriam longa-metragem e ficção policial. Se fosse o
-              livro, estes aspetos formadores seriam outros, passando assim uma
-              mensagem diferente.
+              O filme "<span className="italic">The Godfather"</span>" utiliza o ecrã como meio técnico de
+              exposição, com imagens, sons e falas como meios básicos, e os meios
+              classificados seriam longa-metragem e ficção policial. Se fosse
+              um livro, esses aspectos formadores seriam diferentes,
+              transmitindo assim uma mensagem distinta.
             </p>
           </div>
         </motion.div>
@@ -80,9 +79,9 @@ export default function Chapter3Page4() {
           <Image
             src="/img/chapter3/chapter3GodfatherCover.svg"
             alt="Imagem de capa de  The Godfather"
-            width={250}
-            height={250}
-            className="rounded mt-20"
+            width={200}
+            height={200}
+            className="rounded mt-28"
             draggable={false}
           />
         </motion.div>
@@ -95,9 +94,9 @@ export default function Chapter3Page4() {
           <Image
             src="/img/chapter3/chapter3GodfatherCoverXBOX.svg"
             alt="Imagem de capa de The Godfather"
-            width={250}
-            height={250}
-            className="rounded mt-20"
+            width={200}
+            height={200}
+            className="rounded mt-28"
             draggable={false}
           />
         </motion.div>
@@ -110,9 +109,9 @@ export default function Chapter3Page4() {
           <Image
             src="/img/chapter3/chapter3GodfatherCoverBook.svg"
             alt="Imagem de capa de The Godfather"
-            width={250}
-            height={250}
-            className="rounded mt-20"
+            width={200}
+            height={200}
+            className="rounded mt-28"
             draggable={false}
           />
         </motion.div>
