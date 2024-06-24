@@ -262,7 +262,7 @@ export default function Chapter3Page6() {
           transition={{ duration: 1 }}
           className="col-span-8 flex justify-center items-center"
         >
-          {isCorrect !== null && isCorrect === false && (
+          {isCorrect !== null && isCorrect === false && wrongColumn !== "" && (
             <p className="text-white font-medium text-center">
               Ora parece que te confundiste nos {wrongColumn}. Vamos, tenta de
               novo.{" "}
