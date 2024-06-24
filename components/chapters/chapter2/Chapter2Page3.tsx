@@ -66,6 +66,8 @@ export default function Chapter2Page3() {
   //PROGRESS
   const { setProgress } = useProgress();
 
+  setProgress(20);
+
   //SAVE PROGRESS STATE
   const [progressSave, setProgressSave] = useState<boolean>(false);
 

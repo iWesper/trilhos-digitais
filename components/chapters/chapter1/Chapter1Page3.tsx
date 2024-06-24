@@ -42,7 +42,7 @@ export default function Chapter1Page3() {
   const [modelIsHovered, setModelIsHovered] = useState(false);
 
   const handleText3DClick = () => {
-    router.push("/chapters/chapter2/3");
+    router.push("/chapters/chapter1/4");
   };
 
   //BADGE DO CAPÍTULO
