@@ -25,7 +25,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       name: "Design",
       description:
         "A Bauhaus foi uma escola de arquitetura e design que transformou a perceção da sociedade quanto à arte através da dus integração das artes plásticas com o artesanato.",
-      p2: "Um verdadeiro marco na história do design",
+      p2: "Um verdadeiro marco na história do design.",
       qrUrl: "/img/qrcodes/design.svg",
     },
     {
@@ -42,8 +42,8 @@ export default function BadgeDetails({ number }: { number: number }) {
       id: 4,
       name: "Tecnologia",
       description:
-        "As tecnologias de comunicação evoluíram de tal forma que, nos dias de hoje, podemos comunicar com alguém do outro lado do globo numa questão de segundos. A prensa é um símbolo dessa evolução, de como informações de difícil acesso e livros únicos passaram a fazer parte de uma sociedade mais abrangente.",
-      p2: "Um grande ponto de viragem na educação e no conhecimento.",
+        "As tecnologias da comunicação evoluíram ao ponto desta se tornar ubíqua. A prensa é um símbolo dessa evolução, e de como o mais fácil acesso à informação se revelou um dos principais pilares da evolução da sociedade.",
+      p2: "Um ponto de viragem para a educação e conhecimento.",
       qrUrl: "/img/qrcodes/tecnologia.svg",
     },
     // {

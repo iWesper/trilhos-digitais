@@ -239,12 +239,12 @@ export default function Chapter3Page6() {
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
         </Link>
-        <div className="col-span-3"></div>
+        <div className="col-span-2"></div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="col-span-6 flex justify-start items-center text-center flex-col pt-20"
+          className="col-span-8 flex justify-start items-center text-center flex-col pt-20"
         >
           <p className="text-white font-medium pt-6">
             Vamos analisar o “
@@ -254,7 +254,7 @@ export default function Chapter3Page6() {
           <p className="text-white font-medium pb-4">Indica quais os meios de cada um para
           continuar!</p>
         </motion.div>
-        <div className="col-span-3"></div>
+        <div className="col-span-2"></div>
 
         <div className="col-span-2"></div>
         <motion.div
@@ -284,7 +284,7 @@ export default function Chapter3Page6() {
             alt="Imagem de capa The SpiderMan"
             width={150}
             height={150}
-            className="rounded"
+            className="rounded mx-4"
             draggable={false}
           />
         </motion.div>
@@ -299,7 +299,7 @@ export default function Chapter3Page6() {
             alt="Imagem de capa The SpiderMan"
             width={150}
             height={150}
-            className="rounded"
+            className="rounded me-8 ms-20"
             draggable={false}
           />
         </motion.div>
@@ -314,18 +314,17 @@ export default function Chapter3Page6() {
             alt="Imagem de capa The SpiderMan"
             width={150}
             height={150}
-            className="rounded"
+            className="rounded ms-32 me-8"
             draggable={false}
           />
         </motion.div>
         <div className="col-span-3"></div>
         {/* Word rows */}
-        <div className="col-span-2"></div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 2.5 }}
-          className="flex flex-col mt-4 col-span-8"
+          className="flex flex-col mt-4 col-span-12"
         >
           {[
             "Meios Técnicos de Exposição",
@@ -334,20 +333,20 @@ export default function Chapter3Page6() {
           ].map((column) => (
             <div
               key={column}
-              className="flex flex-row justify-center items-center text-white mt-4"
+              className="flex flex-row items-center text-white my-2"
             >
-              <h2 className="font-bold text-base w-[15%] text-white mr-4">{column}</h2>
-              <div className="flex flex-row justify-between w-full me-40">
+              <h2 className="font-bold text-base flex-[3] w-[10%] text-white me-4 ms-8">{column}</h2>
+              <div className="flex flex-row justify-between flex-[6]">
                 {selectedWords[column as keyof typeof selectedWords].map(
                   (word: string, index: number) => (
                     <div
                       key={index}
-                      className="flex justify-center items-center mx-2 w-full"
+                      className="flex justify-center items-center mx-2 flex-1"
                     >
                       <button onClick={() => changeWord(column, index, -1)}>
                         <FaArrowLeft className="text-white" />
                       </button>
-                      <span className="px-6 text-sm">{word}</span>
+                      <span className="px-8 text-sm text-center w-40">{word}</span>
                       <button onClick={() => changeWord(column, index, 1)}>
                         <FaArrowRight className="text-white" />
                       </button>
@@ -355,10 +354,10 @@ export default function Chapter3Page6() {
                   )
                 )}
               </div>
+              <div className="flex-[3]"></div>
             </div>
           ))}
         </motion.div>
-        <div className="col-span-2"></div>
         <div className="col-span-4"></div>
         <motion.div
           initial={{ opacity: 0 }}

@@ -21,15 +21,22 @@ import { Comboio } from "./Comboio";
 import Navbar from "./Navbar";
 
 export default function Homepage() {
+  const {
+    currentUser,
+    goGetUsername,
+    username,
+    CheckHasSeenTutorialScript,
+    UpdateHasSeenTutorialScript,
+    tutorialState,
+    error,
+  } = useAuth();
 
-  const { currentUser,goGetUsername, username, CheckHasSeenTutorialScript, UpdateHasSeenTutorialScript, tutorialState, error } = useAuth();
+  const [tutorialSeen, setTutorialSeen] = useState(false);
 
-   const [tutorialSeen, setTutorialSeen] = useState(false);
+  //MENSAGEM
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
-   //MENSAGEM
-   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-
-   const [tutorialMessages, setTutorialMessages] = useState([]);
+  const [tutorialMessages, setTutorialMessages] = useState([]);
 
   //MENSAGENS DO TUTORIAL
   const handleContinue = () => {
@@ -46,65 +53,62 @@ export default function Homepage() {
     }
   };
 
-   //VAI BUSCAR O USER ID QUANDO MONTA
-   useEffect(() => {
-
+  //VAI BUSCAR O USER ID QUANDO MONTA
+  useEffect(() => {
     //Vai saber se já viu tutorisl
     CheckHasSeenTutorialScript();
 
     //Vai buscar o username
     goGetUsername(currentUser.uid);
-     
-   }, []); //Talvez dÊ agora
+  }, []); //Talvez dÊ agora
 
-   useEffect(() => {
-    
+  useEffect(() => {
     setTutorialMessages([
-    `Olá ${
-      username
-    }, bem-vindo aos Trilhos Digitais!`,
+      `Olá ${username}, bem-vindo aos Trilhos Digitais!`,
 
-    "Vais embarcar no Expresso Digital, um comboio que te vai levar a explorar toda a história da multimédia, desde os seus pilares fundadores até aos dias de hoje, percebendo o seu impacto e a sua presença no dia-a-dia de todos nós.",
+      "Vais embarcar no Expresso Digital, um comboio que te vai levar a explorar toda a história da multimédia, desde os seus pilares fundadores até aos dias de hoje, percebendo o seu impacto e a sua presença no dia-a-dia de todos nós.",
 
-    "A tua viagem está separada em duas partes principais: os Quatro Pilares, onde vais ser introduzido às bases da multimédia, e a Hipermédia, onde vais ver a evolução da multimédia desde a introdução do computador.",
+      "A tua viagem está separada em duas partes principais: os Quatro Pilares, onde vais ser introduzido às bases da multimédia, e a Hipermédia, onde vais ver a evolução da multimédia desde a introdução do computador.",
 
-    "Caso queiras fazer um desvio e explorar os vários capítulos noutra ordem, não te preocupes, podes fazê-lo através da seleção de capítulos, na homepage.",
+      "Caso queiras fazer um desvio e explorar os vários capítulos noutra ordem, não te preocupes, podes fazê-lo através da seleção de capítulos, na homepage.",
 
-    "Presta atenção, pois a cada capítulo terás uma recompensa pela tua exploração na forma de um badge para desbloquear e mais tarde inspecionar! Sempre que estiveres numa situação em que podes desbloquear partes do badge, caso não percebas o que tens de fazer, ser-te-á dada uma pista.",
+      "Presta atenção, pois a cada capítulo terás uma recompensa pela tua exploração na forma de um badge para desbloquear e mais tarde inspecionar! Sempre que estiveres numa situação em que podes desbloquear partes do badge, caso não percebas o que tens de fazer, ser-te-á dada uma pista.",
 
-    "Quando desbloqueares o badge, vais ser notificado no ícone situado no topo do teu ecrã, e caso queiras inspecionar os badges que já tens, ou verificar os que tens por desbloquear, basta clicares nesse ícone.",
+      "Quando desbloqueares o badge, vais ser notificado no ícone situado no topo do teu ecrã, e caso queiras inspecionar os badges que já tens, ou verificar os que tens por desbloquear, basta clicares nesse ícone.",
 
-    "Agora que sabes tudo sobre a tua viagem, estás pronto? Todos a bordo!",
-  ]);
+      "Agora que sabes tudo sobre a tua viagem, estás pronto? Todos a bordo!",
+    ]);
   }, [username]);
 
   return (
     <>
       <Navbar />
-      
+
       {/* Container dos fundos para o parallax */}
       <div className="absolute h-screen w-screen overflow-hidden">
         {!tutorialState && !tutorialSeen && (
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button className="bg-secondary hover:bg-orange-500 cursor-pointer absolute bottom-0 z-20">Clica Aqui</Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Introdução</DialogTitle>
-              <DialogDescription className=" text-black">
-                {tutorialMessages[currentMessageIndex]}
-              </DialogDescription>
-              <Button onClick={handleContinue}>Continuar</Button>
-            </DialogHeader>
-          </DialogContent>
-        </Dialog>
-      )}
-      
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="bg-secondary hover:bg-orange-500 cursor-pointer absolute bottom-0 z-20">
+                Clica Aqui
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Introdução</DialogTitle>
+                <DialogDescription className=" text-black">
+                  {tutorialMessages[currentMessageIndex]}
+                </DialogDescription>
+                <Button onClick={handleContinue}>Continuar</Button>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+        )}
+
         {/* Container do conteúdo da página */}
-        {/* Trilhos */}
+        {/* Estacao */}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioTrilhosFundo5 bg-center bg-no-repeat bg-cover"
+          className="absolute w-screen h-screen bg-comboioParallaxEstacao bg-center bg-no-repeat bg-cover"
           style={{
             zIndex: 0,
           }}
@@ -150,7 +154,6 @@ export default function Homepage() {
             transition={{ delay: 1, duration: 1 }}
           >
             Bem-vindo aos Trilhos Digitais, {username}!
-            
           </motion.div>
           <motion.div
             className="mt-4 flex flex-col items-center justify-center absolute lg:top-[80%] backdrop-filter p-4 bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-80"
@@ -173,9 +176,7 @@ export default function Homepage() {
             >
               Arrasta para o lado!
             </motion.p>
-            
           </motion.div>
-          
         </motion.div>
       </div>
       {/* Comboio */}

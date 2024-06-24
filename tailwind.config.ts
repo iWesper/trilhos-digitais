@@ -94,7 +94,7 @@ const config = {
         'comboioParallaxFundo2': "url('/img/comboio/comboioParallaxFundo2.svg')",
         'comboioParallaxFundo3': "url('/img/comboio/comboioParallaxFundo3.svg')",
         'comboioParallaxFundo4': "url('/img/comboio/comboioParallaxFundo4.svg')",
-        'comboioTrilhosFundo5': "url('/img/comboio/comboioTrilhosFundo5.svg')",
+        'comboioParallaxEstacao': "url('/img/comboio/comboioParallaxEstacao.svg')",
 
         'BadgesBG': "url('/img/badges/fundo_badges.svg')",
         'quadroBadges': "url('/img/badges/quadrobadges.svg')",
