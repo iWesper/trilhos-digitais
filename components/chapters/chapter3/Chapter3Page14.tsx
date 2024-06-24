@@ -82,7 +82,7 @@ export default function Chapter3Page14() {
     const resposta = (e.target as HTMLButtonElement).value;
 
     //VERIFICA SE A RESPOSTA ESTÁ CORRETA
-    if (resposta === "Como Percebemos a Mensagem no Espaço e no Tempo") {
+    if (resposta === "Perceção da Mensagem no Espaço e no Tempo") {
       //STATE A MOSTRAR À PESSOA
       setResposta("É isso mesmo, parabéns!");
 
@@ -95,7 +95,7 @@ export default function Chapter3Page14() {
       //MOSTRA O CONTINUAR
       setShowButton(true);
     } else if (
-      resposta === "Tempo de Espera para a Receção da Mensagem no Espaço"
+      resposta === "Tempo de Espera para Receber a Mensagem no Espaço"
     ) {
       //STATE A MOSTRAR À PESSOA
       setResposta("Tens a certeza? Tenta de novo.");
@@ -120,7 +120,7 @@ export default function Chapter3Page14() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-2 mb-4"></div>
-        <div className="flex items-end justify-center col-span-8 mb-4">
+        <div className="flex items-end justify-center col-span-8 mb-4 mt-32">
           <p className="font-bold text-white text-center">
             De que forma se reflete a modalidade espaciotemporal?
           </p>
@@ -138,12 +138,11 @@ export default function Chapter3Page14() {
             <form className="flex flex-row items-center justify-center mt-3">
               <Button
                 type="button"
-                value="Como Percebemos a Mensagem no Espaço e no Tempo"
+                value="Perceção da Mensagem no Espaço e no Tempo"
                 onClick={handleFormSubmit}
-                className=" m-3 text-white bg-foreground hover:bg-hover"
+                className=" me-3 ms-12 text-white bg-foreground hover:bg-hover"
               >
-                Como Percebemos a Mensagem no Espaço e no Tempo
-              </Button>
+                Perceção da Mensagem no Espaço e no Tempo              </Button>
             </form>
           )}
         </div>
@@ -162,11 +161,12 @@ export default function Chapter3Page14() {
             <form className="flex flex-row items-center justify-center mt-3">
               <Button
                 type="button"
-                value="Tempo de Espera para a Receção da Mensagem no Espaço"
+                value="Tempo de Espera para Receber a Mensagem no Espaço"
                 onClick={handleFormSubmit}
-                className=" m-3 text-white bg-foreground hover:bg-hover"
+                className=" me-3 text-white bg-foreground hover:bg-hover"
               >
-                Tempo de Espera para a Receção da Mensagem no Espaço
+                Tempo para Receber a Mensagem no Espaço
+
               </Button>
             </form>
           )}
