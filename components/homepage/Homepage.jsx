@@ -6,6 +6,7 @@ import { MdSwipe } from "react-icons/md";
 import { delay, motion } from "framer-motion";
 import { useAuth } from "../context/AuthContext";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import {
   Dialog,
@@ -21,6 +22,9 @@ import { Comboio } from "./Comboio";
 import Navbar from "./Navbar";
 
 export default function Homepage() {
+
+  const router = useRouter();
+  
   const {
     currentUser,
     goGetUsername,
@@ -55,12 +59,21 @@ export default function Homepage() {
 
   //VAI BUSCAR O USER ID QUANDO MONTA
   useEffect(() => {
-    //Vai saber se já viu tutorisl
+
+    if(currentUser) {
+
+      //Vai saber se já viu tutorial
     CheckHasSeenTutorialScript();
 
     //Vai buscar o username
     goGetUsername(currentUser.uid);
-  }, []); //Talvez dÊ agora
+    }
+    else {
+
+      router.push('/authentication');
+    }
+    
+  }, []);
 
   useEffect(() => {
     setTutorialMessages([
