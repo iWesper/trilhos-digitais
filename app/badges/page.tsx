@@ -6,6 +6,7 @@ import { Progress } from "@/components/ui/progress";
 import { useAuth } from "@/components/context/AuthContext";
 import BadgeDetails from "@/components/badges/BadgeDetails";
 import {Button} from "@/components/ui/button";
+import {motion} from "framer-motion";
 import {
   Dialog,
   DialogContent,
@@ -177,7 +178,18 @@ export default function Badges() {
           {!tutorialBadge && !tutorialSeen && (
         <Dialog>
         <DialogTrigger asChild>
-          <Button className="bg-secondary hover:bg-orange-500 cursor-pointer">Clica Aqui</Button>
+          <motion.button className="bg-secondary rounded-md px-2 py-2 text-white hover:bg-orange-500 cursor-pointer"
+          whileHover={{ scale: 1.1 }}
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{
+            delay: 2,
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 1,
+          }}
+          >
+            Clica Aqui
+            </motion.button>
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>

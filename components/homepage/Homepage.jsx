@@ -86,24 +86,34 @@ export default function Homepage() {
 
       {/* Container dos fundos para o parallax */}
       <div className="absolute h-screen w-screen overflow-hidden">
-        {!tutorialState && !tutorialSeen && (
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button className="bg-secondary hover:bg-orange-500 cursor-pointer absolute bottom-0 z-20">
-                Clica Aqui
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Introdução</DialogTitle>
-                <DialogDescription className=" text-black">
-                  {tutorialMessages[currentMessageIndex]}
-                </DialogDescription>
-                <Button onClick={handleContinue}>Continuar</Button>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
-        )}
+      {!tutorialState && !tutorialSeen && (
+  <Dialog>
+    <DialogTrigger asChild>
+      <motion.button
+        className="bg-secondary rounded-md px-2 py-2 mx-2 my-2 text-white hover:bg-orange-500 cursor-pointer absolute bottom-0 z-20"
+        whileHover={{ scale: 1.1 }}
+        animate={{ scale: [1, 1.05, 1] }}
+        transition={{
+          delay: 2,
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 1,
+        }}
+      >
+        Clica Aqui
+      </motion.button>
+    </DialogTrigger>
+    <DialogContent>
+      <DialogHeader>
+        <DialogTitle>Introdução</DialogTitle>
+        <DialogDescription className=" text-black">
+          {tutorialMessages[currentMessageIndex]}
+        </DialogDescription>
+        <Button onClick={handleContinue}>Continuar</Button>
+      </DialogHeader>
+    </DialogContent>
+  </Dialog>
+)}
 
         {/* Container do conteúdo da página */}
         {/* Estacao */}
