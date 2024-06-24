@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
@@ -66,7 +66,9 @@ export default function Chapter2Page3() {
   //PROGRESS
   const { setProgress } = useProgress();
 
-  setProgress(20);
+  useEffect(() => {
+    setProgress(20);
+  }, [setProgress]);
 
   //SAVE PROGRESS STATE
   const [progressSave, setProgressSave] = useState<boolean>(false);
@@ -165,7 +167,7 @@ export default function Chapter2Page3() {
         className="bg-espremedorBG w-1/2 h-full bg-origin-border bg-center bg-no-repeat bg-cover flex flex-col justify-start items-center relative"
       >
         {board.map((picture) => {
-          return <Picture url={picture.url} id={picture.id} />;
+          return <Picture url={picture.url} id={picture.id} key={picture.id} />;
         })}
       </div>
     );
@@ -187,7 +189,7 @@ export default function Chapter2Page3() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-1"></div>
-        <div className="col-span-5 h-full flex flex-col justify-center p-10 text-white ">
+        <div className="col-span-6 h-full flex flex-col justify-center p-10 text-white ">
           <p className="font-medium mb-4 pt-8">
             Hm, que design interessante, e parece que é utilizado em conjunto
             com outros objetos, pergunto-me para que serve.
@@ -197,7 +199,7 @@ export default function Chapter2Page3() {
           </p>
           <div className="flex flex-row">
             {PictureList.map((picture) => {
-              return <Picture url={picture.url} id={picture.id} />;
+              return <Picture url={picture.url} id={picture.id} key={picture.id}/>;
             })}
           </div>
           {!showDialog && (
@@ -217,7 +219,7 @@ export default function Chapter2Page3() {
           })}
           {showDialog && (
             <Dialog className="text-white flex flex-row mt-4 mx-auto">
-              <DialogTrigger>
+              <DialogTrigger asChild>
                 <Button className="text-white">Continuar</Button>
               </DialogTrigger>
               <DialogContent>
@@ -235,7 +237,7 @@ export default function Chapter2Page3() {
             </Dialog>
           )}
         </div>
-        <div className="col-span-5 h-full justify-center items-center flex flex-col">
+        <div className="col-span-4 h-full justify-center items-center flex flex-col">
           <DropArea
             addImageToBoard={addImageToBoard}
             board={board}

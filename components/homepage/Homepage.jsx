@@ -55,9 +55,11 @@ export default function Homepage() {
     //Vai buscar o username
     goGetUsername(currentUser.uid);
      
-   }, [currentUser]);
+   }, []); //Talvez dÊ agora
 
-   useEffect(() => {setTutorialMessages([
+   useEffect(() => {
+    
+    setTutorialMessages([
     `Olá ${
       username
     }, bem-vindo aos Trilhos Digitais!`,

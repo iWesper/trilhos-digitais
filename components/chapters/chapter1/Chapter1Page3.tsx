@@ -42,7 +42,9 @@ export default function Chapter1Page3() {
   const [modelIsHovered, setModelIsHovered] = useState(false);
 
   const handleText3DClick = () => {
-    router.push("/chapters/chapter1/4");
+
+    setProgressSave(true);
+
   };
 
   //BADGE DO CAPÍTULO
@@ -66,12 +68,6 @@ export default function Chapter1Page3() {
   //TIP
   const Tip =
     "Parece que o palco esconde um segredo escondido algures, perguntamo-nos onde…";
-
-  //FUNÇÃO QUE VAI GUARDAR O PROGRESSO DO BADGE NA BD E FAZER O ROUTER PUSH
-  const SaveBadgeProgressAndGoToNextPage = () => {
-    //PODE IR GUARDAR
-    setProgressSave(true);
-  };
 
   return (
     <>
@@ -136,27 +132,7 @@ export default function Chapter1Page3() {
             </Suspense>
           </Canvas>
           <Loader />
-          {/* <Dialog>
-            <DialogTrigger>
-              <Image
-                src="/img/chapter1/chapter1Teatro.svg"
-                alt="Foto de um Teatro"
-                width={600}
-                height={600}
-                className="rounded"
-                priority={true}
-                style={{ cursor: "pointer" }}
-                draggable={false}
-              />
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Partir para a próxima etapa</DialogTitle>
-                <DialogDescription>Vamos continuar?</DialogDescription>
-                <Button onClick={SaveBadgeProgressAndGoToNextPage}>Sim</Button>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog> */}
+          
         </div>
         <div className="col-span-1"></div>
         <div className="fixed bottom-5 left-5">
@@ -171,7 +147,6 @@ export default function Chapter1Page3() {
             </Tooltip>
           </TooltipProvider>
         </div>
-        {/* <SpeakerWaveIcon className="text-black h-10 w-10 justify-end items-end absolute bottom-5 right-5" /> */}
       </div>
 
       {progressSave && progressSave == true && (
