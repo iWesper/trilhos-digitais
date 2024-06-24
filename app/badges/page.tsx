@@ -143,11 +143,14 @@ export default function Badges() {
                 // Ir buscar a class consoante o index
                 const bgClass = bgClasses[index % bgClasses.length];
 
+                // saber se vai permitir o clique
+                const WillCursorBePointer = progress === 100 ? "cursor-pointer" : "";
+
                 return (
                   <div
                     key={index}
-                    className={`flex justify-center items-center relative cursor-pointer col-span-3`}
-                    onClick={() => handleBadgeClick(item.id)}
+                    className={`flex justify-center items-center relative ${WillCursorBePointer} col-span-3`}
+                    {...(progress > 0 ? { onClick: () => handleBadgeClick(item.id) } : {})}
                   >
                     <div
                       className={`${bgClass} bg-cover bg-center bg-no-repeat w-full h-full absolute top-0 left-0`}

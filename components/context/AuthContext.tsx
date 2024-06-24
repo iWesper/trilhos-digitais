@@ -131,7 +131,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       //GUARDA SÓ SE NÃO EXISTIR
       if (HasSeenTutorialQuerySnapshot.empty) {
         await addDoc(HasSeenTutorialCollection, {
-          hasSeenTutorial: false,
+          hasSeenMainTutorial: false,
+          hasSeenBadgeTutorial: false,
           userId: result.user.uid,
         });
       }

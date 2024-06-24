@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { BiQrScan } from "react-icons/bi";
 export default function BadgeDetails({ number }: { number: number }) {
   //3D ou AR
   const [show3DorAr, setshow3DOrAr] = useState<boolean>(false); //FALSE PARA 3D, TRUE PARA AR
@@ -32,8 +33,8 @@ export default function BadgeDetails({ number }: { number: number }) {
       id: 3,
       name: "Comunicação",
       description:
-        'Surgiram  novos meios de transmissão, como os filmes na TV e os videojogos. Para além de serem consumidos de maneiras diferentes, oferecem sensações diferentes, alterando a mensagem e confirmando a frase "O meio é a mensagem de Marshall McLuhan"',
-      p2: "Um verdadeiro marco na história do design",
+        "Surgiram  novos meios de transmissão, como os filmes na TV e os videojogos. Para além de serem consumidos de maneiras diferentes, oferecem sensações diferentes, alterando a mensagem passada.",
+      p2: 'Como disse McLuhan, "O meio é a mensagem".',
       qrUrl: "/img/qrcodes/comuicacao.svg",
     },
     {
@@ -132,15 +133,20 @@ export default function BadgeDetails({ number }: { number: number }) {
           <div
             className={`col-span-8 w-full h-full bg-papelBadges${
               defaultItems[BadgeIdToShow - 1].id
-            } bg-origin-border bg-center bg-no-repeat mt-28 justify-center items-center flex`}
+            } bg-origin-border bg-center bg-no-repeat mt-28 justify-center items-center flex flex-col`}
           >
-            <Image
-              className="mb-8"
-              height={350}
-              width={350}
-              src={defaultItems[BadgeIdToShow - 1].qrUrl}
-              alt="Qr code que mostra AR"
-            />
+            <div className="mb-8">
+              <Image
+                height={350}
+                width={350}
+                src={defaultItems[BadgeIdToShow - 1].qrUrl}
+                alt="Qr code que mostra AR"
+              />
+            </div>
+            <div className="justify-center items-center backdrop-filter p-4 bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-80">
+              <BiQrScan className="h-8 w-8 text-white mx-auto" />
+              <p className="text-white">Aponta o telemóvel</p>
+            </div>
           </div>
           <div className="col-span-3 justify-center items-center mt-16">
             <h1 className="font-bold text-center text-white text-4xl py-6">
