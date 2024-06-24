@@ -16,7 +16,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       name: "Arte",
       description:
         "O fosso de orquestra foi uma das grandes inovações no mundo da arte, trazida por Richard Wagner, escondendo a orquestra por baixo do palco de teatro e longe da visão dos especatdores, estando assim mais próxima da Obra Total.",
-      p2: "Um verdadeiro marco na história do design",
+      p2: "O primeiro grande passo em direção à obra total.",
       qrUrl: "/img/qrcodes/arte.svg",
     },
     {
@@ -43,7 +43,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       name: "Tecnologia",
       description:
         "As tecnologias de comunicação evoluíram de tal forma que, nos dias de hoje, podemos comunicar com alguém do outro lado do globo numa questão de segundos. A prensa é um símbolo dessa evolução, de como informações de difícil acesso e livros únicos passaram a fazer parte de uma sociedade mais abrangente.",
-      p2: "Um verdadeiro marco na história do design",
+      p2: "Um grande ponto de viragem na educação e no conhecimento.",
       qrUrl: "/img/qrcodes/tecnologia.svg",
     },
     // {
