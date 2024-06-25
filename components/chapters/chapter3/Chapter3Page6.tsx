@@ -42,13 +42,13 @@ export default function Chapter3Page6() {
   //LISTA de PALAVRAS POSSÍVEIS
   const words = [
     "Ecrã",
-    "Cartaz",
+    "Ecrã",
     "Papel",
     "Falas e Sons",
-    "Sons",
+    "Gráficos",
     "Imagens",
-    "Curta-Metragem",
-    "Verídico",
+    "Longa-Metragem",
+    "Mundo Digital",
     "Ficção",
     "Ruído",
     "Post-its",
@@ -79,6 +79,7 @@ export default function Chapter3Page6() {
 
   //BARALHAR A ORDEM DO ARRAY
   function ArrayShuffle(array: string[]) {
+
     //GUARDA O TAMANHO DO ARRAY E DEIXA AS OUTRAS 2 EM BRANCO
     let index = array.length,
       temp,
@@ -86,6 +87,7 @@ export default function Chapter3Page6() {
 
     //ENQUANTO NÃO BARALHARES TUDO
     while (0 !== index) {
+
       //VAI BUSCAR UM INDEX ALEATÓRIO DOS QUE FALTAM
       randomIndex = Math.floor(Math.random() * index);
 
@@ -155,14 +157,17 @@ export default function Chapter3Page6() {
   const changeWord = (column: string, row: number, direction: number) => {
     //ATUALIZA O ESTADO AO PEGAR NO ANTERIOR E COLOCAR O NOVO
     setSelectedWords((prevWords) => {
-      //CRIA UM ARRAY COM TODAS AS PALAVRAS SELECIONADAS EM TODAS AS COLUNAS
-      const allWords = Object.values(prevWords).flat();
 
+      //CRIA UM ARRAY COM UMA CÓPIDA DAS PALAVRAS QUE ESTÃO NA COLUNA ATUAL
+const currentColumnWords = [...prevWords[column as keyof typeof prevWords]];  
       //ENCONTRA O INDEX DA PALAVRA ATUAL
-      let currentIndex = words.indexOf(allWords[row]);
+      let currentIndex = words.indexOf(currentColumnWords[row]);
 
       //VARIÁVEL PARA GUARDAR O INDEX DA NOVA PALAVRA
       let newIndex;
+
+      //EVITAR LOOP INIFINITO
+      let counter = 0;
 
       //LOOP PARA ANDAR NOS ÍNDICES ATÉ ENCONTRAR UMA PALAVRA QUE NÃO ESTEJA JÁ SELECIONADA
       do {
@@ -173,16 +178,21 @@ export default function Chapter3Page6() {
         newIndex = words[currentIndex];
 
         //ENQUANTO A PALAVRA NOVA ESTIVER NO ARRAY
-      } while (allWords.includes(newIndex));
 
-      //CRIA UMA CÓPIA DAS PALAVRAS DA COLUNA ATUAL
-      const newColumnWords = [...prevWords[column as keyof typeof prevWords]];
+        counter++;
 
-      //ATUALIZA A PALAVRA ATUAL PARA A NOVA
-      newColumnWords[row] = newIndex;
+        if (counter > words.length) {
+          break;
+        }
+
+      } while (newIndex === currentColumnWords[row]);
+
+      if (counter <= words.length) {
+        currentColumnWords[row] = newIndex;
+      }
 
       //RETORNA UMA CÓPIA DO ESTADO ATUALIZADO
-      return { ...prevWords, [column]: newColumnWords };
+      return { ...prevWords, [column]: currentColumnWords };
     });
   };
 
@@ -196,9 +206,9 @@ export default function Chapter3Page6() {
   const verifyWords = () => {
     //OBJETO COM AS PALAVRAS CORRETAS
     const correctWords = {
-      "Meios Técnicos de Exposição": ["Ecrã", "Cartaz", "Papel"],
-      "Meios Básicos": ["Falas e Sons", "Sons", "Imagens"],
-      "Meios Qualificados": ["Curta-Metragem", "Verídico", "Ficção"],
+      "Meios Técnicos de Exposição": ["Ecrã", "Ecrã", "Papel"],
+      "Meios Básicos": ["Falas e Sons", "Gráficos", "Imagens"],
+      "Meios Qualificados": ["Longa-Metragem", "Mundo Digital", "Ficção"],
     };
 
     //PARA CADA COLUNA
