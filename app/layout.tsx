@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Poppins as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -31,10 +31,12 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          {children}
+          <Analytics />
+          <SpeedInsights />
+        </AuthProvider>
         <Toaster />
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );

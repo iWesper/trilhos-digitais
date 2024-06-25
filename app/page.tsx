@@ -14,16 +14,14 @@ export default function Home() {
   const { currentUser, isLoading } = useAuth();
   const router = useRouter();
 
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
-
   useEffect(() => {
-    // Immediately redirect if not loading and no user is found
+    // Redireciona imediatamente para a página de autenticação se o utilizador não estiver autenticado
     if (!isLoading && currentUser === null) {
       router.push("/authentication");
     }
   }, [currentUser, isLoading, router]);
 
-  // Continue showing the loading animation until the auth check is complete
+  // Se o utilizador estiver a ser autenticado, mostra um loading
   if (isLoading) {
     return (
       <div className="h-screen w-screen flex justify-center items-center">
@@ -35,8 +33,8 @@ export default function Home() {
     );
   }
 
-  // If not loading but currentUser is null, don't render anything
-  // This handles the edge case where isLoading is false but currentUser hasn't been updated yet
+  // Se não estiver a carregar mas o currentUser for nulo, não renderizar nada
+  // Isto lida com o raro caso em que o isLoading é falso, mas o currentUser ainda não foi atualizado
   if (currentUser === null) {
     return null;
   }
