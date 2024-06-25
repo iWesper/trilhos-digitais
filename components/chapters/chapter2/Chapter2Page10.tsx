@@ -489,7 +489,7 @@ export default function Chapter2Page10() {
         {error && <p className=" text-red-600 text-center text-sm">{error}</p>}
 
         <div className="fixed bottom-5 left-5">
-          <TooltipProvider>
+          <TooltipProvider delayDuration={0}>
             <Tooltip>
               <TooltipTrigger>
                 <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />

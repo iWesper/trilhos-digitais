@@ -60,6 +60,7 @@ export default function Chapter2Page4() {
         </div>
         <div className="col-span-1"></div>
         <div className="h-full col-span-4 flex justify-center items-center relative">
+          <Tilt options={defaultOptions}>
             <Image
               src="/img/chapter2/chapter2espremedor_comcopo.svg"
               alt="Foto de Um Espremedor de Citrinos"
@@ -67,6 +68,7 @@ export default function Chapter2Page4() {
               height={500}
               className="rounded"
             />
+          </Tilt>
         </div>
         <div className="col-span-1"></div>
       </div>

@@ -403,7 +403,7 @@ export default function Chapter3Page6() {
       </div>
 
       <div className="fixed bottom-5 left-5">
-        <TooltipProvider>
+        <TooltipProvider delayDuration={0}>
           <Tooltip>
             <TooltipTrigger>
               <MdQuestionMark className="text-white h-10 w-10 justify-start items-start" />

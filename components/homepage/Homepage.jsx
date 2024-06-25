@@ -171,7 +171,7 @@ export default function Homepage() {
           transition={{ duration: 1 }}
         >
           <motion.div
-            className="text-center text-5xl font-bold rounded-xl p-4 absolute lg:top-[20%] bg-gray-800 text-white font-effra z-50 backdrop-filter backdrop-blur-md bg-opacity-80"
+            className="text-center text-5xl font-bold rounded-xl p-4 absolute top-[15%] 2xl:top-[10%] bg-gray-800 text-white font-effra z-50 backdrop-filter backdrop-blur-md bg-opacity-80"
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
