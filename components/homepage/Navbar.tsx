@@ -38,7 +38,7 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
       >
-        Bem-vindo aos Trilhos Digitais,{" "}
+        Bem-vindo(a) aos Trilhos Digitais,{" "}
         <span className="text-secondary">{username}</span>!
       </motion.div>
       <div className="flex justify-end flex-grow gap-8">
