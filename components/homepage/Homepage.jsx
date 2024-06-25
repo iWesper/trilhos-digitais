@@ -17,9 +17,8 @@ import { Comboio } from "./Comboio";
 import Navbar from "./Navbar";
 
 export default function Homepage() {
-
   const router = useRouter();
-  
+
   const {
     currentUser,
     goGetUsername,
@@ -54,20 +53,15 @@ export default function Homepage() {
 
   //VAI BUSCAR O USER ID QUANDO MONTA
   useEffect(() => {
-
-    if(currentUser) {
-
+    if (currentUser) {
       //Vai saber se já viu tutorial
-    CheckHasSeenTutorialScript();
+      CheckHasSeenTutorialScript();
 
-    //Vai buscar o username
-    goGetUsername(currentUser.uid);
+      //Vai buscar o username
+      goGetUsername(currentUser.uid);
+    } else {
+      router.push("/authentication");
     }
-    else {
-
-      router.push('/authentication');
-    }
-    
   }, []);
 
   useEffect(() => {
@@ -94,43 +88,50 @@ export default function Homepage() {
 
       {/* Container dos fundos para o parallax */}
       <div className="absolute h-screen w-screen overflow-hidden">
-      {!tutorialState && !tutorialSeen && (
-  <Dialog>
-    <DialogTrigger asChild>
-      <motion.button
-        className="bg-secondary rounded-md px-2 py-2 mx-2 my-2 text-white hover:bg-orange-500 cursor-pointer absolute bottom-0 z-20"
-        whileHover={{ scale: 1.1 }}
-        animate={{ scale: [1, 1.05, 1] }}
-        transition={{
-          delay: 2,
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 1,
-        }}
-      >
-        Clica Aqui
-      </motion.button>
-    </DialogTrigger>
-    <DialogContent>
-      <DialogHeader>
-        <DialogTitle className="mb-4">Introdução</DialogTitle>
-        <DialogDescription className=" text-black">
-          {tutorialMessages[currentMessageIndex]}
-        </DialogDescription>
-        <Button onClick={handleContinue}>Continuar</Button>
-      </DialogHeader>
-    </DialogContent>
-  </Dialog>
-)}
+        {!tutorialState && !tutorialSeen && (
+          <Dialog>
+            <DialogTrigger asChild>
+              <motion.button
+                className="bg-secondary rounded-md px-2 py-2 mx-2 my-2 text-white hover:bg-orange-500 cursor-pointer absolute bottom-0 z-20"
+                whileHover={{ scale: 1.1 }}
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{
+                  delay: 2,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 1,
+                }}
+              >
+                Clica Aqui
+              </motion.button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle className="mb-4">Introdução</DialogTitle>
+                <DialogDescription className=" text-black">
+                  {tutorialMessages[currentMessageIndex]}
+                </DialogDescription>
+                <Button onClick={handleContinue}>Continuar</Button>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+        )}
 
         {/* Container do conteúdo da página */}
-        {/* Estacao */}
+        {/* Arbustos frente */}
         <motion.div
+          className="absolute w-full h-[75%] bg-comboioParallaxFundo2 bg-center bg-contain blur-[2px] -bottom-[30%]"
+          style={{
+            zIndex: 1,
+          }}
+        ></motion.div>
+        {/* Estação */}
+        {/* <motion.div
           className="absolute w-screen h-screen bg-comboioParallaxEstacao bg-center bg-no-repeat bg-cover"
           style={{
             zIndex: 0,
           }}
-        ></motion.div>
+        ></motion.div> */}
         {/* Verde */}
         <motion.div
           className="absolute w-screen h-screen bg-comboioParallaxFundo1 bg-center bg-no-repeat bg-cover"
@@ -138,9 +139,9 @@ export default function Homepage() {
             zIndex: -1,
           }}
         ></motion.div>
-        {/* Arbustos */}
+        {/* Arbustos trás*/}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-cover"
+          className="absolute w-screen h-screen bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-cover blur-[1px]"
           style={{
             zIndex: -2,
           }}
@@ -166,7 +167,7 @@ export default function Homepage() {
           transition={{ duration: 1 }}
         >
           <motion.div
-            className="mt-4 flex flex-col items-center justify-center absolute lg:top-[80%] backdrop-filter p-4 bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-80"
+            className="mt-4 flex flex-col items-center justify-center absolute lg:top-[80%] backdrop-filter p-4 bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-80 z-[1]"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 5, duration: 1 }}

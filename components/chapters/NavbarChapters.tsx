@@ -4,6 +4,7 @@ import { Progress } from "@/components/ui/progress";
 import { useProgress } from "@/components/context/ProgressContext";
 import { getMilestonesForChapter } from "@/components/ui/progress";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const NavbarChapters: React.FC = () => {
   //PROGRESSO
@@ -32,12 +33,21 @@ const NavbarChapters: React.FC = () => {
 
   return (
     <div className="grid grid-cols-12 gap-4 items-center justify-between px-10 p-4 bg-gray-800 text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-xl bg-opacity-80">
-      <div className="col-span-2 flex justify-start">
-        <Link href={"/"} className="relative group">
-          <HomeIcon className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" />
-          <span className="absolute left-0 top-0 opacity-0 pt-2 group-hover:opacity-100 transition-all duration-300 ease-in-out">
-            Home
-          </span>
+      <div className="col-span-2 flex justify-start flex-grow">
+        <Link href={"/"}>
+          <div className="relative group">
+            <Image
+              src="/img/logo_navbar.svg"
+              alt="Logo"
+              width="1920"
+              height="1080"
+              className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0"
+              priority={true}
+            />
+            <span className="absolute left-0 top-0 opacity-0 pt-2 group-hover:opacity-100 transition-all duration-300 ease-in-out">
+              Home
+            </span>
+          </div>
         </Link>
       </div>
 
