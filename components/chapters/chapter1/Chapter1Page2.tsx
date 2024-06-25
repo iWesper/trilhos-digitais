@@ -34,7 +34,7 @@ export default function Chapter1Page2() {
       <div className="bg-chapter1BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1">
         <Link
           href="/chapters/chapter1/1"
-          className="text-black absolute top-20 left-15 flex items-center cursor-pointer"
+          className="text-black absolute top-28 left-15 flex items-center cursor-pointer"
         >
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
