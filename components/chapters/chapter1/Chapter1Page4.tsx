@@ -54,7 +54,7 @@ export default function Chapter1Page4() {
         </Link>
         <div className="col-span-1"></div>
         <div className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 ">
-          <p className="font-medium mb-10">
+          <p className="font-medium mb-10 select-none">
             <span className="italic">Wagner</span> implementou uma “fossa de
             orquestra” em palcos de teatro, reintroduzindo harmonia às peças
             neles tocadas através da música ao vivo, unindo todos estes

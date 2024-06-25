@@ -26,14 +26,14 @@ const Slide3 = () => {
           transition={{ duration: 1 }}
         >
           <div className="h-full justify-center items-center">
-            <p className="font-medium pt-8 text-white">
+            <p className="font-medium pt-8 text-white select-none">
               Esta facilitou a passagem de conhecimento, criando condições para
               a próxima evolução, o método científico. O método científico é a
               criação de teses, hipóteses e teorias, aumentando o conhecimento
               científico da população, tudo graças à massificação da escrita e
               dos livros.
             </p>
-            <p className="font-medium pt-8 text-white">
+            <p className="font-medium pt-8 text-white select-none">
               A produção em massa tornou este processo mais fácil e cómodo
               através da automatização, criando novas matérias e processos.
             </p>

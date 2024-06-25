@@ -26,7 +26,7 @@ const Slide2 = () => {
           transition={{ duration: 1 }}
         >
           <div className="h-full justify-center items-center">
-            <p className="font-medium pt-8 text-white">
+            <p className="font-medium pt-8 text-white select-none">
               No entanto, livros demoravam muito a serem escritos. Para acelerar
               esse processo, foi inventada a prensa, uma máquina que permitia
               não só o registo rápido de informação, mas que também a criação e

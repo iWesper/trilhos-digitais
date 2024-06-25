@@ -42,12 +42,12 @@ export default function Chapter3Page7() {
         </Link>
         <div className="col-span-1"></div>
         <div className="col-span-4 flex justify-start items-center text-center flex-col">
-          <p className="text-white font-medium pb-10">
+          <p className="text-white font-medium pb-10 select-none">
             Uau, parece que percebeste bem como são distinguidos os meios
             técnicos. No entanto, existem também quatro modalidades que permitem
             distinguir os <span className="italic">media</span>.
           </p>
-          <p className="text-white font-medium pb-10">Vamos descobri-las!</p>
+          <p className="text-white font-medium pb-10 select-none">Vamos descobri-las!</p>
           <motion.div
             whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
             className="group"

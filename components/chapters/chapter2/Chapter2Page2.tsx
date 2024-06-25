@@ -67,13 +67,13 @@ export default function Chapter2Page2() {
         <div className="col-span-1 h-full"></div>
         <div className="col-span-4 h-full">
           <div className="h-full flex flex-col justify-center items-center p-10 text-white ">
-            <p className="font-medium mb-4">
+            <p className="font-medium mb-4 select-none">
               A <span className="italic text-secondary">Bauhaus</span> foi das
               maiores influências da história no Design, transformando a
               perceção da sociedade quanto à arte através da sua integração das
               artes plásticas com o artesanato.
             </p>
-            <p className="font-medium mb-10">
+            <p className="font-medium mb-10 select-none">
               Que dizes de explorarmos o seu método de criação? Anda daí!
             </p>
           </div>
