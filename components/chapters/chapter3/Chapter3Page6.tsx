@@ -42,7 +42,7 @@ export default function Chapter3Page6() {
   //LISTA de PALAVRAS POSSÍVEIS
   const words = [
     "Ecrã",
-    "Ecrã",
+    "Monitor",
     "Papel",
     "Falas e Sons",
     "Gráficos",
@@ -53,6 +53,8 @@ export default function Chapter3Page6() {
     "Ruído",
     "Post-its",
   ];
+
+  const wordsCopy = [...words];
 
   //BARALHA O ARRAY
   const shuffledWords = ArrayShuffle(words);
@@ -152,46 +154,54 @@ export default function Chapter3Page6() {
     "Meios básicos": [],
     "Meios qualificados": [],
   });
+  
 
   //MUDA A PALAVRA DE UMA LINHA ESPEcÌFICA DE UMA COLUNA ESPECÌFICA
   const changeWord = (column: string, row: number, direction: number) => {
-    //ATUALIZA O ESTADO AO PEGAR NO ANTERIOR E COLOCAR O NOVO
+
+    console.log("ORIGINAL",wordsCopy);
+
     setSelectedWords((prevWords) => {
 
-      //CRIA UM ARRAY COM UMA CÓPIDA DAS PALAVRAS QUE ESTÃO NA COLUNA ATUAL
-const currentColumnWords = [...prevWords[column as keyof typeof prevWords]];  
-      //ENCONTRA O INDEX DA PALAVRA ATUAL
-      let currentIndex = words.indexOf(currentColumnWords[row]);
+      // Cria uma cópia das palavras que estão na coluna atual
+      const currentColumnWords = [...prevWords[column as keyof typeof prevWords]];
+      
+      //PALAVRA QUE VAI SER PROCURADA
+      let WordToSearch= currentColumnWords[row];
 
-      //VARIÁVEL PARA GUARDAR O INDEX DA NOVA PALAVRA
-      let newIndex;
 
-      //EVITAR LOOP INIFINITO
-      let counter = 0;
+      //PROCURA O ÍNDICE DE WORDTOSEARCH EM WORDSCOPY
+      let currentIndex = wordsCopy.findIndex((word) => word === WordToSearch); //0 até 10
 
-      //LOOP PARA ANDAR NOS ÍNDICES ATÉ ENCONTRAR UMA PALAVRA QUE NÃO ESTEJA JÁ SELECIONADA
-      do {
-        //CALCULA O INDEX DA PRÓXIMA PALAVRA E GUARDA. USA O MOD PARA ESTAR DENTRO DO ARRAY
-        currentIndex = (currentIndex + direction + words.length) % words.length;
 
-        //GUARDA A NOVA PALAVRA DO ARRAY NO INDEX
-        newIndex = words[currentIndex];
+      //  const words = [ "Ecrã","Monitor","Papel", "Falas e Sons", "Gráficos","Imagens","Longa-Metragem","Mundo Digital","Ficção","Ruído","Post-its",];
 
-        //ENQUANTO A PALAVRA NOVA ESTIVER NO ARRAY
+      let newIndex=0;
 
-        counter++;
+      //SE A DIREÇÃO FOR PARA A ESQUERDA
+      if(direction === -1) {
 
-        if (counter > words.length) {
-          break;
-        }
+        //ALTERA O INDEX PEDIDO PARA O VALOR A SEGUIR, MAS DENTRO DO ARRAY DISPONÍVEL
+        //SE INDEX FOR O PRIMEIRO, DÁ TRUE E COLOCA A ÚLTIMA PALAVRA //SE DER FALSE DIMINUI UMA PALAVRA
+        newIndex = currentIndex === 0 ? 10 : currentIndex - 1;
 
-      } while (newIndex === currentColumnWords[row]);
 
-      if (counter <= words.length) {
-        currentColumnWords[row] = newIndex;
+
       }
+      else if(direction === 1) { //IR PARA A DIREITA
 
-      //RETORNA UMA CÓPIA DO ESTADO ATUALIZADO
+        //ALTERA O INDEX PEDIDO PARA O VALOR A SEGUIR, MAS DENTRO DO ARRAY DISPONÍVEL
+        //SE INDEX FOR O ÚLTIMO, DÁ TRUE E COLOCA 0 PARA A PRIMEIRA PALAVRA //SE DER FALSE AUMENTA UMA PALAVRA
+        newIndex = currentIndex === 10 ? 0 : currentIndex + 1;
+      }
+      
+
+      // Atualiza a palavra na posição específica com a nova palavra
+      currentColumnWords[row] = wordsCopy[newIndex];
+
+      //console.log("A palavra",WordToSearch, "vai ser substituida por",wordsCopy[newIndex]);
+      
+      // Retorna uma cópia do estado atualizado
       return { ...prevWords, [column]: currentColumnWords };
     });
   };
@@ -206,7 +216,7 @@ const currentColumnWords = [...prevWords[column as keyof typeof prevWords]];
   const verifyWords = () => {
     //OBJETO COM AS PALAVRAS CORRETAS
     const correctWords = {
-      "Meios Técnicos de Exposição": ["Ecrã", "Ecrã", "Papel"],
+      "Meios Técnicos de Exposição": ["Ecrã", "Monitor", "Papel"],
       "Meios Básicos": ["Falas e Sons", "Gráficos", "Imagens"],
       "Meios Qualificados": ["Longa-Metragem", "Mundo Digital", "Ficção"],
     };

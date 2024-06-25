@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useEffect} from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
@@ -12,13 +12,14 @@ export default function Chapter3Page5() {
   //PROGRESS
   const { setProgress } = useProgress();
 
+  useEffect(() => {
   //PROGRESS VALUE
   setProgress(
     7.1428571428571428571428571428571 +
       7.1428571428571428571428571428571 +
       7.1428571428571428571428571428571 +
       7.1428571428571428571428571428571
-  );
+  );  }, []);
 
   return (
     <>

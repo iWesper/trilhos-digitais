@@ -154,13 +154,14 @@ export default function Chapter2Page5() {
       switch (correctCount) {
         case 1:
           //MENSAGEM DE FEEDBACK
-          setOrderMessage(message);
           message = "Acertaste 1!";
+           setOrderMessage(message);
           break;
         case 2:
           //MENSAGEM DE FEEDBACK
-          setOrderMessage(message);
           message = "Acertaste 2!";
+           //MENSAGEM DE FEEDBACK
+           setOrderMessage(message);
           break;
         case 3:
           //SALVA O PROGRESSO
@@ -168,10 +169,13 @@ export default function Chapter2Page5() {
           break;
 
         default:
-          //MENSAGEM DE FEEDBACK
-          setOrderMessage(message);
-          message = "Não acertaste nenhum.";
+        
+          message = "Nenhum está correto.";
+           //MENSAGEM DE FEEDBACK
+           setOrderMessage(message);
+
       }
+
     }
   };
 
@@ -302,7 +306,7 @@ export default function Chapter2Page5() {
               </div>
             );
           })}
-          <p className="text-white font-medium mb-2">{orderMessage}</p>
+          <p className="text-white font-medium mb-2 text-center mx-auto">{orderMessage}</p>
           {showDialog && (
             <Dialog>
               <DialogTrigger>
