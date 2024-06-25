@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ProgressProvider } from "@/components/context/ProgressContext";
 import { useAuth } from "@/components/context/AuthContext";
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import Lottie from "lottie-react";
 import animationData from "@/public/animations/loading_animation.json";
 
@@ -26,5 +26,20 @@ export default function ChaptersLayout({
     }
   }, [currentUser, router]);
 
-  return <main className="overflow-hidden">{children}</main>;
+  return (
+    <>
+      <Suspense
+        fallback={
+          <div className="h-screen w-screen flex justify-center items-center">
+            <Lottie
+              animationData={animationData}
+              className="bg-foreground h-20 w-20"
+            />
+          </div>
+        }
+      >
+        <main className="overflow-hidden">{children}</main>;
+      </Suspense>
+    </>
+  );
 }

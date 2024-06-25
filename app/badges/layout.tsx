@@ -3,7 +3,7 @@
 import Navbar from "@/components/homepage/Navbar";
 import { useAuth } from "@/components/context/AuthContext";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import Lottie from "lottie-react";
 import animationData from "@/public/animations/loading_animation.json";
 import { ProgressProvider } from "@/components/context/ProgressContext";
@@ -43,11 +43,22 @@ export default function BadgesLayout({
   }
 
   return (
-    <ProgressProvider>
-      <main className="overflow-hidden">
-        <Navbar />
-        {children}
-      </main>
-    </ProgressProvider>
+    <Suspense
+      fallback={
+        <div className="h-screen w-screen flex justify-center items-center">
+          <Lottie
+            animationData={animationData}
+            className="bg-foreground h-20 w-20"
+          />
+        </div>
+      }
+    >
+      <ProgressProvider>
+        <main className="overflow-hidden">
+          <Navbar />
+          {children}
+        </main>
+      </ProgressProvider>
+    </Suspense>
   );
 }
