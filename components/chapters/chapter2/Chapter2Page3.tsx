@@ -35,6 +35,7 @@ import testimg1 from "@/public/img/chapter2/chapter2frutas_morango.svg";
 import testimg2 from "@/public/img/chapter2/chapter2frutas_maca.svg";
 import testimg3 from "@/public/img/chapter2/chapter2frutas_laranja.svg";
 import correctimg from "@/public/img/chapter2/chapter2frutas_laranjapartida.svg";
+import { Tilt } from "react-tilt";
 
 export default function Chapter2Page3() {
   //LISTA DE ELEMENTOS ARRASTÁVEIS
@@ -89,6 +90,19 @@ export default function Chapter2Page3() {
   //SRC da imagem
   let src = "/img/chapter2/chapter2espremedor.svg";
 
+  //Controlo do Tilt
+  const defaultOptions = {
+    reverse: false, // reverse the tilt direction
+    max: 10, // max tilt rotation (degrees)
+    perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
+    scale: 1, // 2 = 200%, 1.5 = 150%, etc..
+    speed: 2500, // Speed of the enter/exit transition
+    transition: true, // Set a transition on enter/exit.
+    axis: null, // What axis should be disabled. Can be X or Y.
+    reset: true, // If the tilt effect has to be reset on exit.
+    easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
+  };
+
   //STATE ATUALIZÁVEL COM OS ELEMENTOS QUE LÁ ESTÃO
   const [board, setBoard] = useState<{ id: number; url: any }[]>([]);
 
@@ -129,14 +143,12 @@ export default function Chapter2Page3() {
     const correctId = 3;
 
     //VALIDAÇÃO
-    if (id === correctId)
-      {
-        src = "/img/chapter2/chapter2espremedor_comfruta.svg";
-        return "";
-      }
-      else {
-        return "Não é bem esse o fruto que queremos. Tenta outra vez!";
-      }
+    if (id === correctId) {
+      src = "/img/chapter2/chapter2espremedor_comfruta.svg";
+      return "";
+    } else {
+      return "Não é bem esse o fruto que queremos. Tenta outra vez!";
+    }
   };
 
   //COMPONENTE QUE RECEBE OS ELEMENTOS ARRASTÁVEIS. TEM DE SER COMPONENTE PARA ACEDER A UM CONTEXT
@@ -175,13 +187,15 @@ export default function Chapter2Page3() {
         ref={dropRef}
         className="h-full flex flex-col justify-center items-center relative"
       >
-            <Image
-              src={src}
-              alt="Foto de Um Espremedor de Citrinos"
-              width={500}
-              height={500}
-              className="rounded"
-            />
+        <Tilt options={defaultOptions}>
+          <Image
+            src={src}
+            alt="Foto de Um Espremedor de Citrinos"
+            width={500}
+            height={500}
+            className="rounded"
+          />
+        </Tilt>
       </div>
     );
   }
@@ -212,7 +226,9 @@ export default function Chapter2Page3() {
           </p>
           <div className="flex flex-row">
             {PictureList.map((picture) => {
-              return <Picture url={picture.url} id={picture.id} key={picture.id}/>;
+              return (
+                <Picture url={picture.url} id={picture.id} key={picture.id} />
+              );
             })}
           </div>
           {!showDialog && (
@@ -260,9 +276,9 @@ export default function Chapter2Page3() {
         <div className="col-span-1"></div>
 
         <div className="fixed bottom-5 left-5">
-          <TooltipProvider>
+          <TooltipProvider delayDuration={0}>
             <Tooltip>
-              <TooltipTrigger>
+              <TooltipTrigger className="cursor-help">
                 <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
               </TooltipTrigger>
               <TooltipContent className="bg-foreground border-none shadow-none text-white">

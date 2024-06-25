@@ -21,11 +21,13 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import {
+  Billboard,
   Center,
   Environment,
   Loader,
   OrbitControls,
   Text3D,
+  Outlines,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import Wagner from "@/public/models/wagner/Wagner";
@@ -111,11 +113,13 @@ export default function Chapter1Page3() {
                 onPointerLeave={() => setText3DIsHovered(false)}
                 onClick={handleText3DClick}
               >
-                <Text3D size={0.2} font={"/fonts/Effra_Regular.json"}>
-                  Gesamtkunstwerk
+                <Text3D size={0.3} font={"/fonts/Effra_Regular.json"} height={0.05}>
+                  {`Gesamtkunstwerk >`}
                   <meshStandardMaterial
                     color={text3DIsHovered ? "orange" : "hsl(207, 48%, 15%)"}
+                    
                   />
+                  <Outlines thickness={0.005} color="white" />
                 </Text3D>
               </Center>
               <Wagner
@@ -133,9 +137,9 @@ export default function Chapter1Page3() {
         </div>
         <div className="col-span-1"></div>
         <div className="fixed bottom-5 left-5">
-          <TooltipProvider>
+          <TooltipProvider delayDuration={0}>
             <Tooltip>
-              <TooltipTrigger>
+              <TooltipTrigger className="cursor-help">
                 <MdQuestionMark className="text-black h-10 w-10 justify-start items-start " />
               </TooltipTrigger>
               <TooltipContent className="bg-foreground border-none shadow-none text-white">

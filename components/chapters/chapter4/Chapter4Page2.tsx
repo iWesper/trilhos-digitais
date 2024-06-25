@@ -104,7 +104,7 @@ export default function Chapter4Page2() {
           transition={{ duration: 1 }}
         ></motion.div>
         <motion.div
-          className="h-full col-span-8"
+          className="h-full col-span-8 justify-center items-center flex"
           initial={{ x: 100 }}
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
@@ -117,16 +117,23 @@ export default function Chapter4Page2() {
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
         ></motion.div>
-        <motion.div
-          className="h-full col-span-2 mb-14"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        ></motion.div>
-        <motion.div
-          className="h-full col-span-8 mb-14"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
+      </div>
+      <div className="fixed bottom-5 left-5">
+        <TooltipProvider delayDuration={0}>
+          <Tooltip>
+            <TooltipTrigger className="cursor-help">
+              <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
+            </TooltipTrigger>
+            <TooltipContent className="bg-foreground border-none shadow-none text-white">
+              <p>{Tip}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      </div>
+      <motion.div
+          className="w-[50vh] fixed bottom-[20%] left-[50%] transform translate-x-[-50%]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
           <Slider
@@ -139,25 +146,6 @@ export default function Chapter4Page2() {
             disabled={isSliderDisabled}
           />
         </motion.div>
-        <motion.div
-          className="h-full col-span-2 mb-14"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        ></motion.div>
-      </div>
-      <div className="fixed bottom-5 left-5">
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger>
-              <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
-            </TooltipTrigger>
-            <TooltipContent className="bg-foreground border-none shadow-none text-white">
-              <p>{Tip}</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </div>
     </>
   );
 }

@@ -12,6 +12,7 @@ import {
   Loader,
   OrbitControls,
   Text3D,
+  Outlines
 } from "@react-three/drei";
 import { MdQuestionMark } from "react-icons/md";
 import {
@@ -95,11 +96,12 @@ export default function Chapter2Page2() {
                 onPointerLeave={() => setText3DIsHovered(false)}
                 onClick={handleText3DClick}
               >
-                <Text3D size={0.5} font={"/fonts/Effra_Regular.json"}>
-                  Bauhaus
+                <Text3D size={0.3} font={"/fonts/Effra_Regular.json"} height={0.05}>
+                {`Bauhaus >`}
                   <meshStandardMaterial
-                    color={text3DIsHovered ? "orange" : "white"}
+                    color={text3DIsHovered ? "orange" : "hsl(0, 0%, 98%)"}
                   />
+                  <Outlines thickness={0.005} color="hsl(207, 48%, 15%)" />
                 </Text3D>
               </Center>
               <Bauhaus
@@ -119,9 +121,9 @@ export default function Chapter2Page2() {
         <div className="h-full col-span-1"></div>
       </div>
       <div className="fixed bottom-5 left-5">
-          <TooltipProvider>
+          <TooltipProvider delayDuration={0}>
             <Tooltip>
-              <TooltipTrigger>
+              <TooltipTrigger className="cursor-help">
                 <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
               </TooltipTrigger>
               <TooltipContent className="bg-foreground border-none shadow-none text-white">

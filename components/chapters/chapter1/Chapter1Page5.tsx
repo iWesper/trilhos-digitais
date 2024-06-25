@@ -182,9 +182,9 @@ export default function Chapter1Page5() {
         {error && (<p className=" text-red-600 text-center text-sm">{error}</p>)}
         <div className="col-span-2"></div>
         <div className="fixed bottom-5 left-5">
-          <TooltipProvider>
+          <TooltipProvider delayDuration={0}>
             <Tooltip>
-              <TooltipTrigger>
+              <TooltipTrigger className="cursor-help">
                 <MdQuestionMark className="text-black h-10 w-10 justify-start items-start " />
               </TooltipTrigger>
               <TooltipContent className="bg-foreground border-none shadow-none text-white">
