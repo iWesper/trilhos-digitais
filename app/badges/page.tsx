@@ -175,7 +175,7 @@ export default function Badges() {
                 return (
                   <div
                     key={index}
-                    className={`flex justify-center items-center relative ${WillCursorBePointer} col-span-3 overflow-visible`}
+                    className={`flex justify-center items-end relative ${WillCursorBePointer} col-span-3 overflow-visible`}
                     {...(progress > 0
                       ? { onClick: () => handleBadgeClick(item.id) }
                       : {})}
@@ -195,13 +195,13 @@ export default function Badges() {
                           />
                           {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
                           <item.modelId position={item.position} scale={item.scale} />
-                          <Environment preset="sunset" />
+                          <Environment preset="studio" />
                         </Suspense>
                       </Canvas>
                       <Loader />
                     </div>
-                    <div className="z-10 text-center w-[50%]">
-                      <p className="text-black font-bold text-sm">
+                    <div className="z-10 text-center w-[50%] bg-gray-800 rounded-xl backdrop-blur-xl bg-opacity-80 p-2">
+                      <p className="text-white font-bold text-sm">
                         {item.name}
                       </p>
                       <Progress className="h-2" value={progress} />
@@ -211,7 +211,7 @@ export default function Badges() {
               })}
               <div className="col-span-2 mt-4"></div>
               <div className="bg-papelMaisBadges max-h-[100%] flex justify-center items-center h-screen bg-cover bg-no-repeat bg-center col-span-8 mt-4">
-                <h1 className="text-black shadow text-center text-xl font-bold font-efrra w-full ">
+                <h1 className="text-black text-center text-xl font-bold font-effra w-full ">
                   Mais <span className="italic">Badges</span> em Breve
                 </h1>
               </div>

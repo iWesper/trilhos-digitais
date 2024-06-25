@@ -1,0 +1,11 @@
+Model Information:
+* title:	Gutenberg Press
+* source:	https://sketchfab.com/3d-models/gutenberg-press-9b6dad5acf664bb19de10642b0e3c427
+* author:	B0073D (https://sketchfab.com/B0073D)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Gutenberg Press" (https://sketchfab.com/3d-models/gutenberg-press-9b6dad5acf664bb19de10642b0e3c427) by B0073D (https://sketchfab.com/B0073D) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
