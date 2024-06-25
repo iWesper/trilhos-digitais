@@ -15,8 +15,8 @@ import Link from "next/link";
 import comboio_inicio from '../../public/img/comboio/comboio.svg';
 import arte from '../../public/img/comboio/carruagem_cap1_arte.svg';
 import design from '../../public/img/comboio/carruagem_cap2_design.svg';
-import tecnologia from '../../public/img/comboio/carruagem_cap3_tecnologia.svg';
-import comunicacao from '../../public/img/comboio/carruagem_cap4_comunicacao.svg';
+import tecnologia from '../../public/img/comboio/carruagem_cap4_tecnologia.svg';
+import comunicacao from '../../public/img/comboio/carruagem_cap3_comunicacao.svg';
 
 
 
@@ -38,11 +38,11 @@ const comboio = [
     },
     {
         id:3,
-        url:tecnologia
+        url:comunicacao
     },
     {
       id:4,
-      url:comunicacao
+      url:tecnologia
     }
 ]
 
