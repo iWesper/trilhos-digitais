@@ -77,7 +77,7 @@ export default function Homepage() {
 
   useEffect(() => {
     setTutorialMessages([
-      `Olá ${username}, bem-vindo aos Trilhos Digitais!`,
+      `Olá ${username}, bem-vindo(a) aos Trilhos Digitais!`,
 
       "Vais embarcar no Expresso Digital, um comboio que te vai levar a explorar toda a história da multimédia, desde os seus pilares fundadores até aos dias de hoje, percebendo o seu impacto e a sua presença no dia-a-dia de todos nós.",
 
