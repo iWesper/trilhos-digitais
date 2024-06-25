@@ -1,5 +1,5 @@
 "use client";
-import React, {Suspense, useState} from "react";
+import React, { Suspense, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { IoChevronBack } from "react-icons/io5";
@@ -8,20 +8,26 @@ import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Center, Text3D, Outlines, Environment, Loader } from "@react-three/drei";
+import {
+  OrbitControls,
+  Center,
+  Text3D,
+  Outlines,
+  Environment,
+  Loader,
+} from "@react-three/drei";
 import Wagner2 from "@/public/models/wagner/Wagner2";
 
 export default function Chapter1Page4() {
-
   const router = useRouter();
 
-    // Estados relativos ao 3D
-    const [text3DIsHovered, setText3DIsHovered] = useState(false);
-    const [modelIsHovered, setModelIsHovered] = useState(false);
+  // Estados relativos ao 3D
+  const [text3DIsHovered, setText3DIsHovered] = useState(false);
+  const [modelIsHovered, setModelIsHovered] = useState(false);
 
-    const handleText3DClick = () => {
-      router.push("/chapters/chapter1/5");
-    };
+  const handleText3DClick = () => {
+    router.push("/chapters/chapter1/5");
+  };
 
   //PROGRESS
   const { setProgress } = useProgress();
@@ -77,7 +83,7 @@ export default function Chapter1Page4() {
               />
               {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
               <Center
-                position={[0, 1.5, 0]}
+                position={[0, 2, 0]}
                 onPointerEnter={(event) => (
                   event.stopPropagation(), setText3DIsHovered(true)
                 )}
@@ -85,6 +91,7 @@ export default function Chapter1Page4() {
                 onClick={handleText3DClick}
               >
                 <Text3D
+                  position={[0, 1, 0]}
                   size={0.3}
                   font={"/fonts/Effra_Regular.json"}
                   height={0.05}
