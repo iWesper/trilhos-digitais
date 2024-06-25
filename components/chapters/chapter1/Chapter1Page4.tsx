@@ -83,7 +83,7 @@ export default function Chapter1Page4() {
               />
               {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
               <Center
-                position={[0, 1.5, 0]}
+                position={[0, 2, 0]}
                 onPointerEnter={(event) => (
                   event.stopPropagation(), setText3DIsHovered(true)
                 )}
