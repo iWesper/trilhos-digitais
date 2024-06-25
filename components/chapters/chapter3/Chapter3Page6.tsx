@@ -415,7 +415,7 @@ const currentColumnWords = [...prevWords[column as keyof typeof prevWords]];
       <div className="fixed bottom-5 left-5">
         <TooltipProvider delayDuration={0}>
           <Tooltip>
-            <TooltipTrigger>
+            <TooltipTrigger className="cursor-help">
               <MdQuestionMark className="text-white h-10 w-10 justify-start items-start" />
             </TooltipTrigger>
             <TooltipContent className="bg-foreground border-none shadow-none text-white">

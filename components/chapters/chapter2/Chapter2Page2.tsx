@@ -96,7 +96,7 @@ export default function Chapter2Page2() {
                 onPointerLeave={() => setText3DIsHovered(false)}
                 onClick={handleText3DClick}
               >
-                <Text3D size={0.3} font={"/fonts/Effra_Regular.json"}>
+                <Text3D size={0.3} font={"/fonts/Effra_Regular.json"} height={0.05}>
                 {`Bauhaus >`}
                   <meshStandardMaterial
                     color={text3DIsHovered ? "orange" : "hsl(0, 0%, 98%)"}
@@ -123,7 +123,7 @@ export default function Chapter2Page2() {
       <div className="fixed bottom-5 left-5">
           <TooltipProvider delayDuration={0}>
             <Tooltip>
-              <TooltipTrigger>
+              <TooltipTrigger className="cursor-help">
                 <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
               </TooltipTrigger>
               <TooltipContent className="bg-foreground border-none shadow-none text-white">
