@@ -7,6 +7,7 @@ import React, { useEffect, useState, Suspense } from "react";
 import Lottie from "lottie-react";
 import animationData from "@/public/animations/loading_animation.json";
 import { ProgressProvider } from "@/components/context/ProgressContext";
+import { motion } from "framer-motion";
 
 export default function BadgesLayout({
   children,
@@ -54,10 +55,15 @@ export default function BadgesLayout({
       }
     >
       <ProgressProvider>
-        <main className="overflow-hidden">
+        <motion.main
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="overflow-hidden"
+        >
           <Navbar />
           {children}
-        </main>
+        </motion.main>
       </ProgressProvider>
     </Suspense>
   );

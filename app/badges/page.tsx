@@ -173,9 +173,12 @@ export default function Badges() {
                   progress === 100 ? "cursor-pointer" : "";
 
                 return (
-                  <div
+                  <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1 }}
                     key={index}
-                    className={`flex justify-center items-end relative ${WillCursorBePointer} col-span-3 overflow-visible`}
+                    className={`flex justify-center items-center relative ${WillCursorBePointer} col-span-3 overflow-visible`}
                     {...(progress > 0
                       ? { onClick: () => handleBadgeClick(item.id) }
                       : {})}
@@ -200,13 +203,13 @@ export default function Badges() {
                       </Canvas>
                       <Loader />
                     </div>
-                    <div className="z-10 text-center w-[50%] bg-gray-800 rounded-xl backdrop-blur-xl bg-opacity-80 p-2">
-                      <p className="text-white font-bold text-sm">
+                    <div className="w-auto min-w-[50%] z-10 text-center bg-gray-800 rounded-xl backdrop-blur-[2px] bg-opacity-80 p-2 absolute bottom-[25%]">
+                      <p className="text-white font-bold text-sm pb-2">
                         {item.name}
                       </p>
                       <Progress className="h-2" value={progress} />
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
               <div className="col-span-2 mt-4"></div>
