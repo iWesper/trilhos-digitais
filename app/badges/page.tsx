@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import { useRouter } from "next/navigation";
 import { Progress } from "@/components/ui/progress";
@@ -15,6 +15,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Environment, Loader } from "@react-three/drei";
+import Bauhaus from "@/public/models/bauhaus/Bauhaus";
+import Wagner from "@/public/models/wagner/Wagner";
+import Tv from "@/public/models/tv/Tv";
+import Prensa from "@/public/models/prensa/Prensa";
 
 export default function Badges() {
   const router = useRouter();
@@ -44,21 +50,33 @@ export default function Badges() {
       BadgeName: "Gesamtkunstwerk",
       id: 1,
       name: "Arte",
+      modelId: Wagner,
+      scale: 0.05,
+      position: [0, 0, 0]
     },
     {
       BadgeName: "Bauhaus",
       id: 2,
       name: "Design",
+      modelId: Bauhaus,
+      scale: 0.2,
+      position: [0, 0, 0]
     },
     {
       BadgeName: "TV Antiga",
       id: 3,
       name: "Comunicação",
+      modelId: Tv,
+      scale: 1,
+      position: [0, 0, 0]
     },
     {
       BadgeName: "Sala de Prensas",
       id: 4,
       name: "Tecnologia",
+      modelId: Prensa,
+      scale: 0.09,
+      position: [0, -1.5, 0]
     },
     // { BadgeName: "Macintosh", id:5, name: "Hipermédia"},
     // { BadgeName: "Óculos VR", id:6,  name: "Multiverso"},
@@ -157,7 +175,7 @@ export default function Badges() {
                 return (
                   <div
                     key={index}
-                    className={`flex justify-center items-center relative ${WillCursorBePointer} col-span-3`}
+                    className={`flex justify-center items-center relative ${WillCursorBePointer} col-span-3 overflow-visible`}
                     {...(progress > 0
                       ? { onClick: () => handleBadgeClick(item.id) }
                       : {})}
@@ -165,11 +183,28 @@ export default function Badges() {
                     <div
                       className={`${bgClass} bg-cover bg-center bg-no-repeat w-full h-full absolute top-0 left-0`}
                     ></div>
+                    <div className="w-full h-full absolute top-0 left-0">
+                      <Canvas className="w-full h-full">
+                        <Suspense fallback={null}>
+                          <OrbitControls
+                            enableRotate={false}
+                            autoRotate={true}
+                            autoRotateSpeed={0.5}
+                            enableZoom={false}
+                            enablePan={false}
+                          />
+                          {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
+                          <item.modelId position={item.position} scale={item.scale} />
+                          <Environment preset="sunset" />
+                        </Suspense>
+                      </Canvas>
+                      <Loader />
+                    </div>
                     <div className="z-10 text-center w-[50%]">
                       <p className="text-black font-bold text-sm">
                         {item.name}
                       </p>
-                      <Progress value={progress} />
+                      <Progress className="h-2" value={progress} />
                     </div>
                   </div>
                 );
