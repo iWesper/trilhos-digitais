@@ -53,7 +53,7 @@ export default function Chapter3Page7() {
             className="group"
           >
             <Button asChild className="text-white bg-foreground hover:bg-hover">
-              <Link href="/chapters/chapter3/8">
+              <Link href="/chapters/chapter3/8 select-none">
                 Continuar
                 <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
               </Link>
