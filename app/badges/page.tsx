@@ -60,7 +60,7 @@ export default function Badges() {
   ];
 
   const TutorialMessages = [
-    `Bem-vindo à tua zona de Badges! Aqui vais encontrar e poder inspecionar todos os badges que desbloqueaste na tua viagem pelos Trilhos Digitais!`,
+    `Bem-vindo(a) à tua zona de Badges! Aqui vais encontrar e poder inspecionar todos os badges que desbloqueaste na tua viagem pelos Trilhos Digitais!`,
 
     "Cada badge pode ser inspecionado em 3D nesta mesma página, ou em AR se o preferires através do teu telemóvel. Vais poder rodar os objetos, vê-los de perto, e quem sabe descobrir alguns dos seus segredos ao interagires com eles.",
 
