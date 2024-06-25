@@ -40,7 +40,7 @@ export default function Chapter4Page4() {
     if (willShowToastState === true) {
       toast({
         title: "Nova conquista registada.",
-        description: "Ganhaste o teu terceiro badge!",
+        description: "Ganhaste o teu quarto badge!",
       });
     }
 
@@ -53,7 +53,7 @@ export default function Chapter4Page4() {
       <div className="bg-chapter4BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center p-4">
         <Link
           href="/chapters/chapter4/3"
-          className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
+          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
         >
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>

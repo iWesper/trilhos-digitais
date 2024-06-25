@@ -142,6 +142,7 @@ export default function Chapter2Page10() {
 
   //HANDLE DRAG
   const handleDragStart = (item: Picture[]) => {
+
     //FAZ UMA CÓPIA DE TODAS AS BOARDS
     boardsRef.current = {
       0: [...board],
@@ -165,7 +166,7 @@ export default function Chapter2Page10() {
     } else if (board4.find((picture) => picture.id === item[0].id)) {
       sourceBoardRef.current = 4 as number;
     } else {
-      sourceBoardRef.current = 0 as number; // Set a default value if the board is not found
+      sourceBoardRef.current = 0 as number;
     }
 
     //CÓPIA DA BOARD INICIAL
@@ -262,13 +263,7 @@ export default function Chapter2Page10() {
     ).length;
 
     //NÚMERO DE IMAGENS NA POSIÇÃO CORRETA
-    if (
-      correctPositions == 1 ||
-      correctPositions == 2 ||
-      correctPositions == 3
-    ) {
-      message = "Não nos parece ser essa a ordem, anda, tenta de novo.";
-    } else if (correctPositions == 4) {
+    if (correctPositions == 4) {
       message = "Acertaste, parabéns!";
 
       if (willShowToastState === true) {
@@ -283,8 +278,8 @@ export default function Chapter2Page10() {
       );
 
       setshowContinuar(true);
-    }
 
+    }
     //STATE DO FEEDBACK
     setOrderMessage(message);
   }, [board, board2, board3, board4]);
@@ -441,7 +436,7 @@ export default function Chapter2Page10() {
       <div className="bg-chapter2BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center gap-4">
         <Link
           href="/chapters/chapter2/9"
-          className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
+          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
         >
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>

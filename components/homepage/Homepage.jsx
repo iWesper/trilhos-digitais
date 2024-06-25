@@ -118,7 +118,7 @@ export default function Homepage() {
     </DialogTrigger>
     <DialogContent>
       <DialogHeader>
-        <DialogTitle>Introdução</DialogTitle>
+        <DialogTitle className="mb-4">Introdução</DialogTitle>
         <DialogDescription className=" text-black">
           {tutorialMessages[currentMessageIndex]}
         </DialogDescription>

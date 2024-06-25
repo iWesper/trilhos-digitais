@@ -15,7 +15,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       id: 1,
       name: "Arte",
       description:
-        "O fosso de orquestra foi uma das grandes inovações no mundo da arte, trazida por Richard Wagner, escondendo a orquestra por baixo do palco de teatro e longe da visão dos especatdores, estando assim mais próxima da Obra Total.",
+        "O fosso de orquestra foi uma das grandes inovações no mundo da arte, trazida por Richard Wagner, escondendo a orquestra por baixo do palco de teatro e longe da visão dos espectadores, estando assim mais próxima da Obra Total.",
       p2: "O primeiro grande passo em direção à obra total.",
       qrUrl: "/img/qrcodes/arte.svg",
     },
@@ -24,7 +24,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       id: 2,
       name: "Design",
       description:
-        "A Bauhaus foi uma escola de arquitetura e design que transformou a perceção da sociedade quanto à arte através da dus integração das artes plásticas com o artesanato.",
+        "A Bauhaus foi uma escola de arquitetura e design que transformou a perceção da sociedade quanto à arte através da integração das artes plásticas com o artesanato.",
       p2: "Um verdadeiro marco na história do design.",
       qrUrl: "/img/qrcodes/design.svg",
     },
@@ -103,26 +103,28 @@ export default function BadgeDetails({ number }: { number: number }) {
       {!show3DorAr && (
         <>
           <div
-            className={`col-span-8 w-full h-full bg-papelBadges${
+            className={`col-span-7 w-full h-full bg-papelBadges${
               defaultItems[BadgeIdToShow - 1].id
             } bg-origin-border bg-center bg-no-repeat mt-28`}
           ></div>
-          <div className="col-span-3 justify-center items-center mt-16">
-            <h1 className="font-bold text-center text-white text-4xl py-6">
+          <div className="col-span-4 justify-center items-center mt-16 backdrop-filter bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-20">
+            <h1 className="font-bold text-center text-white text-4xl px-8 pb-8 pt-4 ">
               {defaultItems[BadgeIdToShow - 1].BadgeName}
             </h1>
-            <p className="font-medium text-xl text-white ">
+            <p className="font-medium text-xl text-white px-8 ">
               {defaultItems[BadgeIdToShow - 1].description}
             </p>
-            <p className="font-medium text-xl text-white pt-8 pb-4">
+            <p className="font-medium text-xl text-white px-8 pt-8 pb-4">
               {defaultItems[BadgeIdToShow - 1].p2}
             </p>
+            <div className="flex justify-center items-center w-full px-8 pb-8">
             <Button
-              className="text-white w-full text-xl"
+              className="text-white m-auto w-75 text-xl"
               onClick={() => handleContentSwap("showAR")}
             >
               Realidade Aumentada
             </Button>
+            </div>  
           </div>
           <div className="col-span-1 mt-28"></div>
         </>
@@ -148,22 +150,24 @@ export default function BadgeDetails({ number }: { number: number }) {
               <p className="text-white">Aponta o telemóvel</p>
             </div>
           </div>
-          <div className="col-span-3 justify-center items-center mt-16">
-            <h1 className="font-bold text-center text-white text-4xl py-6">
+          <div className="col-span-3 justify-center items-center mt-16 backdrop-filter bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-20">
+            <h1 className="font-bold text-center text-white text-4xl px-8 pb-8 pt-4">
               {defaultItems[BadgeIdToShow - 1].BadgeName}
             </h1>
-            <p className="font-medium text-xl text-white">
+            <p className="font-medium text-xl text-white px-8">
               {defaultItems[BadgeIdToShow - 1].description}
             </p>
-            <p className="font-medium text-xl text-white pt-8 pb-4">
+            <p className="font-medium text-xl text-white px-8 pt-8 pb-4">
               {defaultItems[BadgeIdToShow - 1].p2}
             </p>
-            <Button
-              className="text-white w-full text-xl"
-              onClick={() => handleContentSwap("show3D")}
-            >
-              3D
-            </Button>
+            <div className="flex justify-center items-center w-full px-8 pb-8">
+              <Button
+                className="text-white text-xl"
+                onClick={() => handleContentSwap("show3D")}
+              >
+                3D
+              </Button>
+            </div>
           </div>
           <div className="col-span-1 mt-28"></div>
         </>

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { IoChevronBack } from "react-icons/io5";
@@ -59,7 +59,7 @@ export default function Chapter2Page9() {
   const [TextFont, setTextFont] = useState<string>("font-lovedays");
 
   //MOSTRAR OS BOTÕES DO FORM
-  const [ButtonsForm, setButtonsForm] = useState<boolean>(false);
+  const [ButtonsForm, setButtonsForm] = useState<boolean>(true);
 
   //NÚMERO DE VEZES QUE O FORM FOI SUBMETIDO
   const submitCount = useRef(0);
@@ -68,13 +68,46 @@ export default function Chapter2Page9() {
   const [showDialog, setShowDialog] = useState<boolean>(false);
 
   //MOSTRAR O BOTÃO DE ALTERAR
-  const [AlterarState, setAlterarState] = useState<boolean>(true);
+  const [AlterarState, setAlterarState] = useState<boolean>(false);
 
   //NÚMERO DE RESPOSTAS QUE A PESSOA ACERTOU
   const [CorretAnswers, setCorretAnswers] = useState<number>(0);
 
   //DICA
   const Tip = "Repara para o fundo do texto.";
+
+  useEffect(() => {
+    //Save Valor Correct Answers
+    let number = CorretAnswers;
+
+    if (number === 1) {
+      //PESSOA ACERTOU UM
+
+      //SE ALTERAR FOR FALSE E BUTTONS FORM TRUE
+      if (AlterarState === false && ButtonsForm === true) {
+        //MUDA FONT
+        setTextFont("font-tomatoes");
+
+        //MUDA O BG PARA O SEGUNDO
+        setBGText(
+          "bg-chapter2BGTexto2 bg-origin-border bg-center bg-no-repeat bg-cover mb-6 rounded-xl"
+        );
+      }
+    } else if (number === 2) {
+      //PESSOA ACERTOU DOIS
+
+      //SE ALTERAR FOR FALSE E BUTTONS FORM TRUE
+      if (AlterarState === false && ButtonsForm === true) {
+        //MUDA FONT
+        setTextFont("font-beautifulEveryTime");
+
+        //MUDA O BG PARA O TERCEIRO
+        setBGText(
+          "bg-chapter2BGTexto3 bg-origin-border bg-center bg-no-repeat bg-cover mb-6 rounded-xl"
+        );
+      }
+    }
+  }, [CorretAnswers, AlterarState, ButtonsForm]);
 
   //MOSTRAR OS BOTÕES
   const showButtonsForm = () => {
@@ -134,14 +167,6 @@ export default function Chapter2Page9() {
             //VOLTA A APARECER BOTÃO DE ALTERAR
             setButtonsForm(false);
             setAlterarState(true);
-
-            //MUDA O BG PARA O SEGUNDO
-            setBGText(
-              "bg-chapter2BGTexto2 bg-origin-border bg-center bg-no-repeat bg-cover mb-6 rounded-xl"
-            );
-
-            //MUDA FONT
-            setTextFont("font-tomatoes");
 
             //GUARDA QUE ACERTOU
             setCorretAnswers(CorretAnswers + 1);
@@ -205,14 +230,6 @@ export default function Chapter2Page9() {
 
             //MUDA TEXTO DE BAIXO
             setP2("Que dizes tentarmos mudar o design de novo?");
-
-            //MUDA O BG PARA O TERCEIRO
-            setBGText(
-              "bg-chapter2BGTexto3 bg-origin-border bg-center bg-no-repeat bg-cover mb-6 rounded-xl"
-            );
-
-            //MUDA FONT
-            setTextFont("font-beautifulEveryTime");
 
             //GUARDA QUE ACERTOU
             setCorretAnswers(CorretAnswers + 1);
@@ -312,7 +329,7 @@ export default function Chapter2Page9() {
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center p-4">
         <Link
           href="/chapters/chapter2/8"
-          className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
+          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
         >
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
@@ -330,7 +347,7 @@ export default function Chapter2Page9() {
           )}
           {AlterarState && (
             <Button className="text-white" onClick={showButtonsForm}>
-              Alterar
+              Responder
             </Button>
           )}
 

@@ -117,7 +117,7 @@ export default function Badges() {
           <BadgeDetails number={selectedBadgeNumber} />
           <div
             onClick={() => setShowBadgeDetail(false)}
-            className="text-white absolute top-20 left-15 flex items-center cursor-pointer"
+            className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
           >
             <IoChevronBack className=" h-8 w-8" />
             <span>Voltar</span>
@@ -193,7 +193,7 @@ export default function Badges() {
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Introdução</DialogTitle>
+            <DialogTitle className="mt-4">Introdução</DialogTitle>
             <DialogDescription className=" text-black">
               {TutorialMessages[currentMessageIndex]}
             </DialogDescription>
