@@ -1,9 +1,7 @@
 // 'use client' é apenas necessário quando estamos a usar componentes do lado do cliente, por exemplo, os modelos 3D do react-three-fiber
 "use client";
 
-import React, { useEffect, useState, Suspense } from "react";
-
-import { Button } from "@/components/ui/button";
+import React, { useEffect, Suspense } from "react";
 import { useAuth } from "@/components/context/AuthContext";
 import { useRouter } from "next/navigation";
 import Lottie from "lottie-react";

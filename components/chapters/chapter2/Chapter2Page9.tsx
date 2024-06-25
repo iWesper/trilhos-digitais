@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
 import { useState, useRef } from "react";
-import { useRouter } from "next/navigation";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";

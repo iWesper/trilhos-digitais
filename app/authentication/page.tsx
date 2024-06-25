@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { FcGoogle } from "react-icons/fc";
 
 //IMPORTA Os hooks
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Auth } from "@/components/register/Register";
 
 // Importa os hooks de autenticação e de navegação

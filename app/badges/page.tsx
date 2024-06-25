@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { Progress } from "@/components/ui/progress";
 import { useAuth } from "@/components/context/AuthContext";
 import BadgeDetails from "@/components/badges/BadgeDetails";
-import {Button} from "@/components/ui/button";
-import {motion} from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import {
   Dialog,
   DialogContent,
@@ -18,7 +18,15 @@ import {
 
 export default function Badges() {
   const router = useRouter();
-  const { currentUser, goGetBadges, BadgeList, error, hasSeenBadgeTutorial, tutorialBadge, UpdateBadgesTutorial } = useAuth();
+  const {
+    currentUser,
+    goGetBadges,
+    BadgeList,
+    error,
+    hasSeenBadgeTutorial,
+    tutorialBadge,
+    UpdateBadgesTutorial,
+  } = useAuth();
 
   const [selectedBadgeNumber, setSelectedBadgeNumber] = useState<number | null>(
     0
@@ -27,26 +35,25 @@ export default function Badges() {
 
   const [tutorialSeen, setTutorialSeen] = useState(false);
 
-
-     //MENSAGEM
-     const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-
+  //MENSAGEM
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
   //Info dos Badges Default
   const defaultItems = [
-    { 
-      BadgeName: "Gesamtkunstwerk", 
-      id: 1, 
-      name: "Arte" 
+    {
+      BadgeName: "Gesamtkunstwerk",
+      id: 1,
+      name: "Arte",
     },
-    { 
-      BadgeName: "Bauhaus", 
-      id: 2, 
-      name: "Design"},
+    {
+      BadgeName: "Bauhaus",
+      id: 2,
+      name: "Design",
+    },
     {
       BadgeName: "TV Antiga",
       id: 3,
-      name: "Comunicação",  
+      name: "Comunicação",
     },
     {
       BadgeName: "Sala de Prensas",
@@ -74,24 +81,23 @@ export default function Badges() {
 
     "Poderás também inspecionar o teu badge em Realidade Aumentada! Basta clicares no botão de AR, e apontares a câmara do teu telemóvel para o marcador que te fornecemos.",
 
-    "Todos os teus objetivos alcançados num só lugar, que entusiasmante! Regressa a esta página sempre que quiseres inspecionar um badge ou ver o teu progresso para desbloquear um badge específico. Até breve!"
+    "Todos os teus objetivos alcançados num só lugar, que entusiasmante! Regressa a esta página sempre que quiseres inspecionar um badge ou ver o teu progresso para desbloquear um badge específico. Até breve!",
   ];
 
-    //MENSAGENS DO TUTORIAL
-    const handleContinue = () => {
-      //SE NÃO FOR A ÚLTIMA MENSAGEM
-      if (currentMessageIndex < TutorialMessages.length - 1) {
-        //AVANÇA
-        setCurrentMessageIndex(currentMessageIndex + 1);
-      } else {
+  //MENSAGENS DO TUTORIAL
+  const handleContinue = () => {
+    //SE NÃO FOR A ÚLTIMA MENSAGEM
+    if (currentMessageIndex < TutorialMessages.length - 1) {
+      //AVANÇA
+      setCurrentMessageIndex(currentMessageIndex + 1);
+    } else {
+      //FECHA O TUTORIAL
+      setTutorialSeen(true);
 
-        //FECHA O TUTORIAL
-        setTutorialSeen(true);
-
-        //Update na BD
-        UpdateBadgesTutorial();
-      }
-    };
+      //Update na BD
+      UpdateBadgesTutorial();
+    }
+  };
 
   // Hook para navegar entre páginas
   if (!currentUser) {
@@ -145,19 +151,24 @@ export default function Badges() {
                 const bgClass = bgClasses[index % bgClasses.length];
 
                 // saber se vai permitir o clique
-                const WillCursorBePointer = progress === 100 ? "cursor-pointer" : "";
+                const WillCursorBePointer =
+                  progress === 100 ? "cursor-pointer" : "";
 
                 return (
                   <div
                     key={index}
                     className={`flex justify-center items-center relative ${WillCursorBePointer} col-span-3`}
-                    {...(progress > 0 ? { onClick: () => handleBadgeClick(item.id) } : {})}
+                    {...(progress > 0
+                      ? { onClick: () => handleBadgeClick(item.id) }
+                      : {})}
                   >
                     <div
                       className={`${bgClass} bg-cover bg-center bg-no-repeat w-full h-full absolute top-0 left-0`}
                     ></div>
                     <div className="z-10 text-center w-[50%]">
-                      <p className="text-black font-bold text-sm">{item.name}</p>
+                      <p className="text-black font-bold text-sm">
+                        {item.name}
+                      </p>
                       <Progress value={progress} />
                     </div>
                   </div>
@@ -176,33 +187,33 @@ export default function Badges() {
             )}
           </div>
           {!tutorialBadge && !tutorialSeen && (
-        <Dialog>
-        <DialogTrigger asChild>
-          <motion.button className="bg-secondary rounded-md px-2 py-2 text-white hover:bg-orange-500 cursor-pointer"
-          whileHover={{ scale: 1.1 }}
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{
-            delay: 2,
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 1,
-          }}
-          >
-            Clica Aqui
-            </motion.button>
-        </DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle className="mt-4">Introdução</DialogTitle>
-            <DialogDescription className=" text-black">
-              {TutorialMessages[currentMessageIndex]}
-            </DialogDescription>
-            <Button onClick={handleContinue}>Continuar</Button>
-          </DialogHeader>
-        </DialogContent>
-      </Dialog>
-
-      )}
+            <Dialog>
+              <DialogTrigger asChild>
+                <motion.button
+                  className="bg-secondary rounded-md px-2 py-2 text-white hover:bg-orange-500 cursor-pointer"
+                  whileHover={{ scale: 1.1 }}
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{
+                    delay: 2,
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 1,
+                  }}
+                >
+                  Clica Aqui
+                </motion.button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle className="mt-4">Introdução</DialogTitle>
+                  <DialogDescription className=" text-black">
+                    {TutorialMessages[currentMessageIndex]}
+                  </DialogDescription>
+                  <Button onClick={handleContinue}>Continuar</Button>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+          )}
         </main>
       )}
     </>

@@ -3,30 +3,62 @@
   <defs>
     <style>
       .cls-1 {
-        fill: url(#Gradiente_sem_nome_4);
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
         stroke-width: 0px;
       }
 
       .cls-2 {
-        fill: none;
-        stroke: #000;
-        stroke-miterlimit: 10;
-        stroke-width: 14px;
+        fill: url(#Gradiente_sem_nome_36);
+      }
+
+      .cls-3 {
+        fill: url(#Gradiente_sem_nome_30);
+      }
+
+      .cls-7 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        fill: url(#Gradiente_sem_nome_35);
+      }
+
+      .cls-6 {
+        fill: url(#Gradiente_sem_nome_28);
       }
     </style>
-    <radialGradient id="Gradiente_sem_nome_4" data-name="Gradiente sem nome 4" cx="960" cy="540" fx="960" fy="540" r="1120.74" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset="1" stop-color="#4d4d4d"/>
+    <clipPath id="clippath">
+      <rect class="cls-1" width="1920" height="1080"/>
+    </clipPath>
+    <radialGradient id="Gradiente_sem_nome_28" data-name="Gradiente sem nome 28" cx="-143.2" cy="1114.25" fx="-143.2" fy="1114.25" r="772.71" gradientTransform="translate(190.9 -105.08) scale(1.33 1.06)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#86be41"/>
+      <stop offset=".84" stop-color="#f2f2f2" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="Gradiente_sem_nome_30" data-name="Gradiente sem nome 30" cx="1297.05" cy="1114.25" fx="1297.05" fy="1114.25" r="772.71" gradientTransform="translate(190.9 -105.08) scale(1.33 1.06)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#456fb5"/>
+      <stop offset=".84" stop-color="#f2f2f2" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="Gradiente_sem_nome_35" data-name="Gradiente sem nome 35" cx="-157.69" cy="98.8" fx="-157.69" fy="98.8" r="772.71" gradientTransform="translate(190.9 -105.08) scale(1.33 1.06)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f59c1a"/>
+      <stop offset=".84" stop-color="#f2f2f2" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="Gradiente_sem_nome_36" data-name="Gradiente sem nome 36" cx="1297.05" cy="120.55" fx="1297.05" fy="120.55" r="772.71" gradientTransform="translate(190.9 -105.08) scale(1.33 1.06)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#87529c"/>
+      <stop offset=".84" stop-color="#f2f2f2" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <rect class="cls-1" width="1920" height="1080"/>
-  <g>
-    <polygon class="cls-2" points="744.71 366.75 1175.66 366.75 1177.25 713.61 744.71 713.61 744.71 366.75"/>
-    <path class="cls-2" d="M738.14,425.35s269.44-2.22,279.85-.79c22.86,3.15,37.89,25.48,52.55,26.28,38.89,2.1,104.32.53,104.32.53"/>
-    <line class="cls-2" x1="846.14" y1="518.37" x2="898.96" y2="571.98"/>
-    <line class="cls-2" x1="898.96" y1="518.37" x2="846.14" y2="571.98"/>
-    <line class="cls-2" x1="1019.57" y1="518.37" x2="1072.39" y2="575.13"/>
-    <line class="cls-2" x1="1076.33" y1="518.37" x2="1023.51" y2="575.13"/>
-    <polyline class="cls-2" points="893.44 636.62 927.34 654.75 960.18 636.62 993.55 654.75 1029.03 632.68"/>
+  <g class="cls-7">
+    <rect class="cls-4" x="-9.98" width="1927.71" height="1083.6"/>
+    <ellipse class="cls-6" cx="0" cy="1080" rx="764.02" ry="609.55"/>
+    <ellipse class="cls-3" cx="1920" cy="1080" rx="764.02" ry="609.55"/>
+    <ellipse class="cls-5" cx="-19.31" rx="764.02" ry="609.55"/>
+    <ellipse class="cls-2" cx="1920" cy="23.13" rx="764.02" ry="609.55"/>
   </g>
 </svg>
