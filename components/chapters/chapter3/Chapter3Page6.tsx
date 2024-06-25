@@ -159,7 +159,7 @@ export default function Chapter3Page6() {
   //MUDA A PALAVRA DE UMA LINHA ESPEcÌFICA DE UMA COLUNA ESPECÌFICA
   const changeWord = (column: string, row: number, direction: number) => {
 
-    console.log("ORIGINAL",wordsCopy);
+   // console.log("ORIGINAL",wordsCopy);
 
     setSelectedWords((prevWords) => {
 
@@ -284,7 +284,7 @@ export default function Chapter3Page6() {
           className="col-span-8 flex justify-center items-center"
         >
           {isCorrect !== null && isCorrect === false && wrongColumn !== "" && (
-            <p className="text-white font-medium text-center">
+            <p className="text-white font-medium text-center text-sm">
               Ora parece que te confundiste nos {wrongColumn}. Vamos, tenta de
               novo.{" "}
             </p>
