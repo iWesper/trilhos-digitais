@@ -104,7 +104,7 @@ export default function Chapter4Page2() {
           transition={{ duration: 1 }}
         ></motion.div>
         <motion.div
-          className="h-full col-span-8"
+          className="h-full col-span-8 justify-center items-center flex"
           initial={{ x: 100 }}
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
@@ -113,34 +113,6 @@ export default function Chapter4Page2() {
         </motion.div>
         <motion.div
           className="h-full col-span-2"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        ></motion.div>
-        <motion.div
-          className="h-full col-span-2 mb-14"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        ></motion.div>
-        <motion.div
-          className="h-full col-span-8 mb-14"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <Slider
-            className="w-full"
-            max={4}
-            min={0}
-            step={1}
-            defaultValue={[0]}
-            onValueChange={(e) => {handleSlideChange(e)}}
-            disabled={isSliderDisabled}
-          />
-        </motion.div>
-        <motion.div
-          className="h-full col-span-2 mb-14"
           initial={{ x: 100 }}
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
@@ -158,6 +130,22 @@ export default function Chapter4Page2() {
           </Tooltip>
         </TooltipProvider>
       </div>
+      <motion.div
+          className="w-[50vh] fixed bottom-[20%] left-[50%] transform translate-x-[-50%]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <Slider
+            className="w-full"
+            max={4}
+            min={0}
+            step={1}
+            defaultValue={[0]}
+            onValueChange={(e) => {handleSlideChange(e)}}
+            disabled={isSliderDisabled}
+          />
+        </motion.div>
     </>
   );
 }
