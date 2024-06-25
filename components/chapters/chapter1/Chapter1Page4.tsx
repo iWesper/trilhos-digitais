@@ -91,7 +91,7 @@ export default function Chapter1Page4() {
                 onClick={handleText3DClick}
               >
                 <Text3D
-                  position={[0, 0.5, 0]}
+                  position={[0, 1, 0]}
                   size={0.3}
                   font={"/fonts/Effra_Regular.json"}
                   height={0.05}
