@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
-  const { logout } = useAuth();
+  const { logout, username } = useAuth();
 
   return (
     <motion.nav
@@ -18,23 +18,30 @@ export default function Navbar() {
       <div className="flex justify-start flex-grow">
         <Link href={"/"}>
           <div className="relative group">
-            <HomeIcon className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" />
+            <Image
+              src="/img/logo_navbar.svg"
+              alt="Logo"
+              width="1920"
+              height="1080"
+              className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0"
+              priority={true}
+            />
+            {/* <HomeIcon className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" /> */}
             <span className="absolute left-0 top-0 opacity-0 pt-2 group-hover:opacity-100 transition-all duration-300 ease-in-out">
               Home
             </span>
           </div>
         </Link>
       </div>
-      <div className="flex justify-center flex-grow ms-8">
-        <Image
-          src="/img/logo_navbar.svg"
-          alt="Logo"
-          width="1920"
-          height="1080"
-          className="w-1/2 dark:brightness-[0.2] dark:grayscale max-h-9"
-          priority={true}
-        />
-      </div>
+      <motion.div
+        className="text-center text-3xl font-bold rounded-xl text-white font-effra z-50"
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+      >
+        Bem-vindo aos Trilhos Digitais,{" "}
+        <span className="text-secondary">{username}</span>!
+      </motion.div>
       <div className="flex justify-end flex-grow gap-8">
         <Link href={"/badges"}>
           <div className="relative group">
@@ -45,11 +52,11 @@ export default function Navbar() {
           </div>
         </Link>
         <div className="relative group cursor-pointer" onClick={() => logout()}>
-            <MdLogout className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" />
-            <span className="absolute left-[-50%] top-0 opacity-0 pt-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-in-out">
-              Logout
-            </span>
-          </div>
+          <MdLogout className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" />
+          <span className="absolute left-[-50%] top-0 opacity-0 pt-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-in-out">
+            Logout
+          </span>
+        </div>
       </div>
     </motion.nav>
   );

@@ -147,14 +147,14 @@ export default function Homepage() {
         ></motion.div>
         {/* Árvores */}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo3 bg-center bg-no-repeat bg-cover"
+          className="absolute w-screen h-screen bg-comboioParallaxFundo3 bg-center bg-no-repeat bg-cover blur-[1px]"
           style={{
             zIndex: -3,
           }}
         ></motion.div>
         {/* Fog */}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo4 bg-center bg-no-repeat bg-cover"
+          className="absolute w-screen h-screen bg-comboioParallaxFundo4 bg-center bg-no-repeat bg-cover blur-[2px]"
           style={{
             zIndex: -4,
           }}
@@ -165,14 +165,6 @@ export default function Homepage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <motion.div
-            className="text-center text-5xl font-bold rounded-xl p-4 absolute top-[15%] 2xl:top-[10%] bg-gray-800 text-white font-effra z-50 backdrop-filter backdrop-blur-md bg-opacity-80"
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
-          >
-            Bem-vindo aos Trilhos Digitais, {username}!
-          </motion.div>
           <motion.div
             className="mt-4 flex flex-col items-center justify-center absolute lg:top-[80%] backdrop-filter p-4 bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-80"
             initial={{ y: 20, opacity: 0 }}
