@@ -3,7 +3,7 @@
   <defs>
     <style>
       .cls-1 {
-        fill: none;
+        fill: #b3b3b3;
       }
 
       .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
@@ -11,11 +11,11 @@
       }
 
       .cls-2 {
-        fill: url(#Gradiente_sem_nome_36);
+        fill: none;
       }
 
       .cls-3 {
-        fill: url(#Gradiente_sem_nome_30);
+        fill: url(#Gradiente_sem_nome_6);
       }
 
       .cls-7 {
@@ -23,42 +23,42 @@
       }
 
       .cls-4 {
-        fill: #fff;
+        fill: url(#Gradiente_sem_nome_7);
       }
 
       .cls-5 {
-        fill: url(#Gradiente_sem_nome_35);
+        fill: url(#Gradiente_sem_nome_8);
       }
 
       .cls-6 {
-        fill: url(#Gradiente_sem_nome_28);
+        fill: url(#Gradiente_sem_nome_9);
       }
     </style>
     <clipPath id="clippath">
-      <rect class="cls-1" width="1920" height="1080"/>
+      <rect class="cls-2" width="1920" height="1080"/>
     </clipPath>
-    <radialGradient id="Gradiente_sem_nome_28" data-name="Gradiente sem nome 28" cx="-143.2" cy="1114.25" fx="-143.2" fy="1114.25" r="772.71" gradientTransform="translate(190.9 -105.08) scale(1.33 1.06)" gradientUnits="userSpaceOnUse">
+    <radialGradient id="Gradiente_sem_nome_9" data-name="Gradiente sem nome 9" cx="-143.2" cy="1114.25" fx="-143.2" fy="1114.25" r="772.71" gradientTransform="translate(190.9 -105.08) scale(1.33 1.06)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#86be41"/>
-      <stop offset=".84" stop-color="#f2f2f2" stop-opacity="0"/>
+      <stop offset=".84" stop-color="#b3b3b3" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="Gradiente_sem_nome_30" data-name="Gradiente sem nome 30" cx="1297.05" cy="1114.25" fx="1297.05" fy="1114.25" r="772.71" gradientTransform="translate(190.9 -105.08) scale(1.33 1.06)" gradientUnits="userSpaceOnUse">
+    <radialGradient id="Gradiente_sem_nome_8" data-name="Gradiente sem nome 8" cx="1297.05" cy="1114.25" fx="1297.05" fy="1114.25" r="772.71" gradientTransform="translate(190.9 -105.08) scale(1.33 1.06)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#456fb5"/>
-      <stop offset=".84" stop-color="#f2f2f2" stop-opacity="0"/>
+      <stop offset=".84" stop-color="#b3b3b3" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="Gradiente_sem_nome_35" data-name="Gradiente sem nome 35" cx="-157.69" cy="98.8" fx="-157.69" fy="98.8" r="772.71" gradientTransform="translate(190.9 -105.08) scale(1.33 1.06)" gradientUnits="userSpaceOnUse">
+    <radialGradient id="Gradiente_sem_nome_6" data-name="Gradiente sem nome 6" cx="-157.69" cy="98.8" fx="-157.69" fy="98.8" r="772.71" gradientTransform="translate(190.9 -105.08) scale(1.33 1.06)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#f59c1a"/>
-      <stop offset=".84" stop-color="#f2f2f2" stop-opacity="0"/>
+      <stop offset=".84" stop-color="#b3b3b3" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="Gradiente_sem_nome_36" data-name="Gradiente sem nome 36" cx="1297.05" cy="120.55" fx="1297.05" fy="120.55" r="772.71" gradientTransform="translate(190.9 -105.08) scale(1.33 1.06)" gradientUnits="userSpaceOnUse">
+    <radialGradient id="Gradiente_sem_nome_7" data-name="Gradiente sem nome 7" cx="1297.05" cy="120.55" fx="1297.05" fy="120.55" r="772.71" gradientTransform="translate(190.9 -105.08) scale(1.33 1.06)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#87529c"/>
-      <stop offset=".84" stop-color="#f2f2f2" stop-opacity="0"/>
+      <stop offset=".84" stop-color="#b3b3b3" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <g class="cls-7">
-    <rect class="cls-4" x="-9.98" width="1927.71" height="1083.6"/>
+    <rect class="cls-1" x="-9.98" width="1927.71" height="1083.6"/>
     <ellipse class="cls-6" cx="0" cy="1080" rx="764.02" ry="609.55"/>
-    <ellipse class="cls-3" cx="1920" cy="1080" rx="764.02" ry="609.55"/>
-    <ellipse class="cls-5" cx="-19.31" rx="764.02" ry="609.55"/>
-    <ellipse class="cls-2" cx="1920" cy="23.13" rx="764.02" ry="609.55"/>
+    <ellipse class="cls-5" cx="1920" cy="1080" rx="764.02" ry="609.55"/>
+    <ellipse class="cls-3" cx="-19.31" rx="764.02" ry="609.55"/>
+    <ellipse class="cls-4" cx="1920" cy="23.13" rx="764.02" ry="609.55"/>
   </g>
 </svg>
