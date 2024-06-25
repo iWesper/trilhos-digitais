@@ -102,7 +102,6 @@ const config = {
         'papelBadges2': "url('/img/badges/fundo_badges_paper2.svg')",
         'papelBadges3': "url('/img/badges/fundo_badges_paper3.svg')",
         'papelBadges4': "url('/img/badges/fundo_badges_paper4.svg')",
-        'papelBadges5': "url('/img/badges/fundo_badges_paper5.svg')",
         'BadgeDetailsBG': "url('/img/badges/fundo_badge_detalhes.svg')",
         'papelMaisBadges': "url('/img/badges/fundo_mais_badges.svg')",
 
