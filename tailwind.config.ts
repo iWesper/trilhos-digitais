@@ -97,7 +97,7 @@ const config = {
         'comboioParallaxEstacao': "url('/img/comboio/comboioParallaxEstacao.svg')",
 
         'BadgesBG': "url('/img/badges/fundo_badges.svg')",
-        'quadroBadges': "url('/img/badges/quadrobadges.svg')",
+        'quadroBadges': "url('/img/badges/quadroBadges.svg')",
         'papelBadges1': "url('/img/badges/fundo_badges_paper1.svg')",
         'papelBadges2': "url('/img/badges/fundo_badges_paper2.svg')",
         'papelBadges3': "url('/img/badges/fundo_badges_paper3.svg')",
