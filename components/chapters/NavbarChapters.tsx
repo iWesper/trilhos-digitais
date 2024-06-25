@@ -31,7 +31,7 @@ const NavbarChapters: React.FC = () => {
   }
 
   return (
-    <div className="grid grid-cols-12 gap-4 items-center justify-between px-10 p-4 bg-foreground text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-md bg-opacity-80">
+    <div className="grid grid-cols-12 gap-4 items-center justify-between px-10 p-4 bg-gray-800 text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-xl bg-opacity-80">
       <div className="col-span-2 flex justify-start">
         <Link href={"/"} className="relative group">
           <HomeIcon className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" />
