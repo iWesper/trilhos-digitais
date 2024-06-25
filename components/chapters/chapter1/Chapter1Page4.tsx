@@ -1,13 +1,28 @@
 "use client";
-import React from "react";
+import React, {Suspense, useState} from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Center, Text3D, Outlines, Environment, Loader } from "@react-three/drei";
+import Wagner2 from "@/public/models/wagner/Wagner2";
 
 export default function Chapter1Page4() {
+
+  const router = useRouter();
+
+    // Estados relativos ao 3D
+    const [text3DIsHovered, setText3DIsHovered] = useState(false);
+    const [modelIsHovered, setModelIsHovered] = useState(false);
+
+    const handleText3DClick = () => {
+      router.push("/chapters/chapter1/5");
+    };
+
   //PROGRESS
   const { setProgress } = useProgress();
 
@@ -52,15 +67,47 @@ export default function Chapter1Page4() {
         </div>
         <div className="col-span-1"></div>
         <div className="col-span-4 flex justify-center items-center">
-          <Tilt options={defaultOptions}>
-            <Image
-              src="/img/chapter1/chapter1Teatro.svg"
-              alt="Foto de um Teatro"
-              width={600}
-              height={600}
-              className="rounded"
-            />
-          </Tilt>
+          <Canvas>
+            <Suspense fallback={null}>
+              <OrbitControls
+                autoRotate={modelIsHovered ? false : true}
+                autoRotateSpeed={0.2}
+                enableZoom={false}
+                enablePan={false}
+              />
+              {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
+              <Center
+                position={[0, 1.5, 0]}
+                onPointerEnter={(event) => (
+                  event.stopPropagation(), setText3DIsHovered(true)
+                )}
+                onPointerLeave={() => setText3DIsHovered(false)}
+                onClick={handleText3DClick}
+              >
+                <Text3D
+                  size={0.3}
+                  font={"/fonts/Effra_Regular.json"}
+                  height={0.05}
+                >
+                  {`Gesamtkunstwerk >`}
+                  <meshStandardMaterial
+                    color={text3DIsHovered ? "orange" : "hsl(207, 48%, 15%)"}
+                  />
+                  <Outlines thickness={0.005} color="white" />
+                </Text3D>
+              </Center>
+              <Wagner2
+                rotation={[0, 0, 0]}
+                scale={0.05}
+                onPointerEnter={(event: React.PointerEvent) => (
+                  event.stopPropagation(), setModelIsHovered(true)
+                )}
+                onPointerLeave={() => setModelIsHovered(false)}
+              />
+              <Environment preset="sunset" />
+            </Suspense>
+          </Canvas>
+          <Loader />
         </div>
         <div className="col-span-1"></div>
       </div>

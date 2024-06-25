@@ -1,6 +1,4 @@
 // Import do dynamic para carregar os componentes de cada capítulo de forma dinâmica
-import Chapter3Page15 from "@/components/chapters/chapter3/Chapter3Page15";
-import Chapter4Page3 from "@/components/chapters/chapter4/Chapter4Page3";
 import dynamic from "next/dynamic";
 import React from "react";
 

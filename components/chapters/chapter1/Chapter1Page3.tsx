@@ -37,7 +37,6 @@ import { useProgress } from "@/components/context/ProgressContext";
 import { Button } from "@/components/ui/button";
 
 export default function Chapter1Page3() {
-  const router = useRouter();
 
   // Estados relativos ao 3D
   const [text3DIsHovered, setText3DIsHovered] = useState(false);

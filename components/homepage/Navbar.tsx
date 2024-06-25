@@ -1,7 +1,7 @@
 import { HomeIcon, TrophyIcon } from "@heroicons/react/24/solid";
 import { MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
-import Link from "next/link"; // Assuming you're using Next.js
+import Link from "next/link";
 import Image from "next/image";
 import { useAuth } from "../context/AuthContext";
 
