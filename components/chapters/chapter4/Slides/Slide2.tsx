@@ -1,9 +1,13 @@
-import React from "react";
-import Image from "next/image";
-import { Tilt } from "react-tilt";
+import React, { useState, Suspense } from "react";
 import { motion } from "framer-motion";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Environment, Loader } from "@react-three/drei";
+import Prensa from "@/public/models/prensa/Prensa";
 
 const Slide2 = () => {
+  // Estados relativos ao 3D
+  const [modelIsHovered, setModelIsHovered] = useState(false);
+
   //CONTROLO DA ANIMAÇÃO
   const defaultOptions = {
     reverse: false, // reverse the tilt direction
@@ -18,14 +22,14 @@ const Slide2 = () => {
   };
   return (
     <>
-      <div className="grid grid-cols-12 grid-rows-1 gap-4 ">
+      <div className="h-full grid grid-cols-12 grid-rows-1 gap-4 justify-center items-center">
         <motion.div
-          className="col-span-9 h-full"
+          className="col-span-6 h-full justify-center"
           initial={{ x: -100 }}
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
         >
-          <div className="h-full justify-center items-center">
+          <div className="h-full justify-center items-center flex">
             <p className="font-medium pt-8 text-white select-none">
               No entanto, livros demoravam muito a serem escritos. Para acelerar
               esse processo, foi inventada a prensa, uma máquina que permitia
@@ -35,21 +39,34 @@ const Slide2 = () => {
           </div>
         </motion.div>
         <motion.div
-          className="h-full col-span-3 flex justify-center items-center"
+          className="h-full w-full col-span-6 flex justify-center items-center"
           initial={{ x: 100 }}
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
         >
-          <Tilt options={defaultOptions}>
-            <Image
-              src="/img/chapter4/chapter4img3.svg"
-              alt="Imagem do elemento de tecnologia: a prensa"
-              width={350}
-              height={350}
-              className="rounded tiltableImage"
-              draggable={false}
-            />
-          </Tilt>
+          <div className="h-full w-full justify-center items-center">
+            <Canvas>
+              <Suspense fallback={null}>
+                <OrbitControls
+                  autoRotate={modelIsHovered ? false : true}
+                  autoRotateSpeed={0.2}
+                  enableZoom={false}
+                  enablePan={false}
+                />
+                {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
+                <Prensa
+                  position={[0, -1, 0]}
+                  scale={0.08}
+                  onPointerEnter={(event: React.PointerEvent) => (
+                    event.stopPropagation(), setModelIsHovered(true)
+                  )}
+                  onPointerLeave={() => setModelIsHovered(false)}
+                />
+                <Environment preset="sunset" />
+              </Suspense>
+            </Canvas>
+            <Loader />
+          </div>
         </motion.div>
       </div>
     </>
