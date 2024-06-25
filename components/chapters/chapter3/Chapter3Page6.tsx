@@ -66,7 +66,7 @@ export default function Chapter3Page6() {
   const [progressSave, setProgressSave] = useState<boolean>(false);
 
   const Tip =
-    "Ordena as palavras de cada coluna de acordo com a sua categoria.";
+    "Lembra-te, os meios técnicos referem-se ao porte físico, os básicos a como é transmitido e os qualificados aos géneros.";
 
   //BADGE DO CAPÍTULO
   const badgeId = 3;
