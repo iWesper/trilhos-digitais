@@ -1,7 +1,7 @@
 // 'use client' é apenas necessário quando estamos a usar componentes do lado do cliente, por exemplo, os modelos 3D do react-three-fiber
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/components/context/AuthContext";
@@ -14,22 +14,15 @@ export default function Home() {
   const { currentUser, isLoading } = useAuth();
   const router = useRouter();
 
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
-
-  // Verifica se o utilizador está autenticado
   useEffect(() => {
-    if (!isLoading) {
-      if (currentUser === null) {
-        setIsCheckingAuth(false);
-        router.push("/authentication");
-      } else {
-        setIsCheckingAuth(false);
-      }
+    // Redireciona imediatamente para a página de autenticação se o utilizador não estiver autenticado
+    if (!isLoading && currentUser === null) {
+      router.push("/authentication");
     }
   }, [currentUser, isLoading, router]);
 
   // Se o utilizador estiver a ser autenticado, mostra um loading
-  if (isLoading || isCheckingAuth) {
+  if (isLoading) {
     return (
       <div className="h-screen w-screen flex justify-center items-center">
         <Lottie
@@ -40,9 +33,26 @@ export default function Home() {
     );
   }
 
+  // Se não estiver a carregar mas o currentUser for nulo, não renderizar nada
+  // Isto lida com o raro caso em que o isLoading é falso, mas o currentUser ainda não foi atualizado
+  if (currentUser === null) {
+    return null;
+  }
+
   return (
-    <main className="max-w-full overflow-hidden">
-      <Homepage />
-    </main>
+    <Suspense
+      fallback={
+        <div className="h-screen w-screen flex justify-center items-center">
+          <Lottie
+            animationData={animationData}
+            className="bg-foreground h-20 w-20"
+          />
+        </div>
+      }
+    >
+      <main className="max-w-full overflow-hidden">
+        <Homepage />
+      </main>
+    </Suspense>
   );
 }

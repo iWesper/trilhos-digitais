@@ -3,6 +3,7 @@ import React from "react";
 import { useState, useRef, useEffect } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
+import Image from "next/image";
 import { useProgress } from "@/components/context/ProgressContext";
 import { Button } from "@/components/ui/button";
 import { MdQuestionMark } from "react-icons/md";
@@ -85,6 +86,9 @@ export default function Chapter2Page3() {
   //DICA
   const Tip = "Pareces ter sede, que tal um copo de sumo?";
 
+  //SRC da imagem
+  let src = "/img/chapter2/chapter2espremedor.svg";
+
   //STATE ATUALIZÁVEL COM OS ELEMENTOS QUE LÁ ESTÃO
   const [board, setBoard] = useState<{ id: number; url: any }[]>([]);
 
@@ -124,10 +128,15 @@ export default function Chapter2Page3() {
     //VALOR ESTABELECIDO COMO CORRETO. A.K.A Laranja
     const correctId = 3;
 
-    //MENSAGEM DE VALIDAÇÃO
-    return id === correctId
-      ? ""
-      : "Não é bem esse o fruto que queremos. Tenta outra vez!";
+    //VALIDAÇÃO
+    if (id === correctId)
+      {
+        src = "/img/chapter2/chapter2espremedor_comfruta.svg";
+        return "";
+      }
+      else {
+        return "Não é bem esse o fruto que queremos. Tenta outra vez!";
+      }
   };
 
   //COMPONENTE QUE RECEBE OS ELEMENTOS ARRASTÁVEIS. TEM DE SER COMPONENTE PARA ACEDER A UM CONTEXT
@@ -164,11 +173,15 @@ export default function Chapter2Page3() {
     return (
       <div
         ref={dropRef}
-        className="bg-espremedorBG w-1/2 h-full bg-origin-border bg-center bg-no-repeat bg-cover flex flex-col justify-start items-center relative"
+        className="h-full flex flex-col justify-center items-center relative"
       >
-        {board.map((picture) => {
-          return <Picture url={picture.url} id={picture.id} key={picture.id} />;
-        })}
+            <Image
+              src={src}
+              alt="Foto de Um Espremedor de Citrinos"
+              width={500}
+              height={500}
+              className="rounded"
+            />
       </div>
     );
   }

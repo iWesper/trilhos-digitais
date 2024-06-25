@@ -42,9 +42,7 @@ export default function Chapter1Page3() {
   const [modelIsHovered, setModelIsHovered] = useState(false);
 
   const handleText3DClick = () => {
-
     setProgressSave(true);
-
   };
 
   //BADGE DO CAPÍTULO
@@ -101,7 +99,7 @@ export default function Chapter1Page3() {
               <OrbitControls
                 autoRotate={modelIsHovered ? false : true}
                 autoRotateSpeed={0.2}
-                enableZoom={true}
+                enableZoom={false}
                 enablePan={false}
               />
               {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
@@ -113,16 +111,16 @@ export default function Chapter1Page3() {
                 onPointerLeave={() => setText3DIsHovered(false)}
                 onClick={handleText3DClick}
               >
-                <Text3D size={0.5} font={"/fonts/Effra_Regular.json"}>
-                  Wagner
+                <Text3D size={0.2} font={"/fonts/Effra_Regular.json"}>
+                  Gesamtkunstwerk
                   <meshStandardMaterial
-                    color={text3DIsHovered ? "orange" : "white"}
+                    color={text3DIsHovered ? "orange" : "hsl(207, 48%, 15%)"}
                   />
                 </Text3D>
               </Center>
               <Wagner
-                rotation={[0, 3.7, 0]}
-                scale={0.1}
+                rotation={[0, 0, 0]}
+                scale={0.05}
                 onPointerEnter={(event: React.PointerEvent) => (
                   event.stopPropagation(), setModelIsHovered(true)
                 )}
@@ -132,7 +130,6 @@ export default function Chapter1Page3() {
             </Suspense>
           </Canvas>
           <Loader />
-          
         </div>
         <div className="col-span-1"></div>
         <div className="fixed bottom-5 left-5">

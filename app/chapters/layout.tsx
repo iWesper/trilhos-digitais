@@ -1,7 +1,7 @@
 "use client";
 
 import NavbarChapters from "@/components/chapters/NavbarChapters";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { ProgressProvider } from "@/components/context/ProgressContext";
 import { useAuth } from "@/components/context/AuthContext";
 import { useRouter } from "next/navigation";
@@ -44,11 +44,22 @@ export default function ChaptersLayout({
   }
 
   return (
-    <ProgressProvider>
-      <main className="overflow-hidden text-xl">
-        <NavbarChapters />
-        {children}
-      </main>
-    </ProgressProvider>
+    <Suspense
+      fallback={
+        <div className="h-screen w-screen flex justify-center items-center">
+          <Lottie
+            animationData={animationData}
+            className="bg-foreground h-20 w-20"
+          />
+        </div>
+      }
+    >
+      <ProgressProvider>
+        <main className="overflow-hidden text-xl">
+          <NavbarChapters />
+          {children}
+        </main>
+      </ProgressProvider>
+    </Suspense>
   );
 }

@@ -61,18 +61,11 @@ export default function Chapter2Page4() {
         <div className="col-span-1"></div>
         <div className="h-full col-span-4 flex justify-center items-center relative">
             <Image
-              src="/img/chapter2/chapter2espremedor.svg"
+              src="/img/chapter2/chapter2espremedor_comcopo.svg"
               alt="Foto de Um Espremedor de Citrinos"
               width={500}
               height={500}
               className="rounded"
-            />
-            <Image
-              src="/img/chapter2/chapter2frutas_copocheio.svg"
-              alt="Foto de um copo de sumo de  Laranja"
-              width={200}
-              height={200}
-              className="absolute bottom-0 right-26 left-24 ms-4"
             />
         </div>
         <div className="col-span-1"></div>
