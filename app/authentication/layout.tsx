@@ -38,7 +38,7 @@ export default function ChaptersLayout({
           </div>
         }
       >
-        <main className="overflow-hidden">{children}</main>;
+        <main className="overflow-hidden">{children}</main>
       </Suspense>
     </>
   );
