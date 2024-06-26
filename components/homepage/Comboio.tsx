@@ -53,9 +53,9 @@ const comboio = [
         {comboio.map((carruagem) => (
             <CarouselItem key={carruagem.id} className="md:basis-1/2">
               <Card className="h-full w-full">
-                <CardContent className="flex items-center justify-center h-full w-full">
+                <CardContent className="flex items-center justify-center h-full w-full select-none">
                 {carruagem.id === 0 ? (
-                  <Image src={carruagem.url} alt={`Imagem ${carruagem.id}`} className="select-none h-full w-full" />
+                  <Image src={carruagem.url} alt={`Imagem ${carruagem.id}`} className=" h-full w-full" />
               ) : (
                   <Link href={`/chapters/chapter${carruagem.id}/1`}>
                     <Image src={carruagem.url} alt={`Imagem ${carruagem.id}`} />

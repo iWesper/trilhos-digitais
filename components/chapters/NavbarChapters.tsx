@@ -22,6 +22,43 @@ const NavbarChapters: React.FC = () => {
     "chapter7",
     "chapter8",
   ]; // Array de strings que representam os capítulos
+
+  //OBJETO DE CAPÍTULOS
+  const chaptersObj = [
+    {
+    nome: "Arte",
+    numero: 1
+  },
+  {
+    nome: "Design",
+    numero: 2
+  },
+  {
+    nome: "Comunicação",
+    numero: 3
+  },
+  {
+    nome: "Tecnologia",
+    numero: 4
+  },
+  {
+    nome: "Hipermédia",
+    numero: 5
+  },
+  {
+    nome: "Virtual/Metaverso",
+    numero: 5
+  },
+  {
+    nome: "Jogo",
+    numero: 7
+  },
+  {
+    nome: "INteligência Artificial",
+    numero: 8
+  }
+]
+
   let milestones: number[] = []; // Array de números que representam os milestones do capítulo atual
 
   for (const chapter of chapters) {
@@ -30,6 +67,20 @@ const NavbarChapters: React.FC = () => {
       break;
     }
   }
+
+  // Extrair do Arry o número do capítulo
+  const chapterNumber = chapters.reduce((acc, chapter) => {
+    if (pathname.includes(chapter)) {
+      const num = parseInt(chapter.replace('chapter', ''), 10);
+
+      return num;
+    }
+    return acc;
+  }, 0);
+
+  // Encontrar o objeto correspondente no array
+  const currentChapterObj = chaptersObj.find(obj => obj.numero === chapterNumber);
+  const chapterInfo = currentChapterObj ? `Capítulo ${currentChapterObj.numero}: ${currentChapterObj.nome}` : 'Capítulo não encontrado';
 
   return (
     <div className="grid grid-cols-12 gap-4 items-center justify-between px-10 p-4 bg-gray-800 text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-xl bg-opacity-80">
@@ -52,6 +103,7 @@ const NavbarChapters: React.FC = () => {
       </div>
 
       <div className="col-span-8 bg-gray-700 rounded-full h-2.5 dark:bg-gray-700">
+        <p>{chapterInfo} </p>
         <Progress value={progress || 0} milestones={milestones.map(Number)} />
       </div>
 
