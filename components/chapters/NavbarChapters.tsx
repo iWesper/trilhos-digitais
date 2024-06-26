@@ -80,7 +80,7 @@ const NavbarChapters: React.FC = () => {
 
   // Encontrar o objeto correspondente no array
   const currentChapterObj = chaptersObj.find(obj => obj.numero === chapterNumber);
-  const chapterInfo = currentChapterObj ? `Capítulo ${currentChapterObj.numero}: ${currentChapterObj.nome}` : 'Capítulo não encontrado';
+  const chapterInfo = currentChapterObj ? `Capítulo ${currentChapterObj.numero}- ${currentChapterObj.nome}` : '';
 
   return (
     <div className="grid grid-cols-12 gap-4 items-center justify-between px-10 p-4 bg-gray-800 text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-xl bg-opacity-80">
