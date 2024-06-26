@@ -101,9 +101,9 @@ const NavbarChapters: React.FC = () => {
           </div>
         </Link>
       </div>
-      <p className="text-center text-sm">{chapterInfo} </p>
       <div className="col-span-8 bg-gray-700 rounded-full h-2.5 dark:bg-gray-700">
         <Progress value={progress || 0} milestones={milestones.map(Number)} />
+        <p className="text-center text-sm">{chapterInfo} </p>
       </div>
 
       <div className="col-span-2 flex justify-end">
