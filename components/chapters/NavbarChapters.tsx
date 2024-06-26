@@ -80,7 +80,7 @@ const NavbarChapters: React.FC = () => {
 
   // Encontrar o objeto correspondente no array
   const currentChapterObj = chaptersObj.find(obj => obj.numero === chapterNumber);
-  const chapterInfo = currentChapterObj ? `Capítulo ${currentChapterObj.numero}- ${currentChapterObj.nome}` : '';
+  const chapterInfo = currentChapterObj ? `Capítulo ${currentChapterObj.numero} - ${currentChapterObj.nome}` : '';
 
   return (
     <div className="grid grid-cols-12 gap-4 items-center justify-between px-10 p-4 bg-gray-800 text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-xl bg-opacity-80">
@@ -101,9 +101,8 @@ const NavbarChapters: React.FC = () => {
           </div>
         </Link>
       </div>
-
+      <p className="text-center text-sm">{chapterInfo} </p>
       <div className="col-span-8 bg-gray-700 rounded-full h-2.5 dark:bg-gray-700">
-        <p>{chapterInfo} </p>
         <Progress value={progress || 0} milestones={milestones.map(Number)} />
       </div>
 
