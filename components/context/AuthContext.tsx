@@ -71,6 +71,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [willShowToastState, setwillShowToastState] = useState<boolean>(false);
   // Tutorial dos badges
   const [tutorialBadge, setTutorialBadge] = useState<boolean>(false);;
+  // Variável para guardar o estado do tutorial da página inicial
+  const [isDialogHomeTutorialOpen, setIsDialogHomeTutorialOpen] = useState(false);
 
   // Efeito para verificar se o utilizador está autenticado
   useEffect(() => {

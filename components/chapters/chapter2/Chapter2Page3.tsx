@@ -224,7 +224,7 @@ export default function Chapter2Page3() {
           <p className="font-medium pb-10">
             Arrasta-os para o objeto e vamos descobrir como funciona.
           </p>
-          <div className="flex flex-row">
+          <div className="flex flex-row flex-wrap justify-center">
             {PictureList.map((picture) => {
               return (
                 <Picture url={picture.url} id={picture.id} key={picture.id} />

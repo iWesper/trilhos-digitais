@@ -27,6 +27,9 @@ import {
 import { MdQuestionMark } from "react-icons/md";
 
 export default function Chapter3Page6() {
+  // Estado do dialog do tutorial
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   //PROGRESS
   const { setProgress } = useProgress();
 
@@ -81,7 +84,6 @@ export default function Chapter3Page6() {
 
   //BARALHAR A ORDEM DO ARRAY
   function ArrayShuffle(array: string[]) {
-
     //GUARDA O TAMANHO DO ARRAY E DEIXA AS OUTRAS 2 EM BRANCO
     let index = array.length,
       temp,
@@ -89,7 +91,6 @@ export default function Chapter3Page6() {
 
     //ENQUANTO NÃO BARALHARES TUDO
     while (0 !== index) {
-
       //VAI BUSCAR UM INDEX ALEATÓRIO DOS QUE FALTAM
       randomIndex = Math.floor(Math.random() * index);
 
@@ -154,53 +155,45 @@ export default function Chapter3Page6() {
     "Meios básicos": [],
     "Meios qualificados": [],
   });
-  
 
   //MUDA A PALAVRA DE UMA LINHA ESPEcÌFICA DE UMA COLUNA ESPECÌFICA
   const changeWord = (column: string, row: number, direction: number) => {
-
-   // console.log("ORIGINAL",wordsCopy);
+    // console.log("ORIGINAL",wordsCopy);
 
     setSelectedWords((prevWords) => {
-
       // Cria uma cópia das palavras que estão na coluna atual
-      const currentColumnWords = [...prevWords[column as keyof typeof prevWords]];
-      
-      //PALAVRA QUE VAI SER PROCURADA
-      let WordToSearch= currentColumnWords[row];
+      const currentColumnWords = [
+        ...prevWords[column as keyof typeof prevWords],
+      ];
 
+      //PALAVRA QUE VAI SER PROCURADA
+      let WordToSearch = currentColumnWords[row];
 
       //PROCURA O ÍNDICE DE WORDTOSEARCH EM WORDSCOPY
       let currentIndex = wordsCopy.findIndex((word) => word === WordToSearch); //0 até 10
 
-
       //  const words = [ "Ecrã","Monitor","Papel", "Falas e Sons", "Gráficos","Imagens","Longa-Metragem","Mundo Digital","Ficção","Ruído","Post-its",];
 
-      let newIndex=0;
+      let newIndex = 0;
 
       //SE A DIREÇÃO FOR PARA A ESQUERDA
-      if(direction === -1) {
-
+      if (direction === -1) {
         //ALTERA O INDEX PEDIDO PARA O VALOR A SEGUIR, MAS DENTRO DO ARRAY DISPONÍVEL
         //SE INDEX FOR O PRIMEIRO, DÁ TRUE E COLOCA A ÚLTIMA PALAVRA //SE DER FALSE DIMINUI UMA PALAVRA
         newIndex = currentIndex === 0 ? 10 : currentIndex - 1;
-
-
-
-      }
-      else if(direction === 1) { //IR PARA A DIREITA
+      } else if (direction === 1) {
+        //IR PARA A DIREITA
 
         //ALTERA O INDEX PEDIDO PARA O VALOR A SEGUIR, MAS DENTRO DO ARRAY DISPONÍVEL
         //SE INDEX FOR O ÚLTIMO, DÁ TRUE E COLOCA 0 PARA A PRIMEIRA PALAVRA //SE DER FALSE AUMENTA UMA PALAVRA
         newIndex = currentIndex === 10 ? 0 : currentIndex + 1;
       }
-      
 
       // Atualiza a palavra na posição específica com a nova palavra
       currentColumnWords[row] = wordsCopy[newIndex];
 
       //console.log("A palavra",WordToSearch, "vai ser substituida por",wordsCopy[newIndex]);
-      
+
       // Retorna uma cópia do estado atualizado
       return { ...prevWords, [column]: currentColumnWords };
     });
@@ -247,6 +240,8 @@ export default function Chapter3Page6() {
 
     //MOSTRA QUE ESTÁ TUDO CORRETO
     setIsCorrect(true);
+    // Abre o dialog
+    setIsDialogOpen(true);
   };
 
   return (
@@ -267,12 +262,12 @@ export default function Chapter3Page6() {
           className="col-span-8 flex justify-start items-center text-center flex-col pt-20"
         >
           <p className="text-white font-medium pt-6">
-            Vamos analisar o “
-            <span className="italic">Spider-Man</span>” enquanto
-            banda-desenhada, filme e jogo.
+            Vamos analisar o “<span className="italic">Spider-Man</span>”
+            enquanto banda-desenhada, filme e jogo.
           </p>
-          <p className="text-white font-medium pb-4">Indica quais os meios de cada um para
-          continuar!</p>
+          <p className="text-white font-medium pb-4">
+            Indica quais os meios de cada um para continuar!
+          </p>
         </motion.div>
         <div className="col-span-2"></div>
 
@@ -355,7 +350,9 @@ export default function Chapter3Page6() {
               key={column}
               className="flex flex-row items-center text-white my-2"
             >
-              <h2 className="font-bold text-base flex-[3] w-[10%] text-white me-4 ms-8">{column}</h2>
+              <h2 className="font-bold text-base flex-[3] w-[10%] text-white me-4 ms-8">
+                {column}
+              </h2>
               <div className="flex flex-row justify-between flex-[6]">
                 {selectedWords[column as keyof typeof selectedWords].map(
                   (word: string, index: number) => (
@@ -366,7 +363,9 @@ export default function Chapter3Page6() {
                       <button onClick={() => changeWord(column, index, -1)}>
                         <FaArrowLeft className="text-white" />
                       </button>
-                      <span className="px-8 text-sm text-center w-40">{word}</span>
+                      <span className="px-8 text-sm text-center w-40">
+                        {word}
+                      </span>
                       <button onClick={() => changeWord(column, index, 1)}>
                         <FaArrowRight className="text-white" />
                       </button>
@@ -401,16 +400,16 @@ export default function Chapter3Page6() {
           )}
 
           {isCorrect !== null && isCorrect === true && (
-            <Dialog>
-              <DialogTrigger>
+            <Dialog open={isDialogOpen} onOpenChange={() => setIsDialogOpen(!isDialogOpen)}>
+               <DialogTrigger>
                 <Button className=" text-white ms-5 bg-foreground hover:bg-hover">
                   Continuar
                 </Button>
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
-                  <DialogTitle>É isso, conseguiste!</DialogTitle>
-                  <DialogDescription>Vamos continuar?</DialogDescription>
+                  <DialogTitle className="pb-4">É isso, conseguiste!</DialogTitle>
+                  <DialogDescription className="py-4">Vamos continuar?</DialogDescription>
                   <Button onClick={SaveBadgeProgressAndGoToNextPage}>
                     Sim
                   </Button>

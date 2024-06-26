@@ -9,7 +9,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
@@ -26,15 +25,26 @@ export default function Homepage() {
     CheckHasSeenTutorialScript,
     UpdateHasSeenTutorialScript,
     tutorialState,
-    error,
   } = useAuth();
 
+  // Estado do tutorial
   const [tutorialSeen, setTutorialSeen] = useState(false);
+  // Estado que representa se o utilizador quer ignorar o tutorial
+  const [hasSkippedTutorial, setHasSkippedTutorial] = useState(false);
+  // Estado do dialog do tutorial
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   //MENSAGEM
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
+  // Mensagens do tutorial
   const [tutorialMessages, setTutorialMessages] = useState([]);
+
+  useEffect(() => {
+    if (!tutorialState && !isDialogOpen) {
+      setIsDialogOpen(true);
+    }
+  }, [tutorialState, isDialogOpen]);
 
   //MENSAGENS DO TUTORIAL
   const handleContinue = () => {
@@ -56,9 +66,10 @@ export default function Homepage() {
     if (currentUser) {
       //Vai saber se já viu tutorial
       CheckHasSeenTutorialScript();
-
       //Vai buscar o username
       goGetUsername(currentUser.uid);
+      //Redefine o estado do tutorial
+      setHasSkippedTutorial(false);
     } else {
       router.push("/authentication");
     }
@@ -88,74 +99,61 @@ export default function Homepage() {
 
       {/* Container dos fundos para o parallax */}
       <div className="absolute h-screen w-screen overflow-hidden">
-        {!tutorialState && !tutorialSeen && (
-          <Dialog>
-            <DialogTrigger asChild>
-              <motion.button
-                className="bg-secondary rounded-md px-2 py-2 mx-2 my-2 text-white hover:bg-orange-500 cursor-pointer absolute bottom-0 z-20"
-                whileHover={{ scale: 1.1 }}
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{
-                  delay: 2,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 1,
-                }}
-              >
-                Clica Aqui
-              </motion.button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle className="mb-4">Introdução</DialogTitle>
-                <DialogDescription className=" text-black">
-                  {tutorialMessages[currentMessageIndex]}
-                </DialogDescription>
-                <Button onClick={handleContinue}>Continuar</Button>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
-        )}
+        {!tutorialState &&
+          !tutorialSeen &&
+          isDialogOpen &&
+          !hasSkippedTutorial && (
+            <Dialog
+              open={isDialogOpen}
+              onOpenChange={() => {
+                setIsDialogOpen(false);
+                setHasSkippedTutorial(true);
+              }}
+            >
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle className="pb-4">Introdução</DialogTitle>
+                  <DialogDescription className="py-4 text-black">
+                    {tutorialMessages[currentMessageIndex]}
+                  </DialogDescription>
+                  <Button onClick={handleContinue}>Continuar</Button>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+          )}
 
         {/* Container do conteúdo da página */}
         {/* Arbustos frente */}
         <motion.div
-          className="absolute w-full h-[75%] bg-comboioParallaxFundo2 bg-center bg-contain blur-[2px] -bottom-[30%]"
+          className="absolute w-full h-[75%] bg-comboioParallaxFundo2 bg-center bg-contain blur-[2px] -bottom-[30%] saturate-[.90]"
           style={{
             zIndex: 1,
           }}
         ></motion.div>
-        {/* Estação */}
-        {/* <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxEstacao bg-center bg-no-repeat bg-cover"
-          style={{
-            zIndex: 0,
-          }}
-        ></motion.div> */}
         {/* Verde */}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo1 bg-center bg-no-repeat bg-cover"
+          className="absolute w-screen h-screen bg-comboioParallaxFundo1 bg-center bg-no-repeat bg-cover saturate-[.90]"
           style={{
             zIndex: -1,
           }}
         ></motion.div>
         {/* Arbustos trás*/}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-cover blur-[1px]"
+          className="absolute w-screen h-screen bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-cover blur-[1px] saturate-[.90]"
           style={{
             zIndex: -2,
           }}
         ></motion.div>
         {/* Árvores */}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo3 bg-center bg-no-repeat bg-cover blur-[1px]"
+          className="absolute w-screen h-screen bg-comboioParallaxFundo3 bg-center bg-no-repeat bg-cover blur-[1px] saturate-[.90]"
           style={{
             zIndex: -3,
           }}
         ></motion.div>
         {/* Fog */}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo4 bg-center bg-no-repeat bg-cover blur-[2px]"
+          className="absolute w-screen h-screen bg-comboioParallaxFundo4 bg-center bg-no-repeat bg-cover blur-[2px] saturate-[.90]"
           style={{
             zIndex: -4,
           }}

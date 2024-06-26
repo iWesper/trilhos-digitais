@@ -39,7 +39,12 @@ export default function Badges() {
   );
   const [showBadgeDetail, setShowBadgeDetail] = useState<boolean>(false);
 
+  // Estado do tutorial
   const [tutorialSeen, setTutorialSeen] = useState(false);
+  // Estado que representa se o utilizador quer ignorar o tutorial
+  const [hasSkippedTutorial, setHasSkippedTutorial] = useState(false);
+  // Estado do dialog do tutorial
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   //MENSAGEM
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
@@ -52,7 +57,7 @@ export default function Badges() {
       name: "Arte",
       modelId: Wagner,
       scale: 0.05,
-      position: [0, 0, 0]
+      position: [0, 0, 0],
     },
     {
       BadgeName: "Bauhaus",
@@ -60,7 +65,7 @@ export default function Badges() {
       name: "Design",
       modelId: Bauhaus,
       scale: 0.2,
-      position: [0, 0, 0]
+      position: [0, 0, 0],
     },
     {
       BadgeName: "TV Antiga",
@@ -68,7 +73,7 @@ export default function Badges() {
       name: "Comunicação",
       modelId: Tv,
       scale: 1,
-      position: [0, 0, 1]
+      position: [0, 0, 1],
     },
     {
       BadgeName: "Sala de Prensas",
@@ -76,7 +81,7 @@ export default function Badges() {
       name: "Tecnologia",
       modelId: Prensa,
       scale: 0.09,
-      position: [1, -1.5, 0]
+      position: [1, -1.5, 0],
     },
     // { BadgeName: "Macintosh", id:5, name: "Hipermédia"},
     // { BadgeName: "Óculos VR", id:6,  name: "Multiverso"},
@@ -122,10 +127,21 @@ export default function Badges() {
     router.push("/authentication");
   }
 
+  // Hook para verificar se o tutorial foi visto
+  useEffect(() => {
+    if (!tutorialBadge && !isDialogOpen) {
+      setIsDialogOpen(true);
+    }
+  }, [tutorialBadge, isDialogOpen]);
+
   // Fetch ao montar
   useEffect(() => {
-    goGetBadges();
+    //Vai saber se já viu tutorial
     hasSeenBadgeTutorial();
+    //Vai buscar o username
+    goGetBadges();
+    //Redefine o estado do tutorial
+    setHasSkippedTutorial(false);
   }, []);
 
   const handleBadgeClick = (badgeNumber: number) => {
@@ -174,9 +190,9 @@ export default function Badges() {
 
                 return (
                   <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
                     key={index}
                     className={`flex justify-center items-center relative ${WillCursorBePointer} col-span-4 overflow-visible`}
                     {...(progress > 0
@@ -197,7 +213,10 @@ export default function Badges() {
                             enablePan={false}
                           />
                           {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
-                          <item.modelId position={item.position} scale={item.scale} />
+                          <item.modelId
+                            position={item.position}
+                            scale={item.scale}
+                          />
                           <Environment preset="studio" />
                         </Suspense>
                       </Canvas>
@@ -224,34 +243,28 @@ export default function Badges() {
               <p className=" text-red-600 text-center text-sm">{error}</p>
             )}
           </div>
-          {!tutorialBadge && !tutorialSeen && (
-            <Dialog>
-              <DialogTrigger asChild>
-                <motion.button
-                  className="bg-secondary rounded-md px-2 py-2 text-white hover:bg-orange-500 cursor-pointer"
-                  whileHover={{ scale: 1.1 }}
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{
-                    delay: 2,
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    duration: 1,
-                  }}
-                >
-                  Clica Aqui
-                </motion.button>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle className="mt-4">Introdução</DialogTitle>
-                  <DialogDescription className=" text-black">
-                    {TutorialMessages[currentMessageIndex]}
-                  </DialogDescription>
-                  <Button onClick={handleContinue}>Continuar</Button>
-                </DialogHeader>
-              </DialogContent>
-            </Dialog>
-          )}
+          {!tutorialBadge &&
+            !tutorialSeen &&
+            isDialogOpen &&
+            !hasSkippedTutorial && (
+              <Dialog
+                open={isDialogOpen}
+                onOpenChange={() => {
+                  setIsDialogOpen(false);
+                  setHasSkippedTutorial(true);
+                }}
+              >
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle className="mt-4">Introdução</DialogTitle>
+                    <DialogDescription className=" text-black">
+                      {TutorialMessages[currentMessageIndex]}
+                    </DialogDescription>
+                    <Button onClick={handleContinue}>Continuar</Button>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
+            )}
         </main>
       )}
     </>
