@@ -133,7 +133,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       {show3DorAr && (
         <>
           <div
-            className={`col-span-8 w-full h-full bg-papelBadges${
+            className={`col-span-7 w-full h-full bg-papelBadges${
               defaultItems[BadgeIdToShow - 1].id
             } bg-origin-border bg-center bg-no-repeat mt-28 justify-center items-center flex flex-col`}
           >
@@ -150,7 +150,7 @@ export default function BadgeDetails({ number }: { number: number }) {
               <p className="text-white">Aponta o telemóvel</p>
             </div>
           </div>
-          <div className="col-span-3 justify-center items-center mt-16 backdrop-filter bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-20">
+          <div className="col-span-4 justify-center items-center mt-16 backdrop-filter bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-20">
             <h1 className="font-bold text-center text-white text-4xl px-8 pb-8 pt-4">
               {defaultItems[BadgeIdToShow - 1].BadgeName}
             </h1>
