@@ -243,28 +243,30 @@ export default function Badges() {
               <p className=" text-red-600 text-center text-sm">{error}</p>
             )}
           </div>
-          {!tutorialBadge &&
-            !tutorialSeen &&
-            isDialogOpen &&
-            !hasSkippedTutorial && (
-              <Dialog
-                open={isDialogOpen}
-                onOpenChange={() => {
-                  setIsDialogOpen(false);
-                  setHasSkippedTutorial(true);
-                }}
-              >
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle className="mt-4">Introdução</DialogTitle>
-                    <DialogDescription className=" text-black">
-                      {TutorialMessages[currentMessageIndex]}
-                    </DialogDescription>
-                    <Button onClick={handleContinue}>Continuar</Button>
-                  </DialogHeader>
-                </DialogContent>
-              </Dialog>
-            )}
+          <div>
+            {!tutorialBadge &&
+              !tutorialSeen &&
+              isDialogOpen &&
+              !hasSkippedTutorial && (
+                <Dialog
+                  open={isDialogOpen}
+                  onOpenChange={() => {
+                    setIsDialogOpen(false);
+                    setHasSkippedTutorial(true);
+                  }}
+                >
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle className="mt-4">Introdução</DialogTitle>
+                      <DialogDescription className=" text-black">
+                        {TutorialMessages[currentMessageIndex]}
+                      </DialogDescription>
+                      <Button onClick={handleContinue}>Continuar</Button>
+                    </DialogHeader>
+                  </DialogContent>
+                </Dialog>
+              )}
+          </div>
         </main>
       )}
     </>

@@ -12,6 +12,8 @@ type DialogProps = React.ComponentPropsWithoutRef<'div'>;
 // Extender as props do Dialog com a propriedade className de modo a que o Dialog possa aceitar uma className
 interface CustomDialogProps extends DialogProps {
   className?: string; // Making className optional
+  open?: boolean;
+  onOpenChange?: () => void;
 }
 
 const Dialog = DialogPrimitive.Root
