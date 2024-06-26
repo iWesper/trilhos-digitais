@@ -68,7 +68,7 @@ export default function Badges() {
       name: "Comunicação",
       modelId: Tv,
       scale: 1,
-      position: [0, 0, 0]
+      position: [0, 0, 1]
     },
     {
       BadgeName: "Sala de Prensas",
@@ -76,7 +76,7 @@ export default function Badges() {
       name: "Tecnologia",
       modelId: Prensa,
       scale: 0.09,
-      position: [0, -1.5, 0]
+      position: [1, -1.5, 0]
     },
     // { BadgeName: "Macintosh", id:5, name: "Hipermédia"},
     // { BadgeName: "Óculos VR", id:6,  name: "Multiverso"},
@@ -151,7 +151,7 @@ export default function Badges() {
         <main className="bg-BadgesBG flex justify-center items-center h-screen bg-cover bg-no-repeat bg-center">
           <div className="relative md:mt-40 lg:mt-20 md:mb-40 lg:mb-20 sm:w-[600px] sm:h-[400px] lg:w-[1000px] lg:h-[800px] 2xl:w-[1100px] 2xl:h-[900px] bg-quadroBadges bg-cover bg-no-repeat bg-center">
             {/* Grid overlay */}
-            <div className="absolute top-0 left-0 w-full h-full grid grid-cols-12 grid-rows-2 gap-5 p-40">
+            <div className="absolute top-0 left-0 w-full h-full grid grid-cols-12 grid-rows-2 p-32">
               {/* Grid items  Abaixo temos se badge existir mete a percentagem, senão mete */}
               {defaultItems.map((item, index) => {
                 const badge = BadgeList.find(
@@ -173,15 +173,18 @@ export default function Badges() {
                   progress === 100 ? "cursor-pointer" : "";
 
                 return (
-                  <div
+                  <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1 }}
                     key={index}
-                    className={`flex justify-center items-end relative ${WillCursorBePointer} col-span-3 overflow-visible`}
+                    className={`flex justify-center items-center relative ${WillCursorBePointer} col-span-4 overflow-visible`}
                     {...(progress > 0
                       ? { onClick: () => handleBadgeClick(item.id) }
                       : {})}
                   >
                     <div
-                      className={`${bgClass} bg-cover bg-center bg-no-repeat w-full h-full absolute top-0 left-0`}
+                      className={`${bgClass} bg-contain bg-center bg-no-repeat w-full h-full absolute top-0 left-0`}
                     ></div>
                     <div className="w-full h-full absolute top-0 left-0">
                       <Canvas className="w-full h-full">
@@ -200,22 +203,22 @@ export default function Badges() {
                       </Canvas>
                       <Loader />
                     </div>
-                    <div className="z-10 text-center w-[50%] bg-gray-800 rounded-xl backdrop-blur-xl bg-opacity-80 p-2">
-                      <p className="text-white font-bold text-sm">
+                    <div className="w-auto min-w-[50%] z-10 text-center bg-gray-800 rounded-xl backdrop-blur-[2px] bg-opacity-80 p-2 absolute bottom-[25%]">
+                      <p className="text-white font-bold text-sm pb-2">
                         {item.name}
                       </p>
                       <Progress className="h-2" value={progress} />
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
-              <div className="col-span-2 mt-4"></div>
-              <div className="bg-papelMaisBadges max-h-[100%] flex justify-center items-center h-screen bg-cover bg-no-repeat bg-center col-span-8 mt-4">
+              <div className="col-span-1 mt-4"></div>
+              <div className="bg-papelMaisBadges max-h-[100%] flex justify-center items-center h-screen bg-cover bg-no-repeat bg-center col-span-6 mt-4">
                 <h1 className="text-black text-center text-xl font-bold font-effra w-full ">
                   Mais <span className="italic">Badges</span> em Breve
                 </h1>
               </div>
-              <div className="col-span-2 mt-4"></div>
+              <div className="col-span-1 mt-4"></div>
             </div>
             {error && (
               <p className=" text-red-600 text-center text-sm">{error}</p>
