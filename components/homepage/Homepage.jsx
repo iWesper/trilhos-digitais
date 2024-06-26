@@ -125,35 +125,35 @@ export default function Homepage() {
         {/* Container do conteúdo da página */}
         {/* Arbustos frente */}
         <motion.div
-          className="absolute w-full h-[75%] bg-comboioParallaxFundo2 bg-center bg-contain blur-[2px] -bottom-[30%] saturate-[.90]"
+          className="absolute w-full h-[75%] bg-comboioParallaxFundo2 bg-center bg-contain blur-[2px] -bottom-[30%] saturate-[.85]"
           style={{
             zIndex: 1,
           }}
         ></motion.div>
         {/* Verde */}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo1 bg-center bg-no-repeat bg-cover saturate-[.90]"
+          className="absolute w-screen h-screen bg-comboioParallaxFundo1 bg-center bg-no-repeat bg-cover saturate-[.85]"
           style={{
             zIndex: -1,
           }}
         ></motion.div>
         {/* Arbustos trás*/}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-cover blur-[1px] saturate-[.90]"
+          className="absolute w-screen h-screen bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-cover blur-[1px] saturate-[.85]"
           style={{
             zIndex: -2,
           }}
         ></motion.div>
         {/* Árvores */}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo3 bg-center bg-no-repeat bg-cover blur-[1px] saturate-[.90]"
+          className="absolute w-screen h-screen bg-comboioParallaxFundo3 bg-center bg-no-repeat bg-cover blur-[1px] saturate-[.85]"
           style={{
             zIndex: -3,
           }}
         ></motion.div>
         {/* Fog */}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo4 bg-center bg-no-repeat bg-cover blur-[2px] saturate-[.90]"
+          className="absolute w-screen h-screen bg-comboioParallaxFundo4 bg-center bg-no-repeat bg-cover blur-[2px] saturate-[.85]"
           style={{
             zIndex: -4,
           }}

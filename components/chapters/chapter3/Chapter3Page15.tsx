@@ -43,7 +43,7 @@ useEffect(() => {
             >
               <Button
                 asChild
-                className="text-white bg-foreground hover:bg-hover"
+                className="text-white bg-[#142839] hover:bg-hover"
               >
                 <Link href="/chapters/chapter4/1">
                   Continuar

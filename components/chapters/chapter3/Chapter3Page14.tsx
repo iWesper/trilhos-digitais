@@ -140,7 +140,7 @@ export default function Chapter3Page14() {
                 type="button"
                 value="Perceção da Mensagem no Espaço e no Tempo"
                 onClick={handleFormSubmit}
-                className=" me-3 ms-12 text-white bg-foreground hover:bg-hover"
+                className=" me-3 ms-12 text-white bg-[#142839] hover:bg-hover"
               >
                 Perceção da Mensagem no Espaço e no Tempo              </Button>
             </form>
@@ -163,7 +163,7 @@ export default function Chapter3Page14() {
                 type="button"
                 value="Tempo de Espera para Receber a Mensagem no Espaço"
                 onClick={handleFormSubmit}
-                className=" me-3 text-white bg-foreground hover:bg-hover"
+                className=" me-3 text-white bg-[#142839] hover:bg-hover"
               >
                 Tempo para Receber a Mensagem no Espaço
 
@@ -179,7 +179,7 @@ export default function Chapter3Page14() {
             >
               <Button
                 asChild
-                className="text-white bg-foreground hover:bg-hover"
+                className="text-white bg-[#142839] hover:bg-hover"
                 onClick={SaveBadgeProgressAndGoToNextPage}
               >
                 <Link href="/chapters/chapter3/14">
@@ -199,7 +199,7 @@ export default function Chapter3Page14() {
               <TooltipTrigger className="cursor-help">
                 <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
               </TooltipTrigger>
-              <TooltipContent className="bg-foreground border-none shadow-none text-white">
+              <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
                 <p>{Tip}</p>
               </TooltipContent>
             </Tooltip>

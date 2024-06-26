@@ -25,7 +25,7 @@ export default function Home() {
       <div className="h-screen w-screen flex justify-center items-center">
         <Lottie
           animationData={animationData}
-          className="bg-foreground h-20 w-20"
+          className="bg-[#142839] h-20 w-20"
         />
       </div>
     );
@@ -43,7 +43,7 @@ export default function Home() {
         <div className="h-screen w-screen flex justify-center items-center">
           <Lottie
             animationData={animationData}
-            className="bg-foreground h-20 w-20"
+            className="bg-[#142839] h-20 w-20"
           />
         </div>
       }

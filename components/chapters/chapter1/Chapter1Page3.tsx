@@ -141,7 +141,7 @@ export default function Chapter1Page3() {
               <TooltipTrigger className="cursor-help">
                 <MdQuestionMark className="text-black h-10 w-10 justify-start items-start " />
               </TooltipTrigger>
-              <TooltipContent className="bg-foreground border-none shadow-none text-white">
+              <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
                 <p>{Tip}</p>
               </TooltipContent>
             </Tooltip>

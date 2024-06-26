@@ -98,7 +98,7 @@ export default function Chapter4Page3() {
               onMouseEnter={MoveButton}
               tabIndex={-1}
               onClick={(e) => {if (e.detail === 0) {e.preventDefault()}}}  
-              className=" mx-4 bg-foreground hover:bg-foreground text-white"
+              className=" mx-4 bg-[#142839] hover:bg-[#142839] text-white"
             >
               Não
             </Button>

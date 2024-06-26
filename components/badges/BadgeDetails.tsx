@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { BiQrScan } from "react-icons/bi";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Environment, Loader } from "@react-three/drei";
+import Bauhaus from "@/public/models/bauhaus/Bauhaus";
+import Wagner from "@/public/models/wagner/Wagner";
+import Tv from "@/public/models/tv/Tv";
+import Prensa from "@/public/models/prensa/Prensa";
+
 export default function BadgeDetails({ number }: { number: number }) {
   //3D ou AR
   const [show3DorAr, setshow3DOrAr] = useState<boolean>(false); //FALSE PARA 3D, TRUE PARA AR
@@ -18,6 +25,7 @@ export default function BadgeDetails({ number }: { number: number }) {
         "O fosso de orquestra foi uma das grandes inovações no mundo da arte, trazida por Richard Wagner, escondendo a orquestra por baixo do palco de teatro e longe da visão dos espectadores, estando assim mais próxima da Obra Total.",
       p2: "O primeiro grande passo em direção à obra total.",
       qrUrl: "/img/qrcodes/arte.svg",
+      modelId: <Wagner position={[0, 0, 0]} scale={0.06}  />,
     },
     {
       BadgeName: "Bauhaus",
@@ -27,6 +35,7 @@ export default function BadgeDetails({ number }: { number: number }) {
         "A Bauhaus foi uma escola de arquitetura e design que transformou a perceção da sociedade quanto à arte através da integração das artes plásticas com o artesanato.",
       p2: "Um verdadeiro marco na história do design.",
       qrUrl: "/img/qrcodes/design.svg",
+      modelId: <Bauhaus position={[0, 0, 0]} scale={0.3} />,
     },
     {
       BadgeName: "TV Antiga",
@@ -36,6 +45,7 @@ export default function BadgeDetails({ number }: { number: number }) {
         "Surgiram  novos meios de transmissão, como os filmes na TV e os videojogos. Para além de serem consumidos de maneiras diferentes, oferecem sensações diferentes, alterando a mensagem passada.",
       p2: 'Como disse McLuhan, "O meio é a mensagem".',
       qrUrl: "/img/qrcodes/comuicacao.svg",
+      modelId: <Tv position={[0.5, 0, 0.5]} scale={1.3} />,
     },
     {
       BadgeName: "Sala de Prensas",
@@ -45,6 +55,7 @@ export default function BadgeDetails({ number }: { number: number }) {
         "As tecnologias da comunicação evoluíram ao ponto desta se tornar ubíqua. A prensa é um símbolo dessa evolução, e de como o mais fácil acesso à informação se revelou um dos principais pilares da evolução da sociedade.",
       p2: "Um ponto de viragem para a educação e conhecimento.",
       qrUrl: "/img/qrcodes/tecnologia.svg",
+      modelId: <Prensa position={[0, -1.5, 0]} scale={0.1} />,
     },
     // {
     //   BadgeName: "Macintosh",
@@ -105,9 +116,26 @@ export default function BadgeDetails({ number }: { number: number }) {
           <div
             className={`col-span-7 w-full h-full bg-papelBadges${
               defaultItems[BadgeIdToShow - 1].id
-            } bg-origin-border bg-center bg-no-repeat mt-28`}
-          ></div>
-          <div className="col-span-4 justify-center items-center mt-16 backdrop-filter bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-20">
+            } bg-origin-border bg-center bg-no-repeat mt-28 relative`}
+          >
+            <div className="w-full h-full absolute top-0 left-0">
+              <Canvas className="w-full h-full">
+                <Suspense fallback={null}>
+                  <OrbitControls
+                    enableRotate={true}
+                    autoRotate={true}
+                    autoRotateSpeed={0.5}
+                    enableZoom={false}
+                    enablePan={false}
+                  />
+                  {defaultItems[BadgeIdToShow - 1].modelId}
+                  <Environment preset="sunset" />
+                </Suspense>
+              </Canvas>
+              <Loader />
+            </div>
+          </div>
+          <div className="col-span-4 justify-center items-center mt-16 backdrop-filter bg-[#142839] rounded-xl backdrop-blur-xl bg-opacity-80">
             <h1 className="font-bold text-center text-white text-4xl px-8 pb-8 pt-4 ">
               {defaultItems[BadgeIdToShow - 1].BadgeName}
             </h1>
@@ -118,13 +146,13 @@ export default function BadgeDetails({ number }: { number: number }) {
               {defaultItems[BadgeIdToShow - 1].p2}
             </p>
             <div className="flex justify-center items-center w-full px-8 pb-8">
-            <Button
-              className="text-white m-auto w-75 text-xl"
-              onClick={() => handleContentSwap("showAR")}
-            >
-              Realidade Aumentada
-            </Button>
-            </div>  
+              <Button
+                className="text-white m-auto w-75 text-xl"
+                onClick={() => handleContentSwap("showAR")}
+              >
+                Realidade Aumentada
+              </Button>
+            </div>
           </div>
           <div className="col-span-1 mt-28"></div>
         </>

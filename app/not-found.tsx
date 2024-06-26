@@ -22,7 +22,7 @@ export default function NotFound() {
       <div className="col-span-4 justify-center items-center">
 
       <Link href="/">
-      <Button className="text-white w-full bg-foreground hover:bg-hover">Voltar</Button>
+      <Button className="text-white w-full bg-[#142839] hover:bg-hover">Voltar</Button>
       </Link>
 
       </div>

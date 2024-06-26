@@ -387,7 +387,7 @@ export default function Chapter3Page6() {
           {isCorrect === false && (
             <Button
               asChild
-              className="text-white bg-foreground hover:bg-hover"
+              className="text-white bg-[#142839] hover:bg-hover"
               onClick={verifyWords}
             >
               <motion.div
@@ -402,7 +402,7 @@ export default function Chapter3Page6() {
           {isCorrect !== null && isCorrect === true && (
             <Dialog open={isDialogOpen} onOpenChange={() => setIsDialogOpen(!isDialogOpen)}>
                <DialogTrigger>
-                <Button className=" text-white ms-5 bg-foreground hover:bg-hover">
+                <Button className=" text-white ms-5 bg-[#142839] hover:bg-hover">
                   Continuar
                 </Button>
               </DialogTrigger>
@@ -427,7 +427,7 @@ export default function Chapter3Page6() {
             <TooltipTrigger className="cursor-help">
               <MdQuestionMark className="text-white h-10 w-10 justify-start items-start" />
             </TooltipTrigger>
-            <TooltipContent className="bg-foreground border-none shadow-none text-white">
+            <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
               <p>{Tip}</p>
             </TooltipContent>
           </Tooltip>

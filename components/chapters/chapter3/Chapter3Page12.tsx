@@ -54,7 +54,7 @@ export default function Chapter3Page12() {
             whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
             className="group"
           >
-            <Button asChild className="text-white bg-foreground hover:bg-hover">
+            <Button asChild className="text-white bg-[#142839] hover:bg-hover">
               <Link href="/chapters/chapter3/13">
                 Continuar
                 <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />

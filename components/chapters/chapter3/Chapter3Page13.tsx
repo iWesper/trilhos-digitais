@@ -116,7 +116,7 @@ export default function Chapter3Page13() {
                 <Button
                   type="button"
                   value="Material"
-                  className="text-white bg-foreground hover:bg-hover m-5"
+                  className="text-white bg-[#142839] hover:bg-hover m-5"
                   onClick={handleFormSubmit}
                 >
                   Material
@@ -129,7 +129,7 @@ export default function Chapter3Page13() {
                 <Button
                   type="button"
                   value="Sensorial"
-                  className="text-white bg-foreground hover:bg-hover m-5"
+                  className="text-white bg-[#142839] hover:bg-hover m-5"
                   onClick={handleFormSubmit}
                 >
                   Sensorial
@@ -142,7 +142,7 @@ export default function Chapter3Page13() {
                 <Button
                   type="button"
                   value="Semiótica"
-                  className="text-white bg-foreground hover:bg-hover m-5"
+                  className="text-white bg-[#142839] hover:bg-hover m-5"
                   onClick={handleFormSubmit}
                 >
                   Semiótica
@@ -158,7 +158,7 @@ export default function Chapter3Page13() {
             >
               <Button
                 asChild
-                className="text-white bg-foreground hover:bg-hover"
+                className="text-white bg-[#142839] hover:bg-hover"
               >
                 <Link href="/chapters/chapter3/14">
                   Continuar
@@ -174,7 +174,7 @@ export default function Chapter3Page13() {
               <TooltipTrigger className="cursor-help">
                 <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
               </TooltipTrigger>
-              <TooltipContent className="bg-foreground border-none shadow-none text-white">
+              <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
                 <p>{Tip}</p>
               </TooltipContent>
             </Tooltip>

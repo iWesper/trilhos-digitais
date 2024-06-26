@@ -469,7 +469,7 @@ export default function Chapter2Page10() {
             >
               <Button
                 asChild
-                className="text-white bg-foreground hover:bg-hover"
+                className="text-white bg-[#142839] hover:bg-hover"
                 onClick={SaveBadgeProgressAndGoToNextPage}
               >
                 <Link href="/chapters/chapter3/14">
@@ -489,7 +489,7 @@ export default function Chapter2Page10() {
               <TooltipTrigger className="cursor-help">
                 <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
               </TooltipTrigger>
-              <TooltipContent className="bg-foreground border-none shadow-none text-white">
+              <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
                 <p>{Tip}</p>
               </TooltipContent>
             </Tooltip>
