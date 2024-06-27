@@ -186,7 +186,7 @@ export default function Chapter2Page3() {
     return (
       <div
         ref={dropRef}
-        className="h-full flex flex-col justify-center items-center relative"
+        className="h-full flex flex-col justify-center items-center relative mt-20 xl:mt-0"
       >
         <Tilt options={defaultOptions}>
           <Image
@@ -194,7 +194,7 @@ export default function Chapter2Page3() {
             alt="Foto de Um Espremedor de Citrinos"
             width={500}
             height={500}
-            className="rounded mt-40 md:mt-0"
+            className="rounded"
           />
         </Tilt>
       </div>
