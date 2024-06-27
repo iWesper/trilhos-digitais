@@ -260,7 +260,7 @@
 
       .cls-65 {
         fill: #541659;
-        font-family: Effra-Heavy, Effra;
+        font-family: EffraCC-Heavy, 'Effra CC';
         font-size: 150px;
         font-weight: 800;
       }
