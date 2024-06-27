@@ -128,7 +128,7 @@ export default function Homepage() {
         {/* Container do conteúdo da página */}
         {/* Arbustos frente */}
         <motion.div
-          className="absolute w-full h-[75%] bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-contain saturate-[.85]"
+          className="absolute w-full h-[75%] bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-contain -bottom-[30%] saturate-[.85]"
           style={{
             zIndex: 1,
           }}
