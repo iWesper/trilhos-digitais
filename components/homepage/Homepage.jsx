@@ -142,7 +142,7 @@ export default function Homepage() {
         ></motion.div>
         {/* Arbustos trás*/}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-cover blur-[1px] saturate-[.85]"
+          className="absolute w-screen h-screen bg-comboioParallaxFundo5 bg-center bg-no-repeat bg-cover blur-[1px] saturate-[.85]"
           style={{
             zIndex: -2,
           }}
