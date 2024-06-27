@@ -75,18 +75,23 @@ export default function Chapter3Page3() {
             </motion.div>
           </div>
         </motion.div>
-        <div className="h-full col-span-4 flex justify-center items-center">
+        <motion.div
+          className="h-full col-span-4 flex justify-center items-center md:mt-20 lg:mt-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1}}
+          transition={{ duration: 1 }}
+        >
           <Tilt options={defaultOptions}>
             <Image
               src="/img/chapter3/chapter3GodfatherCover.svg"
               alt="Imagem de capa deo The Godfather"
               width={350}
               height={350}
-              className="rounded"
+              className="rounded tiltableImage"
               draggable={false}
             />
           </Tilt>
-        </div>
+        </motion.div>
         <motion.div
           className="h-full col-span-1"
           initial={{ opacity: 0 }}
