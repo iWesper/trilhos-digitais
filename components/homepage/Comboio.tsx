@@ -57,7 +57,7 @@ const comboio = [
                 {carruagem.id === 0 ? (
                   <Image src={carruagem.url} alt={`Imagem ${carruagem.id}`} className=" h-full w-full" />
               ) : (
-                  <Link href={`/chapters/chapter${carruagem.id}/1`} className=" z-10">
+                  <Link href={`/chapters/chapter${carruagem.id}/1`}>
                     <Image src={carruagem.url} alt={`Imagem ${carruagem.id}`} />
                    </Link>
               )}
