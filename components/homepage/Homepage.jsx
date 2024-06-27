@@ -41,8 +41,8 @@ export default function Homepage() {
   const [tutorialMessages, setTutorialMessages] = useState([]);
 
   useEffect(() => {
-    setTutorialSeen(tutorialState);
-    
+    setTutorialSeen(!tutorialState);
+
     if (!tutorialState && !isDialogOpen) {
       setIsDialogOpen(true);
     }
