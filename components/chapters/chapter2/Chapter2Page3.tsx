@@ -21,6 +21,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { motion } from "framer-motion";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 
 import { DndProvider } from "react-dnd";
@@ -216,7 +217,12 @@ export default function Chapter2Page3() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-1"></div>
-        <div className="col-span-6 h-full flex flex-col justify-center p-10 text-white ">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="col-span-6 h-full flex flex-col justify-center p-10 text-white "
+        >
           <p className="font-medium mb-4 pt-8">
             Hm, que design interessante, e parece que é utilizado em conjunto
             com outros objetos, pergunto-me para que serve.
@@ -249,7 +255,17 @@ export default function Chapter2Page3() {
           {showDialog && (
             <Dialog className="text-white flex flex-row mt-4 mx-auto">
               <DialogTrigger asChild>
-                <Button className="text-white">Continuar</Button>
+                <Button asChild className="text-white">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ opacity: { duration: 1, delay: 0.5 } }}
+                    whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                    className="cursor-pointer"
+                  >
+                    Continuar
+                  </motion.div>
+                  </Button>
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
@@ -265,14 +281,19 @@ export default function Chapter2Page3() {
               </DialogContent>
             </Dialog>
           )}
-        </div>
-        <div className="col-span-4 h-full justify-center items-center flex flex-col">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="col-span-4 h-full justify-center items-center flex flex-col"
+        >
           <DropArea
             addImageToBoard={addImageToBoard}
             board={board}
             validateId={validateId}
           />
-        </div>
+        </motion.div>
         <div className="col-span-1"></div>
 
         <div className="fixed bottom-5 left-5">

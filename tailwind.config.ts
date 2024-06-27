@@ -61,6 +61,7 @@ const config = {
         hover: {
           DEFAULT: "hsl(var(--hover))",
           foreground: "hsl(var(--hover-foreground))",
+          primary: "hsl(var(--hover-primary))",
 
         },
         golden: {

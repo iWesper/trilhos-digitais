@@ -1,15 +1,16 @@
 "use client";
 import React from "react";
-import {  useState } from "react";
+import { useState } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter2Page6() {
-
   //PROGRESS
   const { setProgress } = useProgress();
 
@@ -42,16 +43,26 @@ export default function Chapter2Page6() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-2"></div>
-        <div className="col-span-8 flex justify-end items-center text-center flex-col">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-8 flex justify-end items-center text-center flex-col"
+        >
           <p className="text-white font-medium p-6">
             Como te dissémos, estas cadeiras foram pensadas de modo a ocupar o
             menor espaço possível, e conseguem isto inserindo-se dentro umas das
             outras.
           </p>
-        </div>
+        </motion.div>
         <div className="col-span-2"></div>
         <div className="col-span-2"></div>
-        <div className="col-span-8 flex flex-col items-center justify-start">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-8 flex flex-col items-center justify-start"
+        >
           <Tilt options={defaultOptions}>
             <Image
               src="/img/chapter2/chapter2cadeiras_cadeirasempilhadas.svg"
@@ -60,10 +71,21 @@ export default function Chapter2Page6() {
               height={400}
             />
           </Tilt>
-          <Link href={"/chapters/chapter2/7"} className="mt-10">
-            <Button className="text-white">Continuar</Button>
-          </Link>
-        </div>
+          <motion.div
+            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+            className="group"
+          >
+            <Button
+              asChild
+              className="text-white bg-primary hover:bg-hover-primary"
+            >
+              <Link href="/chapters/chapter2/7">
+                Continuar
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+              </Link>
+            </Button>
+          </motion.div>
+        </motion.div>
         <div className="col-span-2"></div>
       </div>
     </>

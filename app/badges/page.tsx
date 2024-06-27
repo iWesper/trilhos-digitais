@@ -257,8 +257,8 @@ export default function Badges() {
                 >
                   <DialogContent>
                     <DialogHeader>
-                      <DialogTitle className="mt-4">Introdução</DialogTitle>
-                      <DialogDescription className=" text-black">
+                      <DialogTitle className="pb-2">Introdução</DialogTitle>
+                      <DialogDescription className="py-4 text-foreground">
                         {TutorialMessages[currentMessageIndex]}
                       </DialogDescription>
                       <Button onClick={handleContinue}>Continuar</Button>

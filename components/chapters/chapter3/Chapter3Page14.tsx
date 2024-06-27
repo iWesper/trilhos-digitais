@@ -120,20 +120,35 @@ export default function Chapter3Page14() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-2 mb-4"></div>
-        <div className="flex items-end justify-center col-span-8 mb-4 mt-32">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="flex items-end justify-center col-span-8 mb-4 mt-32"
+        >
           <p className="font-bold text-white text-center">
             De que forma se reflete a modalidade espaciotemporal?
           </p>
-        </div>
+        </motion.div>
         <div className="col-span-2 mb-4"></div>
 
         <div className="col-span-4"></div>
-        <div className="col-span-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-4"
+        >
           {resposta && <p className="text-white text-center">{resposta}</p>}
-        </div>
+        </motion.div>
         <div className="col-span-4"></div>
 
-        <div className="col-span-4 items-center flex justify-end">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-4 items-center flex justify-end"
+        >
           {!showButton && (
             <form className="flex flex-row items-center justify-center mt-3">
               <Button
@@ -142,11 +157,17 @@ export default function Chapter3Page14() {
                 onClick={handleFormSubmit}
                 className=" me-3 ms-12 text-white bg-[#142839] hover:bg-hover"
               >
-                Perceção da Mensagem no Espaço e no Tempo              </Button>
+                Perceção da Mensagem no Espaço e no Tempo{" "}
+              </Button>
             </form>
           )}
-        </div>
-        <div className="col-span-4 flex justify-center items-center">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-4 flex justify-center items-center"
+        >
           <Image
             src="/img/chapter3/chapter3instax.svg"
             alt="Imagem de uma foto instantânea"
@@ -155,8 +176,13 @@ export default function Chapter3Page14() {
             className="rounded text-center"
             draggable={false}
           />
-        </div>
-        <div className="col-span-4 items-center flex justify-start">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-4 items-center flex justify-start"
+        >
           {!showButton && (
             <form className="flex flex-row items-center justify-center mt-3">
               <Button
@@ -166,12 +192,16 @@ export default function Chapter3Page14() {
                 className=" me-3 text-white bg-[#142839] hover:bg-hover"
               >
                 Tempo para Receber a Mensagem no Espaço
-
               </Button>
             </form>
           )}
-        </div>
-        <div className="col-span-12 flex justify-center items-center">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-12 flex justify-center items-center"
+        >
           {showButton && (
             <motion.div
               whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
@@ -192,7 +222,7 @@ export default function Chapter3Page14() {
           {error && (
             <p className=" text-red-600 text-center text-sm">{error}</p>
           )}
-        </div>
+        </motion.div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider delayDuration={0}>
             <Tooltip>

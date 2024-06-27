@@ -41,26 +41,38 @@ export default function Chapter3Page7() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-1"></div>
-        <div className="col-span-4 flex justify-start items-center text-center flex-col">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          className="col-span-4 flex justify-start items-center text-center flex-col"
+        >
           <p className="text-white font-medium pb-10 select-none">
             Uau, parece que percebeste bem como são distinguidos os meios
             técnicos. No entanto, existem também quatro modalidades que permitem
             distinguir os <span className="italic">media</span>.
           </p>
-          <p className="text-white font-medium pb-10 select-none">Vamos descobri-las!</p>
+          <p className="text-white font-medium pb-10 select-none">
+            Vamos descobri-las!
+          </p>
           <motion.div
             whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
             className="group"
           >
-            <Button asChild className="text-white bg-[#142839] hover:bg-hover select-none">
+            <Button
+              asChild
+              className="text-white bg-[#142839] hover:bg-hover select-none"
+            >
               <Link href="/chapters/chapter3/8">
                 Continuar
                 <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
               </Link>
             </Button>
           </motion.div>
-        </div>
-        <div className="col-span-6 h-full w-full">
+        </motion.div>
+        <motion.div           initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }} className="col-span-6 h-full w-full">
           <Canvas>
             <Suspense fallback={null}>
               <OrbitControls
@@ -81,8 +93,7 @@ export default function Chapter3Page7() {
               <Environment preset="sunset" />
             </Suspense>
           </Canvas>
-          <Loader />
-        </div>
+        </motion.div>
         <div className="col-span-1"></div>
       </div>
     </>

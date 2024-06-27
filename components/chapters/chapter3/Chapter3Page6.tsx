@@ -350,7 +350,7 @@ export default function Chapter3Page6() {
               key={column}
               className="flex flex-row items-center text-white my-2"
             >
-              <h2 className="font-bold text-base flex-[3] w-[10%] text-white me-4 ms-8">
+              <h2 className="font-extrabold text-base text-end flex-[3] w-[10%] text-white me-4 ms-8">
                 {column}
               </h2>
               <div className="flex flex-row justify-between flex-[6]">
@@ -358,7 +358,7 @@ export default function Chapter3Page6() {
                   (word: string, index: number) => (
                     <div
                       key={index}
-                      className="flex justify-center items-center mx-2 flex-1"
+                      className="flex justify-center items-center mx-2 flex-1 bg-[#142839] p-2 rounded-lg backdrop-filter backdrop-blur-lg bg-opacity-80 h-12"
                     >
                       <button onClick={() => changeWord(column, index, -1)}>
                         <FaArrowLeft className="text-white" />

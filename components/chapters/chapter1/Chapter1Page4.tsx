@@ -1,11 +1,8 @@
 "use client";
 import React, { Suspense, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
-import Image from "next/image";
-import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 import { Canvas } from "@react-three/fiber";
 import {
@@ -17,6 +14,7 @@ import {
   Loader,
 } from "@react-three/drei";
 import Wagner2 from "@/public/models/wagner/Wagner2";
+import { motion } from "framer-motion";
 
 export default function Chapter1Page4() {
   const router = useRouter();
@@ -59,7 +57,12 @@ export default function Chapter1Page4() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-1"></div>
-        <div className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 ">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 "
+        >
           <p className="font-medium mb-10 select-none">
             <span className="italic">Wagner</span> implementou uma “fossa de
             orquestra” em palcos de teatro, reintroduzindo harmonia às peças
@@ -67,12 +70,14 @@ export default function Chapter1Page4() {
             elementos numa única obra, dando ao espectador uma experiência e
             sensação única.
           </p>
-          <Link href="/chapters/chapter1/5">
-            <Button>Continuar</Button>
-          </Link>
-        </div>
+        </motion.div>
         <div className="col-span-1"></div>
-        <div className="col-span-4 flex justify-center items-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="col-span-4 flex justify-center items-center"
+        >
           <Canvas>
             <Suspense fallback={null}>
               <OrbitControls
@@ -115,7 +120,7 @@ export default function Chapter1Page4() {
             </Suspense>
           </Canvas>
           <Loader />
-        </div>
+        </motion.div>
         <div className="col-span-1"></div>
       </div>
     </>

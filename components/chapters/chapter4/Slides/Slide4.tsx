@@ -4,6 +4,7 @@ import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { FaArrowRight } from "react-icons/fa6";
 
 const Slide4 = () => {
   //CONTROLO DA ANIMAÇÃO
@@ -23,20 +24,31 @@ const Slide4 = () => {
       <div className="grid grid-cols-12 grid-rows-1 gap-4 ">
         <motion.div
           className="col-span-9 h-full"
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
+          initial={{ opacity: 0, x: 1500 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <div className="h-full justify-center items-center">
+          <div className="h-full justify-center items-center flex flex-col">
             <p className="font-medium pt-8 text-white">
               Por fim chegamos à comunicação ubíqua, a troca de informações
               entre pessoas localizadas em locais geográficos diferentes,
               tornada possível pela invenção de tecnologias como a internet,
               deixando assim uma grande parte do mundo alcançável.
             </p>
-            <Link href="/chapters/chapter4/3" className="justify-center items-center flex">
-              <Button className="text-white mt-4">Continuar</Button>
-            </Link>
+            <motion.div
+              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              className="group mt-8"
+            >
+              <Button
+                asChild
+                className="text-white bg-primary hover:bg-hover-primary"
+              >
+                <Link href="/chapters/chapter4/3">
+                  Continuar
+                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+                </Link>
+              </Button>
+            </motion.div>
           </div>
         </motion.div>
         <motion.div

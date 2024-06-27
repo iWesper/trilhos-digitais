@@ -3,6 +3,8 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
+import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter1Page1() {
   //PROGRESS
@@ -18,9 +20,17 @@ export default function Chapter1Page1() {
         <p className="mb-11 font-medium">
           A nossa primeira paragem é no primeiro dos Quatro Pilares, a Arte.
         </p>
-        <Link href="/chapters/chapter1/2">
-          <Button>Continuar</Button>
-        </Link>
+        <motion.div
+          whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+          className="group"
+        >
+          <Button asChild className="text-white bg-primary hover:bg-hover-primary">
+            <Link href="/chapters/chapter1/2">
+              Continuar
+              <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+            </Link>
+          </Button>
+        </motion.div>
       </div>
     </>
   );

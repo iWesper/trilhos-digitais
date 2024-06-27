@@ -142,7 +142,6 @@ export default function Chapter2Page10() {
 
   //HANDLE DRAG
   const handleDragStart = (item: Picture[]) => {
-
     //FAZ UMA CÓPIA DE TODAS AS BOARDS
     boardsRef.current = {
       0: [...board],
@@ -278,7 +277,6 @@ export default function Chapter2Page10() {
       );
 
       setshowContinuar(true);
-
     }
     //STATE DO FEEDBACK
     setOrderMessage(message);
@@ -367,66 +365,98 @@ export default function Chapter2Page10() {
 
     return (
       <>
-        <div
-          ref={dropRef}
-          className=" w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
-        >
-          {board.map((picture) => {
-            return (
-              <PicturePhones
-                url={picture.url}
-                id={picture.id}
-                onDragStart={handleDragStart}
-                board={board}
-              />
-            );
-          })}
-        </div>
-        <div
-          ref={dropRef2}
-          className=" w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
-        >
-          {board2.map((picture) => {
-            return (
-              <PicturePhones
-                url={picture.url}
-                id={picture.id}
-                onDragStart={handleDragStart}
-                board={board2}
-              />
-            );
-          })}
-        </div>
-        <div
-          ref={dropRef3}
-          className=" w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
-        >
-          {board3.map((picture) => {
-            return (
-              <PicturePhones
-                url={picture.url}
-                id={picture.id}
-                onDragStart={handleDragStart}
-                board={board3}
-              />
-            );
-          })}
-        </div>
-        <div
-          ref={dropRef4}
-          className=" w-full h-full flex justify-center items-center  rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
-        >
-          {board4.map((picture) => {
-            return (
-              <PicturePhones
-                url={picture.url}
-                id={picture.id}
-                onDragStart={handleDragStart}
-                board={board4}
-              />
-            );
-          })}
-        </div>
+      <div
+        ref={dropRef}
+        className="cursor-pointer w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
+      >
+        {board.map((picture, index) => {
+        return (
+          <motion.div
+          key={picture.id}
+          initial={{ y: 0 }}
+          animate={{ y: index * 100 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+          >
+          <PicturePhones
+            url={picture.url}
+            id={picture.id}
+            onDragStart={handleDragStart}
+            board={board}
+          />
+          </motion.div>
+        );
+        })}
+      </div>
+      <div
+        ref={dropRef2}
+        className="cursor-pointer w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
+      >
+        {board2.map((picture, index) => {
+        return (
+          <motion.div
+          key={picture.id}
+          initial={{ y: 0 }}
+          animate={{ y: index * 100 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+          >
+          <PicturePhones
+            url={picture.url}
+            id={picture.id}
+            onDragStart={handleDragStart}
+            board={board2}
+          />
+          </motion.div>
+        );
+        })}
+      </div>
+      <div
+        ref={dropRef3}
+        className="cursor-pointer w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
+      >
+        {board3.map((picture, index) => {
+        return (
+          <motion.div
+          key={picture.id}
+          initial={{ y: 0 }}
+          animate={{ y: index * 100 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+          >
+          <PicturePhones
+            url={picture.url}
+            id={picture.id}
+            onDragStart={handleDragStart}
+            board={board3}
+          />
+          </motion.div>
+        );
+        })}
+      </div>
+      <div
+        ref={dropRef4}
+        className="cursor-pointer w-full h-full flex justify-center items-center  rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
+      >
+        {board4.map((picture, index) => {
+        return (
+          <motion.div
+          key={picture.id}
+          initial={{ y: 0 }}
+          animate={{ y: index * 100 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+          >
+          <PicturePhones
+            url={picture.url}
+            id={picture.id}
+            onDragStart={handleDragStart}
+            board={board4}
+          />
+          </motion.div>
+        );
+        })}
+      </div>
       </>
     );
   }
@@ -469,7 +499,7 @@ export default function Chapter2Page10() {
             >
               <Button
                 asChild
-                className="text-white bg-[#142839] hover:bg-hover"
+                className="text-white hover:bg-hover-primary"
                 onClick={SaveBadgeProgressAndGoToNextPage}
               >
                 <Link href="/chapters/chapter3/14">

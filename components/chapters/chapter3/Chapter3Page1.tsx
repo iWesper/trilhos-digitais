@@ -17,7 +17,12 @@ export default function Chapter4Page1() {
     <>
       <div className="bg-chapter3StartBG  h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1 items-center justify-center">
         <div className="col-span-2"></div>
-        <div className="col-span-8 flex flex-col justify-center items-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-8 flex flex-col justify-center items-center"
+        >
           <h1 className="font-bold text-white text-9xl mb-11 font-effra">
             Comunicação
           </h1>
@@ -28,20 +33,17 @@ export default function Chapter4Page1() {
             Meio É A Mensagem!
           </p>
           <motion.div
-              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-              className="group"
-            >
-              <Button
-                asChild
-                className="text-white bg-[#142839] hover:bg-hover"
-              >
-                <Link href="/chapters/chapter3/2">
-                  Continuar
-                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
-                </Link>
-              </Button>
-            </motion.div>
-        </div>
+            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+            className="group"
+          >
+            <Button asChild className="text-white bg-[#142839] hover:bg-hover">
+              <Link href="/chapters/chapter3/2">
+                Continuar
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+              </Link>
+            </Button>
+          </motion.div>
+        </motion.div>
       </div>
       <div className="col-span-2"></div>
     </>

@@ -18,13 +18,13 @@ const Slide0 = () => {
   };
   return (
     <>
-      <div className="grid grid-cols-12 grid-rows-1 gap-4 ">
-        <motion.div
-          className="col-span-9 h-full"
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        >
+      <motion.div
+        initial={{ opacity: 0, x: 1500 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+        className="grid grid-cols-12 grid-rows-1 gap-4 "
+      >
+        <div className="col-span-9 h-full">
           <div className="h-full justify-center items-center">
             <p className="font-medium pt-8 text-white">
               Esta história começa, naturalmente, pela linguagem. Com esta
@@ -32,13 +32,8 @@ const Slide0 = () => {
               realidade para outros.
             </p>
           </div>
-        </motion.div>
-        <motion.div
-          className="h-full col-span-3 flex justify-center items-center"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        >
+        </div>
+        <div className="h-full col-span-3 flex justify-center items-center">
           <Tilt options={defaultOptions}>
             <Image
               src="/img/chapter4/chapter4img1.svg"
@@ -49,8 +44,8 @@ const Slide0 = () => {
               draggable={false}
             />
           </Tilt>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </>
   );
 };

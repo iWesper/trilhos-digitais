@@ -23,9 +23,9 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { useProgress } from "@/components/context/ProgressContext";
+import { motion } from "framer-motion";
 
 export default function Chapter1Page5() {
-
   //TOAST
   const { toast } = useToast();
 
@@ -41,12 +41,9 @@ export default function Chapter1Page5() {
   //GO TO
   const nextPage = "/chapters/chapter1/6";
 
-  
   //CHAMAR A FUNÇÃO ONMOUNT
   useEffect(() => {
-
     WillShowToast(badgeId);
-
   }, []);
 
   //PROGRESS
@@ -103,7 +100,12 @@ export default function Chapter1Page5() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-3"></div>
-        <div className="col-span-6 flex items-center justify-end flex-col pb-10">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-6 flex items-center justify-end flex-col pb-10"
+        >
           <div>
             <h3 className="text-black text-center mb-5">
               Este conceito tornou-se o novo{" "}
@@ -119,18 +121,27 @@ export default function Chapter1Page5() {
           {resposta && (
             <p className="text-black text-center mt-2">{resposta}</p>
           )}
-        </div>
+        </motion.div>
         <div className="col-span-3"></div>
         <div className="col-span-2"></div>
         <form className="col-span-8 items-start justify-center mt-3 grid grid-cols-8 grid-rows-1">
           <div className="col-span-2 flex justify-center items-center">
             <Button
+              asChild
               type="button"
               value="Videojogos"
               onClick={handleFormSubmit}
               className="w-full m-3"
             >
-              Videojogos
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ opacity: { duration: 1, delay: 1 } }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                className="cursor-pointer"
+              >
+                Videojogos
+              </motion.div>
             </Button>
           </div>
           <div className="col-span-1"></div>
@@ -138,6 +149,7 @@ export default function Chapter1Page5() {
             <Dialog className="w-full">
               <DialogTrigger className="w-full">
                 <Button
+                  asChild
                   type="button"
                   value="Cinema"
                   className="w-full m-3"
@@ -150,7 +162,15 @@ export default function Chapter1Page5() {
                     }
                   }}
                 >
-                  Cinema
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ opacity: { duration: 1, delay: 1.5 } }}
+                    whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                    className="cursor-pointer"
+                  >
+                    Cinema
+                  </motion.div>
                 </Button>
               </DialogTrigger>
               <DialogContent className="w-full">
@@ -170,16 +190,25 @@ export default function Chapter1Page5() {
           <div className="col-span-1"></div>
           <div className="col-span-2 flex justify-center items-center">
             <Button
+              asChild
               type="button"
               value="VR"
               onClick={handleFormSubmit}
               className="w-full m-3"
             >
-              VR
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ opacity: { duration: 1, delay: 2 } }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                className="cursor-pointer"
+              >
+                VR
+              </motion.div>
             </Button>
           </div>
         </form>
-        {error && (<p className=" text-red-600 text-center text-sm">{error}</p>)}
+        {error && <p className=" text-red-600 text-center text-sm">{error}</p>}
         <div className="col-span-2"></div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider delayDuration={0}>

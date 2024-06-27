@@ -112,8 +112,8 @@ export default function Homepage() {
             >
               <DialogContent>
                 <DialogHeader>
-                  <DialogTitle className="pb-4">Introdução</DialogTitle>
-                  <DialogDescription className="py-4 text-black">
+                  <DialogTitle className="pb-2">Introdução</DialogTitle>
+                  <DialogDescription className="py-4 text-foreground">
                     {tutorialMessages[currentMessageIndex]}
                   </DialogDescription>
                   <Button onClick={handleContinue}>Continuar</Button>

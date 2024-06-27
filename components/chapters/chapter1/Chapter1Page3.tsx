@@ -3,8 +3,6 @@ import React from "react";
 import { Suspense, useState } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { MdQuestionMark } from "react-icons/md";
 import {
   Tooltip,
@@ -13,15 +11,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import {
-  Billboard,
   Center,
   Environment,
   Loader,
@@ -31,13 +20,12 @@ import {
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import Wagner from "@/public/models/wagner/Wagner";
+import { motion } from "framer-motion";
 
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { useProgress } from "@/components/context/ProgressContext";
-import { Button } from "@/components/ui/button";
 
 export default function Chapter1Page3() {
-
   // Estados relativos ao 3D
   const [text3DIsHovered, setText3DIsHovered] = useState(false);
   const [modelIsHovered, setModelIsHovered] = useState(false);
@@ -79,7 +67,12 @@ export default function Chapter1Page3() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-1"></div>
-        <div className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 ">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 "
+        >
           <p className="font-medium mb-10 select-none">
             Segundo <span className="italic">Wagner</span>, com a queda de
             Atenas, as artes fragmentaram-se, separando a palavra, a música e a
@@ -92,9 +85,14 @@ export default function Chapter1Page3() {
             o seu conceito em prática? Interage com o palco que te é mostrado e
             vê a sua criação ganhar vida!
           </p>
-        </div>
+        </motion.div>
         <div className="col-span-1"></div>
-        <div className="col-span-4 flex justify-center items-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5}}
+          className="col-span-4 flex justify-center items-center"
+        >
           <Canvas>
             <Suspense fallback={null}>
               <OrbitControls
@@ -112,11 +110,14 @@ export default function Chapter1Page3() {
                 onPointerLeave={() => setText3DIsHovered(false)}
                 onClick={handleText3DClick}
               >
-                <Text3D size={0.3} font={"/fonts/Effra_Regular.json"} height={0.05}>
+                <Text3D
+                  size={0.3}
+                  font={"/fonts/Effra_Regular.json"}
+                  height={0.05}
+                >
                   {`Gesamtkunstwerk >`}
                   <meshStandardMaterial
                     color={text3DIsHovered ? "orange" : "hsl(207, 48%, 15%)"}
-                    
                   />
                   <Outlines thickness={0.005} color="white" />
                 </Text3D>
@@ -133,7 +134,7 @@ export default function Chapter1Page3() {
             </Suspense>
           </Canvas>
           <Loader />
-        </div>
+        </motion.div>
         <div className="col-span-1"></div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider delayDuration={0}>

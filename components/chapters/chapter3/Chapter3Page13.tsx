@@ -79,13 +79,18 @@ export default function Chapter3Page13() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-2 mt-24 mb-4"></div>
-        <div className="flex items-end justify-center col-span-8 mb-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="flex items-end justify-center col-span-8 mb-4"
+        >
           <p className="font-bold text-white text-center">
             Qual modalidade que se refere a como os{" "}
             <span className="italic">media</span> interagem com os nossos orgãos
             como os olhos, ouvidos, entre outros?
           </p>
-        </div>
+        </motion.div>
         <div className="col-span-2 mt-24 mb-4"></div>
 
         <div className="col-span-4"></div>
@@ -95,7 +100,12 @@ export default function Chapter3Page13() {
         <div className="col-span-4"></div>
 
         <div className="col-span-4"></div>
-        <div className="col-span-4 flex justify-center items-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-4 flex justify-center items-center"
+        >
           <Image
             src="/img/chapter3/chapter3folhear.svg"
             alt="Imagem de um livro"
@@ -104,9 +114,14 @@ export default function Chapter3Page13() {
             className="rounded text-center"
             draggable={false}
           />
-        </div>
+        </motion.div>
         <div className="col-span-4"></div>
-        <div className="col-span-12 flex justify-center items-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-12 flex justify-center items-center"
+        >
           {!showButton && (
             <form className="flex flex-row items-center justify-center">
               <motion.div
@@ -167,7 +182,7 @@ export default function Chapter3Page13() {
               </Button>
             </motion.div>
           )}
-        </div>
+        </motion.div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider delayDuration={0}>
             <Tooltip>

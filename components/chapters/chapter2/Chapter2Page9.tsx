@@ -21,6 +21,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
+
 export default function Chapter2Page9() {
   //PROGRESS
   const { setProgress } = useProgress();
@@ -337,52 +340,101 @@ export default function Chapter2Page9() {
         <div className="col-span-8 flex justify-start items-center text-center flex-col">
           <p className="text-white font-medium pb-10">{P1}</p>
           <p className="text-white font-medium pb-10">{P2}</p>
-          {!showDialog && (
-            <div className={BGText}>
-              <p className={`text-white px-20 py-10 text-6xl ${TextFont}`}>
-                Hello There.
-              </p>
-            </div>
-          )}
+          <AnimatePresence>
+            {!showDialog && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                exit={{ opacity: 0 }}
+                className={BGText}
+              >
+                <p className={`text-white px-20 py-10 text-6xl ${TextFont}`}>
+                  Hello There.
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
           {AlterarState && (
-            <Button className="text-white" onClick={showButtonsForm}>
-              Responder
+            <Button asChild className="text-white" onClick={showButtonsForm}>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ opacity: { duration: 1, delay: 0.2 } }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                className="cursor-pointer"
+              >
+                Responder
+              </motion.div>
             </Button>
           )}
 
           {ButtonsForm && (
             <form className="flex flex-row justify-between items-center space-x-10">
-              <Button
-                type="button"
-                value="Alegria"
-                className="text-white"
-                onClick={handleFormButtonClick}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ opacity: { duration: 1, delay: 0.2 } }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                className="cursor-pointer"
               >
-                Alegria
-              </Button>
-              <Button
-                type="button"
-                value="Paixão"
-                className="text-white"
-                onClick={handleFormButtonClick}
+                <Button
+                  type="button"
+                  value="Alegria"
+                  className="text-white"
+                  onClick={handleFormButtonClick}
+                >
+                  Alegria
+                </Button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ opacity: { duration: 1, delay: 0.2 } }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                className="cursor-pointer"
               >
-                Paixão
-              </Button>
-              <Button
-                type="button"
-                value="Calma"
-                className="text-white"
-                onClick={handleFormButtonClick}
+                <Button
+                  type="button"
+                  value="Paixão"
+                  className="text-white"
+                  onClick={handleFormButtonClick}
+                >
+                  Paixão
+                </Button>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ opacity: { duration: 1, delay: 0.2 } }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                className="cursor-pointer"
               >
-                Calma
-              </Button>
+                <Button
+                  type="button"
+                  value="Calma"
+                  className="text-white"
+                  onClick={handleFormButtonClick}
+                >
+                  Calma
+                </Button>
+              </motion.div>
             </form>
           )}
 
           {showDialog && (
             <Dialog>
               <DialogTrigger>
-                <Button className="text-white">Continuar</Button>
+                <motion.div
+                  whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                  className="group"
+                >
+                  <Button className="text-white">
+                    Continuar
+                    <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+                  </Button>
+                </motion.div>
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>

@@ -6,6 +6,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
+import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter2Page4() {
   //PROGRESS
@@ -39,7 +41,12 @@ export default function Chapter2Page4() {
         </Link>
         <div className="col-span-1"></div>
         <div className="col-span-5">
-          <div className="h-full flex flex-col justify-center  p-10 ">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="h-full flex flex-col justify-center  p-10 "
+          >
             <p className="font-medium mb-10 text-white">
               Parece que descobriste, é um espremedor!
             </p>
@@ -52,14 +59,30 @@ export default function Chapter2Page4() {
               Vamos a outro exemplo?
             </p>
             <div className="mx-auto">
-              <Link href="/chapters/chapter2/5">
-                <Button className="text-white">Continuar</Button>
-              </Link>
+              <motion.div
+                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                className="group"
+              >
+                <Button
+                  asChild
+                  className="text-white bg-primary hover:bg-hover-primary"
+                >
+                  <Link href="/chapters/chapter2/5">
+                    Continuar
+                    <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+                  </Link>
+                </Button>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
         <div className="col-span-1"></div>
-        <div className="h-full col-span-4 flex justify-center items-center relative">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="h-full col-span-4 flex justify-center items-center relative"
+        >
           <Tilt options={defaultOptions}>
             <Image
               src="/img/chapter2/chapter2espremedor_comcopo.svg"
@@ -69,7 +92,7 @@ export default function Chapter2Page4() {
               className="rounded"
             />
           </Tilt>
-        </div>
+        </motion.div>
         <div className="col-span-1"></div>
       </div>
     </>

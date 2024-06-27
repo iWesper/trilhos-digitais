@@ -7,6 +7,8 @@ import { useToast } from "@/components/ui/use-toast";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { useAuth } from "@/components/context/AuthContext";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter4Page4() {
   //BADGE DO CAPÍTULO
@@ -60,21 +62,42 @@ export default function Chapter4Page4() {
         </Link>
         <div className="col-span-2"></div>
         <div className="col-span-8 flex justify-start items-center text-center flex-col pt-20">
-          <h4 className="text-white font-medium p-6 pb-8 text-8xl font-effra">
+          <motion.h4
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="text-white font-medium p-6 pb-8 text-8xl font-effra"
+          >
             SIM!
-          </h4>
-          <p className="text-white font-medium pb-8">
+          </motion.h4>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="text-white font-medium pb-8"
+          >
             É quase que uma característica psicológica nossa, a necessidade de
             criar e melhorar, incentivando-nos a nós mesmos e uns aos outros de
             evoluir, alcançando novos patamares e melhorando continuamente.
-          </p>
-          <Button
-            className=" text-white"
-            onClick={SaveBadgeProgressAndGoToNextPage}
+          </motion.p>
+          <motion.div
+            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+            className="group"
           >
-            Continuar
-          </Button>
-          {error && (<p className=" text-red-600 text-center text-sm">{error}</p>)}
+            <Button
+              asChild
+              className=" text-white"
+              onClick={SaveBadgeProgressAndGoToNextPage}
+            >
+              <Link href="/chapters/chapter4/5">
+                Continuar
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+              </Link>
+            </Button>
+          </motion.div>
+          {error && (
+            <p className=" text-red-600 text-center text-sm">{error}</p>
+          )}
         </div>
         <div className="col-span-2"></div>
       </div>

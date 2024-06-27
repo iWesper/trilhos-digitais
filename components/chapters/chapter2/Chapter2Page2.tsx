@@ -12,7 +12,7 @@ import {
   Loader,
   OrbitControls,
   Text3D,
-  Outlines
+  Outlines,
 } from "@react-three/drei";
 import { MdQuestionMark } from "react-icons/md";
 import {
@@ -21,11 +21,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { motion } from "framer-motion";
 
 export default function Chapter2Page2() {
-
   //Dica
-  const Tip ="Interage com o modelo da Bauhaus para avançares."
+  const Tip = "Interage com o modelo da Bauhaus para avançares.";
   const router = useRouter();
   //PROGRESS
   const { setProgress } = useProgress();
@@ -41,19 +41,6 @@ export default function Chapter2Page2() {
   //PROGRESS VALUE
   setProgress(10);
 
-  //CONTROLO DA ANIMAÇÃO
-  const defaultOptions = {
-    reverse: false, // reverse the tilt direction
-    max: 10, // max tilt rotation (degrees)
-    perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-    scale: 1, // 2 = 200%, 1.5 = 150%, etc..
-    speed: 2500, // Speed of the enter/exit transition
-    transition: true, // Set a transition on enter/exit.
-    axis: null, // What axis should be disabled. Can be X or Y.
-    reset: true, // If the tilt effect has to be reset on exit.
-    easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
-  };
-
   return (
     <>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1">
@@ -65,7 +52,12 @@ export default function Chapter2Page2() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-1 h-full"></div>
-        <div className="col-span-4 h-full">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="col-span-4 h-full"
+        >
           <div className="h-full flex flex-col justify-center items-center p-10 text-white ">
             <p className="font-medium mb-4 select-none">
               A <span className="italic text-secondary">Bauhaus</span> foi das
@@ -77,8 +69,13 @@ export default function Chapter2Page2() {
               Que dizes de explorarmos o seu método de criação? Anda daí!
             </p>
           </div>
-        </div>
-        <div className="h-full col-span-6 flex justify-center items-center">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="h-full col-span-6 flex justify-center items-center"
+        >
           <Canvas>
             <Suspense fallback={null}>
               <OrbitControls
@@ -96,8 +93,12 @@ export default function Chapter2Page2() {
                 onPointerLeave={() => setText3DIsHovered(false)}
                 onClick={handleText3DClick}
               >
-                <Text3D size={0.3} font={"/fonts/Effra_Regular.json"} height={0.05}>
-                {`Bauhaus >`}
+                <Text3D
+                  size={0.3}
+                  font={"/fonts/Effra_Regular.json"}
+                  height={0.05}
+                >
+                  {`Bauhaus >`}
                   <meshStandardMaterial
                     color={text3DIsHovered ? "orange" : "hsl(0, 0%, 98%)"}
                   />
@@ -117,20 +118,20 @@ export default function Chapter2Page2() {
           </Canvas>
           <Loader />
           {/* <Link href="/chapters/chapter2/3">Temp go to next</Link> */}
-        </div>
+        </motion.div>
         <div className="h-full col-span-1"></div>
       </div>
       <div className="fixed bottom-5 left-5">
-          <TooltipProvider delayDuration={0}>
-            <Tooltip>
-              <TooltipTrigger className="cursor-help">
-                <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
-              </TooltipTrigger>
-              <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
-                <p>{Tip}</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+        <TooltipProvider delayDuration={0}>
+          <Tooltip>
+            <TooltipTrigger className="cursor-help">
+              <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
+            </TooltipTrigger>
+            <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
+              <p>{Tip}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </div>
     </>
   );

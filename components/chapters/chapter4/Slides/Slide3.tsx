@@ -24,10 +24,10 @@ const Slide3 = () => {
     <>
       <div className="h-full grid grid-cols-12 grid-rows-1 gap-4 justify-center items-center">
         <motion.div
-          className="col-span-6 h-full justify-center"
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
+          initial={{ opacity: 0, x: 1500 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
+          className="col-span-6 h-full justify-center"
         >
           <div className="h-full justify-center items-center flex flex-col">
             <p className="font-medium pt-8 text-white select-none">
@@ -43,12 +43,7 @@ const Slide3 = () => {
             </p>
           </div>
         </motion.div>
-        <motion.div
-          className="h-full w-full col-span-6 flex justify-center items-center"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        >
+        <div className="h-full w-full col-span-6 flex justify-center items-center">
           <div className="h-full w-full justify-center items-center flex">
             <Canvas>
               <Suspense fallback={null}>
@@ -72,7 +67,7 @@ const Slide3 = () => {
             </Canvas>
             <Loader />
           </div>
-        </motion.div>
+        </div>
       </div>
     </>
   );

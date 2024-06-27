@@ -7,6 +7,7 @@ import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { Tilt } from "react-tilt";
 
 export default function Chapter3Page4() {
   //PROGRESS
@@ -50,17 +51,17 @@ export default function Chapter3Page4() {
         ></motion.div>
         <motion.div
           className="col-span-8 h-full"
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
           <div className="h-full flex justify-center items-center mt-20">
             <p className="font-medium mb-10 text-white text-center">
-              O filme "<span className="italic">The Godfather"</span>" utiliza o ecrã como meio técnico de
-              exposição, com imagens, sons e falas como meios básicos, e os meios
-              classificados seriam longa-metragem e ficção policial. Se fosse
-              um livro, esses aspectos formadores seriam diferentes,
-              transmitindo assim uma mensagem distinta.
+              O filme "<span className="italic">The Godfather"</span>" utiliza o
+              ecrã como meio técnico de exposição, com imagens, sons e falas
+              como meios básicos, e os meios classificados seriam longa-metragem
+              e ficção policial. Se fosse um livro, esses aspectos formadores
+              seriam diferentes, transmitindo assim uma mensagem distinta.
             </p>
           </div>
         </motion.div>
@@ -76,14 +77,16 @@ export default function Chapter3Page4() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
         >
-          <Image
-            src="/img/chapter3/chapter3GodfatherCover.svg"
-            alt="Imagem de capa de  The Godfather"
-            width={200}
-            height={200}
-            className="rounded mt-28"
-            draggable={false}
-          />
+          <Tilt options={defaultOptions}>
+            <Image
+              src="/img/chapter3/chapter3GodfatherCover.svg"
+              alt="Imagem de capa de  The Godfather"
+              width={200}
+              height={200}
+              className="rounded mt-28"
+              draggable={false}
+            />
+          </Tilt>
         </motion.div>
         <motion.div
           className="h-full col-span-4 flex justify-center items-center"
@@ -91,14 +94,16 @@ export default function Chapter3Page4() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
         >
-          <Image
-            src="/img/chapter3/chapter3GodfatherCoverXBOX.svg"
-            alt="Imagem de capa de The Godfather"
-            width={200}
-            height={200}
-            className="rounded mt-28"
-            draggable={false}
-          />
+          <Tilt options={defaultOptions}>
+            <Image
+              src="/img/chapter3/chapter3GodfatherCoverXBOX.svg"
+              alt="Imagem de capa de The Godfather"
+              width={200}
+              height={200}
+              className="rounded mt-28 tiltableImage"
+              draggable={false}
+            />
+          </Tilt>
         </motion.div>
         <motion.div
           className="h-full col-span-4 flex justify-center items-center"
@@ -106,14 +111,16 @@ export default function Chapter3Page4() {
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
         >
-          <Image
-            src="/img/chapter3/chapter3GodfatherCoverBook.svg"
-            alt="Imagem de capa de The Godfather"
-            width={200}
-            height={200}
-            className="rounded mt-28"
-            draggable={false}
-          />
+          <Tilt options={defaultOptions}>
+            <Image
+              src="/img/chapter3/chapter3GodfatherCoverBook.svg"
+              alt="Imagem de capa de The Godfather"
+              width={200}
+              height={200}
+              className="rounded mt-28"
+              draggable={false}
+            />
+          </Tilt>
         </motion.div>
         <motion.div
           className="h-full col-span-4"

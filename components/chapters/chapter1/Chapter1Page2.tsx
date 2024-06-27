@@ -7,9 +7,9 @@ import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter1Page2() {
-
   //PROGRESS
   const { setProgress } = useProgress();
 
@@ -58,9 +58,20 @@ export default function Chapter1Page2() {
               <span className="italic">Richard Wagner</span> e a sua criação, a{" "}
               <span className="italic">Gesamtkunstwerk</span>.
             </p>
-            <Link href="/chapters/chapter1/3">
-              <Button>Continuar</Button>
-            </Link>
+            <motion.div
+              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              className="group"
+            >
+              <Button
+                asChild
+                className="text-white bg-primary hover:bg-hover-primary"
+              >
+                <Link href="/chapters/chapter1/3">
+                  Continuar
+                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+                </Link>
+              </Button>
+            </motion.div>
           </div>
         </motion.div>
         <motion.div
@@ -88,5 +99,5 @@ export default function Chapter1Page2() {
         ></motion.div>
       </div>
     </>
-  )
+  );
 }

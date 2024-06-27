@@ -21,6 +21,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 
@@ -155,13 +157,13 @@ export default function Chapter2Page5() {
         case 1:
           //MENSAGEM DE FEEDBACK
           message = "Acertaste 1!";
-           setOrderMessage(message);
+          setOrderMessage(message);
           break;
         case 2:
           //MENSAGEM DE FEEDBACK
           message = "Acertaste 2!";
-           //MENSAGEM DE FEEDBACK
-           setOrderMessage(message);
+          //MENSAGEM DE FEEDBACK
+          setOrderMessage(message);
           break;
         case 3:
           //SALVA O PROGRESSO
@@ -169,13 +171,10 @@ export default function Chapter2Page5() {
           break;
 
         default:
-        
           message = "Nenhum está correto.";
-           //MENSAGEM DE FEEDBACK
-           setOrderMessage(message);
-
+          //MENSAGEM DE FEEDBACK
+          setOrderMessage(message);
       }
-
     }
   };
 
@@ -270,7 +269,12 @@ export default function Chapter2Page5() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-2"></div>
-        <div className="col-span-8 flex justify-start items-center text-center flex-col pt-20">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-8 flex justify-start items-center text-center flex-col pt-20"
+        >
           <p className="text-white font-medium p-6">
             Tal como o espremedor, o design destes bancos foi pensado de modo
             que sigam principalmente o funcionamento para poupar espaço numa
@@ -279,38 +283,78 @@ export default function Chapter2Page5() {
           <p className="text-white font-medium">
             Arruma-os para ver como funcionam.
           </p>
-        </div>
+        </motion.div>
         <div className="col-span-2"></div>
 
-        <div className="col-span-2 flex justify-end pe-10">
-          <Button className="text-white text-center" onClick={clearBoard}>
-            Limpar Tentativa
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-2 flex justify-end pe-10"
+        >
+          <Button
+            asChild
+            className="text-white text-center"
+            onClick={clearBoard}
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ opacity: { duration: 1, delay: 1 } }}
+              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              className="cursor-pointer text-white"
+            >
+              Limpar Tentativa
+            </motion.div>
           </Button>
-        </div>
-        <div className="col-span-8 flex flex-col items-center justify-center mb-10">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-8 flex flex-col items-center justify-center mb-10"
+        >
           <DroppingArea
             addImageToBoard={addImageToBoard}
             board={board}
             checkOrder={checkOrder}
           />
-        </div>
+        </motion.div>
         <div className="col-span-2 flex flex-col justify-center items-center overflow-visible h-[60vh]">
           {PictureListCopy.map((picture) => {
             return (
-              <div className="h-[33.33%] w-full">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                className="h-[33.33%] w-full"
+              >
                 <PictureStack
                   url={picture.url}
                   id={picture.id}
                   onMouseDown={handleMouseDown}
                 />
-              </div>
+              </motion.div>
             );
           })}
-          <p className="text-white font-medium mb-2 text-center mx-auto">{orderMessage}</p>
+          <p className="text-white font-medium mb-2 text-center mx-auto">
+            {orderMessage}
+          </p>
           {showDialog && (
             <Dialog>
               <DialogTrigger>
-                <Button className="text-white">Continuar</Button>
+                <Button asChild className="text-white">
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ opacity: { duration: 1, delay: 0.5 } }}
+                    whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                    className="group cursor-pointer text-white"
+                  >
+                    Continuar
+                    <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+                  </motion.div>
+                </Button>
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>

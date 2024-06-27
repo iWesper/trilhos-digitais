@@ -105,8 +105,8 @@ export default function Chapter4Page2() {
         ></motion.div>
         <motion.div
           className="h-full col-span-8 justify-center items-center flex"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
+          initial={{ opacity: 0, x: 1500 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
           {RenderComponent}

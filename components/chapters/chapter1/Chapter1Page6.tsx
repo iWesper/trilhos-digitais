@@ -7,6 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { useProgress } from "@/components/context/ProgressContext";
+import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter1Page6() {
   //PROGRESS
@@ -38,7 +40,12 @@ export default function Chapter1Page6() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-1"></div>
-        <div className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 ">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 "
+        >
           <p className="font-medium mb-10">
             O cinema é considerado a 7ª Arte, e a evolução do conceito de{" "}
             <span className="italic">Wagner</span>, pois utiliza a síntese de
@@ -46,12 +53,28 @@ export default function Chapter1Page6() {
             música ou da dança, para criar uma experiência única e emotiva que
             permite o espectador reviver momentos, reais ou fictícios.
           </p>
-          <Link href="/chapters/chapter1/7">
-            <Button>Continuar</Button>
-          </Link>
-        </div>
+          <motion.div
+            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+            className="group"
+          >
+            <Button
+              asChild
+              className="text-white bg-primary hover:bg-hover-primary"
+            >
+              <Link href="/chapters/chapter1/7">
+                Continuar
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+              </Link>
+            </Button>
+          </motion.div>
+        </motion.div>
         <div className="col-span-1"></div>
-        <div className="col-span-4 flex justify-center items-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-4 flex justify-center items-center"
+        >
           <Tilt options={defaultOptions}>
             <Image
               src="/img/chapter1/chapter1Cinema.svg"
@@ -61,7 +84,7 @@ export default function Chapter1Page6() {
               className="rounded"
             />
           </Tilt>
-        </div>
+        </motion.div>
       </div>
     </>
   );

@@ -1,11 +1,13 @@
 "use client";
 import React from "react";
-import {  useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
+import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter1Page7() {
   //PROGRESS
@@ -49,10 +51,26 @@ export default function Chapter1Page7() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-3"></div>
-        <div className="col-span-6 flex flex-col justify-center items-center p-10 mt-20 ">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-6 flex flex-col justify-center items-center p-10 mt-20 "
+        >
           <p className="font-medium mb-10">{content}</p>
-          <Button onClick={handleContentSwap}>Continuar</Button>
-        </div>
+          <Button asChild onClick={handleContentSwap}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ opacity: { duration: 1, delay: 3 } }}
+              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              className="group cursor-pointer text-white"
+            >
+              Continuar
+              <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+            </motion.div>
+          </Button>
+        </motion.div>
         <div className="col-span-3"></div>
       </div>
     </>
