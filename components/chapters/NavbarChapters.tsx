@@ -89,7 +89,7 @@ const NavbarChapters: React.FC = () => {
     : "";
 
   return (
-    <div className="grid grid-cols-12 gap-4 items-center justify-between px-10 p-4 bg-gray-800 text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-xl bg-opacity-80">
+    <div className="grid grid-cols-12 gap-4 items-center justify-between px-10 p-4 bg-[#142839] text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-xl bg-opacity-80">
       <div className="col-span-2 flex justify-start flex-grow">
         <Link href={"/"}>
           <div className="relative group">

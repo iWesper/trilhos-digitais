@@ -10,7 +10,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="flex items-center justify-between px-10 p-4 bg-[#142839] text-white absolute top-0 left-0 right-0 z-50 backdrop-filter rounded-b-xl backdrop-blur-xl bg-opacity-80"
+      className="flex items-center justify-between px-10 p-4 bg-[#142839] text-white absolute top-0 left-0 right-0 z-50 rounded-b-xl backdrop-blur-xl bg-opacity-80"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
