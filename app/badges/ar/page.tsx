@@ -1,10 +1,8 @@
-"use client";
+'use client'
 import { useEffect, useState } from "react";
-import { Canvas, useLoader } from "@react-three/fiber";
-import Head from "next/head";
-import Bauhaus from "@/public/models/bauhaus/Bauhaus";
+import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls } from "@react-three/drei";
-// import "@/public/models/bauhaus/bauhaus.glb";
+import Head from "next/head";
 
 const AR = () => {
   const [isMarkerFound, setIsMarkerFound] = useState(false);
@@ -34,12 +32,15 @@ const AR = () => {
       {/* AR.js scene setup */}
       <a-scene className="w-full h-full" embedded arjs="sourceType: webcam;">
         <a-marker preset="hiro" onMarkerFound={() => loadModels()}>
-          <a-entity position="0 0 0" />{" "}
+          <a-entity position="0 0 0" />
           {isMarkerFound && (
             <Canvas>
               <OrbitControls />
               {/* Render the model when the marker is found */}
-              <Bauhaus />
+              <mesh>
+                <boxGeometry args={[1, 1, 1]} />
+                <meshStandardMaterial color="orange" />
+              </mesh>
               <Environment preset="sunset" />
             </Canvas>
           )}
