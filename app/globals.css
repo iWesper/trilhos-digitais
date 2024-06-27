@@ -169,7 +169,6 @@
 
 .animate-scan {
   animation: scanAnimation 4s ease-in-out;
-  display: inline-block;
   will-change: transform;
 }
 

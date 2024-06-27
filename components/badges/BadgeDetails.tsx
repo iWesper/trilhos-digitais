@@ -170,6 +170,7 @@ export default function BadgeDetails({ number }: { number: number }) {
                 height={350}
                 width={350}
                 src={defaultItems[BadgeIdToShow - 1].qrUrl}
+                className="animate-scan"
                 alt="Qr code que mostra AR"
               />
             </div>
