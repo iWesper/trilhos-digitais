@@ -165,7 +165,7 @@ export default function Homepage() {
           transition={{ duration: 1 }}
         >
           <motion.div
-            className="mt-4 flex flex-col items-center justify-center absolute lg:top-[80%] backdrop-filter p-4 bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-80 z-[1]"
+            className="mt-4 flex flex-col items-center justify-center absolute lg:top-[80%] backdrop-filter p-4 bg-[#142839] rounded-xl backdrop-blur-md bg-opacity-80 z-[1]"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 5, duration: 1 }}

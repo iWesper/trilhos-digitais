@@ -116,7 +116,7 @@ export default function Chapter2Page2() {
               <Environment preset="sunset" />
             </Suspense>
           </Canvas>
-          <Loader />
+          
           {/* <Link href="/chapters/chapter2/3">Temp go to next</Link> */}
         </motion.div>
         <div className="h-full col-span-1"></div>

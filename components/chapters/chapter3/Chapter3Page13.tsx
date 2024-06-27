@@ -83,7 +83,7 @@ export default function Chapter3Page13() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="flex items-end justify-center col-span-8 mb-4"
+          className="flex items-end justify-center col-span-8 mt-12"
         >
           <p className="font-bold text-white text-center">
             Qual modalidade que se refere a como os{" "}
@@ -91,21 +91,16 @@ export default function Chapter3Page13() {
             como os olhos, ouvidos, entre outros?
           </p>
         </motion.div>
-        <div className="col-span-2 mt-24 mb-4"></div>
-
-        <div className="col-span-4"></div>
-        <div className="col-span-4">
-          {resposta && <p className="text-white text-center">{resposta}</p>}
-        </div>
-        <div className="col-span-4"></div>
+        <div className="col-span-2"></div>
 
         <div className="col-span-4"></div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="col-span-4 flex justify-center items-center"
+          className="col-span-4 flex flex-col justify-end items-center"
         >
+          {resposta && <p className="text-white text-center text-sm">{resposta}</p>}
           <Image
             src="/img/chapter3/chapter3folhear.svg"
             alt="Imagem de um livro"

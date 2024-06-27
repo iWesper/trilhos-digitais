@@ -133,7 +133,7 @@ export default function Chapter1Page3() {
               <Environment preset="sunset" />
             </Suspense>
           </Canvas>
-          <Loader />
+          
         </motion.div>
         <div className="col-span-1"></div>
         <div className="fixed bottom-5 left-5">
