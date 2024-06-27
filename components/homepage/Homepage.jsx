@@ -29,11 +29,12 @@ export default function Homepage() {
 
   // Estado do tutorial
   const [tutorialSeen, setTutorialSeen] = useState(false);
-  const [isCheckingTutorialState, setIsCheckingTutorialState] = useState(true);
   // Estado que representa se o utilizador quer ignorar o tutorial
   const [hasSkippedTutorial, setHasSkippedTutorial] = useState(false);
   // Estado do dialog do tutorial
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  // Estado que representa se está a verificar o estado do tutorial
+  const [isCheckingTutorialState, setIsCheckingTutorialState] = useState(true);
 
   //MENSAGEM
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
@@ -42,6 +43,8 @@ export default function Homepage() {
   const [tutorialMessages, setTutorialMessages] = useState([]);
 
   useEffect(() => {
+    setTutorialSeen(tutorialState);
+    
     if (!tutorialState && !isDialogOpen && !isCheckingTutorialState) {
       setIsDialogOpen(true);
     }
@@ -66,18 +69,16 @@ export default function Homepage() {
   //VAI BUSCAR O USER ID QUANDO MONTA
   useEffect(() => {
     if (currentUser) {
+      //Vai saber se já viu tutorial
+      CheckHasSeenTutorialScript().then((boolean) => {
+        //Se já viu tutorial
+        setIsCheckingTutorialState(boolean);
+      })
+      .catch((boolean) => {
+        setIsCheckingTutorialState(boolean);
+      });
       //Vai buscar o username
       goGetUsername(currentUser.uid);
-      //Vai saber se já viu tutorial e espera pela resposta
-      CheckHasSeenTutorialScript()
-        .then((boolean) => {
-          //Se já viu tutorial
-          setIsCheckingTutorialState(boolean);
-        })
-        .catch((boolean) => {
-          setIsCheckingTutorialState(boolean);
-        });
-
       //Redefine o estado do tutorial
       setHasSkippedTutorial(false);
     } else {
@@ -135,7 +136,7 @@ export default function Homepage() {
         {/* Container do conteúdo da página */}
         {/* Arbustos frente */}
         <motion.div
-          className="absolute w-full h-[75%] bg-comboioParallaxFundo2 bg-center bg-contain blur-[2px] -bottom-[30%] saturate-[.85]"
+          className="absolute w-full h-[75%] bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-contain -bottom-[30%] saturate-[.85]"
           style={{
             zIndex: 1,
           }}
@@ -149,7 +150,7 @@ export default function Homepage() {
         ></motion.div>
         {/* Arbustos trás*/}
         <motion.div
-          className="absolute w-screen h-screen bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-cover blur-[1px] saturate-[.85]"
+          className="absolute w-screen h-screen bg-comboioParallaxFundo5 bg-center bg-no-repeat bg-cover blur-[1px] saturate-[.85]"
           style={{
             zIndex: -2,
           }}
