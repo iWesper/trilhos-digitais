@@ -220,7 +220,6 @@ export default function Badges() {
                           <Environment preset="studio" />
                         </Suspense>
                       </Canvas>
-                      <Loader />
                     </div>
                     <div className="w-auto min-w-[50%] z-10 text-center bg-gray-800 rounded-xl backdrop-blur-[2px] bg-opacity-80 p-2 absolute bottom-[25%]">
                       <p className="text-white font-bold text-sm pb-2">

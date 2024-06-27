@@ -119,45 +119,38 @@ export default function Chapter3Page14() {
           <IoChevronBack className=" h-8 w-8" />
           <span>Voltar</span>
         </Link>
-        <div className="col-span-2 mb-4"></div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="flex items-end justify-center col-span-8 mb-4 mt-32"
-        >
-          <p className="font-bold text-white text-center">
-            De que forma se reflete a modalidade espaciotemporal?
-          </p>
-        </motion.div>
-        <div className="col-span-2 mb-4"></div>
 
-        <div className="col-span-4"></div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="col-span-4"
-        >
-          {resposta && <p className="text-white text-center">{resposta}</p>}
-        </motion.div>
-        <div className="col-span-4"></div>
+        {!showButton && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="flex items-center justify-center col-span-12 mt-32"
+          >
+            <div className="col-span-2 mb-4"></div>
+            <p className="font-bold text-white text-center">
+              De que forma se reflete a modalidade espaciotemporal?
+            </p>
+            <div className="col-span-2 mb-4"></div>
+          </motion.div>
+        )}
 
+        <div className="col-span-1"></div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="col-span-4 items-center flex justify-end"
+          className="col-span-3 items-center flex justify-center lg:justify-end lg:mb-40"
         >
           {!showButton && (
-            <form className="flex flex-row items-center justify-center mt-3">
+            <form className="flex flex-row items-center justify-center mt-3 ms-3 max-w-full">
               <Button
                 type="button"
                 value="Perceção da Mensagem no Espaço e no Tempo"
                 onClick={handleFormSubmit}
-                className=" me-3 ms-12 text-white bg-[#142839] hover:bg-hover"
+                className=" me-3 p-6 text-wrap text-white bg-[#142839] hover:bg-hover max-w-full"
               >
-                Perceção da Mensagem no Espaço e no Tempo{" "}
+                Perceção da Mensagem no Espaço e no Tempo
               </Button>
             </form>
           )}
@@ -166,46 +159,21 @@ export default function Chapter3Page14() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="col-span-4 flex justify-center items-center"
+          className={`col-span-4 flex flex-col justify-start items-center ${showButton ? 'mt-28' : ''}`}
         >
+          {resposta && <p className="text-white text-center pb-4">{resposta}</p>}
           <Image
             src="/img/chapter3/chapter3instax.svg"
             alt="Imagem de uma foto instantânea"
             width={300}
             height={300}
-            className="rounded text-center"
+            className="rounded text-center max-h-full"
             draggable={false}
           />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="col-span-4 items-center flex justify-start"
-        >
-          {!showButton && (
-            <form className="flex flex-row items-center justify-center mt-3">
-              <Button
-                type="button"
-                value="Tempo de Espera para Receber a Mensagem no Espaço"
-                onClick={handleFormSubmit}
-                className=" me-3 text-white bg-[#142839] hover:bg-hover"
-              >
-                Tempo para Receber a Mensagem no Espaço
-              </Button>
-            </form>
-          )}
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="col-span-12 flex justify-center items-center"
-        >
           {showButton && (
             <motion.div
               whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-              className="group"
+              className="group p-4"
             >
               <Button
                 asChild
@@ -223,6 +191,26 @@ export default function Chapter3Page14() {
             <p className=" text-red-600 text-center text-sm">{error}</p>
           )}
         </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="col-span-3 items-center flex justify-center lg:justify-start lg:mb-40"
+        >
+          {!showButton && (
+            <form className="flex flex-row items-center justify-center mt-3 max-w-full">
+              <Button
+                type="button"
+                value="Tempo de Espera para Receber a Mensagem no Espaço"
+                onClick={handleFormSubmit}
+                className=" me-3 p-6 text-white text-wrap bg-[#142839] hover:bg-hover max-w-full"
+              >
+                Tempo para Receber a Mensagem no Espaço
+              </Button>
+            </form>
+          )}
+        </motion.div>
+        <div className="col-span-1"></div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider delayDuration={0}>
             <Tooltip>

@@ -66,7 +66,7 @@ const Slide2 = () => {
               <Environment preset="sunset" />
             </Suspense>
           </Canvas>
-          <Loader />
+          
         </div>
       </motion.div>
     </>

@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 import { BiQrScan } from "react-icons/bi";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment, Loader } from "@react-three/drei";
+import { OrbitControls, Environment} from "@react-three/drei";
 import Bauhaus from "@/public/models/bauhaus/Bauhaus";
 import Wagner from "@/public/models/wagner/Wagner";
 import Tv from "@/public/models/tv/Tv";
@@ -24,7 +24,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       description:
         "O fosso de orquestra foi uma das grandes inovações no mundo da arte, trazida por Richard Wagner, escondendo a orquestra por baixo do palco de teatro e longe da visão dos espectadores, estando assim mais próxima da Obra Total.",
       p2: "O primeiro grande passo em direção à obra total.",
-      qrUrl: "/img/qrcodes/arte.svg",
+      qrUrl: "/img/qrcodes/arte.jpg",
       modelId: <Wagner position={[0, 0, 0]} scale={0.06}  />,
     },
     {
@@ -34,7 +34,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       description:
         "A Bauhaus foi uma escola de arquitetura e design que transformou a perceção da sociedade quanto à arte através da integração das artes plásticas com o artesanato.",
       p2: "Um verdadeiro marco na história do design.",
-      qrUrl: "/img/qrcodes/design.svg",
+      qrUrl: "/img/qrcodes/design.jpg",
       modelId: <Bauhaus position={[0, 0, 0]} scale={0.3} />,
     },
     {
@@ -44,7 +44,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       description:
         "Surgiram  novos meios de transmissão, como os filmes na TV e os videojogos. Para além de serem consumidos de maneiras diferentes, oferecem sensações diferentes, alterando a mensagem passada.",
       p2: 'Como disse McLuhan, "O meio é a mensagem".',
-      qrUrl: "/img/qrcodes/comuicacao.svg",
+      qrUrl: "/img/qrcodes/comunicacao.jpg",
       modelId: <Tv position={[0.5, 0, 0.5]} scale={1.3} />,
     },
     {
@@ -54,7 +54,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       description:
         "As tecnologias da comunicação evoluíram ao ponto desta se tornar ubíqua. A prensa é um símbolo dessa evolução, e de como o mais fácil acesso à informação se revelou um dos principais pilares da evolução da sociedade.",
       p2: "Um ponto de viragem para a educação e conhecimento.",
-      qrUrl: "/img/qrcodes/tecnologia.svg",
+      qrUrl: "/img/qrcodes/tecnologia.jpg",
       modelId: <Prensa position={[0, -1.5, 0]} scale={0.1} />,
     },
     // {
@@ -132,7 +132,6 @@ export default function BadgeDetails({ number }: { number: number }) {
                   <Environment preset="sunset" />
                 </Suspense>
               </Canvas>
-              <Loader />
             </div>
           </div>
           <div className="col-span-4 justify-center items-center mt-16 backdrop-filter bg-[#142839] rounded-xl backdrop-blur-xl bg-opacity-80">

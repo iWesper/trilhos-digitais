@@ -4,9 +4,17 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useAuth } from "../context/AuthContext";
+import { useEffect } from "react";
 
 export default function Navbar() {
-  const { logout, username } = useAuth();
+  const { logout, username, goGetUsername, currentUser } = useAuth();
+
+  // Get username caso o user dê refresh à página
+  useEffect(() => { 
+    if (username === "" && currentUser !== null){
+      goGetUsername(currentUser.uid);
+    }
+  }, [username, currentUser]);
 
   return (
     <motion.nav

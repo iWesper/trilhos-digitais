@@ -259,7 +259,7 @@ export default function Chapter3Page6() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="col-span-8 flex justify-start items-center text-center flex-col pt-20"
+          className="col-span-8 flex justify-start items-center text-center flex-col pt-20 text-sm lg:text-md"
         >
           <p className="text-white font-medium pt-6">
             Vamos analisar o “<span className="italic">Spider-Man</span>”

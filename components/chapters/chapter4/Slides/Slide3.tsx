@@ -65,7 +65,7 @@ const Slide3 = () => {
                 <Environment preset="sunset" />
               </Suspense>
             </Canvas>
-            <Loader />
+            
           </div>
         </div>
       </div>
