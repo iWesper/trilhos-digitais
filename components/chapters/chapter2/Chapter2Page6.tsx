@@ -47,7 +47,7 @@ export default function Chapter2Page6() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="col-span-8 flex justify-end items-center text-center flex-col"
+          className="col-span-8 flex justify-end items-center text-center flex-col mt-14"
         >
           <p className="text-white font-medium p-6">
             Como te dissémos, estas cadeiras foram pensadas de modo a ocupar o

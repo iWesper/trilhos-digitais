@@ -186,7 +186,7 @@ export default function Chapter2Page3() {
     return (
       <div
         ref={dropRef}
-        className="h-full flex flex-col justify-end items-center relative mb-10 xl:mb-0 xl:justify-center"
+        className="h-full flex flex-col justify-end items-center relative xl:mb-0 xl:justify-center"
       >
         <Tilt options={defaultOptions}>
           <Image
