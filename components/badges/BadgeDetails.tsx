@@ -191,7 +191,8 @@ export default function BadgeDetails({ number }: { number: number }) {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1 }}
                 >
-                  Aponta o telemóvel!
+                  <p className="text-decoration-underline">https://developer.vuforia.com/home</p>
+                  Segue este <span className="italic">link</span> e usa a <span className="italic">app</span> para uma surpresa!            
                 </motion.p>
               </motion.div>
             </motion.div>
