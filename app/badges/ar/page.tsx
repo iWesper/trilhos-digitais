@@ -9,12 +9,12 @@ const AR = () => {
 
   useEffect(() => {
     const script2 = document.createElement("script");
-    script2.src = "https://aframe.io/releases/1.3.0/aframe.min.js";
+    script2.src = "https://aframe.io/releases/0.8.0/aframe.min.js";
     document.head.appendChild(script2);
     // Dynamically load AR.js script
     const script = document.createElement("script");
     script.src =
-      "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js";
+      "https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js";
     document.head.appendChild(script);
 
     // Cleanup function to remove script
@@ -34,18 +34,9 @@ const AR = () => {
         <title>AR Experience</title>
       </Head>
       {/* AR.js scene setup */}
-      <div className="arjs-loader">
-        <div>Loading, please wait...</div>
-      </div>
-      <a-scene embedded arjs>
-        <a-marker preset="hiro">
-          <a-entity
-            position="0 0 0"
-            scale="0.05 0.05 0.05"
-            gltf-model="your-server/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
-          ></a-entity>
-        </a-marker>
-        <a-entity camera></a-entity>
+      <a-scene embedded arjs="sourceType: webcam;">
+        <a-box position="0 0.5 0" material="opacity: 0.5;"></a-box>
+        <a-marker-camera preset="hiro"></a-marker-camera>
       </a-scene>
     </>
   );
