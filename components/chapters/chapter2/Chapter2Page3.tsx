@@ -223,14 +223,14 @@ export default function Chapter2Page3() {
           transition={{ duration: 1, delay: 0.5 }}
           className="col-span-6 h-full flex flex-col justify-center p-10 text-white "
         >
-          <p className="font-medium mb-4 pt-8">
+          <p className="font-medium mb-4 pt-16 lg:pt-20">
             Hm, que design interessante, e parece que é utilizado em conjunto
             com outros objetos, pergunto-me para que serve.
           </p>
           <p className="font-medium pb-10">
             Arrasta-os para o objeto e vamos descobrir como funciona.
           </p>
-          <div className="flex flex-row flex-wrap justify-center">
+          <div className="flex flex-row justify-center">
             {PictureList.map((picture) => {
               return (
                 <Picture url={picture.url} id={picture.id} key={picture.id} />
