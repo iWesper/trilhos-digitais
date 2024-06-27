@@ -59,7 +59,7 @@ export default function BadgesLayout({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="overflow-hidden"
+          className="overflow-hidden h-screen w-screen"
         >
           <Navbar />
           {children}
