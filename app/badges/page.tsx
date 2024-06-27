@@ -41,6 +41,7 @@ export default function Badges() {
 
   // Estado do tutorial
   const [tutorialSeen, setTutorialSeen] = useState(false);
+  const [isCheckingTutorialState, setIsCheckingTutorialState] = useState(true);
   // Estado que representa se o utilizador quer ignorar o tutorial
   const [hasSkippedTutorial, setHasSkippedTutorial] = useState(false);
   // Estado do dialog do tutorial
@@ -129,16 +130,23 @@ export default function Badges() {
 
   // Hook para verificar se o tutorial foi visto
   useEffect(() => {
-    if (!tutorialBadge && !isDialogOpen) {
+    if (!tutorialBadge && !isDialogOpen && !isCheckingTutorialState) {
       setIsDialogOpen(true);
     }
-  }, [tutorialBadge, isDialogOpen]);
+  }, [tutorialBadge, isDialogOpen, isCheckingTutorialState]);
 
   // Fetch ao montar
   useEffect(() => {
     //Vai saber se já viu tutorial
-    hasSeenBadgeTutorial();
-    //Vai buscar o username
+    hasSeenBadgeTutorial()
+      .then((boolean) => {
+        //Se já viu tutorial
+        setIsCheckingTutorialState(boolean);
+      })
+      .catch((boolean) => {
+        setIsCheckingTutorialState(boolean);
+      });
+    //Vai buscar os badges
     goGetBadges();
     //Redefine o estado do tutorial
     setHasSkippedTutorial(false);
