@@ -153,10 +153,6 @@
   }
 }
 
-.animate-scan {
-  animation: scanAnimation 2s ease-in-out;
-}
-
 @keyframes scanAnimation {
   0% {
     box-shadow: 0 -50px 30px -30px rgba(255,255,255,0.8), 0 50px 30px -30px rgba(255,255,255,0.8);
@@ -172,6 +168,8 @@
   }
 }
 
-.scan-element {
-  animation: scanAnimation 2s infinite;
+.animate-scan {
+  animation: scanAnimation 2s ease-in-out;
 }
+
+
