@@ -191,10 +191,9 @@ export default function BadgeDetails({ number }: { number: number }) {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1 }}
                 >
-                  Arrasta para o lado!
+                  Aponta o telemóvel!
                 </motion.p>
               </motion.div>
-              <p className="text-white">Aponta o telemóvel</p>
             </motion.div>
           </div>
           <div className="col-span-4 justify-center items-center mt-16 backdrop-filter bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-20">
