@@ -55,7 +55,7 @@ export default function ChaptersLayout({
       }
     >
       <ProgressProvider>
-        <main className="overflow-hidden text-xl">
+        <main className="overflow-hidden text-sm md:text-md lg:text-xl">
           <NavbarChapters />
           {children}
         </main>

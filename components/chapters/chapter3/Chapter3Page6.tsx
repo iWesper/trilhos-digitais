@@ -279,7 +279,7 @@ export default function Chapter3Page6() {
           className="col-span-8 flex justify-center items-center"
         >
           {isCorrect !== null && isCorrect === false && wrongColumn !== "" && (
-            <p className="text-white font-medium text-center text-sm">
+            <p className="text-white font-medium text-center text-sm lg:text-md">
               Ora parece que te confundiste nos {wrongColumn}. Vamos, tenta de
               novo.{" "}
             </p>
