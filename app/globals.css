@@ -157,16 +157,20 @@
   0%, 100% {
     box-shadow: 0 -50px 30px -30px rgba(0,0,0,0.8), 0 50px 30px -30px rgba(0,0,0,0.8);
     opacity: 0;
+    transform: scale(1);
     
   }
   50% {
     box-shadow: 0 0 30px -5px rgba(0,0,0,0.8), 0 0 30px -5px rgba(0,0,0,0.8);
     opacity: 1;
+    transform: scale(0.9);
   }
 }
 
 .animate-scan {
   animation: scanAnimation 4s ease-in-out;
+  display: inline-block;
+  will-change: transform;
 }
 
 
