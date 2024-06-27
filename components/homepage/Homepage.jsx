@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 
 import { Comboio } from "./Comboio";
 import Navbar from "./Navbar";
+import { set } from "lodash";
 
 export default function Homepage() {
   const router = useRouter();
@@ -43,7 +44,6 @@ export default function Homepage() {
   const [tutorialMessages, setTutorialMessages] = useState([]);
 
   useEffect(() => {
-    setTutorialSeen(tutorialState);
     
     if (!tutorialState && !isDialogOpen && !isCheckingTutorialState) {
       setIsDialogOpen(true);
@@ -60,6 +60,7 @@ export default function Homepage() {
       //FECHA O TUTORIAL
       setTutorialSeen(true);
       setIsDialogOpen(false);
+      setHasSkippedTutorial(true);
 
       //Guarda que já viu o tutorial
       UpdateHasSeenTutorialScript();
@@ -136,7 +137,7 @@ export default function Homepage() {
         {/* Container do conteúdo da página */}
         {/* Arbustos frente */}
         <motion.div
-          className="absolute w-full h-[75%] bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-contain -bottom-[30%] saturate-[.85]"
+          className="absolute w-full h-[75%] bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-contain -bottom-[60%] saturate-[.85]"
           style={{
             zIndex: 1,
           }}
