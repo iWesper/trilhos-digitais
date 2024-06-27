@@ -502,7 +502,7 @@ export default function Chapter2Page10() {
                 className="text-white hover:bg-hover-primary"
                 onClick={SaveBadgeProgressAndGoToNextPage}
               >
-                <Link href="/chapters/chapter3/14">
+                <Link href="/chapters/chapter2/11">
                   Continuar
                   <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
                 </Link>
