@@ -185,7 +185,7 @@ export default function BadgeDetails({ number }: { number: number }) {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 5.5, duration: 1 }}
               >
-                <BiQrScan className="text-4xl text-white mx-auto animate-scan" />
+                <BiQrScan className="text-4xl text-white mx-auto animate-scan animate-swipe" />
                 <motion.p
                   className="text-center text-xl text-white"
                   initial={{ y: -20, opacity: 0 }}
