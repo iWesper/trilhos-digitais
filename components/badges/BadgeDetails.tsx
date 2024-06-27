@@ -1,9 +1,10 @@
 import React, { useState, Suspense } from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { BiQrScan } from "react-icons/bi";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment} from "@react-three/drei";
+import { OrbitControls, Environment } from "@react-three/drei";
 import Bauhaus from "@/public/models/bauhaus/Bauhaus";
 import Wagner from "@/public/models/wagner/Wagner";
 import Tv from "@/public/models/tv/Tv";
@@ -25,7 +26,7 @@ export default function BadgeDetails({ number }: { number: number }) {
         "O fosso de orquestra foi uma das grandes inovações no mundo da arte, trazida por Richard Wagner, escondendo a orquestra por baixo do palco de teatro e longe da visão dos espectadores, estando assim mais próxima da Obra Total.",
       p2: "O primeiro grande passo em direção à obra total.",
       qrUrl: "/img/qrcodes/arte.jpg",
-      modelId: <Wagner position={[0, 0, 0]} scale={0.06}  />,
+      modelId: <Wagner position={[0, 0, 0]} scale={0.06} />,
     },
     {
       BadgeName: "Bauhaus",
@@ -172,10 +173,29 @@ export default function BadgeDetails({ number }: { number: number }) {
                 alt="Qr code que mostra AR"
               />
             </div>
-            <div className="justify-center items-center backdrop-filter p-4 bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-80">
-              <BiQrScan className="h-8 w-8 text-white mx-auto" />
-              <p className="text-white">Aponta o telemóvel</p>
-            </div>
+            <motion.div
+              className="justify-center items-center backdrop-filter p-4 bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-80"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 5, duration: 1 }}
+            >
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 5.5, duration: 1 }}
+              >
+                <BiQrScan className="text-4xl text-white mx-auto animate-scan" />
+                <motion.p
+                  className="text-center text-xl text-white"
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 1 }}
+                >
+                  <p className="text-decoration-underline">https://developer.vuforia.com/home</p>
+                  Segue este <span className="italic">link</span> e usa a <span className="italic">app</span> para uma surpresa!            
+                </motion.p>
+              </motion.div>
+            </motion.div>
           </div>
           <div className="col-span-4 justify-center items-center mt-16 backdrop-filter bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-20">
             <h1 className="font-bold text-center text-white text-4xl px-8 pb-8 pt-4">
