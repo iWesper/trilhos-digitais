@@ -168,8 +168,7 @@
 }
 
 .animate-scan {
-  animation: scanAnimation 4s ease-in-out;
-  will-change: transform;
+  animation: scanAnimation 4s ease-in-out infinite;
 }
 
 
