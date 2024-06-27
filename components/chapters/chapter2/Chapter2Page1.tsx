@@ -21,7 +21,7 @@ export default function Chapter2Page1() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="col-span-6 flex flex-col justify-center items-center"
+          className="col-span-6 flex flex-col justify-center items-center mt-10"
         >
           <h1 className="font-bold text-white text-9xl mb-11 font-effra">
             Design

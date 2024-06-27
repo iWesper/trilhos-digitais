@@ -194,7 +194,7 @@ export default function Chapter2Page3() {
             alt="Foto de Um Espremedor de Citrinos"
             width={500}
             height={500}
-            className="rounded"
+            className="rounded mt-40 md:mt-0"
           />
         </Tilt>
       </div>

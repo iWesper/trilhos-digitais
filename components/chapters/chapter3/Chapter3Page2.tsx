@@ -71,7 +71,7 @@ export default function Chapter3Page2() {
           </div>
         </motion.div>
         <motion.div
-          className="h-full col-span-4 flex justify-center items-center"
+          className="h-full col-span-4 flex justify-center items-center md:mt-20 lg:mt-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1}}
           transition={{ duration: 1 }}
