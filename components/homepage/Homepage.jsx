@@ -29,7 +29,6 @@ export default function Homepage() {
 
   // Estado do tutorial
   const [tutorialSeen, setTutorialSeen] = useState(false);
-  const [isCheckingTutorialState, setIsCheckingTutorialState] = useState(true);
   // Estado que representa se o utilizador quer ignorar o tutorial
   const [hasSkippedTutorial, setHasSkippedTutorial] = useState(false);
   // Estado do dialog do tutorial
@@ -42,10 +41,12 @@ export default function Homepage() {
   const [tutorialMessages, setTutorialMessages] = useState([]);
 
   useEffect(() => {
-    if (!tutorialState && !isDialogOpen && !isCheckingTutorialState) {
+    setTutorialSeen(tutorialState);
+    
+    if (!tutorialState && !isDialogOpen) {
       setIsDialogOpen(true);
     }
-  }, [tutorialState, isDialogOpen, isCheckingTutorialState]);
+  }, [tutorialState, isDialogOpen]);
 
   //MENSAGENS DO TUTORIAL
   const handleContinue = () => {
@@ -66,18 +67,10 @@ export default function Homepage() {
   //VAI BUSCAR O USER ID QUANDO MONTA
   useEffect(() => {
     if (currentUser) {
+      //Vai saber se já viu tutorial
+      CheckHasSeenTutorialScript();
       //Vai buscar o username
       goGetUsername(currentUser.uid);
-      //Vai saber se já viu tutorial e espera pela resposta
-      CheckHasSeenTutorialScript()
-        .then((boolean) => {
-          //Se já viu tutorial
-          setIsCheckingTutorialState(boolean);
-        })
-        .catch((boolean) => {
-          setIsCheckingTutorialState(boolean);
-        });
-
       //Redefine o estado do tutorial
       setHasSkippedTutorial(false);
     } else {
@@ -135,7 +128,7 @@ export default function Homepage() {
         {/* Container do conteúdo da página */}
         {/* Arbustos frente */}
         <motion.div
-          className="absolute w-full h-screen bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-cover bottom-[30%] saturate-[.85]"
+          className="absolute w-full h-[75%] bg-comboioParallaxFundo2 bg-center bg-no-repeat -bottom-[30%] saturate-[.85]"
           style={{
             zIndex: 1,
           }}
