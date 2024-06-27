@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls } from "@react-three/drei";
@@ -8,6 +8,9 @@ const AR = () => {
   const [isMarkerFound, setIsMarkerFound] = useState(false);
 
   useEffect(() => {
+    const script2 = document.createElement("script");
+    script2.src = "https://aframe.io/releases/1.3.0/aframe.min.js";
+    document.head.appendChild(script2);
     // Dynamically load AR.js script
     const script = document.createElement("script");
     script.src =
@@ -17,6 +20,7 @@ const AR = () => {
     // Cleanup function to remove script
     return () => {
       document.head.removeChild(script);
+      document.head.removeChild(script2);
     };
   }, []);
 
@@ -30,22 +34,18 @@ const AR = () => {
         <title>AR Experience</title>
       </Head>
       {/* AR.js scene setup */}
-      <a-scene className="w-full h-full" embedded arjs="sourceType: webcam;">
-        <a-marker preset="hiro" onMarkerFound={() => loadModels()}>
-          <a-entity position="0 0 0" />
-          {isMarkerFound && (
-            <Canvas>
-              <OrbitControls />
-              {/* Render the model when the marker is found */}
-              <mesh>
-                <boxGeometry args={[1, 1, 1]} />
-                <meshStandardMaterial color="orange" />
-              </mesh>
-              <Environment preset="sunset" />
-            </Canvas>
-          )}
+      <div className="arjs-loader">
+        <div>Loading, please wait...</div>
+      </div>
+      <a-scene embedded arjs>
+        <a-marker preset="hiro">
+          <a-entity
+            position="0 0 0"
+            scale="0.05 0.05 0.05"
+            gltf-model="your-server/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+          ></a-entity>
         </a-marker>
-        <a-entity camera />
+        <a-entity camera></a-entity>
       </a-scene>
     </>
   );
