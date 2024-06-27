@@ -33,6 +33,8 @@ export default function Homepage() {
   const [hasSkippedTutorial, setHasSkippedTutorial] = useState(false);
   // Estado do dialog do tutorial
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  // Estado que representa se está a verificar o estado do tutorial
+  const [isCheckingTutorialState, setIsCheckingTutorialState] = useState(true);
 
   //MENSAGEM
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
@@ -43,10 +45,10 @@ export default function Homepage() {
   useEffect(() => {
     setTutorialSeen(tutorialState);
     
-    if (!tutorialState && !isDialogOpen) {
+    if (!tutorialState && !isDialogOpen && !isCheckingTutorialState) {
       setIsDialogOpen(true);
     }
-  }, [tutorialState, isDialogOpen]);
+  }, [tutorialState, isDialogOpen, isCheckingTutorialState]);
 
   //MENSAGENS DO TUTORIAL
   const handleContinue = () => {
@@ -68,7 +70,13 @@ export default function Homepage() {
   useEffect(() => {
     if (currentUser) {
       //Vai saber se já viu tutorial
-      CheckHasSeenTutorialScript();
+      CheckHasSeenTutorialScript().then((boolean) => {
+        //Se já viu tutorial
+        setIsCheckingTutorialState(boolean);
+      })
+      .catch((boolean) => {
+        setIsCheckingTutorialState(boolean);
+      });
       //Vai buscar o username
       goGetUsername(currentUser.uid);
       //Redefine o estado do tutorial
