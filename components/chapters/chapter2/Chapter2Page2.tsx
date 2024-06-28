@@ -60,8 +60,8 @@ export default function Chapter2Page2() {
         >
           <div className="h-full flex flex-col justify-center items-center p-10 text-white ">
             <p className="font-medium mb-4 select-none">
-              A <span className="italic text-secondary">Bauhaus</span> foi das
-              maiores influências da história no Design, transformando a
+              A <span className="italic text-secondary">Bauhaus</span>uma das
+              escolas mais influentes na história do Design, transformando a
               perceção da sociedade quanto à arte através da sua integração das
               artes plásticas com o artesanato.
             </p>
@@ -116,7 +116,7 @@ export default function Chapter2Page2() {
               <Environment preset="sunset" />
             </Suspense>
           </Canvas>
-          
+
           {/* <Link href="/chapters/chapter2/3">Temp go to next</Link> */}
         </motion.div>
         <div className="h-full col-span-1"></div>

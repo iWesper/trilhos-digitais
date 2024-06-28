@@ -202,7 +202,7 @@ export default function Homepage() {
       </div>
       {/* Comboio */}
       <motion.div
-        className="absolute w-screen h-screen"
+        className="absolute w-screen h-screen z-[2]"
         draggable="false"
         initial={{ x: 300, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}

@@ -26,7 +26,6 @@ export default function Chapter1Page1() {
         >
           <Button asChild className="text-white bg-primary hover:bg-hover-primary">
             <Link href="/chapters/chapter1/2">
-              Continuar
               <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
             </Link>
           </Button>

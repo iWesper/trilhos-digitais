@@ -270,7 +270,7 @@ export default function Chapter2Page3() {
               <DialogContent>
                 <DialogHeader>
                   <DialogTitle>
-                    Exatamente! Esse é o fruto mais aparente para utilizar com
+                    Exatamente! Esse é o fruto mais indicado para utilizar com
                     este objeto. Muito bem!
                   </DialogTitle>
                   <DialogDescription>Vamos continuar?</DialogDescription>
