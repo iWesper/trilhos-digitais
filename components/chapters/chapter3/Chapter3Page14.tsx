@@ -148,7 +148,7 @@ export default function Chapter3Page14() {
                 type="button"
                 value="Perceção da Mensagem no Espaço e no Tempo"
                 onClick={handleFormSubmit}
-                className=" me-3 p-6 text-wrap text-white bg-[#142839] hover:bg-hover max-w-full"
+                className=" me-3 py-6 px-8 text-wrap text-white bg-[#142839] hover:bg-hover max-w-full"
               >
                 Perceção da Mensagem no Espaço e no Tempo
               </Button>
@@ -203,7 +203,7 @@ export default function Chapter3Page14() {
                 type="button"
                 value="Tempo de Espera para Receber a Mensagem no Espaço"
                 onClick={handleFormSubmit}
-                className=" me-3 p-6 text-wrap text-white bg-[#142839] hover:bg-hover max-w-full"
+                className=" me-3 py-6 px-8 text-wrap text-white bg-[#142839] hover:bg-hover max-w-full"
               >
                 Tempo para Receber a Mensagem no Espaço
               </Button>
