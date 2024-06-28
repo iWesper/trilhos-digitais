@@ -74,14 +74,14 @@ export default function Chapter1Page3() {
           className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 "
         >
           <p className="font-medium mb-10 select-none">
-            Segundo <span className="italic">Wagner</span>, com a queda de
+            Segundo <span className="italic text-primary">Wagner</span>, com a queda de
             Atenas, as artes fragmentaram-se, separando a palavra, a música e a
             dança, e este defendia que para restaurar a harmonia na arte, estas
             artes deveriam ser unidas novamente, nascendo assim o conceito de{" "}
-            <span className="italic">Gesamtkunstwerk</span>, ou “Obra Total”.
+            <span className="italic text-primary">Gesamtkunstwerk</span>, ou “Obra Total”.
           </p>
           <p className="font-medium mb-10 select-none">
-            Agora, vamos ver como <span className="italic">Wagner</span> colocou
+            Agora, vamos ver como <span className="italic text-primary">Wagner</span> colocou
             o seu conceito em prática? Interage com o palco que te é mostrado e
             vê a sua criação ganhar vida!
           </p>
