@@ -58,7 +58,7 @@ export default function Chapter4Page2() {
     setIsSliderDisabled(true);
 
     //ENABLE SLIDER
-    setTimeout(() => setIsSliderDisabled(false), 3000);
+    setTimeout(() => setIsSliderDisabled(false), 1500);
   },300);
 
   //COMPONENTE QUE VAI DAR RENDER
