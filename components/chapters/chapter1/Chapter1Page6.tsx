@@ -48,7 +48,7 @@ export default function Chapter1Page6() {
         >
           <p className="font-medium mb-10">
             O cinema é considerado a 7ª Arte, e a evolução do conceito de{" "}
-            <span className="italic">Wagner</span>, pois utiliza a síntese de
+            <span className="italic text-primary">Wagner</span>, pois utiliza a síntese de
             várias artes que o precedem como da arquitetura, da escultura, da
             música ou da dança, para criar uma experiência única e emotiva que
             permite o espectador reviver momentos, reais ou fictícios.

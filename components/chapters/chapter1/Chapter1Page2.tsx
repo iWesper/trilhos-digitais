@@ -55,8 +55,8 @@ export default function Chapter1Page2() {
             <p className="font-medium mb-10">
               A arte sempre foi pensada como uma peça singular. Um quadro, uma
               escultura, uma composição. No entanto, esta visão mudou com{" "}
-              <span className="italic">Richard Wagner</span> e a sua criação, a{" "}
-              <span className="italic">Gesamtkunstwerk</span>.
+              <span className="italic text-primary">Richard Wagner</span> e a sua criação, a{" "}
+              <span className="italic text-primary">Gesamtkunstwerk</span>.
             </p>
             <motion.div
               whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
