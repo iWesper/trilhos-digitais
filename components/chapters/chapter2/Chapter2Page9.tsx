@@ -326,6 +326,10 @@ export default function Chapter2Page9() {
     setProgressSave(true);
   };
 
+  // Tooltip
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
+
   return (
     <>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center p-4">
@@ -449,11 +453,14 @@ export default function Chapter2Page9() {
           )}
           <div className="fixed bottom-5 left-5">
             <TooltipProvider delayDuration={0}>
-              <Tooltip>
-                <TooltipTrigger className="cursor-help">
-                  <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
+              <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
+                <TooltipTrigger className="cursor-help" onClick={toggleTooltip}>
+                  <MdQuestionMark className="text-white h-10 w-10 justify-start items-start" />
                 </TooltipTrigger>
-                <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
+                <TooltipContent
+                  className="bg-[#142839] border-none shadow-none text-white"
+                  sideOffset={5}
+                >
                   <p>{Tip}</p>
                 </TooltipContent>
               </Tooltip>

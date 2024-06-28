@@ -88,6 +88,8 @@ export default function Chapter1Page5() {
     //PODE IR GUARDAR
     setProgressSave(true);
   };
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
 
   return (
     <>
@@ -212,11 +214,14 @@ export default function Chapter1Page5() {
         <div className="col-span-2"></div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider delayDuration={0}>
-            <Tooltip>
-              <TooltipTrigger className="cursor-help">
-                <MdQuestionMark className="text-black h-10 w-10 justify-start items-start " />
+            <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
+              <TooltipTrigger className="cursor-help" onClick={toggleTooltip}>
+                <MdQuestionMark className="text-black h-10 w-10 justify-start items-start" />
               </TooltipTrigger>
-              <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
+              <TooltipContent
+                className="bg-[#142839] border-none shadow-none text-white"
+                sideOffset={5}
+              >
                 <p>{Tip}</p>
               </TooltipContent>
             </Tooltip>

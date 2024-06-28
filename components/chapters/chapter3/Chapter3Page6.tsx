@@ -243,6 +243,9 @@ export default function Chapter3Page6() {
     // Abre o dialog
     setIsDialogOpen(true);
   };
+  // Tooltip
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
 
   return (
     <>
@@ -400,16 +403,23 @@ export default function Chapter3Page6() {
           )}
 
           {isCorrect !== null && isCorrect === true && (
-            <Dialog open={isDialogOpen} onOpenChange={() => setIsDialogOpen(!isDialogOpen)}>
-               <DialogTrigger>
+            <Dialog
+              open={isDialogOpen}
+              onOpenChange={() => setIsDialogOpen(!isDialogOpen)}
+            >
+              <DialogTrigger>
                 <Button className=" text-white ms-5 bg-[#142839] hover:bg-hover">
                   Continuar
                 </Button>
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
-                  <DialogTitle className="pb-4">É isso, conseguiste!</DialogTitle>
-                  <DialogDescription className="py-4">Vamos continuar?</DialogDescription>
+                  <DialogTitle className="pb-4">
+                    É isso, conseguiste!
+                  </DialogTitle>
+                  <DialogDescription className="py-4">
+                    Vamos continuar?
+                  </DialogDescription>
                   <Button onClick={SaveBadgeProgressAndGoToNextPage}>
                     Sim
                   </Button>
@@ -423,11 +433,14 @@ export default function Chapter3Page6() {
 
       <div className="fixed bottom-5 left-5">
         <TooltipProvider delayDuration={0}>
-          <Tooltip>
-            <TooltipTrigger className="cursor-help">
+          <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
+            <TooltipTrigger className="cursor-help" onClick={toggleTooltip}>
               <MdQuestionMark className="text-white h-10 w-10 justify-start items-start" />
             </TooltipTrigger>
-            <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
+            <TooltipContent
+              className="bg-[#142839] border-none shadow-none text-white"
+              sideOffset={5}
+            >
               <p>{Tip}</p>
             </TooltipContent>
           </Tooltip>

@@ -4,7 +4,7 @@ import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
-import { debounce } from 'lodash';
+import { debounce } from "lodash";
 import { Slider } from "@/components/ui/slider";
 import { MdQuestionMark } from "react-icons/md";
 import {
@@ -40,8 +40,7 @@ export default function Chapter4Page2() {
   }, []);
 
   //GUARDAR A MUDANÇA DO VALOR DO SLIDER
-  const handleSlideChange =  debounce((e: number[]) => {
-
+  const handleSlideChange = debounce((e: number[]) => {
     //MEXER NO SLIDER
     const newSlide = Number(e[0]);
 
@@ -59,7 +58,7 @@ export default function Chapter4Page2() {
 
     //ENABLE SLIDER
     setTimeout(() => setIsSliderDisabled(false), 1500);
-  },300);
+  }, 300);
 
   //COMPONENTE QUE VAI DAR RENDER
   let RenderComponent;
@@ -86,6 +85,10 @@ export default function Chapter4Page2() {
       RenderComponent = <Slide4 />;
       break;
   }
+
+  // Tooltip
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
 
   return (
     <>
@@ -120,32 +123,37 @@ export default function Chapter4Page2() {
       </div>
       <div className="fixed bottom-5 left-5">
         <TooltipProvider delayDuration={0}>
-          <Tooltip>
-            <TooltipTrigger className="cursor-help">
-              <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
+          <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
+            <TooltipTrigger className="cursor-help" onClick={toggleTooltip}>
+              <MdQuestionMark className="text-white h-10 w-10 justify-start items-start" />
             </TooltipTrigger>
-            <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
+            <TooltipContent
+              className="bg-[#142839] border-none shadow-none text-white"
+              sideOffset={5}
+            >
               <p>{Tip}</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </div>
       <motion.div
-          className="w-[50vh] fixed bottom-[20%] left-[50%] transform translate-x-[-50%]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <Slider
-            className="w-full"
-            max={4}
-            min={0}
-            step={1}
-            defaultValue={[0]}
-            onValueChange={(e) => {handleSlideChange(e)}}
-            disabled={isSliderDisabled}
-          />
-        </motion.div>
+        className="w-[50vh] fixed bottom-[20%] left-[50%] transform translate-x-[-50%]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <Slider
+          className="w-full"
+          max={4}
+          min={0}
+          step={1}
+          defaultValue={[0]}
+          onValueChange={(e) => {
+            handleSlideChange(e);
+          }}
+          disabled={isSliderDisabled}
+        />
+      </motion.div>
     </>
   );
 }

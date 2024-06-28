@@ -29,6 +29,7 @@ export default function Chapter1Page3() {
   // Estados relativos ao 3D
   const [text3DIsHovered, setText3DIsHovered] = useState(false);
   const [modelIsHovered, setModelIsHovered] = useState(false);
+  const [tooltipOpen, setTooltipOpen] = useState(false);
 
   const handleText3DClick = () => {
     setProgressSave(true);
@@ -56,6 +57,8 @@ export default function Chapter1Page3() {
   const Tip =
     "Parece que o palco esconde um segredo escondido algures, perguntamo-nos onde…";
 
+  const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
+
   return (
     <>
       <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12">
@@ -74,23 +77,26 @@ export default function Chapter1Page3() {
           className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 "
         >
           <p className="font-medium mb-10 select-none">
-            Segundo <span className="italic text-primary">Wagner</span>, com a queda de
-            Atenas, as artes fragmentaram-se, separando a palavra, a música e a
-            dança, e este defendia que para restaurar a harmonia na arte, estas
-            artes deveriam ser unidas novamente, nascendo assim o conceito de{" "}
-            <span className="italic text-primary">Gesamtkunstwerk</span>, ou “Obra Total”.
+            Segundo <span className="italic text-primary">Wagner</span>, com a
+            queda de Atenas, as artes fragmentaram-se, separando a palavra, a
+            música e a dança, e este defendia que para restaurar a harmonia na
+            arte, estas artes deveriam ser unidas novamente, nascendo assim o
+            conceito de{" "}
+            <span className="italic text-primary">Gesamtkunstwerk</span>, ou
+            “Obra Total”.
           </p>
           <p className="font-medium mb-10 select-none">
-            Agora, vamos ver como <span className="italic text-primary">Wagner</span> colocou
-            o seu conceito em prática? Interage com o palco que te é mostrado e
-            vê a sua criação ganhar vida!
+            Agora, vamos ver como{" "}
+            <span className="italic text-primary">Wagner</span> colocou o seu
+            conceito em prática? Interage com o palco que te é mostrado e vê a
+            sua criação ganhar vida!
           </p>
         </motion.div>
         <div className="col-span-1"></div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5}}
+          transition={{ duration: 1, delay: 0.5 }}
           className="col-span-4 flex justify-center items-center"
         >
           <Canvas>
@@ -102,14 +108,23 @@ export default function Chapter1Page3() {
                 enablePan={false}
               />
               {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
-              <Center
-                position={[0, 1.5, 0]}
-                onPointerEnter={(event) => (
-                  event.stopPropagation(), setText3DIsHovered(true)
-                )}
-                onPointerLeave={() => setText3DIsHovered(false)}
-                onClick={handleText3DClick}
-              >
+              <Center position={[0, 1.5, 0]}>
+                <mesh
+                  onPointerEnter={(event) => (
+                    event.stopPropagation(), setText3DIsHovered(true)
+                  )}
+                  onPointerLeave={() => setText3DIsHovered(false)}
+                  onClick={handleText3DClick}
+                  position={[1.8, 0.15, 0.025]}
+                  scale={[3.7, 0.5, 1.1]}
+                >
+                  <boxGeometry attach="geometry" args={[1, 1, 0.1]} />
+                  <meshBasicMaterial
+                    attach="material"
+                    transparent
+                    opacity={0}
+                  />
+                </mesh>
                 <Text3D
                   size={0.3}
                   font={"/fonts/Effra_Regular.json"}
@@ -133,16 +148,18 @@ export default function Chapter1Page3() {
               <Environment preset="sunset" />
             </Suspense>
           </Canvas>
-          
         </motion.div>
         <div className="col-span-1"></div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider delayDuration={0}>
-            <Tooltip>
-              <TooltipTrigger className="cursor-help">
-                <MdQuestionMark className="text-black h-10 w-10 justify-start items-start " />
+            <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
+              <TooltipTrigger className="cursor-help" onClick={toggleTooltip}>
+                <MdQuestionMark className="text-black h-10 w-10 justify-start items-start" />
               </TooltipTrigger>
-              <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
+              <TooltipContent
+                className="bg-[#142839] border-none shadow-none text-white"
+                sideOffset={5}
+              >
                 <p>{Tip}</p>
               </TooltipContent>
             </Tooltip>

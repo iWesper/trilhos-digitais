@@ -109,6 +109,10 @@ export default function Chapter3Page14() {
     console.log("Guardado");
   };
 
+  // Tooltip
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
+
   return (
     <>
       <div className="bg-chapter3BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12">
@@ -159,9 +163,13 @@ export default function Chapter3Page14() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className={`col-span-4 flex flex-col justify-start items-center ${showButton ? 'mt-28' : ''}`}
+          className={`col-span-4 flex flex-col justify-start items-center ${
+            showButton ? "mt-28" : ""
+          }`}
         >
-          {resposta && <p className="text-white text-center pb-4">{resposta}</p>}
+          {resposta && (
+            <p className="text-white text-center pb-4">{resposta}</p>
+          )}
           <Image
             src="/img/chapter3/chapter3instax.svg"
             alt="Imagem de uma foto instantânea"
@@ -213,11 +221,14 @@ export default function Chapter3Page14() {
         <div className="col-span-1"></div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider delayDuration={0}>
-            <Tooltip>
-              <TooltipTrigger className="cursor-help">
-                <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
+            <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
+              <TooltipTrigger className="cursor-help" onClick={toggleTooltip}>
+                <MdQuestionMark className="text-white h-10 w-10 justify-start items-start" />
               </TooltipTrigger>
-              <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
+              <TooltipContent
+                className="bg-[#142839] border-none shadow-none text-white"
+                sideOffset={5}
+              >
                 <p>{Tip}</p>
               </TooltipContent>
             </Tooltip>

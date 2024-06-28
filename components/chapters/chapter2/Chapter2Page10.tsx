@@ -365,101 +365,104 @@ export default function Chapter2Page10() {
 
     return (
       <>
-      <div
-        ref={dropRef}
-        className="cursor-pointer w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
-      >
-        {board.map((picture, index) => {
-        return (
-          <motion.div
-          key={picture.id}
-          initial={{ y: 0 }}
-          animate={{ y: index * 100 }}
-          transition={{ duration: 0.5 }}
-          whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-          >
-          <PicturePhones
-            url={picture.url}
-            id={picture.id}
-            onDragStart={handleDragStart}
-            board={board}
-          />
-          </motion.div>
-        );
-        })}
-      </div>
-      <div
-        ref={dropRef2}
-        className="cursor-pointer w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
-      >
-        {board2.map((picture, index) => {
-        return (
-          <motion.div
-          key={picture.id}
-          initial={{ y: 0 }}
-          animate={{ y: index * 100 }}
-          transition={{ duration: 0.5 }}
-          whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-          >
-          <PicturePhones
-            url={picture.url}
-            id={picture.id}
-            onDragStart={handleDragStart}
-            board={board2}
-          />
-          </motion.div>
-        );
-        })}
-      </div>
-      <div
-        ref={dropRef3}
-        className="cursor-pointer w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
-      >
-        {board3.map((picture, index) => {
-        return (
-          <motion.div
-          key={picture.id}
-          initial={{ y: 0 }}
-          animate={{ y: index * 100 }}
-          transition={{ duration: 0.5 }}
-          whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-          >
-          <PicturePhones
-            url={picture.url}
-            id={picture.id}
-            onDragStart={handleDragStart}
-            board={board3}
-          />
-          </motion.div>
-        );
-        })}
-      </div>
-      <div
-        ref={dropRef4}
-        className="cursor-pointer w-full h-full flex justify-center items-center  rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
-      >
-        {board4.map((picture, index) => {
-        return (
-          <motion.div
-          key={picture.id}
-          initial={{ y: 0 }}
-          animate={{ y: index * 100 }}
-          transition={{ duration: 0.5 }}
-          whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-          >
-          <PicturePhones
-            url={picture.url}
-            id={picture.id}
-            onDragStart={handleDragStart}
-            board={board4}
-          />
-          </motion.div>
-        );
-        })}
-      </div>
+        <div
+          ref={dropRef}
+          className="cursor-pointer w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
+        >
+          {board.map((picture, index) => {
+            return (
+              <motion.div
+                key={picture.id}
+                initial={{ y: 0 }}
+                animate={{ y: index * 100 }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+              >
+                <PicturePhones
+                  url={picture.url}
+                  id={picture.id}
+                  onDragStart={handleDragStart}
+                  board={board}
+                />
+              </motion.div>
+            );
+          })}
+        </div>
+        <div
+          ref={dropRef2}
+          className="cursor-pointer w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
+        >
+          {board2.map((picture, index) => {
+            return (
+              <motion.div
+                key={picture.id}
+                initial={{ y: 0 }}
+                animate={{ y: index * 100 }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+              >
+                <PicturePhones
+                  url={picture.url}
+                  id={picture.id}
+                  onDragStart={handleDragStart}
+                  board={board2}
+                />
+              </motion.div>
+            );
+          })}
+        </div>
+        <div
+          ref={dropRef3}
+          className="cursor-pointer w-full h-full flex justify-center items-center rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
+        >
+          {board3.map((picture, index) => {
+            return (
+              <motion.div
+                key={picture.id}
+                initial={{ y: 0 }}
+                animate={{ y: index * 100 }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+              >
+                <PicturePhones
+                  url={picture.url}
+                  id={picture.id}
+                  onDragStart={handleDragStart}
+                  board={board3}
+                />
+              </motion.div>
+            );
+          })}
+        </div>
+        <div
+          ref={dropRef4}
+          className="cursor-pointer w-full h-full flex justify-center items-center  rounded-xl backdrop-blur-sm bg-gray-800 bg-opacity-80 col-span-2"
+        >
+          {board4.map((picture, index) => {
+            return (
+              <motion.div
+                key={picture.id}
+                initial={{ y: 0 }}
+                animate={{ y: index * 100 }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+              >
+                <PicturePhones
+                  url={picture.url}
+                  id={picture.id}
+                  onDragStart={handleDragStart}
+                  board={board4}
+                />
+              </motion.div>
+            );
+          })}
+        </div>
       </>
     );
   }
+  // Tooltip
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
 
   return (
     <DndProvider backend={HTML5Backend}>
@@ -515,11 +518,14 @@ export default function Chapter2Page10() {
 
         <div className="fixed bottom-5 left-5">
           <TooltipProvider delayDuration={0}>
-            <Tooltip>
-              <TooltipTrigger className="cursor-help">
-                <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
+            <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
+              <TooltipTrigger className="cursor-help" onClick={toggleTooltip}>
+                <MdQuestionMark className="text-white h-10 w-10 justify-start items-start" />
               </TooltipTrigger>
-              <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
+              <TooltipContent
+                className="bg-[#142839] border-none shadow-none text-white"
+                sideOffset={5}
+              >
                 <p>{Tip}</p>
               </TooltipContent>
             </Tooltip>

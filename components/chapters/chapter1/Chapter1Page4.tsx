@@ -64,9 +64,9 @@ export default function Chapter1Page4() {
           className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 "
         >
           <p className="font-medium mb-10 select-none">
-            <span className="italic text-primary">Wagner</span> implementou uma “fossa de
-            orquestra” em palcos de teatro, reintroduzindo harmonia às peças
-            neles tocadas através da música ao vivo, unindo todos estes
+            <span className="italic text-primary">Wagner</span> implementou uma
+            “fossa de orquestra” em palcos de teatro, reintroduzindo harmonia às
+            peças neles tocadas através da música ao vivo, unindo todos estes
             elementos numa única obra, dando ao espectador uma experiência e
             sensação única.
           </p>
@@ -87,14 +87,23 @@ export default function Chapter1Page4() {
                 enablePan={false}
               />
               {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
-              <Center
-                position={[0, 2, 0]}
-                onPointerEnter={(event) => (
-                  event.stopPropagation(), setText3DIsHovered(true)
-                )}
-                onPointerLeave={() => setText3DIsHovered(false)}
-                onClick={handleText3DClick}
-              >
+              <Center position={[0, 2, 0]}>
+                <mesh
+                  onPointerEnter={(event) => (
+                    event.stopPropagation(), setText3DIsHovered(true)
+                  )}
+                  onPointerLeave={() => setText3DIsHovered(false)}
+                  onClick={handleText3DClick}
+                  position={[1.8, 1.1275, 0.025]}
+                  scale={[3.7, 0.5, 1.1]}
+                >
+                  <boxGeometry attach="geometry" args={[1, 1, 0.1]} />
+                  <meshBasicMaterial
+                    attach="material"
+                    transparent
+                    opacity={0}
+                  />
+                </mesh>
                 <Text3D
                   position={[0, 1, 0]}
                   size={0.3}
@@ -119,7 +128,6 @@ export default function Chapter1Page4() {
               <Environment preset="sunset" />
             </Suspense>
           </Canvas>
-          
         </motion.div>
         <div className="col-span-1"></div>
       </div>

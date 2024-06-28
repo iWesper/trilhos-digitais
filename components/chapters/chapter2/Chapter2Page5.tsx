@@ -257,6 +257,9 @@ export default function Chapter2Page5() {
     //PODE IR GUARDAR
     setProgressSave(true);
   };
+  // Tooltip
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
 
   return (
     <DndProvider backend={HTML5Backend}>
@@ -370,11 +373,14 @@ export default function Chapter2Page5() {
         </div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider delayDuration={0}>
-            <Tooltip>
-              <TooltipTrigger className="cursor-help">
-                <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
+            <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
+              <TooltipTrigger className="cursor-help" onClick={toggleTooltip}>
+                <MdQuestionMark className="text-white h-10 w-10 justify-start items-start" />
               </TooltipTrigger>
-              <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
+              <TooltipContent
+                className="bg-[#142839] border-none shadow-none text-white"
+                sideOffset={5}
+              >
                 <p>{Tip}</p>
               </TooltipContent>
             </Tooltip>

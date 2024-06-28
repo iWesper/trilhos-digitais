@@ -67,6 +67,9 @@ export default function Chapter3Page13() {
       setResposta("Não me parece ser a modalidade certa, anda tenta de novo.");
     }
   };
+  // Tooltip
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
 
   return (
     <>
@@ -100,7 +103,9 @@ export default function Chapter3Page13() {
           transition={{ duration: 1 }}
           className="col-span-4 flex flex-col justify-end items-center"
         >
-          {resposta && <p className="text-white text-center text-sm">{resposta}</p>}
+          {resposta && (
+            <p className="text-white text-center text-sm">{resposta}</p>
+          )}
           <Image
             src="/img/chapter3/chapter3folhear.svg"
             alt="Imagem de um livro"
@@ -180,11 +185,14 @@ export default function Chapter3Page13() {
         </motion.div>
         <div className="fixed bottom-5 left-5">
           <TooltipProvider delayDuration={0}>
-            <Tooltip>
-              <TooltipTrigger className="cursor-help">
-                <MdQuestionMark className="text-white h-10 w-10 justify-start items-start " />
+            <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
+              <TooltipTrigger className="cursor-help" onClick={toggleTooltip}>
+                <MdQuestionMark className="text-white h-10 w-10 justify-start items-start" />
               </TooltipTrigger>
-              <TooltipContent className="bg-[#142839] border-none shadow-none text-white">
+              <TooltipContent
+                className="bg-[#142839] border-none shadow-none text-white"
+                sideOffset={5}
+              >
                 <p>{Tip}</p>
               </TooltipContent>
             </Tooltip>
