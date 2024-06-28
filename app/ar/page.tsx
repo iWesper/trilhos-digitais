@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Environment, OrbitControls, useGLTF } from "@react-three/drei";
+import { Environment, OrbitControls } from "@react-three/drei";
 import { ARButton, XR } from "@react-three/xr";
 import Bauhaus from "@/public/models/bauhaus/Bauhaus";
 
@@ -20,7 +20,7 @@ export default function ARPage() {
       <Canvas>
         <XR>
           <OrbitControls autoRotate={true} autoRotateSpeed={0.5} />
-          <Bauhaus />
+          <Bauhaus scale={0.1}/>
           <Environment preset="sunset" />
         </XR>
       </Canvas>
