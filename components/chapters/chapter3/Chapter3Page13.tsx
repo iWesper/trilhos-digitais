@@ -83,7 +83,7 @@ export default function Chapter3Page13() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="flex items-end justify-center col-span-8 mt-12"
+          className="flex items-end justify-center col-span-8 mt-10 pt-20"
         >
           <p className="font-bold text-white text-center">
             Qual modalidade que se refere a como os{" "}

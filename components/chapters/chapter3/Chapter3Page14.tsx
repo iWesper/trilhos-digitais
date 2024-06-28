@@ -203,7 +203,7 @@ export default function Chapter3Page14() {
                 type="button"
                 value="Tempo de Espera para Receber a Mensagem no Espaço"
                 onClick={handleFormSubmit}
-                className=" me-3 p-6 text-white text-wrap bg-[#142839] hover:bg-hover max-w-full"
+                className=" me-3 p-6 text-wrap text-white bg-[#142839] hover:bg-hover max-w-full"
               >
                 Tempo para Receber a Mensagem no Espaço
               </Button>

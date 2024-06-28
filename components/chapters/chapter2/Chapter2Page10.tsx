@@ -472,7 +472,7 @@ export default function Chapter2Page10() {
           <span>Voltar</span>
         </Link>
         <div className="col-span-2"></div>
-        <div className="col-span-8 flex justify-start items-center text-center flex-col mt-10">
+        <div className="col-span-8 flex justify-start items-center text-center flex-col mt-10 pt-20">
           <p className="text-white font-medium pb-8">{PContent}</p>
         </div>
         <div className="col-span-2"></div>
