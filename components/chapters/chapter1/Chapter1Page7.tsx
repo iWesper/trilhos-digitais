@@ -36,7 +36,7 @@ export default function Chapter1Page7() {
       setClickCount((prevCount) => prevCount + 1);
     } else {
       //ROUTER PARA 8
-      router.push("/chapters/chapter2/1");
+      router.push("/");
     }
   };
 

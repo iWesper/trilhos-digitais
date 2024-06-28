@@ -67,7 +67,7 @@ export default function Chapter3Page15() {
             className="group"
           >
             <Button asChild className="text-white bg-[#142839] hover:bg-hover">
-              <Link href="/chapters/chapter4/1">
+              <Link href="/">
                 Continuar
                 <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
               </Link>

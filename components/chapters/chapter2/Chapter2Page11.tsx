@@ -51,7 +51,7 @@ export default function Chapter2Page11() {
               asChild
               className="text-white bg-primary hover:bg-hover-primary"
             >
-              <Link href="/chapters/chapter3/1">
+              <Link href="/">
                 Continuar
                 <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
               </Link>
