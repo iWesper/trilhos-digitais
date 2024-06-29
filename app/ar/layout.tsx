@@ -27,7 +27,7 @@ export default function ARLayout({
   // Verifica se o utilizador está autenticado
   useEffect(() => {
     if (!isLoading) {
-      if (currentUser === null && isMobile()) {
+      if (currentUser === null && !isMobile()) {
         setIsCheckingAuth(false);
         router.push("/authentication");
       } else {
