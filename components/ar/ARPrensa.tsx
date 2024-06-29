@@ -51,7 +51,7 @@ const handleInteraction = () => {
       if (animationAction.isRunning() && !animationAction.paused) {
         animationAction.paused = true; // Pausar a animação se estiver a correr
       } else {
-        animationAction.reset().play(); // Play the animation if it's not running or paused
+        animationAction.reset().play(); // Iniciar a animação se não estiver a correr ou pausada
       }
     }
   } else {
