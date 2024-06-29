@@ -38,7 +38,7 @@ export default function Chapter4Page1() {
           >
             <Button asChild className="text-white bg-[#142839] hover:bg-hover">
               <Link href="/chapters/chapter3/2">
-                Continuar
+                Começar
                 <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
               </Link>
             </Button>

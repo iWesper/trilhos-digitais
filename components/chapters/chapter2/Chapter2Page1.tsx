@@ -51,7 +51,7 @@ export default function Chapter2Page1() {
               className="text-white bg-primary hover:bg-hover-primary"
             >
               <Link href="/chapters/chapter2/2">
-                Continuar
+                Começar
                 <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
               </Link>
             </Button>
