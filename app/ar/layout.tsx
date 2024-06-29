@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import Lottie from "lottie-react";
 import animationData from "@/public/animations/loading_animation.json";
+import { is } from "@react-three/fiber/dist/declarations/src/core/utils";
 
 export default function ARLayout({
   children,
@@ -18,10 +19,15 @@ export default function ARLayout({
 
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
+  function isMobile() {
+    const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
+  }
+
   // Verifica se o utilizador está autenticado
   useEffect(() => {
     if (!isLoading) {
-      if (currentUser === null) {
+      if (currentUser === null && isMobile()) {
         setIsCheckingAuth(false);
         router.push("/authentication");
       } else {
