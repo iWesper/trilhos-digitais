@@ -111,7 +111,7 @@ export default function Chapter1Page5() {
           <div>
             <h3 className="text-black text-center mb-5">
               Este conceito tornou-se o novo{" "}
-              <span className="italic">standard</span> no teatro e,
+              <span className="italic text-tertiary">standard</span> no teatro e,
               naturalmente, evoluiu para aquela que hoje é conhecida como a 7ª
               arte
             </h3>
