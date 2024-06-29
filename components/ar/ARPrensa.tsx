@@ -25,8 +25,7 @@ export default function ARPage() {
     <div className="w-screen h-screen">
       <Canvas>
         <XR referenceSpace="local">
-          <OrbitControls autoRotate={true} autoRotateSpeed={0.5} />
-          <PrensaAR scale={0.03} position={[0.125, -1, -1]} />
+          <PrensaAR scale={0.0275} position={[0.125, -0.8, -1.25]} />
           <Environment preset="sunset" />
         </XR>
       </Canvas>
