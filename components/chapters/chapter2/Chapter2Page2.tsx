@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
@@ -45,6 +45,13 @@ export default function Chapter2Page2() {
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
 
+  // Mudar o cursor quando o Texto 3D está hovered
+  useEffect(
+    () =>
+      void (document.body.style.cursor = text3DIsHovered ? "pointer" : "auto"),
+    [text3DIsHovered]
+  );
+
   return (
     <>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1">
@@ -64,7 +71,7 @@ export default function Chapter2Page2() {
         >
           <div className="h-full flex flex-col justify-center items-center p-10 text-white ">
             <p className="font-medium mb-4 select-none">
-              A <span className="italic text-secondary">Bauhaus</span>uma das
+              A <span className="italic text-secondary">Bauhaus</span> é uma das
               escolas mais influentes na história do Design, transformando a
               perceção da sociedade quanto à arte através da sua integração das
               artes plásticas com o artesanato.

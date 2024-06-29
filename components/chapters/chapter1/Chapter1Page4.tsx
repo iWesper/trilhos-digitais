@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
@@ -45,6 +45,13 @@ export default function Chapter1Page4() {
     reset: true, // If the tilt effect has to be reset on exit.
     easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
   };
+
+  // Mudar o cursor quando o Texto 3D está hovered
+  useEffect(
+    () =>
+      void (document.body.style.cursor = text3DIsHovered ? "pointer" : "auto"),
+    [text3DIsHovered]
+  );
 
   return (
     <>

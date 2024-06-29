@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { MdQuestionMark } from "react-icons/md";
@@ -58,6 +58,13 @@ export default function Chapter1Page3() {
     "Parece que o palco esconde um segredo escondido algures, perguntamo-nos onde…";
 
   const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
+
+  // Mudar o cursor quando o Texto 3D está hovered
+  useEffect(
+    () =>
+      void (document.body.style.cursor = text3DIsHovered ? "pointer" : "auto"),
+    [text3DIsHovered]
+  );
 
   return (
     <>

@@ -4,21 +4,46 @@ Command: npx gltfjsx@6.2.18 bauhaus.glb --transform
 Files: bauhaus.glb [263.74KB] > C:\Users\luisp\OneDrive\Ambiente de Trabalho\ProjFinal\trilhos-digitais\public\models\bauhaus\bauhaus-transformed.glb [13.12KB] (95%)
 */
 
-import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import React, { useRef, useEffect, useState } from "react";
+import { useGLTF, useAnimations } from "@react-three/drei";
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF('/models/bauhaus/bauhaus-transformed.glb')
+  const { nodes, materials, animations } = useGLTF(
+    "/models/bauhaus/bauhaus-transformed.glb"
+  );
+  const { ref, actions, names } = useAnimations(animations);
+  // Hover and animation-index states
+  const [hovered, setHovered] = useState(false);
+  const [index, setIndex] = useState(4);
 
+  // // Change animation when the index changes
+  // useEffect(() => {
+  //   // Reset and fade in animation after an index has been changed
+  //   actions[names[index]].reset().fadeIn(0.5).play();
+  //   // In the clean-up phase, fade it out
+  //   return () => actions[names[index]].fadeOut(0.5);
+  // }, [index, actions, names]);
 
   return (
-    <group {...props} dispose={null}>
-      <group position={[0, 0, 0]} scale={[0.097, 0.702, 0.097]}>
-        <mesh geometry={nodes.Cube027.geometry} material={materials.PaletteMaterial002} />
-        <mesh geometry={nodes.Cube027_1.geometry} material={materials.PaletteMaterial001} />
+    <group ref={ref} {...props} dispose={null}>
+      <group
+        position={[0, 0, 0]}
+        scale={[0.097, 0.702, 0.097]}
+        onPointerOver={() => setHovered(true)}
+        onPointerOut={() => setHovered(false)}
+        onClick={() => setIndex((index + 1) % names.length)}
+      >
+        <mesh
+          geometry={nodes.Cube027.geometry}
+          material={materials.PaletteMaterial002}
+        />
+        <mesh
+          geometry={nodes.Cube027_1.geometry}
+          material={materials.PaletteMaterial001}
+        />
       </group>
     </group>
-  )
+  );
 }
 
-useGLTF.preload('/models/bauhaus/bauhaus-transformed.glb')
+useGLTF.preload("/models/bauhaus/bauhaus-transformed.glb");
