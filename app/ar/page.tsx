@@ -24,9 +24,9 @@ export default function ARPage() {
   return (
     <div className="w-screen h-screen">
       <Canvas>
-        <XR referenceSpace="local">
+        <XR referenceSpace="local-floor">
           <OrbitControls autoRotate={true} autoRotateSpeed={0.5} />
-          <PrensaAR scale={0.05} />
+          <PrensaAR scale={0.03} />
           <Environment preset="sunset" />
         </XR>
       </Canvas>
@@ -37,20 +37,20 @@ export default function ARPage() {
 
 function PrensaAR(props: any) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("/models/prensa/prensa-transformed.glb");
+  const { nodes, materials, animations } = useGLTF("/models/prensaAR/prensaAR-transformed.glb");
   const { actions } = useAnimations(animations, group);
 
-  // Define the interaction handler
+// Handler das interações
 const handleInteraction = () => {
-  // Retrieve all animation action names
+  // Ir buscar o nome das animações
   const actionNames = Object.keys(actions);
-  // Check if there is at least one animation action
+  // Verificar se existem animações
   if (actionNames.length > 0) {
     const firstActionName = actionNames[0];
     const animationAction = actions[firstActionName];
     if (animationAction) {
       if (animationAction.isRunning() && !animationAction.paused) {
-        animationAction.paused = true; // Pause the animation if it's running
+        animationAction.paused = true; // Pausar a animação se estiver a correr
       } else {
         animationAction.reset().play(); // Play the animation if it's not running or paused
       }
@@ -106,4 +106,4 @@ const handleInteraction = () => {
   );
 }
 
-useGLTF.preload("/models/prensa/prensa-transformed.glb");
+useGLTF.preload("/models/prensaAR/prensaAR-transformed.glb");
