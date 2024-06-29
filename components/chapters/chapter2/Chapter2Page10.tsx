@@ -112,8 +112,8 @@ export default function Chapter2Page10() {
   const [showContinuar, setshowContinuar] = useState<boolean>(false);
 
   //CONTENT
-  const [PContent, setPcontent] = useState<string>(
-    "Por fim, e resumindo o que aprendemos, podemos concluir que o design não segue apenas a função ou o significado, mas ambos! Para isso, vamos dar-te um minijogo baseado num objeto com o qual estamos super habituados: o telemóvel!"
+  const [PContent, setPcontent] = useState<JSX.Element>(
+    <>Por fim, e resumindo o que aprendemos, podemos concluir que o design não segue apenas a função ou o significado, mas ambos! Para isso, vamos dar-te um minijogo baseado num objeto com o qual estamos super habituados: o telemóvel!</>
   );
 
   //BADGE DO CAPÍTULO
@@ -273,7 +273,7 @@ export default function Chapter2Page10() {
       }
 
       setPcontent(
-        "O telemóvel é um objeto que sofreu enormes alterações no seu design ao longo do tempo, deixando de ser algo apenas funcional, mas com alguns, como o iPhone, tornando-se também um símbolo, representando perfeitamente aquele que é o pico do design, e como este segue tanto a função como o significado (Form Follows It All)."
+        <>O telemóvel é um objeto que sofreu enormes alterações no seu design ao longo do tempo, deixando de ser algo apenas funcional, mas com alguns, como o iPhone, tornando-se também um símbolo, representando perfeitamente aquele que é o pico do design, e como este segue tanto a função como o significado (<span className="italic text-secondary">Form Follows It All</span>).</>
       );
 
       setshowContinuar(true);

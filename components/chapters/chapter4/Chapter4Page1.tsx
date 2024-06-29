@@ -22,11 +22,11 @@ export default function Chapter4Page1() {
             Tecnologia
           </h1>
           <p className="mb-11 font-medium text-center mx-11 text-white">
-            Bem-vindo ao último dos quatro grandes pilares, a Tecnologia!
+            Bem-vindo ao último dos quatro grandes pilares, a <span className="text-primary">Tecnologia</span>!
           </p>
           <p className="mb-11 font-medium text-center mx-11 text-white">
             Neste, vais navegar de uma forma um pouco diferente. Procura o
-            slider no fundo do ecrã. Vais utilizá-lo para navegar
+            <span className="italic"> slider</span> no fundo do ecrã. Vais utilizá-lo para navegar
             cronologicamente pelo capítulo, explorando a história e evolução dos
             meios de comunicação.
           </p>

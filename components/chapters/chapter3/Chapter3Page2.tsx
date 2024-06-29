@@ -49,7 +49,7 @@ export default function Chapter3Page2() {
           <div className="h-full flex flex-col justify-center items-center p-10 ">
             <p className="font-medium mb-10 text-white">
               Para isto, vamos usar o exemplo do “
-              <span className="italic">The Godfather</span>”. Este clássico foi
+              <span className="italic text-foreground">The Godfather</span>”. Este clássico foi
               apresentado como um livro, filme e jogo, sempre com as mesmas
               personagens e história, mas cada um passando uma mensagem
               ligeiramente diferente.

@@ -57,7 +57,7 @@ export default function Chapter3Page4() {
         >
           <div className="h-full flex justify-center items-center mt-20">
             <p className="font-medium mb-10 text-white text-center">
-              O filme "<span className="italic">The Godfather"</span>" utiliza o
+              O filme "<span className="italic text-foreground">The Godfather"</span>" utiliza o
               ecrã como meio técnico de exposição, com imagens, sons e falas
               como meios básicos, e os meios classificados seriam longa-metragem
               e ficção policial. Se fosse um livro, esses aspectos formadores
