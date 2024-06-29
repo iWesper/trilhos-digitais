@@ -25,7 +25,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       description:
         "O fosso de orquestra foi uma das grandes inovações no mundo da arte, trazida por Richard Wagner, escondendo a orquestra por baixo do palco de teatro e longe da visão dos espectadores, estando assim mais próxima da Obra Total.",
       p2: "O primeiro grande passo em direção à obra total.",
-      qrUrl: "/img/qrcodes/arte.jpg",
+      qrUrl: "/img/qrcodes/arte.svg",
       modelId: <Wagner position={[0, 0, 0]} scale={0.06} />,
     },
     {
@@ -35,7 +35,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       description:
         "A Bauhaus foi uma escola de arquitetura e design que transformou a perceção da sociedade quanto à arte através da integração das artes plásticas com o artesanato.",
       p2: "Um verdadeiro marco na história do design.",
-      qrUrl: "/img/qrcodes/design.jpg",
+      qrUrl: "/img/qrcodes/design.svg",
       modelId: <Bauhaus position={[0, 0, 0]} scale={0.3} />,
     },
     {
@@ -45,7 +45,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       description:
         "Surgiram  novos meios de transmissão, como os filmes na TV e os videojogos. Para além de serem consumidos de maneiras diferentes, oferecem sensações diferentes, alterando a mensagem passada.",
       p2: 'Como disse McLuhan, "O meio é a mensagem".',
-      qrUrl: "/img/qrcodes/comunicacao.jpg",
+      qrUrl: "/img/qrcodes/comunicacao.svg",
       modelId: <Tv position={[0.5, 0, 0.5]} scale={1.3} />,
     },
     {
@@ -55,7 +55,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       description:
         "As tecnologias da comunicação evoluíram ao ponto desta se tornar ubíqua. A prensa é um símbolo dessa evolução, e de como o mais fácil acesso à informação se revelou um dos principais pilares da evolução da sociedade.",
       p2: "Um ponto de viragem para a educação e conhecimento.",
-      qrUrl: "/img/qrcodes/tecnologia.jpg",
+      qrUrl: "/img/qrcodes/tecnologia.svg",
       modelId: <Prensa position={[0, -1.5, 0]} scale={0.1} />,
     },
     // {
@@ -191,8 +191,7 @@ export default function BadgeDetails({ number }: { number: number }) {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1 }}
                 >
-                  <p className="text-decoration-underline">https://developer.vuforia.com/home</p>
-                  Segue este <span className="italic">link</span> e usa a <span className="italic">app</span> para uma surpresa!            
+                  Aponta o teu telemóvel!            
                 </motion.p>
               </motion.div>
             </motion.div>
