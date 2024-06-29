@@ -52,7 +52,7 @@ export default function Chapter3Page15() {
           <p className="text-white font-medium pb/10">
             Parece que percebeste como é que estes meios técnicos e modalidades
             são utilizadas para definir a especificidade dos{" "}
-            <span className="italic">media</span>, e deste modo como nos é
+            <span className="italic text-foreground">media</span>, e deste modo como nos é
             passada a mensagem, muito bem!
           </p>
           <p className="text-white font-medium pb-10">

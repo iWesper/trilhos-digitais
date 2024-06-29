@@ -265,7 +265,7 @@ export default function Chapter3Page6() {
           className="col-span-8 flex justify-start items-center text-center flex-col pt-20 text-sm lg:text-md"
         >
           <p className="text-white font-medium pt-6">
-            Vamos analisar o “<span className="italic">Spider-Man</span>”
+            Vamos analisar o “<span className="italic text-foreground">Spider-Man</span>”
             enquanto banda-desenhada, filme e jogo.
           </p>
           <p className="text-white font-medium pb-4">

@@ -45,8 +45,10 @@ export default function Chapter2Page9() {
 
   //ESTADO INICIAL DAS VARIÁVEIS A ESCREVER
   const [P1, setP1] =
-    useState<string>(`Para que possas verificar este conceito, montámos o seguinte showcase, onde vais poder ver como o design pode alterar o significado de algo, neste caso, a frase Hello there.
-`);
+    useState<JSX.Element>(
+      <>
+      Para que possas verificar este conceito, montámos o seguinte <span className="italic text-secondary">showcase</span>, onde vais poder ver como o design pode alterar o significado de algo, neste caso, a frase "<span className="italic text-secondary">Hello There</span>".
+      </>);
 
   const [P2, setP2] = useState<string>(
     `Altera o design e diz-nos que tipo de mensagem te transmite.`
@@ -124,7 +126,10 @@ export default function Chapter2Page9() {
       //MUDA O TEXTO
       //P1
       setP1(
-        "Para que possas verificar este conceito, montámos o seguinte showcase, onde vais poder ver como o design pode alterar o significado de algo, neste caso, a frase Hello there."
+        <>
+        Para que possas verificar este conceito, montámos o seguinte <span className="italic text-secondary">showcase</span>, onde vais poder ver como o design pode alterar o significado de algo, neste caso, a frase "<span className="italic text-secondary">Hello There</span>".
+        </>
+        
       );
 
       //P2
@@ -160,7 +165,10 @@ export default function Chapter2Page9() {
           case "Alegria": //PRIMEIRO CERTO
             //MUDA TEXTO DE CIMA
             setP1(
-              "Exatamente o que pensámos! Como pudeste ver, uma simples alteração de design consegue alterar o significado da frase."
+            <>
+            Exatamente o que pensámos! Como pudeste ver, uma simples alteração de design consegue alterar o significado da frase.
+            </>
+
             );
 
             //MUDA TEXTO DE BAIXO
@@ -177,8 +185,9 @@ export default function Chapter2Page9() {
           case "Paixão": //ERRADO NESTA RUN
             //MUDA TEXTO DE CIMA
             setP1(
-              "Parece-nos ser algo mais feliz, mas as sensações mudam de pessoa para pessoa! O que importa é que, como pudeste ver, uma simples alteração de design consegue alterar o significado da frase. ."
-            );
+              <>
+              Parece-nos ser algo mais feliz, mas as sensações mudam de pessoa para pessoa! O que importa é que, como pudeste ver, uma simples alteração de design consegue alterar o significado da frase.</>
+                         );
 
             //MUDA TEXTO DE BAIXO
             setP2("Que dizes tentarmos mudar o design de novo?");
@@ -191,8 +200,8 @@ export default function Chapter2Page9() {
           case "Calma": //ERRADO NESTA RUN
             //MUDA TEXTO DE CIMA
             setP1(
-              "Parece-nos ser algo mais feliz, mas as sensações mudam de pessoa para pessoa! O que importa é que, como pudeste ver, uma simples alteração de design consegue alterar o significado da frase. ."
-            );
+<>
+Parece-nos ser algo mais feliz, mas as sensações mudam de pessoa para pessoa! O que importa é que, como pudeste ver, uma simples alteração de design consegue alterar o significado da frase.</>            );
 
             //MUDA TEXTO DE BAIXO
             setP2("Que dizes tentarmos mudar o design de novo?");
@@ -212,8 +221,8 @@ export default function Chapter2Page9() {
           case "Alegria": //ERRADO NESTA RUN
             //MUDA TEXTO DE CIMA
             setP1(
-              "Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pessoa! O que importa é que, como pudeste ver, uma simples alteração de design consegue alterar o significado da frase. ."
-            );
+<>
+Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pessoa! O que importa é que, como pudeste ver, uma simples alteração de design consegue alterar o significado da frase.</>            );
 
             //MUDA TEXTO DE BAIXO
             setP2("Que dizes tentarmos mudar o design de novo?");
@@ -227,7 +236,7 @@ export default function Chapter2Page9() {
           case "Paixão": //CERTO NESTA RUN
             //MUDA TEXTO DE CIMA
             setP1(
-              "Exatamente o que pensámos! Como pudeste ver, uma simples alteração de design consegue alterar o significado da frase."
+              <>Exatamente o que pensámos! Como pudeste ver, uma simples alteração de design consegue alterar o significado da frase.</>
             );
 
             //MUDA TEXTO DE BAIXO
@@ -244,8 +253,10 @@ export default function Chapter2Page9() {
           case "Calma": //ERRADO NESTA RUN
             //MUDA TEXTO DE CIMA
             setP1(
-              "Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pessoa! O que importa é que, como pudeste ver, uma simples alteração de design consegue alterar o significado da frase. ."
-            );
+<>
+<>
+              Parece-nos ser algo mais feliz, mas as sensações mudam de pessoa para pessoa! O que importa é que, como pudeste ver, uma simples alteração de design consegue alterar o significado da frase.</>
+</>           );
 
             //MUDA TEXTO DE BAIXO
             setP2("Que dizes tentarmos mudar o design de novo?");
@@ -264,7 +275,7 @@ export default function Chapter2Page9() {
         switch (buttonValue) {
           case "Alegria": //ERRADO NESTA RUN
             //MUDA TEXTO DE CIMA
-            setP1("Algo mais calmo talvez, mas de facto diferente!");
+            setP1(<>Algo mais calmo talvez, mas de facto diferente!</>);
 
             //MUDA TEXTO DE BAIXO
             setP2(
@@ -279,7 +290,7 @@ export default function Chapter2Page9() {
 
           case "Paixão": //ERRADO NESTA RUN
             //MUDA TEXTO DE CIMA
-            setP1("Algo mais calmo talvez, mas de facto diferente!");
+            setP1(<>Algo mais calmo talvez, mas de facto diferente!</>);
 
             //MUDA TEXTO DE BAIXO
             setP2(
@@ -294,7 +305,7 @@ export default function Chapter2Page9() {
           case "Calma": //CERTO NESTA RUN
             //MUDA TEXTO DE CIMA
             setP1(
-              "Exatamente o que pensámos! Como pudeste ver, uma simples alteração de design consegue alterar o significado da frase."
+              <>Exatamente o que pensámos! Como pudeste ver, uma simples alteração de design consegue alterar o significado da frase.</>
             );
 
             //MUDA TEXTO DE BAIXO
@@ -305,7 +316,7 @@ export default function Chapter2Page9() {
 
             //VOLTA A APARECER BOTÃO DE ALTERAR
             setP1(
-              "O design de algo pode mudar imensamente a mensagem e sentimento que transmite (Form Follows Meaning), devendo ser algo pensado e desenhado para qualquer objeto ou peça, realçando o significado que queremos."
+              <>O design de algo pode mudar imensamente a mensagem e sentimento que transmite (<span className="italic text-secondary">Form Follows Meaning</span>), devendo ser algo pensado e desenhado para qualquer objeto ou peça, realçando o significado que queremos.</>
             );
             setP2(
               "Agora, que me dizes de explorarmos o último conceito? Anda daí!"

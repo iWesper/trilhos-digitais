@@ -65,7 +65,7 @@ export default function Chapter3Page10() {
             <p className="font-medium mb-10 text-white">
               As modalidades espaciotemporais, sendo a forma como percebemos a
               mensagem no espaço e tempo, por exemplo, enquanto numa foto temos
-              um único <span className="italic">frame</span> para ler a
+              um único <span className="italic text-foreground">frame</span> para ler a
               mensagem, mas num filme de 15s já temos mais contexto.
             </p>
             <motion.div

@@ -33,8 +33,8 @@ export default function Chapter2Page8() {
         >
           <p className="text-white font-medium pb-10">
             Para que possas verificar este conceito, montámos o seguinte
-            showcase, onde vais poder ver como o design pode alterar o
-            significado de algo, neste caso, a frase “Hello there”.
+            <span className="italic text-secondary"> showcase</span>, onde vais poder ver como o design pode alterar o
+            significado de algo, neste caso, a frase “<span className="italic text-secondary">Hello There</span>”.
           </p>
           <p className="text-white font-medium pb-10">
             Altera o design e diz-nos que tipo de mensagem te transmite.

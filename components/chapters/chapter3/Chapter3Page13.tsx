@@ -90,7 +90,7 @@ export default function Chapter3Page13() {
         >
           <p className="font-bold text-white text-center">
             Qual modalidade que se refere a como os{" "}
-            <span className="italic">media</span> interagem com os nossos orgãos
+            <span className="italic text-foreground">media</span> interagem com os nossos orgãos
             como os olhos, ouvidos, entre outros?
           </p>
         </motion.div>

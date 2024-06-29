@@ -29,7 +29,7 @@ export default function Chapter4Page1() {
           <p className="mb-11 font-medium text-center mx-11 text-white">
             Enquanto um indivíduo pode querer passar uma mensagem específica,
             este deve escolher o meio que utiliza para o fazer com algum cuidado
-            pois, como dizia <span className="italic">Marshall McLuhan</span>, O
+            pois, como dizia <span className="italic text-foreground">Marshall McLuhan</span>, O
             Meio É A Mensagem!
           </p>
           <motion.div

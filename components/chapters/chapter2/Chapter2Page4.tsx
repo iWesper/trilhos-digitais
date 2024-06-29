@@ -53,7 +53,7 @@ export default function Chapter2Page4() {
             <p className="mb-10 font-medium text-white">
               Fascinante como algo tão distinto pode ter uma finalidade tão
               simples, mostrando perfeitamente como a forma do mesmo segue a sua
-              função (<span className="italic">Form Follows Function</span>).
+              função (<span className="italic text-secondary">Form Follows Function</span>).
             </p>
             <p className="mb-10 font-medium text-white text-center">
               Vamos a outro exemplo?

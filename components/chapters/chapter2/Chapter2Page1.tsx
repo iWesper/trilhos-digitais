@@ -27,7 +27,7 @@ export default function Chapter2Page1() {
             Design
           </h1>
           <p className="mb-7 text-white font-medium">
-            Vamos ao segundo pilar, o Design.
+            Vamos ao segundo pilar, o <span className="text-secondary">Design</span>.
           </p>
           <p className=" text-white mx-8 mb-5 font-medium text-center">
             Podemos considerar o Design como estando entre a arte e a
@@ -37,7 +37,7 @@ export default function Chapter2Page1() {
           </p>
 
           <p className=" text-white mb-6 mx-8 font-medium">
-            Exatamente, vamos até à <span className="italic">Bauhaus</span>!
+            Exatamente, vamos até à <span className="italic text-secondary">Bauhaus</span>!
           </p>
           <motion.div
             initial={{ opacity: 0 }}

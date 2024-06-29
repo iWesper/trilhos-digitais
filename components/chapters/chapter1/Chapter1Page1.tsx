@@ -18,7 +18,7 @@ export default function Chapter1Page1() {
       <div className="bg-chapter1StartBG  h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover flex flex-col items-center justify-center">
         <h1 className="font-bold text-black text-9xl mb-11 font-effra">Arte</h1>
         <p className="mb-11 font-medium">
-          A nossa primeira paragem é no primeiro dos Quatro Pilares, a Arte.
+          A nossa primeira paragem é no primeiro dos Quatro Pilares, a <span className=" text-tertiary">Arte</span>.
         </p>
         <motion.div
           whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
