@@ -24,7 +24,7 @@ export default function ARPage() {
     <div className="w-screen h-screen">
       <Canvas>
         <XR referenceSpace="local">
-          <BauhausAR scale={0.0225} position={[0, -0.15, -1.35]} rotation={[0,0,0]}/>
+          <BauhausAR scale={0.0225} position={[0.35, -0.15, 0]} rotation={[0,-2.65,0]}/>
           <Environment preset="sunset" />
         </XR>
       </Canvas>
