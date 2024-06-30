@@ -47,31 +47,23 @@ pnpm dev
 ### JavaScript Libraries
 - **[React](https://reactjs.org/)**
 - **[React DOM](https://reactjs.org/docs/react-dom.html)**
-- **[React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)**
 - **[Three.js](https://threejs.org/)**
+- **[React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)**
+- **[React Three Drei](https://github.com/pmndrs/drei)**
+- **[React Three XR](https://github.com/pmndrs/react-xr)**
 - **[Framer Motion](https://www.framer.com/motion/)**
-- **[Framer Motion 3D](https://www.npmjs.com/package/framer-motion-3d)**
 - **[Lodash](https://lodash.com/)**
 - **[React Icons](https://react-icons.github.io/react-icons/)**
 - **[Lucide React](https://lucide.dev/docs/lucide-react)**
 - **[Clsx](https://www.npmjs.com/package/clsx)**
 
-### UI Componentes UI and Design
-- **[shadcn/ui](https://ui.shadcn.com/) / [Radix UI](https://www.radix-ui.com/)**:
-  - `@radix-ui/react-dialog`
-  - `@radix-ui/react-label`
-  - `@radix-ui/react-progress`
-  - `@radix-ui/react-slider`
-  - `@radix-ui/react-slot`
-  - `@radix-ui/react-toast`
-  - `@radix-ui/react-tooltip`
+### UI and Design
+- **[shadcn/ui](https://ui.shadcn.com/)([Radix UI](https://www.radix-ui.com/))**:
 - **[React-Icons](https://react-icons.github.io/react-icons/)**
 - **[Heroicons](https://heroicons.com/)**
 - **[Embla Carousel React](https://www.embla-carousel.com/)**
 - **[Lottie React](https://lottiereact.com/)**
 - **[Tailwind CSS](https://tailwindcss.com/)**:
-  - `tailwind-merge`
-  - `tailwindcss-animate`
 
 ### Backend Services
 - **[Firebase](https://firebase.google.com/)**
@@ -81,7 +73,6 @@ pnpm dev
 
 ### Development tools
 - **[ESLint](https://eslint.org/)**:
-  - `eslint-config-next`
 - **[TypeScript](https://www.typescriptlang.org/)**
 
 ### Others
