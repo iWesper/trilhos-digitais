@@ -1,142 +1,43 @@
-
-# Trilhos Digitais
-
-Uma experiência interativa pela História da Multimédia construída com Next.js.
-
-
-
-## Produto
-
-https://trilhosdigitais.vercel.app/
-
-## Deploy
-
-Para fazer o deploy deste projeto:
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-
-## Funcionalidades
-
-- Interação com modelos 3D
-- Visualização de modelos 3D em AR
-- Apresentação de conteúdo em capítulos
-- Minijogos e Quizzes
-- Autenticação
-- Registo automático de progressão
-- Sistema de conquistas
-
-
-## Stack utilizada
-
-### Framework Frontend 
-- **[Next.js](https://nextjs.org/)**
-
-### Bibliotecas JavaScript
-- **[React](https://reactjs.org/)**
-- **[React DOM](https://reactjs.org/docs/react-dom.html)**
-- **[React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)**
-- **[Three.js](https://threejs.org/)**
-- **[Framer Motion](https://www.framer.com/motion/)**
-- **[Framer Motion 3D](https://www.npmjs.com/package/framer-motion-3d)**
-- **[Lodash](https://lodash.com/)**
-- **[React Icons](https://react-icons.github.io/react-icons/)**
-- **[Lucide React](https://lucide.dev/docs/lucide-react)**
-- **[Clsx](https://www.npmjs.com/package/clsx)**
-
-### Componentes UI e Design
-- **[shadcn/ui](https://ui.shadcn.com/)**
-- **[Radix UI](https://www.radix-ui.com/)**:
-  - `@radix-ui/react-dialog`
-  - `@radix-ui/react-label`
-  - `@radix-ui/react-progress`
-  - `@radix-ui/react-slider`
-  - `@radix-ui/react-slot`
-  - `@radix-ui/react-toast`
-  - `@radix-ui/react-tooltip`
-- **[Heroicons](https://heroicons.com/)**
-- **[Embla Carousel React](https://www.embla-carousel.com/)**
-- **[Lottie React](https://lottiereact.com/)**
-- **[Tailwind CSS](https://tailwindcss.com/)**:
-  - `tailwind-merge`
-  - `tailwindcss-animate`
-
-### Serviços Backend
-- **[Firebase](https://firebase.google.com/)**
-
-### Utilidades
-- **[Class Variance Authority](https://www.npmjs.com/package/class-variance-authority)**
-
-### Ferramentas de Desenvolvimento
-- **[ESLint](https://eslint.org/)**:
-  - `eslint-config-next`
-- **[TypeScript](https://www.typescriptlang.org/)**
-
-### Outros
-- **[React DnD](https://react-dnd.github.io/react-dnd/about)**:
-  - `react-dnd`
-  - `react-dnd-html5-backend`
-- **[React Tilt](https://www.npmjs.com/package/react-tilt)**
-
-### Analytics e Desempenho
-- **[Vercel Analytics](https://vercel.com/docs/concepts/analytics/overview)**
-- **[Vercel Speed Insights](https://vercel.com/docs/concepts/speed-insights)**
-
-### Tipos
-- **Definição de tipos para TypeScript**:
-  - `@types/lodash`
-  - `@types/node`
-  - `@types/react-dom`
-  - `@types/react`
-  - `@types/three`
-
-
-## Autores
-
-- [@iWesper](https://github.com/iWesper)
-- [@T0masSousa](https://github.com/T0masSousa)
-___
-
 # Trilhos Digitais
 
 An interactive experience through the History of Multimedia built with Next.js.
 
 
-
 ## Product
 
-https://trilhosdigitais.vercel.app/
+Explore the project: [Trilhos Digitais](https://trilhosdigitais.vercel.app/)
+
+## Introduction
+"Trilhos Digitais" is an interactive educational experience exploring the History of Multimedia, created as our final project for the Bachelor's Degree in Multimedia and Communication Technologies at the University of Aveiro.
+
+
+**Disclaimer:**
+*Even though this README is written in English, the project itself is presented in European Portuguese (PT-PT).*
+
 
 ## Deploy
 
 To deploy this project:
 ```bash
+npm install
 npm run dev
-# or
+# or using yarn
+yarn
 yarn dev
-# or
+# or using pnpm
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
 
 ## Features
 
-- Interaction with 3D models
-- Visualization of 3D models in AR
-- Presentation of content in chapters
-- Minigames and Quizzes
-- Authentication
-- Automatic progression log
-- Achievement system
+- Interactive 3D model exploration
+- Augmented Reality with 3D models
+- Chapter-based progression through multimedia history
+- Engaging minigames and quizzes
+- User authentication and achievement system
+- Automatic progression logging
 
 ## Tech Stack
 
@@ -156,8 +57,7 @@ bun dev
 - **[Clsx](https://www.npmjs.com/package/clsx)**
 
 ### UI Componentes UI and Design
-- **[shadcn/ui](https://ui.shadcn.com/)**
-- **[Radix UI](https://www.radix-ui.com/)**:
+- **[shadcn/ui](https://ui.shadcn.com/) / [Radix UI](https://www.radix-ui.com/)**:
   - `@radix-ui/react-dialog`
   - `@radix-ui/react-label`
   - `@radix-ui/react-progress`
@@ -165,6 +65,7 @@ bun dev
   - `@radix-ui/react-slot`
   - `@radix-ui/react-toast`
   - `@radix-ui/react-tooltip`
+- **[React-Icons](https://react-icons.github.io/react-icons/)**
 - **[Heroicons](https://heroicons.com/)**
 - **[Embla Carousel React](https://www.embla-carousel.com/)**
 - **[Lottie React](https://lottiereact.com/)**
@@ -206,6 +107,7 @@ bun dev
 
 - [@iWesper](https://github.com/iWesper)
 - [@T0masSousa](https://github.com/T0masSousa)
+- [@simoH3945](https://github.com/simoH3945)
 
 
 
