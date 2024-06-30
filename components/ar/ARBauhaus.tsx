@@ -24,7 +24,7 @@ export default function ARPage() {
     <div className="w-screen h-screen">
       <Canvas>
         <XR referenceSpace="local">
-          <BauhausAR scale={0.025} position={[0.08, -0.15, 0.1]} rotation={[0,-3,0]}/>
+          <BauhausAR scale={0.0225} position={[0, -0.15, -1.35]} rotation={[0,0,0]}/>
           <Environment preset="sunset" />
         </XR>
       </Canvas>
@@ -44,15 +44,16 @@ const handleInteraction = () => {
   const actionNames = Object.keys(actions);
   // Verificar se existem animações
   if (actionNames.length > 0) {
-    const firstActionName = actionNames[0];
-    const animationAction = actions[firstActionName];
-    if (animationAction) {
-      if (animationAction.isRunning() && !animationAction.paused) {
-        animationAction.paused = true; // Pausar a animação se estiver a correr
-      } else {
-        animationAction.reset().play(); // Iniciar a animação se não estiver a correr ou pausada
+    actionNames.forEach((actionName) => {
+      const animationAction = actions[actionName];
+      if (animationAction) {
+        if (animationAction.isRunning() && !animationAction.paused) {
+          animationAction.paused = true; // Pausar a animação se estiver a correr
+        } else {
+          animationAction.reset().play(); // Iniciar a animação se não estiver a correr ou pausada
+        }
       }
-    }
+    });
   } else {
     return;
   }
