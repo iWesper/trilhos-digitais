@@ -138,7 +138,7 @@ bun dev
 - Automatic progression log
 - Achievement system
 
-## Tech Stach
+## Tech Stack
 
 ### Frontend Framework  
 - **[Next.js](https://nextjs.org/)**
