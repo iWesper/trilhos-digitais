@@ -24,8 +24,8 @@ export default function ARPage() {
     <div className="w-screen h-screen">
       <Canvas>
         <XR referenceSpace="local">
-          <WagnerAR scale={0.0195} position={[0, 0, -1.5]} />
-          <Environment preset="sunset" />
+          <WagnerAR scale={0.015} position={[0, 0, -1.5]} />
+          <Environment preset="sunset" environmentRotation={[0, -1, 0]} />
         </XR>
       </Canvas>
       <ARButton />
