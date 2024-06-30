@@ -114,7 +114,8 @@ export default function Chapter2Page10() {
   //CONTENT
   const [PContent, setPcontent] = useState<JSX.Element>(
     <>Por fim, e resumindo o que aprendemos, podemos concluir que o design não segue apenas a função ou o significado, mas ambos! Para isso, vamos dar-te um minijogo baseado num objeto com o qual estamos super habituados: o telemóvel!
-    Coloca-os na ordem correta do mais antigo para o mais recente.</>
+    <p>Coloca-os na ordem correta do mais antigo para o mais recente.</p>
+    </>
   );
 
   //BADGE DO CAPÍTULO
