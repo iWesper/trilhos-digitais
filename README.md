@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Trilhos Digitais
 
-## Getting Started
+An interactive experience through the History of Multimedia built with Next.js.
 
-First, run the development server:
 
+## Product
+
+Explore the project: [Trilhos Digitais](https://trilhosdigitais.vercel.app/)
+
+## Introduction
+"Trilhos Digitais" is an interactive educational experience exploring the History of Multimedia, created as our final project for the Bachelor's Degree in Multimedia and Communication Technologies at the University of Aveiro.
+
+
+**Disclaimer:**
+*Even though this README is written in English, the project itself is presented in European Portuguese (PT-PT).*
+
+
+## Deploy
+
+To deploy this project:
 ```bash
+npm install
 npm run dev
-# or
+# or using yarn
+yarn
 yarn dev
-# or
+# or using pnpm
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Interactive 3D model exploration
+- Augmented Reality with 3D models
+- Chapter-based progression through multimedia history
+- Engaging minigames and quizzes
+- User authentication and achievement system
+- Automatic progression logging
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+### Frontend Framework  
+- **[Next.js](https://nextjs.org/)**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### JavaScript Libraries
+- **[React](https://reactjs.org/)**
+- **[React DOM](https://reactjs.org/docs/react-dom.html)**
+- **[React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)**
+- **[Three.js](https://threejs.org/)**
+- **[Framer Motion](https://www.framer.com/motion/)**
+- **[Framer Motion 3D](https://www.npmjs.com/package/framer-motion-3d)**
+- **[Lodash](https://lodash.com/)**
+- **[React Icons](https://react-icons.github.io/react-icons/)**
+- **[Lucide React](https://lucide.dev/docs/lucide-react)**
+- **[Clsx](https://www.npmjs.com/package/clsx)**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### UI Componentes UI and Design
+- **[shadcn/ui](https://ui.shadcn.com/) / [Radix UI](https://www.radix-ui.com/)**:
+  - `@radix-ui/react-dialog`
+  - `@radix-ui/react-label`
+  - `@radix-ui/react-progress`
+  - `@radix-ui/react-slider`
+  - `@radix-ui/react-slot`
+  - `@radix-ui/react-toast`
+  - `@radix-ui/react-tooltip`
+- **[React-Icons](https://react-icons.github.io/react-icons/)**
+- **[Heroicons](https://heroicons.com/)**
+- **[Embla Carousel React](https://www.embla-carousel.com/)**
+- **[Lottie React](https://lottiereact.com/)**
+- **[Tailwind CSS](https://tailwindcss.com/)**:
+  - `tailwind-merge`
+  - `tailwindcss-animate`
 
-## Deploy on Vercel
+### Backend Services
+- **[Firebase](https://firebase.google.com/)**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Utilities
+- **[Class Variance Authority](https://www.npmjs.com/package/class-variance-authority)**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Development tools
+- **[ESLint](https://eslint.org/)**:
+  - `eslint-config-next`
+- **[TypeScript](https://www.typescriptlang.org/)**
+
+### Others
+- **[React DnD](https://react-dnd.github.io/react-dnd/about)**:
+  - `react-dnd`
+  - `react-dnd-html5-backend`
+- **[React Tilt](https://www.npmjs.com/package/react-tilt)**
+
+### Analytics and Performance
+- **[Vercel Analytics](https://vercel.com/docs/concepts/analytics/overview)**
+- **[Vercel Speed Insights](https://vercel.com/docs/concepts/speed-insights)**
+
+### Types
+- **Type Definition for TypeScript**:
+  - `@types/lodash`
+  - `@types/node`
+  - `@types/react-dom`
+  - `@types/react`
+  - `@types/three`
+
+
+## Authors
+
+- [@iWesper](https://github.com/iWesper)
+- [@T0masSousa](https://github.com/T0masSousa)
+- [@simoH3945](https://github.com/simoH3945)
+
+
+
+
+
+
+
