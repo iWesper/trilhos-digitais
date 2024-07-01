@@ -63,7 +63,7 @@ export default function BadgeDetails({ number }: { number: number }) {
     //   id: 5,
     //   name: "Hipermédia",
     //   description:
-    //     "A Bauhaus foi uma escola de arquitetura e design que transformou a perceção da sociedade quanto à arte através da dus integração das artes plásticas com o artesanato.",
+    //     "A Bauhaus foi uma escola de arquitetura e design que transformou a perceção da sociedade quanto à arte através da integração das artes plásticas com o artesanato.",
     //   p2: "Um verdadeiro marco na história do design",
     //   qrUrl: "/img/qrcodes/hipermedia.svg",
     // },
@@ -72,7 +72,7 @@ export default function BadgeDetails({ number }: { number: number }) {
     //   id: 6,
     //   name: "Multiverso",
     //   description:
-    //     "A Bauhaus foi uma escola de arquitetura e design que transformou a perceção da sociedade quanto à arte através da dus integração das artes plásticas com o artesanato.",
+    //     "A Bauhaus foi uma escola de arquitetura e design que transformou a perceção da sociedade quanto à arte através da integração das artes plásticas com o artesanato.",
     //   p2: "Um verdadeiro marco na história do design",
     //   qrUrl: "/img/qrcodes/multiverso.svg",
     // },
@@ -81,7 +81,7 @@ export default function BadgeDetails({ number }: { number: number }) {
     //   id: 7,
     //   name: "Jogo",
     //   description:
-    //     "A Bauhaus foi uma escola de arquitetura e design que transformou a perceção da sociedade quanto à arte através da dus integração das artes plásticas com o artesanato.",
+    //     "A Bauhaus foi uma escola de arquitetura e design que transformou a perceção da sociedade quanto à arte através da integração das artes plásticas com o artesanato.",
     //   p2: "Um verdadeiro marco na história do design",
     //   qrUrl: "/img/qrcodes/jogo.svg",
     // },
@@ -90,7 +90,7 @@ export default function BadgeDetails({ number }: { number: number }) {
     //   id: 8,
     //   name: "Inteligência Artificial",
     //   description:
-    //     "A Bauhaus foi uma escola de arquitetura e design que transformou a perceção da sociedade quanto à arte através da dus integração das artes plásticas com o artesanato.",
+    //     "A Bauhaus foi uma escola de arquitetura e design que transformou a perceção da sociedade quanto à arte através da integração das artes plásticas com o artesanato.",
     //   p2: "Um verdadeiro marco na história do design",
     //   qrUrl: "/img/qrcodes/inteligencia_artificial.svg",
     // },
