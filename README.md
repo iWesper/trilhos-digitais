@@ -4,7 +4,7 @@ An interactive experience through the History of Multimedia built with Next.js.
 
 
 ## 🌐 Explore the project
->**The project is created for use in a desktop environment. Mobile is only advised for AR usage.**
+>**The project is created for use in a desktop environment. Mobile is only advised for AR usage (IOS not supported).**
 
 [Trilhos Digitais](https://trilhosdigitais.vercel.app/)
 
@@ -100,6 +100,7 @@ pnpm dev
 - [@iWesper](https://github.com/iWesper)
 - [@T0masSousa](https://github.com/T0masSousa)
 - [@simoH3945](https://github.com/simoH3945)
+- [@eva-martins](https://github.com/eva-martins)
 
 
 
