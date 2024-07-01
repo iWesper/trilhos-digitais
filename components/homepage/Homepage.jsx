@@ -180,12 +180,12 @@ export default function Homepage() {
             className="mt-4 flex flex-col items-center justify-center absolute lg:top-[80%] backdrop-filter p-4 bg-[#142839] rounded-xl backdrop-blur-md bg-opacity-80 z-[1]"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 5, duration: 1 }}
+            transition={{ delay: 10, duration: 1 }}
           >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 5.5, duration: 1 }}
+              transition={{ delay: 10.5, duration: 1 }}
             >
               <MdSwipe className="text-4xl text-white animate-swipe" />
             </motion.div>

@@ -21,7 +21,7 @@ const Slide0 = () => {
       <motion.div
         initial={{ opacity: 0, x: 1500 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
         className="grid grid-cols-12 grid-rows-1 gap-4 "
       >
         <div className="col-span-9 h-full">

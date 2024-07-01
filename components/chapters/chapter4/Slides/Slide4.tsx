@@ -26,7 +26,7 @@ const Slide4 = () => {
           className="col-span-9 h-full"
           initial={{ opacity: 0, x: 1500 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
         >
           <div className="h-full justify-center items-center flex flex-col">
             <p className="font-medium pt-8 text-white">
@@ -53,9 +53,9 @@ const Slide4 = () => {
         </motion.div>
         <motion.div
           className="h-full col-span-3 flex justify-center items-center"
-          initial={{ x: 100 }}
+          initial={{ x: 1500 }}
           animate={{ x: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
         >
           <Tilt options={defaultOptions}>
             <Image

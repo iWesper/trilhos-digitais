@@ -23,10 +23,10 @@ const Slide2 = () => {
   return (
     <>
       <motion.div
-        className="h-full grid grid-cols-6 grid-rows-1 gap-4 justify-center items-center"
+        className="h-full grid grid-cols-12 grid-rows-1 gap-4 justify-center items-center"
         initial={{ opacity: 0, x: 1500 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
       >
         <div className="col-span-6 h-full justify-center">
           <div className="h-full justify-center items-center flex">
@@ -38,36 +38,35 @@ const Slide2 = () => {
             </p>
           </div>
         </div>
-      </motion.div>
-      <motion.div
-        className="h-full w-full col-span-6 flex justify-center items-center"
-        initial={{ x: 100 }}
-        animate={{ x: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="h-full w-full justify-center items-center">
-          <Canvas className="w-full">
-            <Suspense fallback={null}>
-              <OrbitControls
-                autoRotate={modelIsHovered ? false : true}
-                autoRotateSpeed={0.2}
-                enableZoom={false}
-                enablePan={false}
-              />
-              {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
-              <Prensa
-                position={[0, -1, 0]}
-                scale={0.08}
-                onPointerEnter={(event: React.PointerEvent) => (
-                  event.stopPropagation(), setModelIsHovered(true)
-                )}
-                onPointerLeave={() => setModelIsHovered(false)}
-              />
-              <Environment preset="sunset" />
-            </Suspense>
-          </Canvas>
-          
-        </div>
+        <motion.div
+          className="h-full w-full col-span-6 flex justify-center items-center"
+          initial={{ x: 100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="h-full w-full justify-center items-center">
+            <Canvas className="w-full">
+              <Suspense fallback={null}>
+                <OrbitControls
+                  autoRotate={modelIsHovered ? false : true}
+                  autoRotateSpeed={0.2}
+                  enableZoom={false}
+                  enablePan={false}
+                />
+                {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
+                <Prensa
+                  position={[0, -1, 0]}
+                  scale={0.08}
+                  onPointerEnter={(event: React.PointerEvent) => (
+                    event.stopPropagation(), setModelIsHovered(true)
+                  )}
+                  onPointerLeave={() => setModelIsHovered(false)}
+                />
+                <Environment preset="sunset" />
+              </Suspense>
+            </Canvas>
+          </div>
+        </motion.div>
       </motion.div>
     </>
   );

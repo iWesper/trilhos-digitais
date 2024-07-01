@@ -24,8 +24,8 @@ export default function ARPage() {
     <div className="w-screen h-screen">
       <Canvas>
         <XR referenceSpace="local">
-          <WagnerAR scale={0.0195} position={[0, 0, -1.5]} />
-          <Environment preset="sunset" />
+          <WagnerAR scale={0.0125} position={[0, 0, -1.5]} />
+          <Environment preset="sunset" environmentRotation={[0, -1, 0]} />
         </XR>
       </Canvas>
       <ARButton />
@@ -66,66 +66,64 @@ const handleInteraction = () => {
 };
 
 return (
-    <Interactive onSelect={handleInteraction}>
-    <group ref={group} {...props} dispose={null}>
-        <group name="Scene">
-            <group name="WAGNER_comorquestra_1001" position={[3.704, -0.993, -6.205]} rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
-                <group name="Cube" position={[-489.464, -298.582, 1564.252]} rotation={[-1.57, 0, 0]} scale={[19.35, 4.588, 1.469]}>
-                    <mesh name="Scene003" geometry={(nodes.Scene003 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_1" geometry={(nodes.Scene003_1 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_2" geometry={(nodes.Scene003_2 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_3" geometry={(nodes.Scene003_3 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_4" geometry={(nodes.Scene003_4 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_5" geometry={(nodes.Scene003_5 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_6" geometry={(nodes.Scene003_6 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_7" geometry={(nodes.Scene003_7 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_8" geometry={(nodes.Scene003_8 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_9" geometry={(nodes.Scene003_9 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_10" geometry={(nodes.Scene003_10 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_11" geometry={(nodes.Scene003_11 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_12" geometry={(nodes.Scene003_12 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_13" geometry={(nodes.Scene003_13 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_14" geometry={(nodes.Scene003_14 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_15" geometry={(nodes.Scene003_15 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_16" geometry={(nodes.Scene003_16 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_17" geometry={(nodes.Scene003_17 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_18" geometry={(nodes.Scene003_18 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_19" geometry={(nodes.Scene003_19 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_20" geometry={(nodes.Scene003_20 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_21" geometry={(nodes.Scene003_21 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_22" geometry={(nodes.Scene003_22 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_23" geometry={(nodes.Scene003_23 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_24" geometry={(nodes.Scene003_24 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_25" geometry={(nodes.Scene003_25 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_26" geometry={(nodes.Scene003_26 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_27" geometry={(nodes.Scene003_27 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_28" geometry={(nodes.Scene003_28 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_29" geometry={(nodes.Scene003_29 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_30" geometry={(nodes.Scene003_30 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_31" geometry={(nodes.Scene003_31 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_32" geometry={(nodes.Scene003_32 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_33" geometry={(nodes.Scene003_33 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_34" geometry={(nodes.Scene003_34 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_35" geometry={(nodes.Scene003_35 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_36" geometry={(nodes.Scene003_36 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_37" geometry={(nodes.Scene003_37 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_38" geometry={(nodes.Scene003_38 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_39" geometry={(nodes.Scene003_39 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_40" geometry={(nodes.Scene003_40 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_41" geometry={(nodes.Scene003_41 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_42" geometry={(nodes.Scene003_42 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_43" geometry={(nodes.Scene003_43 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_44" geometry={(nodes.Scene003_44 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_45" geometry={(nodes.Scene003_45 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_46" geometry={(nodes.Scene003_46 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_47" geometry={(nodes.Scene003_47 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                    <mesh name="Scene003_48" geometry={(nodes.Scene003_48 as Mesh).geometry} material={materials.PaletteMaterial001} />
-                </group>
-            </group>
-            <mesh name="Cube_005" geometry={(nodes.Cube_005 as Mesh).geometry} material={materials.PaletteMaterial001} position={[-0.396, 0.607, 0.495]} scale={[0.007, 0.085, 0.085]} />
-        </group>
+  <Interactive onSelect={handleInteraction}>
+  <group ref={group} {...props} dispose={null}>
+    <group name="Scene">
+    <group name="Cube" position={[0, -22.669, -8.897]} scale={[19.35, 4.588, 1.469]}>
+      <mesh name="Cube_1" geometry={(nodes.Cube_1 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_2" geometry={(nodes.Cube_2 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_3" geometry={(nodes.Cube_3 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_4" geometry={(nodes.Cube_4 as any).geometry} material={materials.PaletteMaterial002} />
+      <mesh name="Cube_5" geometry={(nodes.Cube_5 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_6" geometry={(nodes.Cube_6 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_7" geometry={(nodes.Cube_7 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_8" geometry={(nodes.Cube_8 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_9" geometry={(nodes.Cube_9 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_10" geometry={(nodes.Cube_10 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_11" geometry={(nodes.Cube_11 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_12" geometry={(nodes.Cube_12 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_13" geometry={(nodes.Cube_13 as any).geometry} material={materials.PaletteMaterial004} />
+      <mesh name="Cube_14" geometry={(nodes.Cube_14 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_15" geometry={(nodes.Cube_15 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_16" geometry={(nodes.Cube_16 as any).geometry} material={materials.PaletteMaterial004} />
+      <mesh name="Cube_17" geometry={(nodes.Cube_17 as any).geometry} material={materials.PaletteMaterial004} />
+      <mesh name="Cube_18" geometry={(nodes.Cube_18 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_19" geometry={(nodes.Cube_19 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_20" geometry={(nodes.Cube_20 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_21" geometry={(nodes.Cube_21 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_22" geometry={(nodes.Cube_22 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_23" geometry={(nodes.Cube_23 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_24" geometry={(nodes.Cube_24 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_25" geometry={(nodes.Cube_25 as any).geometry} material={materials.PaletteMaterial004} />
+      <mesh name="Cube_26" geometry={(nodes.Cube_26 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_27" geometry={(nodes.Cube_27 as any).geometry} material={materials.PaletteMaterial004} />
+      <mesh name="Cube_28" geometry={(nodes.Cube_28 as any).geometry} material={materials.PaletteMaterial004} />
+      <mesh name="Cube_29" geometry={(nodes.Cube_29 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_30" geometry={(nodes.Cube_30 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_31" geometry={(nodes.Cube_31 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_32" geometry={(nodes.Cube_32 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_33" geometry={(nodes.Cube_33 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_34" geometry={(nodes.Cube_34 as any).geometry} material={materials.PaletteMaterial004} />
+      <mesh name="Cube_35" geometry={(nodes.Cube_35 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_36" geometry={(nodes.Cube_36 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_37" geometry={(nodes.Cube_37 as any).geometry} material={materials.PaletteMaterial004} />
+      <mesh name="Cube_38" geometry={(nodes.Cube_38 as any).geometry} material={materials.PaletteMaterial004} />
+      <mesh name="Cube_39" geometry={(nodes.Cube_39 as any).geometry} material={materials.PaletteMaterial003} />
+      <mesh name="Cube_40" geometry={(nodes.Cube_40 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_41" geometry={(nodes.Cube_41 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_42" geometry={(nodes.Cube_42 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_43" geometry={(nodes.Cube_43 as any).geometry} material={materials.PaletteMaterial001} />
+      <mesh name="Cube_44" geometry={(nodes.Cube_44 as any).geometry} material={materials['Textura_1.002']} />
+      <mesh name="Cube_45" geometry={(nodes.Cube_45 as any).geometry} material={materials['Textura_2.002']} />
+      <mesh name="Cube_46" geometry={(nodes.Cube_46 as any).geometry} material={materials['Textura_1.002']} />
+      <mesh name="Cube_47" geometry={(nodes.Cube_47 as any).geometry} material={materials['Textura_2.002']} />
+      <mesh name="Cube_48" geometry={(nodes.Cube_48 as any).geometry} material={materials['Textura_1.002']} />
+      <mesh name="Cube_49" geometry={(nodes.Cube_49 as any).geometry} material={materials['Textura_2.002']} />
     </group>
-    </Interactive>
+    <mesh name="Cube005" geometry={(nodes.Cube005 as any).geometry} material={materials.PaletteMaterial001} position={[0, -5.578, 0]} scale={[0.689, 8.46, 8.46]} />
+    </group>
+  </group>
+  </Interactive>
 );
 }
 

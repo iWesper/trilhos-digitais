@@ -22,13 +22,13 @@ const Slide3 = () => {
   };
   return (
     <>
-      <div className="h-full grid grid-cols-12 grid-rows-1 gap-4 justify-center items-center">
-        <motion.div
-          initial={{ opacity: 0, x: 1500 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          className="col-span-6 h-full justify-center"
-        >
+      <motion.div
+        initial={{ opacity: 0, x: 1500 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+        className="h-full grid grid-cols-12 grid-rows-1 gap-4 justify-center items-center"
+      >
+        <div className="col-span-6 h-full justify-center">
           <div className="h-full justify-center items-center flex flex-col">
             <p className="font-medium pt-8 text-white select-none">
               Esta facilitou a passagem de conhecimento, criando condições para
@@ -42,7 +42,7 @@ const Slide3 = () => {
               através da automatização, criando novas matérias e processos.
             </p>
           </div>
-        </motion.div>
+        </div>
         <div className="h-full w-full col-span-6 flex justify-center items-center">
           <div className="h-full w-full justify-center items-center flex">
             <Canvas>
@@ -65,10 +65,9 @@ const Slide3 = () => {
                 <Environment preset="sunset" />
               </Suspense>
             </Canvas>
-            
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
