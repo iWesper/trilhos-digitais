@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Environment,
@@ -11,6 +11,8 @@ import { ARButton, Interactive, XR } from "@react-three/xr";
 import { Mesh, LoopOnce } from "three";
 
 export default function ARPage() {
+  const [isARActive, setIsARActive] = useState(false);
+
   useEffect(() => {
     // Verificar se o browser suporta WebXR
     if (!navigator.xr) {
@@ -20,15 +22,24 @@ export default function ARPage() {
     }
   }, []);
 
+    // Ativar/desativar a AR
+    const toggleAR = () => {
+      setIsARActive(!isARActive);
+    };
+
   return (
     <div className="w-screen h-screen">
       <Canvas>
         <XR referenceSpace="local">
+        {isARActive && (
+            <>
           <WagnerAR scale={0.0125} position={[0, 0, -1.5]} />
           <Environment preset="sunset" environmentRotation={[0, -1, 0]} />
+          </>
+        )}
         </XR>
       </Canvas>
-      <ARButton />
+      <ARButton onClick={toggleAR} />
     </div>
   );
 }
