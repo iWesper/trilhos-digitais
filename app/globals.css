@@ -55,6 +55,8 @@
     --hover:206, 46%, 23%;
     --hover-foreground: 0 0% 98%;
     --hover-primary: 87, 60%, 55%;
+    --hover-secondary: 36, 98%, 60%;
+    --hover-tertiary: 282, 25%, 48%;
 
     --golden: 51, 100%, 50%;
     --golden-foreground: 0 0% 98%;

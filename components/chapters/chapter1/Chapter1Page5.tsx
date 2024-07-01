@@ -140,7 +140,7 @@ export default function Chapter1Page5() {
                 animate={{ opacity: 1 }}
                 transition={{ opacity: { duration: 1, delay: 1 } }}
                 whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-                className="cursor-pointer bg-tertiary hover:bg-hover-tertiary"
+                className="text-white cursor-pointer bg-tertiary hover:bg-hover-tertiary"
               >
                 Videojogos
               </motion.div>
@@ -154,7 +154,7 @@ export default function Chapter1Page5() {
                   asChild
                   type="button"
                   value="Cinema"
-                  className="w-full m-3 bg-tertiary hover:bg-hover-tertiary"
+                  className=" text-white w-full m-3 bg-tertiary hover:bg-hover-tertiary"
                   onClick={() => {
                     if (willShowToastState) {
                       toast({
@@ -203,7 +203,7 @@ export default function Chapter1Page5() {
                 animate={{ opacity: 1 }}
                 transition={{ opacity: { duration: 1, delay: 2 } }}
                 whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-                className="cursor-pointer bg-tertiary hover:bg-hover-tertiary"
+                className="text-white cursor-pointer bg-tertiary hover:bg-hover-tertiary"
               >
                 VR
               </motion.div>
