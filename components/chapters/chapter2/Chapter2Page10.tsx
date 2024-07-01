@@ -135,7 +135,7 @@ export default function Chapter2Page10() {
   }, []);
 
   //DICA
-  const Tip = "Arrasta os telemóveis para os ordenares.";
+  const Tip = "Arrasta os telemóveis entre as caixas onde estão para os ordenares.";
 
   const SaveBadgeProgressAndGoToNextPage = () => {
     //SAVE PROGRESS
