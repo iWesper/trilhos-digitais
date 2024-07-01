@@ -100,6 +100,7 @@ pnpm dev
 - [@iWesper](https://github.com/iWesper)
 - [@T0masSousa](https://github.com/T0masSousa)
 - [@simoH3945](https://github.com/simoH3945)
+- [@eva-martins](https://github.com/eva-martins)
 
 
 
