@@ -83,7 +83,8 @@ export default function Chapter3Page7() {
               />
               {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
               <Tv
-                rotation={[0, 0, 0]}
+                rotation={[0, -0.75, 0]}
+                position={[-0.25, 0, 0.5]}
                 scale={1}
                 onPointerEnter={(event: React.PointerEvent) => (
                   event.stopPropagation(), setModelIsHovered(true)

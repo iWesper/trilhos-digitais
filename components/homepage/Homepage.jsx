@@ -99,7 +99,7 @@ export default function Homepage() {
 
       "Presta atenção, pois a cada capítulo terás uma recompensa pela tua exploração na forma de um badge para desbloquear e mais tarde inspecionar! Sempre que estiveres numa situação em que podes desbloquear partes do badge, caso não percebas o que tens de fazer, ser-te-á dada uma pista.",
 
-      "Quando desbloqueares o badge, vais ser notificado no ícone situado no topo do teu ecrã, e caso queiras inspecionar os badges que já tens, ou verificar os que tens por desbloquear, basta clicares nesse ícone.",
+      "Quando desbloqueares o badge, vais ser notificado no ícone situado na lateral direita do teu ecrã, e caso queiras inspecionar os badges que já tens, ou verificar os que tens por desbloquear, basta clicares nesse ícone.",
 
       "Agora que sabes tudo sobre a tua viagem, estás pronto? Todos a bordo!",
     ]);
