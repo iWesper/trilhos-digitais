@@ -49,7 +49,7 @@ export default function Chapter2Page11() {
           >
             <Button
               asChild
-              className="text-white bg-primary hover:bg-hover-primary"
+              className="text-white bg-secondary hover:bg-hover-secondary"
             >
               <Link href="/">
                 Continuar

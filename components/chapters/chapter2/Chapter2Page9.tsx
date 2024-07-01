@@ -377,7 +377,7 @@ Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pess
                 animate={{ opacity: 1 }}
                 transition={{ opacity: { duration: 1, delay: 0.2 } }}
                 whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-                className="cursor-pointer"
+                className="cursor-pointer bg-secondary hover:bg-hover-secondary"
               >
                 Responder
               </motion.div>
@@ -396,7 +396,7 @@ Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pess
                 <Button
                   type="button"
                   value="Alegria"
-                  className="text-white"
+                  className="text-white bg-secondary hover:bg-hover-secondary"
                   onClick={handleFormButtonClick}
                 >
                   Alegria
@@ -413,7 +413,7 @@ Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pess
                 <Button
                   type="button"
                   value="Paixão"
-                  className="text-white"
+                  className="text-white bg-secondary hover:bg-hover-secondary"
                   onClick={handleFormButtonClick}
                 >
                   Paixão
@@ -429,7 +429,7 @@ Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pess
                 <Button
                   type="button"
                   value="Calma"
-                  className="text-white"
+                  className="text-white bg-secondary hover:bg-hover-secondary"
                   onClick={handleFormButtonClick}
                 >
                   Calma
@@ -445,7 +445,7 @@ Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pess
                   whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
                   className="group"
                 >
-                  <Button className="text-white">
+                  <Button className="text-white bg-secondary hover:bg-hover-secondary">
                     Continuar
                     <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
                   </Button>

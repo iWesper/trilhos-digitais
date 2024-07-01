@@ -24,7 +24,7 @@ export default function Chapter1Page1() {
           whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
           className="group"
         >
-          <Button asChild className="text-white bg-primary hover:bg-hover-primary">
+          <Button asChild className="text-white bg-tertiary hover:bg-hover-tertiary">
             <Link href="/chapters/chapter1/2">
               Começar
               <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />

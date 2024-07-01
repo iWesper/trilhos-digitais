@@ -305,7 +305,7 @@ export default function Chapter2Page5() {
               animate={{ opacity: 1 }}
               transition={{ opacity: { duration: 1, delay: 1 } }}
               whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-              className="cursor-pointer text-white"
+              className="cursor-pointer text-white bg-secondary hover:bg-hover-secondary"
             >
               Limpar Tentativa
             </motion.div>
@@ -352,7 +352,7 @@ export default function Chapter2Page5() {
                     animate={{ opacity: 1 }}
                     transition={{ opacity: { duration: 1, delay: 0.5 } }}
                     whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-                    className="group cursor-pointer text-white"
+                    className="group cursor-pointer text-white bg-secondary hover:bg-hover-secondary"
                   >
                     Continuar
                     <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />

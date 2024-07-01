@@ -504,7 +504,7 @@ export default function Chapter2Page10() {
             >
               <Button
                 asChild
-                className="text-white hover:bg-hover-primary"
+                className="text-white bg-secondary hover:bg-hover-secondary"
                 onClick={SaveBadgeProgressAndGoToNextPage}
               >
                 <Link href="/chapters/chapter2/11">

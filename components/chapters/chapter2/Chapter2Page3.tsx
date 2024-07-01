@@ -244,7 +244,7 @@ export default function Chapter2Page3() {
           {!showDialog && (
             <Button
               onClick={clearBoard}
-              className="text-white flex flex-row mt-4 mx-auto"
+              className="text-white bg-secondary hover:bg-hover-secondary flex flex-row mt-4 mx-auto"
             >
               Limpar Tentativa
             </Button>
@@ -259,7 +259,7 @@ export default function Chapter2Page3() {
           {showDialog && (
             <Dialog className="text-white flex flex-row mt-4 mx-auto">
               <DialogTrigger asChild>
-                <Button asChild className="text-white">
+                <Button asChild className="text-white bg-secondary hover:bg-hover-secondary">
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

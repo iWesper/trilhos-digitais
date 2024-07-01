@@ -64,7 +64,7 @@ export default function Chapter1Page7() {
               animate={{ opacity: 1 }}
               transition={{ opacity: { duration: 1, delay: 3 } }}
               whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-              className="group cursor-pointer text-white"
+              className="group cursor-pointer text-white bg-tertiary hover:bg-hover-tertiary"
             >
               Continuar
               <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />

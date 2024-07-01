@@ -64,7 +64,7 @@ export default function Chapter1Page2() {
             >
               <Button
                 asChild
-                className="text-white bg-primary hover:bg-hover-primary"
+                className="text-white bg-tertiary hover:bg-hover-tertiary"
               >
                 <Link href="/chapters/chapter1/3">
                   Continuar
