@@ -86,7 +86,7 @@ function TvAR(props: any) {
           geometry={(nodes.Cube as Mesh).geometry}
           material={new MeshStandardMaterial({ map: videoTexture })}
           position={[-0.508, -0.181, 0.058]}
-          scale={[1.009, 0.741, 0.07]}
+          scale={[0.9, 0.741, 0.07]}
         />
       </group>
     </Interactive>
