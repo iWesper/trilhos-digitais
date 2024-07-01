@@ -4,6 +4,7 @@ An interactive experience through the History of Multimedia built with Next.js.
 
 
 ## 🌐 Explore the project
+>**The project is created for use in a desktop environment. Mobile is only advised for AR usage.**
 
 [Trilhos Digitais](https://trilhosdigitais.vercel.app/)
 
