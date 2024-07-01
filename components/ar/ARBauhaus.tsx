@@ -30,8 +30,8 @@ export default function ARPage() {
           {isARActive && (
             <>
               <BauhausAR
-                scale={0.0225}
-                position={[0.35, -0.15, 0]}
+                scale={0.02}
+                position={[0, -0.15, -0.6]}
                 rotation={[0, -2.65, 0]}
               />
               <Environment preset="sunset" />
@@ -74,86 +74,19 @@ function BauhausAR(props: any) {
 
   return (
     <Interactive onSelect={handleInteraction}>
-      <group ref={group} {...props} dispose={null}>
-        <group name="Scene">
-          <group
-            name="Armature001"
-            position={[-33.686, 0.173, 34.246]}
-            rotation={[0, Math.PI / 2, 0]}
-          >
-            <primitive object={nodes.Bone} />
-          </group>
-          <group
-            name="Armature002"
-            position={[-27.67, 0.173, 41.248]}
-            rotation={[0, Math.PI / 2, 0]}
-          >
-            <primitive object={nodes.Bone_1} />
-          </group>
-          <group
-            name="Armature003"
-            position={[2.372, 0.727, 66.345]}
-            rotation={[Math.PI, 0, Math.PI]}
-          >
-            <primitive object={nodes.Bone_2} />
-          </group>
-          <group
-            name="Armature004"
-            position={[6.275, 0.173, 59.013]}
-            rotation={[Math.PI, 0, Math.PI]}
-          >
-            <primitive object={nodes.Bone_3} />
-          </group>
-          <group
-            name="Cube024"
-            position={[0, 0, 32.645]}
-            scale={[0.097, 0.702, 0.097]}
-          >
-            <mesh
-              name="Cube027"
-              geometry={(nodes.Cube027 as Mesh).geometry}
-              material={materials.PaletteMaterial002}
-            />
-            <mesh
-              name="Cube027_1"
-              geometry={(nodes.Cube027_1 as Mesh).geometry}
-              material={materials.PaletteMaterial001}
-            />
-          </group>
-          <skinnedMesh
-            name="Cube001"
-            geometry={(nodes.Cube001 as Mesh).geometry}
-            material={materials.PaletteMaterial001}
-            skeleton={(nodes.Cube001 as any).skeleton}
-            position={[-33.686, 0.173, 34.246]}
-            rotation={[0, Math.PI / 2, 0]}
-          />
-          <skinnedMesh
-            name="Cube002"
-            geometry={(nodes.Cube002 as Mesh).geometry}
-            material={materials.PaletteMaterial001}
-            skeleton={(nodes.Cube002 as any).skeleton}
-            position={[-27.67, 0.173, 41.248]}
-            rotation={[0, Math.PI / 2, 0]}
-          />
-          <skinnedMesh
-            name="Cube003"
-            geometry={(nodes.Cube003 as Mesh).geometry}
-            material={materials.PaletteMaterial001}
-            skeleton={(nodes.Cube003 as any).skeleton}
-            position={[2.372, 0.727, 66.345]}
-            rotation={[-Math.PI, 0, -Math.PI]}
-          />
-          <skinnedMesh
-            name="Cube004"
-            geometry={(nodes.Cube004 as Mesh).geometry}
-            material={materials.PaletteMaterial001}
-            skeleton={(nodes.Cube004 as any).skeleton}
-            position={[6.275, 0.173, 59.013]}
-            rotation={[-Math.PI, 0, -Math.PI]}
-          />
+    <group ref={group} {...props} dispose={null}>
+      <group name="Scene">
+        <group name="Cube024" scale={[0.097, 0.702, 0.097]}>
+          <mesh name="Cube027" geometry={(nodes.Cube027 as Mesh).geometry} material={materials.PaletteMaterial002} />
+          <mesh name="Cube027_1" geometry={(nodes.Cube027_1 as Mesh).geometry} material={materials.PaletteMaterial001} />
         </group>
+        <mesh name="Cone" geometry={(nodes.Cone as Mesh).geometry} material={materials.PaletteMaterial001} position={[0, 0.564, 0]} scale={0.068} />
+        <mesh name="Cone001" geometry={(nodes.Cone001 as Mesh).geometry} material={materials.PaletteMaterial001} position={[-6.273, 2.466, 0]} scale={0.068} />
+        <mesh name="Cube" geometry={(nodes.Cube as Mesh).geometry} material={materials.PaletteMaterial001} position={[-2.613, -0.696, -1.194]} rotation={[0.802, 0.662, 0]} scale={0.216} />
+        <mesh name="Cube001" geometry={(nodes.Cube001 as Mesh).geometry} material={materials.PaletteMaterial001} position={[4.092, 0.262, -1.194]} rotation={[0.802, 0.662, 0]} scale={0.216} />
+        <mesh name="Sphere" geometry={(nodes.Sphere as Mesh).geometry} material={materials.PaletteMaterial001} position={[-0.608, 0.274, 2.131]} scale={0.319} />
       </group>
+    </group>
     </Interactive>
   );
 }
