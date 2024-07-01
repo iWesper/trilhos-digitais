@@ -174,15 +174,15 @@ export default function BadgeDetails({ number }: { number: number }) {
               />
             </div>
             <motion.div
-              className="justify-center items-center backdrop-filter p-4 bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-80"
+              className="justify-center items-center backdrop-filter p-4 bg-[#142839] rounded-xl backdrop-blur-xl bg-opacity-80"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 5, duration: 1 }}
+              transition={{ duration: 1 }}
             >
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 10, duration: 1 }}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1 }}
               >
                 <BiQrScan className="text-4xl text-white mx-auto animate-scan" />
                 <motion.p
@@ -191,12 +191,12 @@ export default function BadgeDetails({ number }: { number: number }) {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1 }}
                 >
-                  Aponta o teu telemóvel!            
+                  Aponta o teu telemóvel Android!
                 </motion.p>
               </motion.div>
             </motion.div>
           </div>
-          <div className="col-span-4 justify-center items-center mt-16 backdrop-filter bg-gray-800 rounded-xl backdrop-blur-md bg-opacity-20">
+          <div className="col-span-4 justify-center items-center mt-16 backdrop-filter bg-[#142839] rounded-xl backdrop-blur-xl bg-opacity-80">
             <h1 className="font-bold text-center text-white text-4xl px-8 pb-8 pt-4">
               {defaultItems[BadgeIdToShow - 1].BadgeName}
             </h1>
