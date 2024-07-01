@@ -29,7 +29,7 @@ export default function ARPage() {
         <XR referenceSpace="local">
           {isARActive && (
             <>
-              <PrensaAR scale={0.0275} position={[0.125, -0.8, -1.25]} />
+              <PrensaAR scale={0.0275} position={[0.1, -0.8, -1.25]} rotation={[0, 0.5, 0]} />
               <Environment preset="sunset" />
             </>
           )}
