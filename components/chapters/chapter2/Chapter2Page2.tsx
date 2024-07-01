@@ -120,7 +120,7 @@ export default function Chapter2Page2() {
                 >
                   {`Bauhaus >`}
                   <meshStandardMaterial
-                    color={text3DIsHovered ? "orange" : "hsl(0, 0%, 98%)"}
+                    color={text3DIsHovered ? "hsl(36, 98%, 50%)" : "hsl(0, 0%, 98%)"}
                   />
                   <Outlines thickness={0.005} color="hsl(207, 48%, 15%)" />
                 </Text3D>
