@@ -40,7 +40,7 @@ export default function ARPage() {
         <XR referenceSpace="local">
           {isARActive && (
             <>
-              <TvAR scale={0.36} position={[0.125, -0.25, -1.25]} />
+              <TvAR scale={0.35} position={[0.1, -0.25, -1.25]} />
               <Environment preset="sunset" />
             </>
           )}
