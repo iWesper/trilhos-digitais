@@ -297,7 +297,7 @@ export default function Chapter2Page5() {
         >
           <Button
             asChild
-            className="text-white text-center"
+            className="text-white text-center bg-secondary hover:bg-hover-secondary"
             onClick={clearBoard}
           >
             <motion.div
@@ -305,7 +305,7 @@ export default function Chapter2Page5() {
               animate={{ opacity: 1 }}
               transition={{ opacity: { duration: 1, delay: 1 } }}
               whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-              className="cursor-pointer text-white bg-secondary hover:bg-hover-secondary"
+              className="cursor-pointer text-white"
             >
               Limpar Tentativa
             </motion.div>
@@ -346,13 +346,13 @@ export default function Chapter2Page5() {
           {showDialog && (
             <Dialog>
               <DialogTrigger>
-                <Button asChild className="text-white">
+                <Button asChild className="text-white bg-secondary hover:bg-hover-secondary">
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ opacity: { duration: 1, delay: 0.5 } }}
                     whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-                    className="group cursor-pointer text-white bg-secondary hover:bg-hover-secondary"
+                    className="group cursor-pointer text-white"
                   >
                     Continuar
                     <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />

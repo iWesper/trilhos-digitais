@@ -371,13 +371,13 @@ Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pess
             )}
           </AnimatePresence>
           {AlterarState && (
-            <Button asChild className="text-white" onClick={showButtonsForm}>
+            <Button asChild className="text-white bg-secondary hover:bg-hover-secondary" onClick={showButtonsForm}>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ opacity: { duration: 1, delay: 0.2 } }}
                 whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-                className="cursor-pointer bg-secondary hover:bg-hover-secondary"
+                className="cursor-pointer "
               >
                 Responder
               </motion.div>
