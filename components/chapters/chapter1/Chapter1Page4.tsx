@@ -119,7 +119,7 @@ export default function Chapter1Page4() {
                 >
                   {`Gesamtkunstwerk >`}
                   <meshStandardMaterial
-                    color={text3DIsHovered ? "purple" : "hsl(82, 25%, 48%)"}
+                    color={text3DIsHovered ? "hsl(282, 25%, 48%)" : "hsl(207, 48%, 15%)"}
                   />
                   <Outlines thickness={0.005} color="white" />
                 </Text3D>
