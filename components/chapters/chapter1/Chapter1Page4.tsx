@@ -24,6 +24,7 @@ export default function Chapter1Page4() {
   const [modelIsHovered, setModelIsHovered] = useState(false);
 
   const handleText3DClick = () => {
+    document.body.style.cursor = "auto";
     router.push("/chapters/chapter1/5");
   };
 

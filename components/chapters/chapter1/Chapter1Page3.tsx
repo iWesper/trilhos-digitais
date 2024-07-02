@@ -32,6 +32,7 @@ export default function Chapter1Page3() {
   const [tooltipOpen, setTooltipOpen] = useState(false);
 
   const handleText3DClick = () => {
+    document.body.style.cursor = "auto";
     setProgressSave(true);
   };
 
