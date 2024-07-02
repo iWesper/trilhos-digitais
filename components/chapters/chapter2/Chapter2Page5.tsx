@@ -95,7 +95,7 @@ export default function Chapter2Page5() {
   const [showDialog, setShowDialog] = useState<boolean>(false);
 
   //ORDEM CORRETA DE IMAGENS
-  const correctOrder = [1, 2, 3];
+  const correctOrder = [3, 2, 1];
 
   //AO CLIQUE PARA ARRASTAR
   const handleMouseDown = (id: number) => {
