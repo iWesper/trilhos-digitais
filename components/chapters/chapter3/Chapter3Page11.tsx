@@ -66,7 +66,7 @@ export default function Chapter3Page11() {
             <p className="font-medium mb-10 text-white">
               As modalidades de semiótica, referindo-se aos elementos utilizados
               para passar a mensagem, podendo estes ser ícones, que são
-              semelhantes a elementos reais, indexes, semelhantes a um
+              semelhantes a elementos reais, índices, semelhantes a um
               significado, ou símbolos, que são nada mais nada menos que
               convenções.
             </p>

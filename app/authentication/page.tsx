@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { FcGoogle } from "react-icons/fc";
 
 //IMPORTA Os hooks
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Auth } from "@/components/register/Register";
 
 // Importa os hooks de autenticação e de navegação
@@ -34,6 +34,9 @@ const Login = () => {
   //STATE DO RENDER
   const [Render, setRender] = useState(true);
 
+  //SATE IS MOBILE
+  const [IsInMobile, setIsInMobile] = useState(false);
+
   //VARIÁVEIS QUE VÃO PERMITIR GUARDAR OS DADOS INTRODUZIDOS
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
@@ -43,17 +46,22 @@ const Login = () => {
     setRender(false);
   };
 
-  // Verificar se o utilizador está a aceder via mobile
-  if (isMobile()) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center text-center px-4">
-        <p>
-          Esta plataforma é melhor utilizada num computador desktop. Por favor,
-          acede através de um desktop para continuar.
-        </p>
-      </div>
-    );
-  }
+useEffect(() => {
+
+  //Verificar se o utilizador está a aceder via mobile
+  setIsInMobile(isMobile());
+}, []);
+
+if (IsInMobile) {
+  return (
+    <div className="h-screen w-screen flex justify-center items-center text-center px-4">
+      <p>
+      Esta plataforma é melhor utilizada num computador desktop. Por favor,
+      acede através de um desktop para continuar.
+      </p>
+    </div>
+  );
+}
 
   return (
     <>
