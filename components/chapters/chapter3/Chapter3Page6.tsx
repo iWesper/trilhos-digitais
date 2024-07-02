@@ -306,7 +306,7 @@ export default function Chapter3Page6() {
             className="rounded mx-4"
             draggable={false}
           />
-          <div className="absolute -bottom-10 text-center w-full">Filme</div>
+          <div className="absolute -bottom-6 2xl:-bottom-10 text-center w-full">Filme</div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -322,7 +322,7 @@ export default function Chapter3Page6() {
             className="rounded me-8 ms-20"
             draggable={false}
           />
-          <div className="absolute -bottom-10 text-center w-full">Jogo</div>
+          <div className="absolute -bottom-6 2xl:-bottom-10 left-6 text-center w-full">Jogo</div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -338,7 +338,7 @@ export default function Chapter3Page6() {
             className="rounded ms-32 me-8"
             draggable={false}
           />
-          <div className="absolute -bottom-10 text-end w-full">
+          <div className="absolute -bottom-6 2xl:-bottom-10 left-12 text-end w-full">
             Banda Desenhada
           </div>
         </motion.div>
