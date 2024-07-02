@@ -13,14 +13,14 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment, Loader } from "@react-three/drei";
+import { OrbitControls, Environment } from "@react-three/drei";
 import Bauhaus from "@/public/models/bauhaus/Bauhaus";
 import Wagner from "@/public/models/wagner/Wagner";
 import Tv from "@/public/models/tv/Tv";
 import Prensa from "@/public/models/prensa/Prensa";
+import { FaStar } from "react-icons/fa";
 
 export default function Badges() {
   const router = useRouter();
@@ -232,7 +232,7 @@ export default function Badges() {
                           />
                           {progress === 100 ? (
                             <>
-                              <Environment preset="studio" />
+                              <Environment preset="sunset" />
                             </>
                           ) : (
                             <ambientLight intensity={1} color={"black"} />
@@ -240,12 +240,23 @@ export default function Badges() {
                         </Suspense>
                       </Canvas>
                     </div>
-                    <div className="w-auto min-w-[50%] z-10 text-center bg-gray-800 rounded-xl backdrop-blur-[2px] bg-opacity-80 p-2 absolute bottom-[25%]">
-                      <p className="text-white font-bold text-sm pb-2">
-                        {item.name}
-                      </p>
-                      <Progress className="h-2" value={progress} />
-                    </div>
+                    {progress != 100 ? (
+                      <div className="w-auto min-w-[50%] z-10 text-center bg-[#142839] rounded-xl backdrop-blur-[2px] bg-opacity-80 p-2 absolute bottom-[20%]">
+                        <p className="text-white font-bold text-sm pb-2">
+                          {item.name}
+                        </p>
+                        <Progress className="h-2" value={progress} />
+                      </div>
+                    ) : (
+                      <div className="w-auto z-10 text-center bg-[#142839] rounded-xl backdrop-blur-[2px] bg-opacity-80 p-2 absolute bottom-[20%]">
+                        <div className="flex flex-row justify-center items-center">
+                          <FaStar className="text-[#ffd900] size-6 me-2 text-start" />
+                          <div className="text-white font-bold text-sm">
+                            {item.name}
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </motion.div>
                 );
               })}

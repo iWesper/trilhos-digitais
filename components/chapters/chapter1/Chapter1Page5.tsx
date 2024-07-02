@@ -73,12 +73,12 @@ export default function Chapter1Page5() {
     if (resposta === "Videojogos") {
       //STATE A MOSTRAR À PESSOA
       setResposta(
-        "Não me parece que seja esta a evolução da “Obra Total”, tenta outra vez!"
+        "Não nos parece que seja esta a evolução da “Obra Total”, tenta outra vez!"
       );
     } else if (resposta === "VR") {
       //STATE A MOSTRAR À PESSOA
       setResposta(
-        "Não me parece que seja esta a evolução da “Obra Total”, tenta outra vez!"
+        "Não nos parece que seja esta a evolução da “Obra Total”, tenta outra vez!"
       );
     }
   };

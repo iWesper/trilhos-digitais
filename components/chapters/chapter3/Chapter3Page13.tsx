@@ -62,9 +62,9 @@ export default function Chapter3Page13() {
       setShowButton(true);
     } else if (resposta === "Semiótica") {
       //STATE A MOSTRAR À PESSOA
-      setResposta("Não me parece ser a modalidade certa, anda tenta de novo.");
+      setResposta("Não nos parece ser a modalidade certa, anda tenta de novo.");
     } else if (resposta === "Material") {
-      setResposta("Não me parece ser a modalidade certa, anda tenta de novo.");
+      setResposta("Não nos parece ser a modalidade certa, anda tenta de novo.");
     }
   };
   // Tooltip
