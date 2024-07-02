@@ -447,7 +447,7 @@ Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pess
                 >
                   <Button className="text-white bg-secondary hover:bg-hover-secondary">
                     Continuar
-                    <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+                    <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
                   </Button>
                 </motion.div>
               </DialogTrigger>

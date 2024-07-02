@@ -206,7 +206,7 @@ export default function Badges() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1 }}
                     key={index}
-                    className={`flex justify-center items-center relative ${WillCursorBePointer} col-span-4 overflow-visible`}
+                    className={`flex justify-center items-center relative ${WillCursorBePointer} col-span-4 overflow-visible group`}
                     {...(progress === 100
                       ? { onClick: () => handleBadgeClick(item.id) }
                       : {})}
@@ -248,7 +248,7 @@ export default function Badges() {
                         <Progress className="h-2" value={progress} />
                       </div>
                     ) : (
-                      <div className="w-auto z-10 text-center bg-[#142839] rounded-xl backdrop-blur-[2px] bg-opacity-80 p-2 absolute bottom-[20%]">
+                      <div className="w-auto z-10 text-center bg-[#142839] rounded-xl backdrop-blur-[2px] bg-opacity-80 p-2 absolute bottom-[20%] group-hover:scale-110 transition-all duration-150">
                         <div className="flex flex-row justify-center items-center">
                           <FaStar className="text-[#ffd900] size-6 me-2 text-start" />
                           <div className="text-white font-bold text-sm">

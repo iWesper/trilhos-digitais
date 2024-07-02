@@ -52,7 +52,7 @@ export default function Chapter2Page7() {
             >
               <Link href="/chapters/chapter2/8">
                 Continuar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
               </Link>
             </Button>
           </motion.div>

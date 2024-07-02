@@ -141,7 +141,7 @@ export default function Chapter3Page4() {
             <Button asChild className="text-white bg-[#142839] hover:bg-hover">
               <Link href="/chapters/chapter3/5">
                 Continuar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
               </Link>
             </Button>
           </motion.div>

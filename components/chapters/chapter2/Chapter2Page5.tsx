@@ -355,7 +355,7 @@ export default function Chapter2Page5() {
                     className="group cursor-pointer text-white"
                   >
                     Continuar
-                    <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+                    <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
                   </motion.div>
                 </Button>
               </DialogTrigger>

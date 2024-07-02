@@ -7,6 +7,7 @@ import { useAuth } from "@/components/context/AuthContext";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { FaArrowRight } from "react-icons/fa6";
+import { HiCheck } from "react-icons/hi";
 
 export default function Chapter4Page5() {
   const { goGetUsername, username, currentUser, error } = useAuth();
@@ -62,8 +63,8 @@ export default function Chapter4Page5() {
                 className="text-white bg-primary hover:bg-hover-primary"
               >
                 <Link href="/">
-                  Continuar
-                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+                  Concluir
+                  <HiCheck className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
                 </Link>
               </Button>
             </motion.div>

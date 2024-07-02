@@ -6,7 +6,7 @@ import { useProgress } from "@/components/context/ProgressContext";
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa6";
+import { HiCheck } from "react-icons/hi";
 
 export default function Chapter3Page15() {
   //PROGRESS
@@ -68,8 +68,8 @@ export default function Chapter3Page15() {
           >
             <Button asChild className="text-white bg-[#142839] hover:bg-hover">
               <Link href="/">
-                Continuar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+                Concluir
+                <HiCheck className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
               </Link>
             </Button>
           </motion.div>

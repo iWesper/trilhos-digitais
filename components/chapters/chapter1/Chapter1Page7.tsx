@@ -7,6 +7,7 @@ import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { HiCheck } from "react-icons/hi";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter1Page7() {
@@ -20,6 +21,10 @@ export default function Chapter1Page7() {
     "No entanto, uma obra completa envolve interação com elementos e não apenas a visualização de acontecimentos, e é nesse aspeto que a multimédia entra."
   );
 
+  const [buttonContent, setButtonContent] = useState<string | null>(
+    "Continuar"
+  );
+
   //CLICK PARA DAR ROUTER PUSH
   const [clickCount, setClickCount] = useState(0);
 
@@ -31,6 +36,7 @@ export default function Chapter1Page7() {
     if (clickCount === 0) {
       //MUDA CONTEÚDO
       setContent("Vamos ao segundo pilar. Próxima paragem, Design!");
+      setButtonContent("Concluir");
 
       //AUMENTA O CLICK COUNT
       setClickCount((prevCount) => prevCount + 1);
@@ -58,7 +64,11 @@ export default function Chapter1Page7() {
           className="col-span-6 flex flex-col justify-center items-center p-10 mt-20 "
         >
           <p className="font-medium mb-10">{content}</p>
-          <Button asChild onClick={handleContentSwap} className="bg-tertiary hover:bg-hover-tertiary">
+          <Button
+            asChild
+            onClick={handleContentSwap}
+            className="bg-tertiary hover:bg-hover-tertiary"
+          >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -66,8 +76,12 @@ export default function Chapter1Page7() {
               whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
               className="group cursor-pointer text-white"
             >
-              Continuar
-              <FaArrowRight className="ps-2 h-6 w-6 group-hover:moveRight" />
+              {buttonContent}
+              {buttonContent === "Concluir" ? (
+                <HiCheck className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+              ) : (
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+              )}
             </motion.div>
           </Button>
         </motion.div>
