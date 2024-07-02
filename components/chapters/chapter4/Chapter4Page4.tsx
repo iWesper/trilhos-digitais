@@ -31,8 +31,7 @@ export default function Chapter4Page4() {
   const { WillShowToast, willShowToastState, error } = useAuth();
 
   useEffect(() => {
-    //PROGRESS VALUE
-
+  
     //TOAAST
     WillShowToast(badgeId);
     setProgress(25 + 25 + 25);

@@ -77,7 +77,7 @@ export default function Badges() {
       position: [0, 0, 1],
     },
     {
-      BadgeName: "Sala de Prensas",
+      BadgeName: "Prensa",
       id: 4,
       name: "Tecnologia",
       modelId: Prensa,
