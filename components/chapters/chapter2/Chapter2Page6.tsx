@@ -50,9 +50,9 @@ export default function Chapter2Page6() {
           className="col-span-8 flex justify-end items-center text-center flex-col mt-14"
         >
           <p className="text-white font-medium p-6">
-            Como te dissémos, estas cadeiras foram pensadas de modo a ocupar o
-            menor espaço possível, e conseguem isto inserindo-se dentro umas das
-            outras.
+            Como te dissémos, estes bancos foram pensados de modo a ocupar o
+            menor espaço possível, e conseguem isto inserindo-se dentro uns dos
+            outros.
           </p>
         </motion.div>
         <div className="col-span-2"></div>

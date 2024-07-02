@@ -49,7 +49,7 @@ export default function BadgeDetails({ number }: { number: number }) {
       modelId: <Tv position={[0.5, 0, 0.5]} scale={1.3} />,
     },
     {
-      BadgeName: "Sala de Prensas",
+      BadgeName: "Prensa",
       id: 4,
       name: "Tecnologia",
       description:
