@@ -156,12 +156,12 @@ export default function Chapter2Page5() {
       switch (correctCount) {
         case 1:
           //MENSAGEM DE FEEDBACK
-          message = "Acertaste 1!";
+          message = "Acertaste apenas 1!";
           setOrderMessage(message);
           break;
         case 2:
           //MENSAGEM DE FEEDBACK
-          message = "Acertaste 2!";
+          message = "Acertaste apenas 2!";
           //MENSAGEM DE FEEDBACK
           setOrderMessage(message);
           break;
