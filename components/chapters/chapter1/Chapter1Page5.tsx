@@ -64,10 +64,12 @@ export default function Chapter1Page5() {
   //REPOSTAS FORM
   const handleFormSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     //PREVINE O FORM DE FAZER O DEFAULT
-    e.preventDefault();
+    //e.preventDefault();
 
     //VALOR QUE VEM DE CADA BUTTON
     const resposta = (e.target as HTMLButtonElement).value;
+
+    console.log(resposta);
 
     //VERIFICA SE A RESPOSTA ESTÁ CORRETA
     if (resposta === "Videojogos") {
@@ -196,14 +198,14 @@ export default function Chapter1Page5() {
               type="button"
               value="VR"
               onClick={handleFormSubmit}
-              className="w-full m-3"
+              className="w-full m-3 bg-tertiary hover:bg-hover-tertiary"
             >
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ opacity: { duration: 1, delay: 2 } }}
                 whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-                className="text-white cursor-pointer bg-tertiary hover:bg-hover-tertiary"
+                className="text-white cursor-pointer"
               >
                 VR
               </motion.div>

@@ -95,7 +95,7 @@ export default function Badges() {
 
     "Cada badge pode ser inspecionado em 3D nesta mesma página, ou em AR se o preferires através do teu telemóvel. Vais poder rodar os objetos, vê-los de perto, e quem sabe descobrir alguns dos seus segredos ao interagires com eles.",
 
-    "Para os desbloqueares, basta progredires pela aventura e completares os passos necessários para cada badge. Podes ver aqui que badges tens e quais te faltam, tal como quantos passos já completaste para cada um deles.",
+    "Para os desbloqueares, basta progredires pela aventura e completares os passos necessários para cada badge. Podes ver a percentagem do progresso de cada badge que tens e o quanto te falta para desbloquear cada um deles.",
 
     "Ao chegares a esta página, tens ao teu dispôr os badges que já desbloqueaste, que podes inspecionar!, ",
 
