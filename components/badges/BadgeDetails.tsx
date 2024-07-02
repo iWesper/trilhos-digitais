@@ -56,7 +56,7 @@ export default function BadgeDetails({ number }: { number: number }) {
         "As tecnologias da comunicação evoluíram ao ponto desta se tornar ubíqua. A prensa é um símbolo dessa evolução, e de como o mais fácil acesso à informação se revelou um dos principais pilares da evolução da sociedade.",
       p2: "Um ponto de viragem para a educação e conhecimento.",
       qrUrl: "/img/qrcodes/tecnologia.svg",
-      modelId: <Prensa position={[0, -1.5, 0]} scale={0.1} />,
+      modelId: <Prensa progress={100} position={[0, -1.5, 0]} scale={0.1} />,
     },
     // {
     //   BadgeName: "Macintosh",
