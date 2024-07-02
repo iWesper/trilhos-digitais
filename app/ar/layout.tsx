@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import Lottie from "lottie-react";
 import animationData from "@/public/animations/loading_animation.json";
-import { is } from "@react-three/fiber/dist/declarations/src/core/utils";
 
 export default function ARLayout({
   children,

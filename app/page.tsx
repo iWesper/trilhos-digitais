@@ -12,6 +12,11 @@ export default function Home() {
   const { currentUser, isLoading } = useAuth();
   const router = useRouter();
 
+  function isMobile() {
+    const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
+  }
+
   useEffect(() => {
     // Redireciona imediatamente para a página de autenticação se o utilizador não estiver autenticado
     if (!isLoading && currentUser === null) {
@@ -35,6 +40,15 @@ export default function Home() {
   // Isto lida com o raro caso em que o isLoading é falso, mas o currentUser ainda não foi atualizado
   if (currentUser === null) {
     return null;
+  }
+
+  // Verificar se o utilizador está a aceder via mobile
+  if (isMobile()) {
+    return (
+      <div className="h-screen w-screen flex justify-center items-center text-center px-4">
+        <p>Para uma melhor experiência, por favor, utiliza um dispositivo desktop para acederes a esta plataforma</p>
+      </div>
+    );
   }
 
   return (
