@@ -33,7 +33,7 @@ const Slide2 = () => {
             <p className="font-medium pt-8 text-white select-none">
               No entanto, livros demoravam muito a serem escritos. Para acelerar
               esse processo, foi inventada a prensa, uma máquina que permitia
-              não só o registo rápido de informação, mas que também a criação e
+              não só o registo rápido de informação, mas também a criação e
               partilha desses livros para um maior número de pessoas.
             </p>
           </div>
@@ -55,14 +55,15 @@ const Slide2 = () => {
                 />
                 {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
                 <Prensa
-                  position={[0, -1, 0]}
+                  progress={100}
+                  position={[0.2, -1, 0.2]}
                   scale={0.08}
                   onPointerEnter={(event: React.PointerEvent) => (
                     event.stopPropagation(), setModelIsHovered(true)
                   )}
                   onPointerLeave={() => setModelIsHovered(false)}
                 />
-                <Environment preset="sunset" />
+                {/* <Environment preset="sunset" /> */}
               </Suspense>
             </Canvas>
           </div>

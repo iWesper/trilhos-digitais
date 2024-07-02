@@ -59,6 +59,7 @@ export default function Badges() {
       modelId: Wagner,
       scale: 0.05,
       position: [0, 0, 0],
+      rotation: [0, 0, 0],
     },
     {
       BadgeName: "Bauhaus",
@@ -67,6 +68,7 @@ export default function Badges() {
       modelId: Bauhaus,
       scale: 0.2,
       position: [0, 0, 0],
+      rotation: [0, 0, 0],
     },
     {
       BadgeName: "TV Antiga",
@@ -74,15 +76,17 @@ export default function Badges() {
       name: "Comunicação",
       modelId: Tv,
       scale: 1,
-      position: [0, 0, 1],
+      position: [-0.25, 0, 0.5],
+      rotation: [0, -0.75, 0],
     },
     {
-      BadgeName: "Sala de Prensas",
+      BadgeName: "Prensa",
       id: 4,
       name: "Tecnologia",
       modelId: Prensa,
       scale: 0.09,
-      position: [1, -1.5, 0],
+      position: [0.2, -1, 0.2],
+      rotation: [0, 0, 0],
     },
     // { BadgeName: "Macintosh", id:5, name: "Hipermédia"},
     // { BadgeName: "Óculos VR", id:6,  name: "Multiverso"},
@@ -203,7 +207,7 @@ export default function Badges() {
                     transition={{ duration: 1 }}
                     key={index}
                     className={`flex justify-center items-center relative ${WillCursorBePointer} col-span-4 overflow-visible`}
-                    {...(progress > 0
+                    {...(progress === 100
                       ? { onClick: () => handleBadgeClick(item.id) }
                       : {})}
                   >
@@ -220,12 +224,19 @@ export default function Badges() {
                             enableZoom={false}
                             enablePan={false}
                           />
-                          {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
                           <item.modelId
+                            progress={progress}
                             position={item.position}
+                            rotation={item.rotation}
                             scale={item.scale}
                           />
-                          <Environment preset="studio" />
+                          {progress === 100 ? (
+                            <>
+                              <Environment preset="studio" />
+                            </>
+                          ) : (
+                            <ambientLight intensity={1} color={"black"} />
+                          )}
                         </Suspense>
                       </Canvas>
                     </div>

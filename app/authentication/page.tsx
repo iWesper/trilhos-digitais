@@ -48,8 +48,8 @@ const Login = () => {
     return (
       <div className="h-screen w-screen flex justify-center items-center text-center px-4">
         <p>
-          Para aproveitar todas as funcionalidades, recomendamos aceder a esta
-          plataforma a partir de um computador desktop.
+          Esta plataforma é melhor utilizada num computador desktop. Por favor,
+          acede através de um desktop para continuar.
         </p>
       </div>
     );

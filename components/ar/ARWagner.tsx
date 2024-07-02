@@ -8,7 +8,7 @@ import {
   useAnimations,
 } from "@react-three/drei";
 import { ARButton, Interactive, XR } from "@react-three/xr";
-import { Mesh, LoopOnce } from "three";
+import { LoopOnce } from "three";
 
 export default function ARPage() {
   const [isARActive, setIsARActive] = useState(false);

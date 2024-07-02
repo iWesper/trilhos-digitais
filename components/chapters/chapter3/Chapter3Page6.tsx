@@ -262,11 +262,12 @@ export default function Chapter3Page6() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="col-span-8 flex justify-start items-center text-center flex-col pt-20 text-sm lg:text-md"
+          className="col-span-8 flex justify-start items-center text-center flex-col pt-20 text-sm lg:text-md 2xl:text-lg"
         >
           <p className="text-white font-medium pt-6">
-            Vamos analisar o “<span className="italic text-foreground">Spider-Man</span>”
-            enquanto banda-desenhada, filme e jogo.
+            Vamos analisar o “
+            <span className="italic text-foreground">Spider-Man</span>” enquanto
+            banda-desenhada, filme e jogo.
           </p>
           <p className="text-white font-medium pb-4">
             Indica quais os meios de cada um para continuar!
@@ -295,7 +296,7 @@ export default function Chapter3Page6() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
-          className="col-span-2 flex justify-center items-center"
+          className="col-span-2 flex justify-center items-center relative"
         >
           <Image
             src="/img/chapter3/chapter3SpiderManFilme.svg"
@@ -305,12 +306,13 @@ export default function Chapter3Page6() {
             className="rounded mx-4"
             draggable={false}
           />
+          <div className="absolute -bottom-10 text-center w-full">Filme</div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.5 }}
-          className="col-span-2 flex justify-center items-center"
+          className="col-span-2 flex justify-center items-center relative"
         >
           <Image
             src="/img/chapter3/chapter3SpiderManGame.svg"
@@ -320,12 +322,13 @@ export default function Chapter3Page6() {
             className="rounded me-8 ms-20"
             draggable={false}
           />
+          <div className="absolute -bottom-10 text-center w-full">Jogo</div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 2 }}
-          className="col-span-2 flex justify-center items-center"
+          className="col-span-2 flex justify-center items-center relative"
         >
           <Image
             src="/img/chapter3/chapter3SpiderManBD.svg"
@@ -335,6 +338,9 @@ export default function Chapter3Page6() {
             className="rounded ms-32 me-8"
             draggable={false}
           />
+          <div className="absolute -bottom-10 text-end w-full">
+            Banda Desenhada
+          </div>
         </motion.div>
         <div className="col-span-3"></div>
         {/* Word rows */}

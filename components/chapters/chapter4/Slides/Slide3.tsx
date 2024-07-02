@@ -53,8 +53,8 @@ const Slide3 = () => {
                   enableZoom={false}
                   enablePan={false}
                 />
-                {/* rotation={[-0.05, 3.7, 0]} em caso de necessidade*/}
                 <Prensa
+                  progress={100}
                   position={[0, -1, 0]}
                   scale={0.08}
                   onPointerEnter={(event: React.PointerEvent) => (

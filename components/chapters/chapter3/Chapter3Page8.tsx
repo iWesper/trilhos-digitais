@@ -61,8 +61,8 @@ export default function Chapter3Page8() {
         >
           <div className="h-full flex flex-col justify-center items-center p-10 ">
             <p className="font-medium mb-10 text-white">
-              As modalidades materiais, consistindo na forma como experiencias
-              aquele <span className="italic text-foreground">media</span>, por exemplo, uma
+              As <span className="italic text-foreground">modalidades materiais</span>, consistindo na forma como experiencias
+              aquele <span className="italic text-foreground">media</span>. Por exemplo: uma
               música só te deixa ouvir a mensagem, não vê-la.
             </p>
             <motion.div

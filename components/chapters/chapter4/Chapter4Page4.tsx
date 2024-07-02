@@ -77,7 +77,7 @@ export default function Chapter4Page4() {
             className="text-white font-medium pb-8"
           >
             É quase que uma característica psicológica nossa, a necessidade de
-            criar e melhorar, incentivando-nos a nós mesmos e uns aos outros de
+            criar e melhorar, incentivando-nos a nós mesmos e uns aos outros a
             evoluir, alcançando novos patamares e melhorando continuamente.
           </motion.p>
           <motion.div

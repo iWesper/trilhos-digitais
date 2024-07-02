@@ -62,9 +62,9 @@ export default function Chapter3Page9() {
         >
           <div className="h-full flex flex-col justify-center items-center p-10 ">
             <p className="font-medium mb-10 text-white">
-              As modalidades sensoriais, sendo a forma como os{" "}
+              As <span className="italic text-foreground">modalidades sensoriais</span>, sendo a forma como os{" "}
               <span className="italic text-foreground">media</span> comunicam com os nossos
-              órgãos sensoriais, por exemplo, ouvimos o desfolhar de um livro e
+              órgãos sensoriais. Por exemplo: ouvimos o desfolhar de um livro e
               sentimos a página virar, mas concentramo-nos no texto.
             </p>
             <motion.div

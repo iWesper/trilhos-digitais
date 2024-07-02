@@ -46,7 +46,8 @@ export default function Home() {
   if (isMobile()) {
     return (
       <div className="h-screen w-screen flex justify-center items-center text-center px-4">
-        <p>Para uma melhor experiência, por favor, utiliza um dispositivo desktop para acederes a esta plataforma</p>
+        <p>Esta plataforma é melhor utilizada num computador desktop. Por favor, acede através de um desktop para continuar.
+</p>
       </div>
     );
   }

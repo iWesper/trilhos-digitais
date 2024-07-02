@@ -10,12 +10,18 @@ Title: Gutenberg Press
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { MeshBasicMaterial } from 'three'
 
-export default function Model(props) {
+export default function Model({progress, ...props}) {
   const { nodes, materials } = useGLTF('/models/prensa/prensa-transformed.glb')
+
+  // Se o progress do badge for menor que 100, a cor do modelo é preta
+  // É necessário apenas para o badge da prensa pois os materiais de origem não têm o mesmo comportamento à luz que os outros modelos
+  const material = progress < 100 ? new MeshBasicMaterial({ color: 'black' }) : materials['Scene_-_Root'];
+
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Object_2.geometry} material={materials['Scene_-_Root']} rotation={[-Math.PI / 2, 0, 0]} />
+      <mesh geometry={nodes.Object_2.geometry} material={material} rotation={[-Math.PI / 2, 0, 0]} />
     </group>
   )
 }

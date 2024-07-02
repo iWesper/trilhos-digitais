@@ -93,9 +93,9 @@ export default function Homepage() {
 
       "Vais embarcar no Expresso Digital, um comboio que te vai levar a explorar toda a história da multimédia, desde os seus pilares fundadores até aos dias de hoje, percebendo o seu impacto e a sua presença no dia-a-dia de todos nós.",
 
-      "A tua viagem está separada em duas partes principais: os Quatro Pilares, onde vais ser introduzido às bases da multimédia, e a Hipermédia, onde vais ver a evolução da multimédia desde a introdução do computador.",
+      "A tua viagem está separada em duas partes principais: os Quatro Pilares, onde vais ser introduzido(a) às bases da multimédia, e a Hipermédia, onde vais ver a evolução da multimédia desde a introdução do computador.",
 
-      "Caso queiras fazer um desvio e explorar os vários capítulos noutra ordem, não te preocupes, podes fazê-lo através da seleção de capítulos, na homepage.",
+      "Caso queiras fazer um desvio e explorar os vários capítulos noutra ordem, não te preocupes, podes fazê-lo através da seleção de capítulos, na página inicial.",
 
       "Presta atenção, pois a cada capítulo terás uma recompensa pela tua exploração na forma de um badge para desbloquear e mais tarde inspecionar! Sempre que estiveres numa situação em que podes desbloquear partes do badge, caso não percebas o que tens de fazer, ser-te-á dada uma pista.",
 
@@ -137,7 +137,7 @@ export default function Homepage() {
         {/* Container do conteúdo da página */}
         {/* Arbustos frente */}
         <motion.div
-          className="absolute w-full h-[75%] bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-contain -bottom-[30%] saturate-[.85]"
+          className="absolute w-full h-[30%] lg:h-[25%] bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-cover bottom-0 lg:-bottom-10 saturate-[.85]"
           style={{
             zIndex: 1,
           }}
