@@ -17,8 +17,19 @@ import { useAuth } from "@/components/context/AuthContext";
 
 // Página de login
 const Login = () => {
-  const { handleLogin, handleGoogleSignIn, handlePasswordReset, currentUser, error } =
-    useAuth();
+  const {
+    handleLogin,
+    handleGoogleSignIn,
+    handlePasswordReset,
+    currentUser,
+    error,
+  } = useAuth();
+
+  function isMobile() {
+    const regex =
+      /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
+  }
 
   //STATE DO RENDER
   const [Render, setRender] = useState(true);
@@ -31,6 +42,18 @@ const Login = () => {
   const ChangeRender = () => {
     setRender(false);
   };
+
+  // Verificar se o utilizador está a aceder via mobile
+  if (isMobile()) {
+    return (
+      <div className="h-screen w-screen flex justify-center items-center text-center px-4">
+        <p>
+          Para aproveitar todas as funcionalidades, recomendamos aceder a esta
+          plataforma a partir de um computador desktop.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -91,7 +114,9 @@ const Login = () => {
                 >
                   <FcGoogle size={24} /> Entrar com Google
                 </Button>
-                {error && (<p className=" text-red-600 text-center text-sm">{error}</p>)}
+                {error && (
+                  <p className=" text-red-600 text-center text-sm">{error}</p>
+                )}
               </div>
               <div
                 className="mt-4 text-center text-sm"

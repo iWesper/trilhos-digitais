@@ -19,6 +19,12 @@ export default function ChaptersLayout({
 
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
+  function isMobile() {
+    const regex =
+      /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
+  }
+
   // Verifica se o utilizador está autenticado
   useEffect(() => {
     if (!isLoading) {
@@ -39,6 +45,18 @@ export default function ChaptersLayout({
           animationData={animationData}
           className="bg-[#142839] h-20 w-20"
         />
+      </div>
+    );
+  }
+
+  // Verificar se o utilizador está a aceder via mobile
+  if (isMobile()) {
+    return (
+      <div className="h-screen w-screen flex justify-center items-center text-center px-4">
+        <p>
+          Para aproveitar todas as funcionalidades, recomendamos aceder a esta
+          plataforma a partir de um computador desktop.
+        </p>
       </div>
     );
   }
