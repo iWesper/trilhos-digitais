@@ -64,7 +64,7 @@ export default function Chapter3Page11() {
         >
           <div className="h-full flex flex-col justify-center items-center p-10 ">
             <p className="font-medium mb-10 text-white">
-              As <span className="text-foreground">modalidades de semiótica</span>, referindo-se aos elementos utilizados
+              As <span className="text-foreground italic">modalidades de semiótica</span>, referindo-se aos elementos utilizados
               para passar a mensagem, podendo estes ser ícones, que são
               semelhantes a elementos reais, índices, semelhantes a um
               significado, ou símbolos, que são nada mais nada menos que
