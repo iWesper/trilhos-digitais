@@ -104,7 +104,7 @@ export default function Chapter3Page13() {
           className="col-span-4 flex flex-col justify-end items-center"
         >
           {resposta && (
-            <p className="text-white text-center text-sm">{resposta}</p>
+            <p className="text-white text-center text-sm xl:text-xl">{resposta}</p>
           )}
           <Image
             src="/img/chapter3/chapter3folhear.svg"
