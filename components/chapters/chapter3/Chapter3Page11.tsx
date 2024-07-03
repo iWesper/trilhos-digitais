@@ -98,7 +98,7 @@ export default function Chapter3Page11() {
               alt="Imagem de modalidades de semiótica"
               width={300}
               height={300}
-              className="rounded tiltableImage"
+              className="rounded"
               draggable={false}
             />
           </Tilt>

@@ -40,7 +40,7 @@ const Slide0 = () => {
               alt="Imagem do elemento de tecnologia: a linguagem"
               width={350}
               height={350}
-              className="rounded tiltableImage"
+              className="rounded"
               draggable={false}
             />
           </Tilt>

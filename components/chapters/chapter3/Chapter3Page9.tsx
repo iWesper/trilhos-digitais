@@ -95,7 +95,7 @@ export default function Chapter3Page9() {
               alt="Imagem de um livro"
               width={300}
               height={300}
-              className="rounded tiltableImage"
+              className="rounded "
               draggable={false}
             />
           </Tilt>

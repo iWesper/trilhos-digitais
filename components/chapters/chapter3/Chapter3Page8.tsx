@@ -93,7 +93,7 @@ export default function Chapter3Page8() {
               alt="Imagem de um mp3"
               width={300}
               height={300}
-              className="rounded tiltableImage"
+              className="rounded"
               draggable={false}
             />
           </Tilt>

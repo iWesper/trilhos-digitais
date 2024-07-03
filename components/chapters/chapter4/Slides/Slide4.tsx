@@ -63,7 +63,7 @@ const Slide4 = () => {
               alt="Imagem do elemento de tecnologia: a comunicação ubíqua"
               width={350}
               height={350}
-              className="rounded tiltableImage"
+              className="rounded"
               draggable={false}
             />
           </Tilt>

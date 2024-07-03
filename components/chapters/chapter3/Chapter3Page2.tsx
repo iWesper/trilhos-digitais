@@ -82,7 +82,7 @@ export default function Chapter3Page2() {
               alt="Imagem de capa deo The Godfather"
               width={350}
               height={350}
-              className="rounded tiltableImage"
+              className="rounded"
               draggable={false}
             />
           </Tilt>

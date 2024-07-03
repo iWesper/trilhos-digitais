@@ -96,7 +96,7 @@ export default function Chapter3Page10() {
               alt="Imagem de uma câmara instantânea"
               width={300}
               height={300}
-              className="rounded tiltableImage"
+              className="rounded"
               draggable={false}
             />
           </Tilt>
