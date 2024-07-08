@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import React, { useState, useEffect, use } from "react";
 import { HomeIcon, TrophyIcon } from "@heroicons/react/24/solid";
 import { Progress } from "@/components/ui/progress";
 import { useProgress } from "@/components/context/ProgressContext";
@@ -14,10 +14,10 @@ const NavbarChapters: React.FC = () => {
   const pathname = usePathname();
 
   //State Show Navbar
-  const [showNavbar, setShowNavbar] = useState<boolean>();
+  const [showNavbar, setShowNavbar] = useState<boolean>(false);
 
   //capítulos possíveis com number
-  const allowedChapters = [1, 2, 3, 4, 5, 6, 7, 8];
+  const allowedChapters = [1, 2, 3, 4]; //Depois colocar os restantes 4
 
   const chapters = [
     "chapter1",
@@ -67,30 +67,30 @@ const NavbarChapters: React.FC = () => {
   ];
 
   let milestones: number[] = []; // Array de números que representam os milestones do capítulo atual
+  let chapterNumber: number; // Número do capítulo atual
 
-  for (const chapter of chapters) {
-    if (pathname.includes(chapter)) {
-      milestones = getMilestonesForChapter(chapter); // Trazer os milestones do capítulo atual como um array de números
-      break;
+  useEffect(() => {
+    const chapterMatch = pathname.match(/chapter(\d+)/); // Ajuste para capturar apenas dígitos após "chapter"
+    const chapterContent = chapterMatch ? chapterMatch[1] : "";
+    let chapterNum = parseInt(chapterContent, 10);
+
+
+    // Ajuste para garantir que setShowNavbar seja chamado com true para capítulos permitidos
+    if (!isNaN(chapterNum) && allowedChapters.includes(chapterNum)) {
+      // Ajuste para garantir que chapterNumber seja atualizado apenas para capítulos permitidos
+      chapterNumber = chapterNum;
+
+
+      // Ajuste para garantir que milestones seja atualizado apenas para capítulos permitidos
+      milestones = getMilestonesForChapter(`chapter${chapterNum}`);
+
+      // Ajuste para garantir que setShowNavbar seja chamado com true para capítulos permitidos
+      setShowNavbar(true);
+    } else {
+      // Ajuste para garantir que setShowNavbar seja chamado com false para capítulos não permitidos
+      setShowNavbar(false);
     }
-  }
-
-  // Extrair do Arry o número do capítulo
-  const chapterNumber = chapters.reduce((acc, chapter) => {
-    if (pathname.includes(chapter)) {
-      const num = parseInt(chapter.replace("chapter", ""), 10);
-
-      if (!allowedChapters.includes(num)) {
-        setShowNavbar(false);
-
-        return acc;
-      } else {
-        setShowNavbar(true);
-        return num;
-      }
-    }
-    return acc;
-  }, 0);
+  }, [pathname, allowedChapters]);
 
   // Encontrar o objeto correspondente no array
   const currentChapterObj = chaptersObj.find(
@@ -102,7 +102,7 @@ const NavbarChapters: React.FC = () => {
 
   return (
     <>
-      {showNavbar && (
+      {showNavbar === true && (
         <div className="grid grid-cols-12 gap-4 items-center justify-between px-10 p-4 bg-[#142839] text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-xl bg-opacity-80">
           <div className="col-span-2 flex justify-start flex-grow">
             <Link href={"/"}>
