@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useState } from "react";
 import { HomeIcon, TrophyIcon } from "@heroicons/react/24/solid";
 import { Progress } from "@/components/ui/progress";
 import { useProgress } from "@/components/context/ProgressContext";
@@ -12,7 +13,11 @@ const NavbarChapters: React.FC = () => {
   // Obter o pathname da página
   const pathname = usePathname();
 
-  
+  //State Show Navbar
+  const [showNavbar, setShowNavbar] = useState(true);
+
+  //capítulos possíveis com number
+  const allowedChapters = [1, 2, 3, 4, 5, 6, 7, 8];
 
   const chapters = [
     "chapter1",
@@ -75,7 +80,16 @@ const NavbarChapters: React.FC = () => {
     if (pathname.includes(chapter)) {
       const num = parseInt(chapter.replace("chapter", ""), 10);
 
-      return num;
+      if (!allowedChapters.includes(num)) {
+
+        setShowNavbar(false);
+
+        return acc;
+      }
+      else{
+        return num;
+      }
+
     }
     return acc;
   }, 0);
@@ -89,7 +103,8 @@ const NavbarChapters: React.FC = () => {
     : "";
 
   return (
-    <div className="grid grid-cols-12 gap-4 items-center justify-between px-10 p-4 bg-[#142839] text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-xl bg-opacity-80">
+    {showNavbar} && (
+      <div className="grid grid-cols-12 gap-4 items-center justify-between px-10 p-4 bg-[#142839] text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-xl bg-opacity-80">
       <div className="col-span-2 flex justify-start flex-grow">
         <Link href={"/"}>
           <div className="relative group">
@@ -121,6 +136,8 @@ const NavbarChapters: React.FC = () => {
         </Link>
       </div>
     </div>
+    )
+    
   );
 };
 
