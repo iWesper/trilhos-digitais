@@ -14,7 +14,7 @@ const NavbarChapters: React.FC = () => {
   const pathname = usePathname();
 
   //State Show Navbar
-  const [showNavbar, setShowNavbar] = useState(true);
+  const [showNavbar, setShowNavbar] = useState<boolean>();
 
   //capítulos possíveis com number
   const allowedChapters = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -81,15 +81,13 @@ const NavbarChapters: React.FC = () => {
       const num = parseInt(chapter.replace("chapter", ""), 10);
 
       if (!allowedChapters.includes(num)) {
-
         setShowNavbar(false);
 
         return acc;
-      }
-      else{
+      } else {
+        setShowNavbar(true);
         return num;
       }
-
     }
     return acc;
   }, 0);
@@ -103,41 +101,45 @@ const NavbarChapters: React.FC = () => {
     : "";
 
   return (
-    {showNavbar} && (
-      <div className="grid grid-cols-12 gap-4 items-center justify-between px-10 p-4 bg-[#142839] text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-xl bg-opacity-80">
-      <div className="col-span-2 flex justify-start flex-grow">
-        <Link href={"/"}>
-          <div className="relative group">
-            <Image
-              src="/img/logo_navbar.svg"
-              alt="Logo"
-              width="1920"
-              height="1080"
-              className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0"
-              priority={true}
-            />
-            <span className="absolute left-0 top-0 opacity-0 pt-2 group-hover:opacity-100 transition-all duration-300 ease-in-out">
-              Home
-            </span>
+    <>
+      {showNavbar && (
+        <div className="grid grid-cols-12 gap-4 items-center justify-between px-10 p-4 bg-[#142839] text-white absolute top-0 left-0 right-0 rounded-b-xl backdrop-blur-xl bg-opacity-80">
+          <div className="col-span-2 flex justify-start flex-grow">
+            <Link href={"/"}>
+              <div className="relative group">
+                <Image
+                  src="/img/logo_navbar.svg"
+                  alt="Logo"
+                  width="1920"
+                  height="1080"
+                  className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0"
+                  priority={true}
+                />
+                <span className="absolute left-0 top-0 opacity-0 pt-2 group-hover:opacity-100 transition-all duration-300 ease-in-out">
+                  Home
+                </span>
+              </div>
+            </Link>
           </div>
-        </Link>
-      </div>
-      <div className="col-span-8 justify-center">
-        <p className="text-center text-lg pb-2">{chapterInfo} </p>
-        <Progress value={progress || 0} milestones={milestones.map(Number)} />
-      </div>
+          <div className="col-span-8 justify-center">
+            <p className="text-center text-lg pb-2">{chapterInfo} </p>
+            <Progress
+              value={progress || 0}
+              milestones={milestones.map(Number)}
+            />
+          </div>
 
-      <div className="col-span-2 flex justify-end">
-        <Link href={"/badges"} className="relative group">
-          <TrophyIcon className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" />
-          <span className="absolute left-[-50%] top-0 opacity-0 pt-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-in-out">
-            Badges
-          </span>
-        </Link>
-      </div>
-    </div>
-    )
-    
+          <div className="col-span-2 flex justify-end">
+            <Link href={"/badges"} className="relative group">
+              <TrophyIcon className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" />
+              <span className="absolute left-[-50%] top-0 opacity-0 pt-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-in-out">
+                Badges
+              </span>
+            </Link>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
