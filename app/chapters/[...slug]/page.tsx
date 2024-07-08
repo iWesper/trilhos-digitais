@@ -1,9 +1,13 @@
 // Import do dynamic para carregar os componentes de cada capítulo de forma dinâmica
+import NotFound from "@/app/not-found";
 import dynamic from "next/dynamic";
 import React from "react";
 
 // Importar dinamicamente os componentes de cada capítulo
 const ChapterComponents: { [key: string]: React.ComponentType<{}> } = {
+
+  //NotFound
+  NotFound: dynamic(() => import("@/app/not-found").then((module) => module.default) as Promise<React.ComponentType<{}>>),
 
   //1
   Chapter1Page1: dynamic(() => import("@/components/chapters/chapter1/Chapter1Page1").then((module) => module.default) as Promise<React.ComponentType<{}>>),
@@ -69,6 +73,6 @@ export default function Chapters({ params }: { params: { slug: string[] } }) {
     return <ChapterComponent />;
   } else {
     // Caso contrário, mostrar uma mensagem de erro
-    return <div>Página não encontrada</div>;
+    return <NotFound/ >;
   }
 }
