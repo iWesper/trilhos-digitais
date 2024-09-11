@@ -1,6 +1,7 @@
+![logo](https://github.com/user-attachments/assets/98349c0a-6423-4233-8c73-a5344f1ed635)
 # Trilhos Digitais
 
-An interactive experience through the History of Multimedia built with Next.js.
+An interactive experience through the History of Multimedia, built with Next.js.
 
 
 ## 🌐 Explore the project
