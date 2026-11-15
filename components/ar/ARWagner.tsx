@@ -1,51 +1,25 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { useRef } from "react";
 import {
   Environment,
   useGLTF,
   useAnimations,
 } from "@react-three/drei";
-import { ARButton, Interactive, XR } from "@react-three/xr";
-import { LoopOnce } from "three";
+import ARScene from "./ARScene";
+import { Group, LoopOnce } from "three";
 
 export default function ARPage() {
-  const [isARActive, setIsARActive] = useState(false);
-
-  useEffect(() => {
-    // Verificar se o browser suporta WebXR
-    if (!navigator.xr) {
-      alert(
-        "O teu navegador não suporta WebXR. Por favor, utiliza um navegador compatível."
-      );
-    }
-  }, []);
-
-    // Ativar/desativar a AR
-    const toggleAR = () => {
-      setIsARActive(!isARActive);
-    };
-
   return (
-    <div className="w-screen h-screen">
-      <Canvas>
-        <XR referenceSpace="local">
-        {isARActive && (
-            <>
-          <WagnerAR scale={0.0125} position={[0, 0, -1.5]} />
-          <Environment preset="sunset" environmentRotation={[0, -1, 0]} />
-          </>
-        )}
-        </XR>
-      </Canvas>
-      <ARButton onClick={toggleAR} />
-    </div>
+    <ARScene>
+      <WagnerAR scale={0.0125} position={[0, 0, -1.5]} />
+      <Environment preset="sunset" environmentRotation={[0, -1, 0]} />
+    </ARScene>
   );
 }
 
 function WagnerAR(props: any) {
-  const group = useRef();
+  const group = useRef<Group>(null);
   const { nodes, materials, animations } = useGLTF(
     "/models/wagnerAR/wagnerAR-transformed.glb"
   );
@@ -77,7 +51,7 @@ const handleInteraction = () => {
 };
 
 return (
-  <Interactive onSelect={handleInteraction}>
+  <group onClick={handleInteraction}>
   <group ref={group} {...props} dispose={null}>
     <group name="Scene">
     <group name="Cube" position={[0, -22.669, -8.897]} scale={[19.35, 4.588, 1.469]}>
@@ -134,7 +108,7 @@ return (
     <mesh name="Cube005" geometry={(nodes.Cube005 as any).geometry} material={materials.PaletteMaterial001} position={[0, -5.578, 0]} scale={[0.689, 8.46, 8.46]} />
     </group>
   </group>
-  </Interactive>
+  </group>
 );
 }
 

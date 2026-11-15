@@ -8,9 +8,10 @@ const ARTv = dynamic(() => import("@/components/ar/ARTv").then((module) => modul
 const ARPrensa = dynamic(() => import("@/components/ar/ARPrensa").then((module) => module.default) as Promise<React.ComponentType<{}>>);
 
 // Função que renderiza o componente do modelo AR correto
-export default function ARPage({ params }: { params: { arID: string } }) {
+export default async function ARPage({ params }: { params: Promise<{ arID: string }> }) {
+  const { arID } = await params;
   const renderComponent = () => {
-    switch (params.arID) {
+    switch (arID) {
       case "1":
         return <ARWagner />;
       case "2":

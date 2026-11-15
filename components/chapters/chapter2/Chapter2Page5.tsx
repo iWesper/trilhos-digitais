@@ -202,7 +202,7 @@ export default function Chapter2Page5() {
     addImageToBoard: (id: number) => void;
     board: { id: number; url: any }[];
     checkOrder: () => void;
-  }): JSX.Element {
+  }): React.JSX.Element {
     //REF PARA O DROP
     const dropRef = useRef<HTMLDivElement>(null);
 
@@ -243,7 +243,7 @@ export default function Chapter2Page5() {
         {board.length > 0 &&
           board.map((picture) => {
             return (
-              <div className="absolute top-0">
+              <div key={picture.id} className="absolute top-0">
                 <Image src={picture.url} alt="Imagem da cadeira da Bauhaus" />
               </div>
             );
@@ -326,7 +326,7 @@ export default function Chapter2Page5() {
         <div className="col-span-2 flex flex-col justify-center items-center overflow-visible h-[60vh]">
           {PictureListCopy.map((picture) => {
             return (
-              <motion.div
+              <motion.div key={picture.id}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}

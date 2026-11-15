@@ -59,9 +59,9 @@ const ChapterComponents: { [key: string]: React.ComponentType<{}> } = {
 };
 
 // Função que renderiza o componente do capítulo correto
-export default function Chapters({ params }: { params: { slug: string[] } }) {
+export default async function Chapters({ params }: { params: Promise<{ slug: string[] }> }) {
   // Obter o slug da página
-  const { slug } = params;
+  const { slug } = await params;
   // Formar o ID do componente do capítulo
   const chapterComponentID = `Chapter${slug[0].charAt(7)}Page${slug[1]}`;
 

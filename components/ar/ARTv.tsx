@@ -1,30 +1,14 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import React, { useRef } from "react";
+import { useFrame } from "@react-three/fiber";
 import { Environment, useGLTF, useAnimations } from "@react-three/drei";
-import { ARButton, Interactive, XR } from "@react-three/xr";
-import { Mesh, MeshStandardMaterial, VideoTexture } from "three";
+import ARScene from "./ARScene";
+import { Group, Mesh, MeshStandardMaterial, VideoTexture } from "three";
 
 export default function ARPage() {
-  const [isARActive, setIsARActive] = useState(false);
-
-  useEffect(() => {
-    // Verificar se o browser suporta WebXR
-    if (!navigator.xr) {
-      alert(
-        "O teu navegador não suporta WebXR. Por favor, utiliza um navegador compatível."
-      );
-    }
-  }, []);
-
-  // Ativar/desativar a AR
-  const toggleAR = () => {
-    setIsARActive(!isARActive);
-  };
-
   return (
-    <div className="w-screen h-screen">
+    <>
       <video
         id="video"
         playsInline
@@ -36,23 +20,16 @@ export default function ARPage() {
         src="/videos/tvar.mp4"
         style={{ display: "none" }}
       ></video>
-      <Canvas>
-        <XR referenceSpace="local">
-          {isARActive && (
-            <>
-              <TvAR scale={0.3} position={[0.075, -0.4, -1.25]} />
-              <Environment preset="sunset" />
-            </>
-          )}
-        </XR>
-      </Canvas>
-      <ARButton onClick={toggleAR} />
-    </div>
+      <ARScene>
+        <TvAR scale={0.3} position={[0.075, -0.4, -1.25]} />
+        <Environment preset="sunset" />
+      </ARScene>
+    </>
   );
 }
 
 function TvAR(props: any) {
-  const group = useRef();
+  const group = useRef<Group>(null);
   const { nodes, materials, animations } = useGLTF(
     "/models/tvAR/tvAR-transformed.glb"
   );
@@ -74,7 +51,7 @@ function TvAR(props: any) {
   });
 
   return (
-    <Interactive onSelect={handleInteraction}>
+    <group onClick={handleInteraction}>
       <group {...props} dispose={null}>
         <mesh
           geometry={(nodes.body as Mesh).geometry}
@@ -89,7 +66,7 @@ function TvAR(props: any) {
           scale={[0.9, 0.741, 0.07]}
         />
       </group>
-    </Interactive>
+    </group>
   );
 }
 

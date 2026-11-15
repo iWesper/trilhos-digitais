@@ -10,32 +10,32 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.3",
-    "@radix-ui/react-dialog": "^1.0.5",
-    "@radix-ui/react-label": "^2.0.2",
-    "@radix-ui/react-progress": "^1.0.3",
-    "@radix-ui/react-slider": "^1.2.0",
-    "@radix-ui/react-slot": "^1.0.2",
-    "@radix-ui/react-toast": "^1.2.0",
-    "@radix-ui/react-tooltip": "^1.0.7",
-    "@react-three/drei": "^9.106.0",
-    "@react-three/fiber": "^8.16.8",
-    "@react-three/xr": "^5.7.1",
+    "@radix-ui/react-dialog": "^1.3.1",
+    "@radix-ui/react-label": "^2.1.17",
+    "@radix-ui/react-progress": "^1.2.1",
+    "@radix-ui/react-slider": "^1.6.1",
+    "@radix-ui/react-slot": "^1.5.0",
+    "@radix-ui/react-toast": "^1.3.1",
+    "@radix-ui/react-tooltip": "^1.4.1",
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
+    "@react-three/xr": "^6.6.32",
     "@types/three": "^0.165.0",
-    "@vercel/analytics": "^1.3.1",
-    "@vercel/speed-insights": "^1.0.12",
+    "@vercel/analytics": "^1.6.1",
+    "@vercel/speed-insights": "^1.3.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.1.4",
-    "firebase": "^10.12.2",
-    "framer-motion": "^11.2.10",
+    "firebase": "^12.19.0",
+    "framer-motion": "^11.18.2",
     "lodash": "^4.17.21",
-    "lottie-react": "^2.4.0",
-    "lucide-react": "^0.394.0",
-    "next": "^14.2.3",
-    "react": "^18.3.1",
+    "lottie-react": "^2.4.1",
+    "lucide-react": "^0.577.0",
+    "next": "^15.5.29",
+    "react": "^19.2.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
-    "react-dom": "^18.3.1",
+    "react-dom": "^19.2.0",
     "react-icons": "^5.2.1",
     "react-tilt": "^1.0.2",
     "tailwind-merge": "^2.3.0",
@@ -46,12 +46,29 @@
   "devDependencies": {
     "@types/lodash": "^4.17.5",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "eslint": "^8",
-    "eslint-config-next": "14.2.3",
+    "eslint-config-next": "^15.5.29",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "overrides": {
+    "react-tilt": {
+      "react": "$react",
+      "react-dom": "$react-dom",
+      "@types/react": "$@types/react",
+      "@types/react-dom": "$@types/react-dom"
+    },
+    "next": {
+      "postcss": "^8.5.33"
+    },
+    "@firebase/firestore": {
+      "@grpc/grpc-js": "^1.14.7"
+    },
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "^11.0.1"
+    }
   }
 }

@@ -1,47 +1,21 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { useRef } from "react";
 import { Environment, useGLTF, useAnimations } from "@react-three/drei";
-import { ARButton, Interactive, XR } from "@react-three/xr";
-import { Mesh, MeshStandardMaterial } from "three";
+import ARScene from "./ARScene";
+import { Group, Mesh, MeshStandardMaterial } from "three";
 
 export default function ARPage() {
-  const [isARActive, setIsARActive] = useState(false);
-
-  useEffect(() => {
-    // Verificar se o browser suporta WebXR
-    if (!navigator.xr) {
-      alert(
-        "O teu navegador não suporta WebXR. Por favor, utiliza um navegador compatível."
-      );
-    }
-  }, []);
-
-  // Ativar/desativar a AR
-  const toggleAR = () => {
-    setIsARActive(!isARActive);
-  };
-
   return (
-    <div className="w-screen h-screen">
-      <Canvas>
-        <XR referenceSpace="local">
-          {isARActive && (
-            <>
-              <PrensaAR scale={0.0275} position={[0.1, -0.8, -1.25]} rotation={[0, 0.5, 0]} />
-              <Environment preset="sunset" />
-            </>
-          )}
-        </XR>
-      </Canvas>
-      <ARButton onClick={toggleAR} />
-    </div>
+    <ARScene>
+      <PrensaAR scale={0.0275} position={[0.1, -0.8, -1.25]} rotation={[0, 0.5, 0]} />
+      <Environment preset="sunset" />
+    </ARScene>
   );
 }
 
 function PrensaAR(props: any) {
-  const group = useRef();
+  const group = useRef<Group>(null);
   const { nodes, materials, animations } = useGLTF(
     "/models/prensaAR/prensaAR-transformed.glb"
   );
@@ -68,7 +42,7 @@ function PrensaAR(props: any) {
   };
 
   return (
-    <Interactive onSelect={handleInteraction}>
+    <group onClick={handleInteraction}>
       <group ref={group} {...props} dispose={null}>
         <group name="Scene">
           <group
@@ -121,7 +95,7 @@ function PrensaAR(props: any) {
           />
         </group>
       </group>
-    </Interactive>
+    </group>
   );
 }
 
