@@ -251,7 +251,7 @@ export default function Chapter2Page3() {
           )}
           {board.map((picture) => {
             return (
-              <p className="text-white font-medium mt-2">
+              <p key={picture.id} className="text-white font-medium mt-2">
                 {validateId(picture.id)}
               </p>
             );

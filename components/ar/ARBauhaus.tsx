@@ -1,51 +1,25 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { useRef } from "react";
 import { Environment, useGLTF, useAnimations } from "@react-three/drei";
-import { ARButton, Interactive, XR } from "@react-three/xr";
-import { Mesh } from "three";
+import ARScene from "./ARScene";
+import { Group, Mesh } from "three";
 
 export default function ARPage() {
-  const [isARActive, setIsARActive] = useState(false);
-
-  useEffect(() => {
-    // Verificar se o browser suporta WebXR
-    if (!navigator.xr) {
-      alert(
-        "O teu navegador não suporta WebXR. Por favor, utiliza um navegador compatível."
-      );
-    }
-  }, []);
-
-  // Ativar/desativar a AR
-  const toggleAR = () => {
-    setIsARActive(!isARActive);
-  };
-
   return (
-    <div className="w-screen h-screen">
-      <Canvas>
-        <XR referenceSpace="local">
-          {isARActive && (
-            <>
-              <BauhausAR
-                scale={0.02}
-                position={[0, -0.15, -0.6]}
-                rotation={[0, -2.65, 0]}
-              />
-              <Environment preset="sunset" />
-            </>
-          )}
-        </XR>
-      </Canvas>
-      <ARButton onClick={toggleAR} />
-    </div>
+    <ARScene>
+      <BauhausAR
+        scale={0.02}
+        position={[0, -0.15, -0.6]}
+        rotation={[0, -2.65, 0]}
+      />
+      <Environment preset="sunset" />
+    </ARScene>
   );
 }
 
 function BauhausAR(props: any) {
-  const group = useRef();
+  const group = useRef<Group>(null);
   const { nodes, materials, animations } = useGLTF(
     "/models/bauhausAR/bauhausAR-transformed.glb"
   );
@@ -73,7 +47,7 @@ function BauhausAR(props: any) {
   };
 
   return (
-    <Interactive onSelect={handleInteraction}>
+    <group onClick={handleInteraction}>
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <group name="Cube024" scale={[0.097, 0.702, 0.097]}>
@@ -87,7 +61,7 @@ function BauhausAR(props: any) {
         <mesh name="Sphere" geometry={(nodes.Sphere as Mesh).geometry} material={materials.PaletteMaterial001} position={[-0.608, 0.274, 2.131]} scale={0.319} />
       </group>
     </group>
-    </Interactive>
+    </group>
   );
 }
 

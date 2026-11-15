@@ -112,7 +112,7 @@ export default function Chapter2Page10() {
   const [showContinuar, setshowContinuar] = useState<boolean>(false);
 
   //CONTENT
-  const [PContent, setPcontent] = useState<JSX.Element>(
+  const [PContent, setPcontent] = useState<React.JSX.Element>(
     <>Por fim, e resumindo o que aprendemos, podemos concluir que o design não segue apenas a função ou o significado, mas ambos! Para isso, vamos dar-te um minijogo baseado num objeto com o qual estamos super habituados: o telemóvel!
     <p>Coloca-os na ordem correta do mais antigo para o mais recente.</p>
     </>

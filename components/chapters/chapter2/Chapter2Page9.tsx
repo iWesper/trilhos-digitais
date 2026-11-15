@@ -45,9 +45,9 @@ export default function Chapter2Page9() {
 
   //ESTADO INICIAL DAS VARIÁVEIS A ESCREVER
   const [P1, setP1] =
-    useState<JSX.Element>(
+    useState<React.JSX.Element>(
       <>
-      Para que possas verificar este conceito, montámos o seguinte <span className="italic text-secondary">showcase</span>, onde vais poder ver como o design pode alterar o significado de algo, neste caso, a frase "<span className="italic text-secondary">Hello There</span>".
+      Para que possas verificar este conceito, montámos o seguinte <span className="italic text-secondary">showcase</span>, onde vais poder ver como o design pode alterar o significado de algo, neste caso, a frase &quot;<span className="italic text-secondary">Hello There</span>&quot;.
       </>);
 
   const [P2, setP2] = useState<string>(
@@ -127,7 +127,7 @@ export default function Chapter2Page9() {
       //P1
       setP1(
         <>
-        Para que possas verificar este conceito, montámos o seguinte <span className="italic text-secondary">showcase</span>, onde vais poder ver como o design pode alterar o significado de algo, neste caso, a frase "<span className="italic text-secondary">Hello There</span>".
+        Para que possas verificar este conceito, montámos o seguinte <span className="italic text-secondary">showcase</span>, onde vais poder ver como o design pode alterar o significado de algo, neste caso, a frase &quot;<span className="italic text-secondary">Hello There</span>&quot;.
         </>
         
       );

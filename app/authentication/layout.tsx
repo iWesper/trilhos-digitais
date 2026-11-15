@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useAuth } from "@/components/context/AuthContext";
 import { useRouter } from "next/navigation";
 import React, { useEffect, Suspense } from "react";
-import Lottie from "lottie-react";
+import Lottie from "@/components/ui/lottie";
 import animationData from "@/public/animations/loading_animation.json";
 
 export default function ChaptersLayout({
