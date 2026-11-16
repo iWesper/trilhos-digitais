@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { IoChevronBack } from "react-icons/io5";
@@ -16,20 +16,10 @@ export default function Chapter1Page6() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(16.66 + 16.66 + 16.66 + 16.66 + 16.66);
+  useEffect(() => {
+    setProgress(16.66 + 16.66 + 16.66 + 16.66 + 16.66);
+  }, [setProgress]);
 
-  //CONTROLO DA ANIMAÇÃO
-  const defaultOptions = {
-    reverse: false, // reverse the tilt direction
-    max: 8, // max tilt rotation (degrees)
-    perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-    scale: 1, // 2 = 200%, 1.5 = 150%, etc..
-    speed: 400, // Speed of the enter/exit transition
-    transition: true, // Set a transition on enter/exit.
-    axis: null, // What axis should be disabled. Can be X or Y.
-    reset: true, // If the tilt effect has to be reset on exit.
-    easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
-  };
   return (
     <>
       <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12">
@@ -76,7 +66,7 @@ export default function Chapter1Page6() {
           transition={enter}
           className="col-span-4 flex justify-center items-center"
         >
-          <Tilt options={defaultOptions}>
+          <Tilt options={{ scale: 1 }}>
             <Image
               src="/img/chapter1/chapter1Cinema.svg"
               alt="Foto de um Cinema"

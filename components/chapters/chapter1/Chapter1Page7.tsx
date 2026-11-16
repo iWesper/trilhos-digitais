@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,9 @@ export default function Chapter1Page7() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(16.66 + 16.66 + 16.66 + 16.66 + 16.66 + 16.66);
+  useEffect(() => {
+    setProgress(16.66 + 16.66 + 16.66 + 16.66 + 16.66 + 16.66);
+  }, [setProgress]);
 
   const [content, setContent] = useState<string | null>(
     "No entanto, uma obra completa envolve interação com elementos e não apenas a visualização de acontecimentos, e é nesse aspeto que a multimédia entra."

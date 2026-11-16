@@ -41,7 +41,9 @@ export default function Chapter2Page2() {
   };
 
   //PROGRESS VALUE
-  setProgress(10);
+  useEffect(() => {
+    setProgress(10);
+  }, [setProgress]);
 
   // Tooltip
   const [tooltipOpen, setTooltipOpen] = useState(false);

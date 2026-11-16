@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
@@ -35,13 +35,15 @@ export default function Chapter3Page6() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(
-    7.1428571428571428571428571428571 +
+  useEffect(() => {
+    setProgress(
       7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571
-  );
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571
+    );
+  }, [setProgress]);
 
   //LISTA de PALAVRAS POSSÍVEIS
   const words = [

@@ -104,7 +104,9 @@ export default function Chapter2Page10() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(90);
+  useEffect(() => {
+    setProgress(90);
+  }, [setProgress]);
 
   //SAVE PROGRESS STATE
   const [progressSave, setProgressSave] = useState<boolean>(false);

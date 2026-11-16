@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
@@ -12,7 +12,9 @@ export default function Chapter4Page1() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE RESET
-  setProgress(0);
+  useEffect(() => {
+    setProgress(0);
+  }, [setProgress]);
 
   return (
     <>

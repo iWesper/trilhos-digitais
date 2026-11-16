@@ -47,7 +47,9 @@ export default function Chapter1Page3() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(16.66 + 16.66);
+  useEffect(() => {
+    setProgress(16.66 + 16.66);
+  }, [setProgress]);
 
   //GO TO
   const nextPage = "/chapters/chapter1/4";

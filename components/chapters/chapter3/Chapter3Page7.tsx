@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -22,14 +22,16 @@ export default function Chapter3Page7() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(
-    7.1428571428571428571428571428571 +
+  useEffect(() => {
+    setProgress(
       7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571
-  );
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571
+    );
+  }, [setProgress]);
 
   return (
     <>

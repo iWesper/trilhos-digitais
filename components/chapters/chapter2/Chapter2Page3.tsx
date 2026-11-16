@@ -92,18 +92,6 @@ export default function Chapter2Page3() {
   //SRC da imagem
   let src = "/img/chapter2/chapter2espremedor.svg";
 
-  //Controlo do Tilt
-  const defaultOptions = {
-    reverse: false, // reverse the tilt direction
-    max: 8, // max tilt rotation (degrees)
-    perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-    scale: 1, // 2 = 200%, 1.5 = 150%, etc..
-    speed: 400, // Speed of the enter/exit transition
-    transition: true, // Set a transition on enter/exit.
-    axis: null, // What axis should be disabled. Can be X or Y.
-    reset: true, // If the tilt effect has to be reset on exit.
-    easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
-  };
 
   //STATE ATUALIZÁVEL COM OS ELEMENTOS QUE LÁ ESTÃO
   const [board, setBoard] = useState<{ id: number; url: any }[]>([]);
@@ -189,7 +177,7 @@ export default function Chapter2Page3() {
         ref={dropRef}
         className="h-full flex flex-col justify-end items-center relative xl:mb-0 xl:justify-center"
       >
-        <Tilt options={defaultOptions}>
+        <Tilt options={{ scale: 1 }}>
           <Image
             src={src}
             alt="Foto de Um Espremedor de Citrinos"

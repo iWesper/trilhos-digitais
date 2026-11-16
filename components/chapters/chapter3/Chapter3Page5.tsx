@@ -13,14 +13,15 @@ export default function Chapter3Page5() {
   //PROGRESS
   const { setProgress } = useProgress();
 
-  useEffect(() => {
   //PROGRESS VALUE
-  setProgress(
-    7.1428571428571428571428571428571 +
+  useEffect(() => {
+    setProgress(
       7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571
-  );  }, []);
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571
+    );
+  }, [setProgress]);
 
   return (
     <>

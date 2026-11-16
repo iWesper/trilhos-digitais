@@ -33,7 +33,9 @@ export default function Chapter2Page9() {
   const [progressSave, setProgressSave] = useState<boolean>(false);
 
   //PROGRESS VALUE
-  setProgress(80);
+  useEffect(() => {
+    setProgress(80);
+  }, [setProgress]);
 
   //BADGE DO CAPÍTULO
   const badgeId = 2;

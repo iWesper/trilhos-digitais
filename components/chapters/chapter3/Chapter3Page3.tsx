@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { IoChevronBack } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa6";
@@ -15,22 +15,12 @@ export default function Chapter3Page3() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(
-    7.1428571428571428571428571428571 + 7.1428571428571428571428571428571
-  );
+  useEffect(() => {
+    setProgress(
+      7.1428571428571428571428571428571 + 7.1428571428571428571428571428571
+    );
+  }, [setProgress]);
 
-  //CONTROLO DA ANIMAÇÃO
-  const defaultOptions = {
-    reverse: false, // reverse the tilt direction
-    max: 8, // max tilt rotation (degrees)
-    perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-    scale: 1.03, // 2 = 200%, 1.5 = 150%, etc..
-    speed: 400, // Speed of the enter/exit transition
-    transition: true, // Set a transition on enter/exit.
-    axis: null, // What axis should be disabled. Can be X or Y.
-    reset: true, // If the tilt effect has to be reset on exit.
-    easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
-  };
 
   return (
     <>
@@ -82,7 +72,7 @@ export default function Chapter3Page3() {
           animate={{ opacity: 1}}
           transition={enter}
         >
-          <Tilt options={defaultOptions}>
+          <Tilt>
             <Image
               src="/img/chapter3/chapter3GodfatherCover.svg"
               alt="Imagem de capa deo The Godfather"
