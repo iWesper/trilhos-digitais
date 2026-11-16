@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { MdSwipe } from "react-icons/md";
 import { motion } from "framer-motion";
 import { useAuth } from "../context/AuthContext";
 import { useRouter } from "next/navigation";
@@ -12,9 +11,8 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
-import { Comboio } from "./Comboio";
+import Train from "./train/Train";
 import Navbar from "./Navbar";
-import { set } from "lodash";
 
 export default function Homepage() {
   const router = useRouter();
@@ -170,46 +168,9 @@ export default function Homepage() {
             zIndex: -4,
           }}
         ></motion.div>
-        <motion.div
-          className="flex flex-col items-center w-full select-none h-screen max-h-screen"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <motion.div
-            className="mt-4 flex flex-col items-center justify-center absolute lg:top-[80%] backdrop-filter p-4 bg-[#142839] rounded-xl backdrop-blur-md bg-opacity-80 z-[1]"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 10, duration: 1 }}
-          >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 10.5, duration: 1 }}
-            >
-              <MdSwipe className="text-4xl text-white animate-swipe" />
-            </motion.div>
-            <motion.p
-              className="text-center text-xl text-white"
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
-            >
-              Arrasta para o lado!
-            </motion.p>
-          </motion.div>
-        </motion.div>
       </div>
       {/* Comboio */}
-      <motion.div
-        className="absolute w-screen h-screen z-[2]"
-        draggable="false"
-        initial={{ x: 300, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-      >
-        <Comboio />
-      </motion.div>
+      <Train />
     </>
   );
 }

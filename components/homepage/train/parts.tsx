@@ -1,7 +1,7 @@
 "use client";
 
-import { createContext, ReactNode, useContext, useId } from "react";
-import { motion, MotionValue, useMotionValue, useTransform } from "framer-motion";
+import { createContext, ReactNode, useContext, useEffect, useId, useRef } from "react";
+import { MotionValue, useMotionValue, useMotionValueEvent, useTransform } from "framer-motion";
 
 // Paleta partilhada por todo o comboio (azul marinho e verde da marca + acentos por capítulo)
 export const palette = {
@@ -53,12 +53,24 @@ export function useWheelAngle(r: number) {
   return useTransform(distance, (d) => (-d / (2 * Math.PI * r)) * 360);
 }
 
+// Aplica um valor animado ao atributo "transform" de um elemento SVG, sem re-renders
+export function useSvgTransform(value: MotionValue<string>) {
+  const ref = useRef<SVGGElement>(null);
+  useEffect(() => {
+    ref.current?.setAttribute("transform", value.get());
+  }, [value]);
+  useMotionValueEvent(value, "change", (v) => ref.current?.setAttribute("transform", v));
+  return ref;
+}
+
 export function Wheel({ cx, cy, r }: { cx: number; cy: number; r: number }) {
-  const rotate = useWheelAngle(r);
+  const angle = useWheelAngle(r);
+  // Rotação com centro explícito no eixo: a roda gira sem nunca sair do sítio
+  const ref = useSvgTransform(useTransform(angle, (a) => `rotate(${a} ${cx} ${cy})`));
   const spokes = 8;
   return (
-    <g>
-      <motion.g style={{ rotate, transformBox: "fill-box", transformOrigin: "center" }}>
+    <g data-wheel="">
+      <g ref={ref}>
         <circle cx={cx} cy={cy} r={r} fill={palette.navyDeep} />
         <circle cx={cx} cy={cy} r={r - 4} fill="none" stroke={palette.steel} strokeWidth={3} />
         {Array.from({ length: spokes }, (_, i) => {
@@ -76,8 +88,8 @@ export function Wheel({ cx, cy, r }: { cx: number; cy: number; r: number }) {
             />
           );
         })}
-      </motion.g>
-      <circle cx={cx} cy={cy} r={r * 0.24} fill={palette.gold} />
+      </g>
+      <circle data-hub="" cx={cx} cy={cy} r={r * 0.24} fill={palette.gold} />
     </g>
   );
 }
@@ -207,8 +219,13 @@ export function CarFrame({
 
       {/* Chassis, bogies e rodas */}
       <rect x={36} y={230} width={568} height={14} rx={4} fill={palette.navyDeep} />
-      <rect x={70} y={252} width={126} height={12} rx={6} fill={palette.steel} />
-      <rect x={444} y={252} width={126} height={12} rx={6} fill={palette.steel} />
+      {/* Bogies: pivô ligado ao chassis + armação que segura os eixos das rodas */}
+      {[133, 507].map((cx) => (
+        <g key={cx}>
+          <rect x={cx - 14} y={240} width={28} height={16} fill={palette.navyDeep} />
+          <rect x={cx - 66} y={252} width={132} height={14} rx={6} fill={palette.steel} />
+        </g>
+      ))}
       <Wheel cx={102} cy={274} r={26} />
       <Wheel cx={164} cy={274} r={26} />
       <Wheel cx={476} cy={274} r={26} />

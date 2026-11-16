@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useTransform } from "framer-motion";
-import { palette, useSvgId, useTrain, useWheelAngle, Wheel } from "./parts";
+import { palette, useSvgId, useSvgTransform, useTrain, useWheelAngle, Wheel } from "./parts";
 
 export const LOCO_W = 560;
 
@@ -31,15 +31,19 @@ function Steam() {
 // Biela: acompanha a rotação das rodas motrizes
 function DriveRod() {
   const angle = useWheelAngle(DRIVER_R);
-  const x = useTransform(angle, (a) => Math.cos((a * Math.PI) / 180) * CRANK);
-  const y = useTransform(angle, (a) => Math.sin((a * Math.PI) / 180) * CRANK);
+  const ref = useSvgTransform(
+    useTransform(angle, (a) => {
+      const rad = (a * Math.PI) / 180;
+      return `translate(${Math.cos(rad) * CRANK} ${Math.sin(rad) * CRANK})`;
+    })
+  );
   return (
-    <motion.g style={{ x, y }}>
+    <g ref={ref}>
       <rect x={DRIVERS[0] - 6} y={262} width={DRIVERS[2] - DRIVERS[0] + 12} height={8} rx={4} fill={palette.gold} />
       {DRIVERS.map((d) => (
         <circle key={d} cx={d} cy={266} r={5} fill={palette.navyDeep} />
       ))}
-    </motion.g>
+    </g>
   );
 }
 
@@ -110,8 +114,9 @@ export default function Locomotive() {
         <line key={x} x1={x} y1={268} x2={x + 14} y2={234} stroke={palette.navyDeep} strokeWidth={3} />
       ))}
 
-      {/* Chassis e engate */}
+      {/* Chassis, armação das rodas e engate */}
       <rect x={60} y={230} width={490} height={14} rx={4} fill={palette.navyDeep} />
+      <rect x={128} y={240} width={400} height={30} rx={6} fill={palette.navyDeep} />
       <rect x={540} y={212} width={20} height={12} rx={3} fill={palette.navyDeep} />
 
       {/* Rodas */}

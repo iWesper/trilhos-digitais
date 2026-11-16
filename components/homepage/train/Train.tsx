@@ -15,18 +15,29 @@ import {
 import { FaArrowRight } from "react-icons/fa6";
 import Locomotive from "./Locomotive";
 import CarArte from "./CarArte";
+import CarDesign from "./CarDesign";
+import CarComunicacao from "./CarComunicacao";
+import CarTecnologia from "./CarTecnologia";
 import { CAR_H, TrainProvider } from "./parts";
 
 type Car = { chapter: number; title: string; Art: ComponentType };
 
-const CARS: Car[] = [{ chapter: 1, title: "Arte", Art: CarArte }];
+const CARS: Car[] = [
+  { chapter: 1, title: "Arte", Art: CarArte },
+  { chapter: 2, title: "Design", Art: CarDesign },
+  { chapter: 3, title: "Comunicação", Art: CarComunicacao },
+  { chapter: 4, title: "Tecnologia", Art: CarTecnologia },
+];
 
 // Curva de travagem: arranque rápido, assentamento suave
 const EASE_OUT_EXPO = [0.19, 1, 0.22, 1] as const;
 
 export default function Train() {
   const scroller = useRef<HTMLDivElement>(null);
-  const reduced = useReducedMotion() ?? false;
+  // Só depois de montar: o servidor não sabe a preferência, e o markup tem de coincidir na hidratação
+  const prefersReduced = useReducedMotion();
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => setReduced(!!prefersReduced), [prefersReduced]);
 
   // Chegada à estação: o comboio entra pela direita e trava
   const arrival = useMotionValue(0);
@@ -34,6 +45,7 @@ export default function Train() {
 
   useEffect(() => {
     if (reduced) {
+      arrival.set(0);
       setHasArrived(true);
       return;
     }
@@ -117,9 +129,6 @@ export default function Train() {
           <motion.ul
             className="flex items-end"
             style={{ x: arrival }}
-            initial={reduced ? { opacity: 0 } : false}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
           >
             <li className="h-[clamp(190px,34vh,320px)]">
               <Locomotive />
@@ -129,6 +138,14 @@ export default function Train() {
                 <Link
                   href={`/chapters/chapter${chapter}/1`}
                   aria-label={`Capítulo ${chapter}: ${title}`}
+                  // Com o teclado, a carruagem focada fica centrada no ecrã
+                  onFocus={(e) =>
+                    e.currentTarget.scrollIntoView({
+                      inline: "center",
+                      block: "nearest",
+                      behavior: reduced ? "auto" : "smooth",
+                    })
+                  }
                   className="group block h-full rounded-2xl outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-secondary"
                 >
                   <Art />
@@ -138,7 +155,7 @@ export default function Train() {
           </motion.ul>
           {/* Carril contínuo: fica parado enquanto o comboio chega */}
           <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[14px]">
-            <div className="h-[5px] bg-[#59646E]" />
+            <div data-rail="" className="h-[5px] bg-[#59646E]" />
             <div className="h-[9px] bg-[repeating-linear-gradient(90deg,#5B4030_0_18px,transparent_18px_34px)]" />
           </div>
           </div>
