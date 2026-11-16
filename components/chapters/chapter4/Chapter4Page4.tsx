@@ -8,6 +8,7 @@ import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { useAuth } from "@/components/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { enter, enterAfter, hover } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter4Page4() {
@@ -64,7 +65,7 @@ export default function Chapter4Page4() {
           <motion.h4
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
+            transition={enter}
             className="text-white font-medium p-6 pb-8 text-8xl font-effra"
           >
             SIM!
@@ -72,7 +73,7 @@ export default function Chapter4Page4() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
+            transition={enterAfter(0.5)}
             className="text-white font-medium pb-8"
           >
             É quase que uma característica psicológica nossa, a necessidade de
@@ -80,7 +81,7 @@ export default function Chapter4Page4() {
             evoluir, alcançando novos patamares e melhorando continuamente.
           </motion.p>
           <motion.div
-            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+            whileHover={hover}
             className="group"
           >
             <Button
@@ -90,7 +91,7 @@ export default function Chapter4Page4() {
             >
               <Link href="/chapters/chapter4/5">
                 Continuar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
               </Link>
             </Button>
           </motion.div>

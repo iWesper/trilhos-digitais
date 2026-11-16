@@ -8,6 +8,7 @@ import Lottie from "@/components/ui/lottie";
 import animationData from "@/public/animations/loading_animation.json";
 import { ProgressProvider } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { enter } from "@/lib/motion";
 
 export default function BadgesLayout({
   children,
@@ -76,7 +77,7 @@ export default function BadgesLayout({
         <motion.main
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="overflow-hidden h-screen w-screen"
         >
           <Navbar />

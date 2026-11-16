@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/tooltip";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { enter, hover } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter3Page13() {
@@ -85,7 +86,7 @@ export default function Chapter3Page13() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="flex items-end justify-center col-span-8 mt-10 pt-20"
         >
           <p className="font-bold text-white text-center">
@@ -100,7 +101,7 @@ export default function Chapter3Page13() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-4 flex flex-col justify-end items-center"
         >
           {resposta && (
@@ -119,13 +120,13 @@ export default function Chapter3Page13() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-12 flex justify-center items-center"
         >
           {!showButton && (
             <form className="flex flex-row items-center justify-center">
               <motion.div
-                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                whileHover={hover}
                 className="cursor-pointer"
               >
                 <Button
@@ -138,7 +139,7 @@ export default function Chapter3Page13() {
                 </Button>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                whileHover={hover}
                 className="cursor-pointer"
               >
                 <Button
@@ -151,7 +152,7 @@ export default function Chapter3Page13() {
                 </Button>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                whileHover={hover}
                 className="cursor-pointer"
               >
                 <Button
@@ -168,7 +169,7 @@ export default function Chapter3Page13() {
 
           {showButton && (
             <motion.div
-              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              whileHover={hover}
               className="group"
             >
               <Button
@@ -177,7 +178,7 @@ export default function Chapter3Page13() {
               >
                 <Link href="/chapters/chapter3/14">
                   Continuar
-                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
                 </Link>
               </Button>
             </motion.div>

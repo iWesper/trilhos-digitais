@@ -22,6 +22,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { motion } from "framer-motion";
+import { enterAfter, hover } from "@/lib/motion";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 
 import { DndProvider } from "react-dnd";
@@ -36,7 +37,7 @@ import testimg1 from "@/public/img/chapter2/chapter2frutas_morango.svg";
 import testimg2 from "@/public/img/chapter2/chapter2frutas_maca.svg";
 import testimg3 from "@/public/img/chapter2/chapter2frutas_laranja.svg";
 import correctimg from "@/public/img/chapter2/chapter2frutas_laranjapartida.svg";
-import { Tilt } from "react-tilt";
+import { Tilt } from "@/components/ui/tilt";
 
 export default function Chapter2Page3() {
   //LISTA DE ELEMENTOS ARRASTÁVEIS
@@ -94,10 +95,10 @@ export default function Chapter2Page3() {
   //Controlo do Tilt
   const defaultOptions = {
     reverse: false, // reverse the tilt direction
-    max: 10, // max tilt rotation (degrees)
+    max: 8, // max tilt rotation (degrees)
     perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
     scale: 1, // 2 = 200%, 1.5 = 150%, etc..
-    speed: 2500, // Speed of the enter/exit transition
+    speed: 400, // Speed of the enter/exit transition
     transition: true, // Set a transition on enter/exit.
     axis: null, // What axis should be disabled. Can be X or Y.
     reset: true, // If the tilt effect has to be reset on exit.
@@ -224,7 +225,7 @@ export default function Chapter2Page3() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={enterAfter(0.25)}
           className="col-span-6 h-full flex flex-col justify-center p-10 text-white "
         >
           <p className="font-medium mb-4 pt-16 lg:pt-20">
@@ -263,8 +264,8 @@ export default function Chapter2Page3() {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ opacity: { duration: 1, delay: 0.5 } }}
-                    whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                    transition={{ opacity: enterAfter(0.25) }}
+                    whileHover={hover}
                     className="cursor-pointer"
                   >
                     Continuar
@@ -289,7 +290,7 @@ export default function Chapter2Page3() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={enterAfter(0.25)}
           className="col-span-4 h-full justify-center items-center flex flex-col"
         >
           <DropArea

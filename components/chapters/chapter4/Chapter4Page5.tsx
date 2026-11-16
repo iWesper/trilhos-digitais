@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { useAuth } from "@/components/context/AuthContext";
 import { motion } from "framer-motion";
+import { enter, hover } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
 import { FaArrowRight } from "react-icons/fa6";
 import { HiCheck } from "react-icons/hi";
@@ -39,7 +40,7 @@ export default function Chapter4Page5() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-8 flex justify-start items-center text-center flex-col pt-20"
         >
           <p className="text-white font-medium p-6 pb-8">
@@ -55,7 +56,7 @@ export default function Chapter4Page5() {
             para ti!
           </p>
           <motion.div
-              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              whileHover={hover}
               className="group"
             >
               <Button

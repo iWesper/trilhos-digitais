@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { hover } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter4Page1() {
@@ -31,7 +32,7 @@ export default function Chapter4Page1() {
             meios de comunicação.
           </p>
           <motion.div
-              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              whileHover={hover}
               className="group"
             >
               <Button
@@ -40,7 +41,7 @@ export default function Chapter4Page1() {
               >
                 <Link href="/chapters/chapter4/2">
                   Começar
-                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
                 </Link>
               </Button>
             </motion.div>

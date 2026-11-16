@@ -22,6 +22,7 @@ import PicturePhones from "./Design_Telemoveis_Drop";
 import { useToast } from "@/components/ui/use-toast";
 import { useAuth } from "@/components/context/AuthContext";
 import { motion } from "framer-motion";
+import { hover, move } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 
 import testimg1 from "@/public/img/chapter2/Phone1.svg";
@@ -377,8 +378,8 @@ export default function Chapter2Page10() {
                 key={picture.id}
                 initial={{ y: 0 }}
                 animate={{ y: index * 100 }}
-                transition={{ duration: 0.5 }}
-                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                transition={move}
+                whileHover={hover}
               >
                 <PicturePhones
                   url={picture.url}
@@ -400,8 +401,8 @@ export default function Chapter2Page10() {
                 key={picture.id}
                 initial={{ y: 0 }}
                 animate={{ y: index * 100 }}
-                transition={{ duration: 0.5 }}
-                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                transition={move}
+                whileHover={hover}
               >
                 <PicturePhones
                   url={picture.url}
@@ -423,8 +424,8 @@ export default function Chapter2Page10() {
                 key={picture.id}
                 initial={{ y: 0 }}
                 animate={{ y: index * 100 }}
-                transition={{ duration: 0.5 }}
-                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                transition={move}
+                whileHover={hover}
               >
                 <PicturePhones
                   url={picture.url}
@@ -446,8 +447,8 @@ export default function Chapter2Page10() {
                 key={picture.id}
                 initial={{ y: 0 }}
                 animate={{ y: index * 100 }}
-                transition={{ duration: 0.5 }}
-                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                transition={move}
+                whileHover={hover}
               >
                 <PicturePhones
                   url={picture.url}
@@ -499,7 +500,7 @@ export default function Chapter2Page10() {
         <div className="col-span-4 flex justify-center items-center">
           {showContinuar && (
             <motion.div
-              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              whileHover={hover}
               className="group"
             >
               <Button
@@ -509,7 +510,7 @@ export default function Chapter2Page10() {
               >
                 <Link href="/chapters/chapter2/11">
                   Continuar
-                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
                 </Link>
               </Button>
             </motion.div>

@@ -7,6 +7,7 @@ import { useProgress } from "@/components/context/ProgressContext";
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { enterAfter, hover } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 import { Environment, Loader, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
@@ -44,7 +45,7 @@ export default function Chapter3Page7() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
+          transition={enterAfter(0.25)}
           className="col-span-4 flex justify-start items-center text-center flex-col"
         >
           <p className="text-white font-medium pb-10 select-none">
@@ -55,7 +56,7 @@ export default function Chapter3Page7() {
             Vamos descobri-las!
           </p>
           <motion.div
-            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+            whileHover={hover}
             className="group"
           >
             <Button
@@ -64,14 +65,14 @@ export default function Chapter3Page7() {
             >
               <Link href="/chapters/chapter3/8">
                 Continuar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
               </Link>
             </Button>
           </motion.div>
         </motion.div>
         <motion.div           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }} className="col-span-6 h-full w-full">
+          transition={enterAfter(0.25)} className="col-span-6 h-full w-full">
           <Canvas>
             <Suspense fallback={null}>
               <OrbitControls

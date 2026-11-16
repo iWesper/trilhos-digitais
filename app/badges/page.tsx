@@ -7,6 +7,7 @@ import { useAuth } from "@/components/context/AuthContext";
 import BadgeDetails from "@/components/badges/BadgeDetails";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { enter } from "@/lib/motion";
 import {
   Dialog,
   DialogContent,
@@ -204,7 +205,7 @@ export default function Badges() {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
+                    transition={enter}
                     key={index}
                     className={`flex justify-center items-center relative ${WillCursorBePointer} col-span-4 overflow-visible group`}
                     {...(progress === 100

@@ -24,6 +24,7 @@ import { useToast } from "@/components/ui/use-toast";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { enter, enterAfter, hover } from "@/lib/motion";
 
 export default function Chapter1Page5() {
   //TOAST
@@ -105,7 +106,7 @@ export default function Chapter1Page5() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-6 flex items-center justify-end flex-col pb-10"
         >
           <div>
@@ -131,8 +132,8 @@ export default function Chapter1Page5() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ opacity: { duration: 1, delay: 1 } }}
-              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              transition={{ opacity: enterAfter(0.5) }}
+              whileHover={hover}
               className=" cursor-pointe w-full"
             >
               <Button
@@ -166,8 +167,8 @@ export default function Chapter1Page5() {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ opacity: { duration: 1, delay: 1.5 } }}
-                    whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                    transition={{ opacity: enterAfter(0.75) }}
+                    whileHover={hover}
                     className="cursor-pointer"
                   >
                     Cinema
@@ -193,8 +194,8 @@ export default function Chapter1Page5() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ opacity: { duration: 1, delay: 2 } }}
-              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              transition={{ opacity: enterAfter(1) }}
+              whileHover={hover}
               className="e cursor-pointer w-full"
             >
               <Button

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { enter, hover } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter4Page1() {
@@ -20,7 +21,7 @@ export default function Chapter4Page1() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-8 flex flex-col justify-center items-center"
         >
           <h1 className="font-bold text-white text-9xl mb-11 font-effra">
@@ -33,13 +34,13 @@ export default function Chapter4Page1() {
             Meio É A Mensagem&quot;!
           </p>
           <motion.div
-            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+            whileHover={hover}
             className="group"
           >
             <Button asChild className="text-white bg-[#142839] hover:bg-hover">
               <Link href="/chapters/chapter3/2">
                 Começar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
               </Link>
             </Button>
           </motion.div>

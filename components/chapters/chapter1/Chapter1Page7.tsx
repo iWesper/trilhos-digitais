@@ -7,6 +7,7 @@ import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { enter, enterAfter, hover } from "@/lib/motion";
 import { HiCheck } from "react-icons/hi";
 import { FaArrowRight } from "react-icons/fa6";
 
@@ -60,7 +61,7 @@ export default function Chapter1Page7() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-6 flex flex-col justify-center items-center p-10 mt-20 "
         >
           <p className="font-medium mb-10">{content}</p>
@@ -72,15 +73,15 @@ export default function Chapter1Page7() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ opacity: { duration: 1, delay: 3 } }}
-              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              transition={{ opacity: enterAfter(1.5) }}
+              whileHover={hover}
               className="group cursor-pointer text-white"
             >
               {buttonContent}
               {buttonContent === "Concluir" ? (
                 <HiCheck className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
               ) : (
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
               )}
             </motion.div>
           </Button>

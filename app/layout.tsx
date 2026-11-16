@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import { AuthProvider } from "@/components/context/AuthContext";
 import { Toaster } from "@/components/ui/toaster";
+import { MotionProvider } from "@/components/providers/MotionProvider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -24,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-PT">
       <body
         className={cn(
           "min-h-screen bg-primary font-sans antialiased",
@@ -32,7 +33,7 @@ export default function RootLayout({
         )}
       >
         <AuthProvider>
-          {children}
+          <MotionProvider>{children}</MotionProvider>
           <Analytics />
           <SpeedInsights />
         </AuthProvider>

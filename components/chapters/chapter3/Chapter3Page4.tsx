@@ -7,7 +7,8 @@ import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
-import { Tilt } from "react-tilt";
+import { enter, enterAfter, hover } from "@/lib/motion";
+import { Tilt } from "@/components/ui/tilt";
 
 export default function Chapter3Page4() {
   //PROGRESS
@@ -23,10 +24,10 @@ export default function Chapter3Page4() {
   //CONTROLO DA ANIMAÇÃO
   const defaultOptions = {
     reverse: false, // reverse the tilt direction
-    max: 15, // max tilt rotation (degrees)
+    max: 8, // max tilt rotation (degrees)
     perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-    scale: 1.1, // 2 = 200%, 1.5 = 150%, etc..
-    speed: 5000, // Speed of the enter/exit transition
+    scale: 1.03, // 2 = 200%, 1.5 = 150%, etc..
+    speed: 400, // Speed of the enter/exit transition
     transition: true, // Set a transition on enter/exit.
     axis: null, // What axis should be disabled. Can be X or Y.
     reset: true, // If the tilt effect has to be reset on exit.
@@ -45,15 +46,15 @@ export default function Chapter3Page4() {
         </Link>
         <motion.div
           className="col-span-2 h-full"
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
+          initial={{ x: -40, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={enter}
         ></motion.div>
         <motion.div
           className="col-span-8 h-full"
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={enter}
         >
           <div className="h-full flex justify-center items-center mt-20">
             <p className="font-medium mb-10 text-white text-center">
@@ -67,15 +68,15 @@ export default function Chapter3Page4() {
         </motion.div>
         <motion.div
           className="h-full col-span-2"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
+          initial={{ x: 40, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={enter}
         ></motion.div>
         <motion.div
           className="h-full col-span-4 flex justify-center items-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
+          transition={enterAfter(0.5)}
         >
           <Tilt options={defaultOptions}>
             <Image
@@ -92,7 +93,7 @@ export default function Chapter3Page4() {
           className="h-full col-span-4 flex justify-center items-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
+          transition={enterAfter(0.75)}
         >
           <Tilt options={defaultOptions}>
             <Image
@@ -109,7 +110,7 @@ export default function Chapter3Page4() {
           className="h-full col-span-4 flex justify-center items-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
+          transition={enterAfter(1)}
         >
           <Tilt options={defaultOptions}>
             <Image
@@ -124,33 +125,33 @@ export default function Chapter3Page4() {
         </motion.div>
         <motion.div
           className="h-full col-span-4"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
+          initial={{ x: 40, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={enter}
         ></motion.div>
         <motion.div
           className="h-full col-span-4 flex justify-center items-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
         >
           <motion.div
-            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+            whileHover={hover}
             className="group"
           >
             <Button asChild className="text-white bg-[#142839] hover:bg-hover">
               <Link href="/chapters/chapter3/5">
                 Continuar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
               </Link>
             </Button>
           </motion.div>
         </motion.div>
         <motion.div
           className="h-full col-span-4"
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
+          initial={{ x: 40, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={enter}
         ></motion.div>
       </div>
     </>

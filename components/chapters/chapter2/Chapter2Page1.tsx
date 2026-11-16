@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { enter, enterAfter, hover } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter2Page1() {
@@ -20,7 +21,7 @@ export default function Chapter2Page1() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-6 flex flex-col justify-center items-center mt-10"
         >
           <h1 className="font-bold text-white text-9xl mb-11 font-effra">
@@ -42,8 +43,8 @@ export default function Chapter2Page1() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ opacity: { duration: 1, delay: 2 } }}
-            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+            transition={{ opacity: enterAfter(1) }}
+            whileHover={hover}
             className="group"
           >
             <Button
@@ -52,7 +53,7 @@ export default function Chapter2Page1() {
             >
               <Link href="/chapters/chapter2/2">
                 Começar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
               </Link>
             </Button>
           </motion.div>

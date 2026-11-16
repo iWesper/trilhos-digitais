@@ -4,6 +4,7 @@ import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { enter, hover } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 
 import { Button } from "@/components/ui/button";
@@ -29,7 +30,7 @@ export default function Chapter2Page7() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-8 flex justify-start items-center text-center flex-col"
         >
           <p className="text-white font-medium p-6 pb-8">
@@ -43,7 +44,7 @@ export default function Chapter2Page7() {
             significado.
           </p>
           <motion.div
-            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+            whileHover={hover}
             className="group"
           >
             <Button
@@ -52,7 +53,7 @@ export default function Chapter2Page7() {
             >
               <Link href="/chapters/chapter2/8">
                 Continuar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
               </Link>
             </Button>
           </motion.div>
