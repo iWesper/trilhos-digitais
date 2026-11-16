@@ -135,9 +135,10 @@ export default function Homepage() {
         {/* Container do conteúdo da página */}
         {/* Arbustos frente */}
         <motion.div
-          className="absolute w-full h-[30%] lg:h-[25%] bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-cover bottom-0 lg:-bottom-10 saturate-[.85]"
+          className="pointer-events-none absolute w-full h-[30%] lg:h-[25%] bg-comboioParallaxFundo2 bg-center bg-no-repeat bg-cover bottom-0 lg:-bottom-10 saturate-[.85]"
           style={{
-            zIndex: 1,
+            // À frente do comboio (z 2): dá profundidade e esconde parte das rodas
+            zIndex: 3,
           }}
         ></motion.div>
         {/* Verde */}

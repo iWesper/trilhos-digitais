@@ -1,42 +1,20 @@
 "use client";
-import { useState } from "react";
-import { useAuth } from "@/components/context/AuthContext";
-import { useRouter } from "next/navigation";
-import React, { useEffect, Suspense } from "react";
-import Lottie from "@/components/ui/lottie";
-import animationData from "@/public/animations/loading_animation.json";
 
-export default function ChaptersLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const { currentUser, isLoading } = useAuth();
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/components/context/AuthContext";
+import LoadingScreen from "@/components/ui/loading-screen";
+
+export default function AuthenticationLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const { currentUser } = useAuth();
   const router = useRouter();
 
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
-
-  // Verifica se o utilizador está autenticado
+  // Quem já tem sessão vai direto para a página inicial
   useEffect(() => {
-    if (currentUser) {
-      router.push("/");
-    }
+    if (currentUser) router.replace("/");
   }, [currentUser, router]);
 
-  return (
-    <>
-      <Suspense
-        fallback={
-          <div className="h-screen w-screen flex justify-center items-center">
-            <Lottie
-              animationData={animationData}
-              className="bg-[#142839] h-20 w-20"
-            />
-          </div>
-        }
-      >
-        <main className="overflow-hidden">{children}</main>
-      </Suspense>
-    </>
-  );
+  if (currentUser) return <LoadingScreen />;
+
+  return <main className="overflow-hidden">{children}</main>;
 }

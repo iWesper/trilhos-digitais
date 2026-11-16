@@ -123,7 +123,7 @@ export default function Train() {
 
         <div
           ref={scroller}
-          className="no-scrollbar overflow-x-auto overflow-y-hidden overscroll-x-contain [mask-image:linear-gradient(to_right,transparent,black_3%,black_97%,transparent)]"
+          className="no-scrollbar relative z-[1] overflow-x-auto overflow-y-hidden overscroll-x-contain"
         >
           <div className="relative w-max min-w-full pl-[6vw] pr-[24vw] pt-12 pb-[14px]">
           <motion.ul
@@ -153,12 +153,12 @@ export default function Train() {
               </li>
             ))}
           </motion.ul>
-          {/* Carril contínuo: fica parado enquanto o comboio chega */}
-          <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[14px]">
-            <div data-rail="" className="h-[5px] bg-[#59646E]" />
-            <div className="h-[9px] bg-[repeating-linear-gradient(90deg,#5B4030_0_18px,transparent_18px_34px)]" />
           </div>
-          </div>
+        </div>
+        {/* Carril: faz parte da paisagem, não do comboio. Fica fixo enquanto o comboio passa */}
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[14px]">
+          <div data-rail="" className="h-[5px] bg-[#59646E]" />
+          <div className="h-[9px] bg-[repeating-linear-gradient(90deg,#5B4030_0_18px,transparent_18px_34px)]" />
         </div>
       </nav>
     </TrainProvider>
