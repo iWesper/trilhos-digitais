@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import SaveBadgeProgressScript from "@/backend/SaveBadgeProgressScript";
 import { motion } from "framer-motion";
+import { enter, enterAfter, hover } from "@/lib/motion";
 
 import {
   Dialog,
@@ -34,13 +35,15 @@ export default function Chapter3Page6() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(
-    7.1428571428571428571428571428571 +
+  useEffect(() => {
+    setProgress(
       7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571
-  );
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571
+    );
+  }, [setProgress]);
 
   //LISTA de PALAVRAS POSSÍVEIS
   const words = [
@@ -261,7 +264,7 @@ export default function Chapter3Page6() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-8 flex justify-start items-center text-center flex-col pt-20 text-sm lg:text-md 2xl:text-lg"
         >
           <p className="text-white font-medium pt-6">
@@ -279,7 +282,7 @@ export default function Chapter3Page6() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-8 flex justify-center items-center"
         >
           {isCorrect !== null && isCorrect === false && wrongColumn !== "" && (
@@ -295,7 +298,7 @@ export default function Chapter3Page6() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
+          transition={enterAfter(0.5)}
           className="col-span-2 flex justify-center items-center relative"
         >
           <Image
@@ -311,7 +314,7 @@ export default function Chapter3Page6() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
+          transition={enterAfter(0.75)}
           className="col-span-2 flex justify-center items-center relative"
         >
           <Image
@@ -327,7 +330,7 @@ export default function Chapter3Page6() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2 }}
+          transition={enterAfter(1)}
           className="col-span-2 flex justify-center items-center relative"
         >
           <Image
@@ -347,7 +350,7 @@ export default function Chapter3Page6() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2.5 }}
+          transition={enterAfter(1.25)}
           className="flex flex-col mt-4 col-span-12"
         >
           {[
@@ -390,7 +393,7 @@ export default function Chapter3Page6() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 3 }}
+          transition={enterAfter(1.5)}
           className="col-span-4 flex justify-center items-center"
         >
           {isCorrect === false && (
@@ -400,7 +403,7 @@ export default function Chapter3Page6() {
               onClick={verifyWords}
             >
               <motion.div
-                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                whileHover={hover}
                 className="cursor-pointer"
               >
                 Verificar

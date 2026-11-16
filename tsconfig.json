@@ -33,8 +33,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "backend/data/Firebase_Badges_Totais.jsx",
-    "backend/data/User_Badges_Atuais.jsx",
     "backend/config/firebase.jsx"
   ],
   "exclude": [

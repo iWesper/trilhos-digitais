@@ -22,6 +22,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { motion } from "framer-motion";
+import { enterAfter, hover } from "@/lib/motion";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 
 import { DndProvider } from "react-dnd";
@@ -36,7 +37,7 @@ import testimg1 from "@/public/img/chapter2/chapter2frutas_morango.svg";
 import testimg2 from "@/public/img/chapter2/chapter2frutas_maca.svg";
 import testimg3 from "@/public/img/chapter2/chapter2frutas_laranja.svg";
 import correctimg from "@/public/img/chapter2/chapter2frutas_laranjapartida.svg";
-import { Tilt } from "react-tilt";
+import { Tilt } from "@/components/ui/tilt";
 
 export default function Chapter2Page3() {
   //LISTA DE ELEMENTOS ARRASTÁVEIS
@@ -91,18 +92,6 @@ export default function Chapter2Page3() {
   //SRC da imagem
   let src = "/img/chapter2/chapter2espremedor.svg";
 
-  //Controlo do Tilt
-  const defaultOptions = {
-    reverse: false, // reverse the tilt direction
-    max: 10, // max tilt rotation (degrees)
-    perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-    scale: 1, // 2 = 200%, 1.5 = 150%, etc..
-    speed: 2500, // Speed of the enter/exit transition
-    transition: true, // Set a transition on enter/exit.
-    axis: null, // What axis should be disabled. Can be X or Y.
-    reset: true, // If the tilt effect has to be reset on exit.
-    easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
-  };
 
   //STATE ATUALIZÁVEL COM OS ELEMENTOS QUE LÁ ESTÃO
   const [board, setBoard] = useState<{ id: number; url: any }[]>([]);
@@ -188,7 +177,7 @@ export default function Chapter2Page3() {
         ref={dropRef}
         className="h-full flex flex-col justify-end items-center relative xl:mb-0 xl:justify-center"
       >
-        <Tilt options={defaultOptions}>
+        <Tilt options={{ scale: 1 }}>
           <Image
             src={src}
             alt="Foto de Um Espremedor de Citrinos"
@@ -224,7 +213,7 @@ export default function Chapter2Page3() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={enterAfter(0.25)}
           className="col-span-6 h-full flex flex-col justify-center p-10 text-white "
         >
           <p className="font-medium mb-4 pt-16 lg:pt-20">
@@ -263,8 +252,8 @@ export default function Chapter2Page3() {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ opacity: { duration: 1, delay: 0.5 } }}
-                    whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                    transition={{ opacity: enterAfter(0.25) }}
+                    whileHover={hover}
                     className="cursor-pointer"
                   >
                     Continuar
@@ -289,7 +278,7 @@ export default function Chapter2Page3() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={enterAfter(0.25)}
           className="col-span-4 h-full justify-center items-center flex flex-col"
         >
           <DropArea

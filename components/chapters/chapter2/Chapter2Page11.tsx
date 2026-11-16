@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { enter, hover } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
 import { HiCheck } from "react-icons/hi";
 
@@ -12,7 +13,9 @@ export default function Chapter2Page11() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(100);
+  useEffect(() => {
+    setProgress(100);
+  }, [setProgress]);
 
   return (
     <>
@@ -28,7 +31,7 @@ export default function Chapter2Page11() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-8 flex justify-start items-center text-center flex-col"
         >
           <p className="text-white font-medium pb-10">
@@ -43,7 +46,7 @@ export default function Chapter2Page11() {
           </p>
 
           <motion.div
-            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+            whileHover={hover}
             className="group"
           >
             <Button

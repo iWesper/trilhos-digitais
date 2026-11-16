@@ -22,6 +22,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { motion, AnimatePresence } from "framer-motion";
+import { enter, enterAfter, hover } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter2Page9() {
@@ -32,7 +33,9 @@ export default function Chapter2Page9() {
   const [progressSave, setProgressSave] = useState<boolean>(false);
 
   //PROGRESS VALUE
-  setProgress(80);
+  useEffect(() => {
+    setProgress(80);
+  }, [setProgress]);
 
   //BADGE DO CAPÍTULO
   const badgeId = 2;
@@ -360,7 +363,7 @@ Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pess
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
+                transition={enter}
                 exit={{ opacity: 0 }}
                 className={BGText}
               >
@@ -375,8 +378,8 @@ Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pess
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ opacity: { duration: 1, delay: 0.2 } }}
-                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                transition={{ opacity: enterAfter(0.1) }}
+                whileHover={hover}
                 className="cursor-pointer "
               >
                 Responder
@@ -389,8 +392,8 @@ Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pess
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ opacity: { duration: 1, delay: 0.2 } }}
-                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                transition={{ opacity: enterAfter(0.1) }}
+                whileHover={hover}
                 className="cursor-pointer"
               >
                 <Button
@@ -406,8 +409,8 @@ Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pess
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ opacity: { duration: 1, delay: 0.2 } }}
-                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                transition={{ opacity: enterAfter(0.1) }}
+                whileHover={hover}
                 className="cursor-pointer"
               >
                 <Button
@@ -422,8 +425,8 @@ Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pess
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ opacity: { duration: 1, delay: 0.2 } }}
-                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                transition={{ opacity: enterAfter(0.1) }}
+                whileHover={hover}
                 className="cursor-pointer"
               >
                 <Button
@@ -442,12 +445,12 @@ Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pess
             <Dialog>
               <DialogTrigger>
                 <motion.div
-                  whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                  whileHover={hover}
                   className="group"
                 >
                   <Button className="text-white bg-secondary hover:bg-hover-secondary">
                     Continuar
-                    <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                    <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
                   </Button>
                 </motion.div>
               </DialogTrigger>

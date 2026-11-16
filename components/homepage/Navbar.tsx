@@ -1,6 +1,8 @@
 import { HomeIcon, TrophyIcon } from "@heroicons/react/24/solid";
 import { MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
+import { ease } from "@/lib/motion";
+import { enterAfter } from "@/lib/motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useAuth } from "../context/AuthContext";
@@ -21,7 +23,7 @@ export default function Navbar() {
       className="flex items-center justify-between px-10 p-4 bg-[#142839] text-white absolute top-0 left-0 right-0 z-50 rounded-b-xl backdrop-blur-xl bg-opacity-80"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.45, ease: ease.outExpo }}
     >
       <div className="flex justify-start flex-grow">
         <Link href={"/"}>
@@ -31,10 +33,10 @@ export default function Navbar() {
               alt="Logo"
               width="1920"
               height="1080"
-              className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0"
+              className="w-9 h-9 transition-[transform,opacity] duration-200 ease-out motion-reduce:transition-opacity motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-10 group-hover:opacity-0"
               priority={true}
             />
-            <span className="absolute left-0 top-0 opacity-0 pt-2 group-hover:opacity-100 transition-all duration-300 ease-in-out">
+            <span className="absolute left-0 top-0 opacity-0 pt-2 group-hover:opacity-100 transition-opacity duration-200 ease-out">
               Home
             </span>
           </div>
@@ -44,7 +46,7 @@ export default function Navbar() {
         className="text-center text-3xl font-bold rounded-xl text-white font-effra z-50"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
+        transition={enterAfter(0.5)}
       >
         Bem-vindo(a) aos Trilhos Digitais,{" "}
         <span className="text-secondary">{username}</span>!
@@ -52,14 +54,14 @@ export default function Navbar() {
       <div className="flex justify-end flex-grow gap-8">
         <Link href={"/badges"}>
           <div className="relative group">
-            <TrophyIcon className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" />
+            <TrophyIcon className="w-9 h-9 transition-[transform,opacity] duration-200 ease-out motion-reduce:transition-opacity motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-10 group-hover:opacity-0" />
             <span className="absolute left-[-50%] top-0 opacity-0 pt-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-in-out">
               Badges
             </span>
           </div>
         </Link>
         <div className="relative group cursor-pointer" onClick={() => logout()}>
-          <MdLogout className="w-9 h-9 transition duration-300 ease-in-out group-hover:-translate-y-10 group-hover:opacity-0" />
+          <MdLogout className="w-9 h-9 transition-[transform,opacity] duration-200 ease-out motion-reduce:transition-opacity motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-10 group-hover:opacity-0" />
           <span className="absolute left-[-50%] top-0 opacity-0 pt-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-in-out">
             Logout
           </span>

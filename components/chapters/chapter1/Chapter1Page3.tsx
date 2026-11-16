@@ -21,6 +21,7 @@ import {
 import { Canvas } from "@react-three/fiber";
 import Wagner from "@/public/models/wagner/Wagner";
 import { motion } from "framer-motion";
+import { enterAfter } from "@/lib/motion";
 
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { useProgress } from "@/components/context/ProgressContext";
@@ -46,7 +47,9 @@ export default function Chapter1Page3() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(16.66 + 16.66);
+  useEffect(() => {
+    setProgress(16.66 + 16.66);
+  }, [setProgress]);
 
   //GO TO
   const nextPage = "/chapters/chapter1/4";
@@ -81,7 +84,7 @@ export default function Chapter1Page3() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={enterAfter(0.25)}
           className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 "
         >
           <p className="font-medium mb-10 select-none">
@@ -104,7 +107,7 @@ export default function Chapter1Page3() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={enterAfter(0.25)}
           className="col-span-4 flex justify-center items-center"
         >
           <Canvas>

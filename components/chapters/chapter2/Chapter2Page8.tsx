@@ -1,10 +1,11 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { enter, hover } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter2Page8() {
@@ -12,7 +13,9 @@ export default function Chapter2Page8() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(70);
+  useEffect(() => {
+    setProgress(70);
+  }, [setProgress]);
 
   return (
     <>
@@ -28,7 +31,7 @@ export default function Chapter2Page8() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-8 flex justify-start items-center text-center flex-col mt-10"
         >
           <p className="text-white font-medium pb-10">
@@ -45,7 +48,7 @@ export default function Chapter2Page8() {
             </p>
           </div>
           <motion.div
-            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+            whileHover={hover}
             className="group"
           >
             <Button
@@ -54,7 +57,7 @@ export default function Chapter2Page8() {
             >
               <Link href="/chapters/chapter2/9">
                 Continuar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
               </Link>
             </Button>
           </motion.div>

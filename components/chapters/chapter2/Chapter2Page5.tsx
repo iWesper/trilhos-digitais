@@ -22,6 +22,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { motion } from "framer-motion";
+import { enter, enterAfter, hover } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
@@ -76,7 +77,9 @@ export default function Chapter2Page5() {
   const nextPage = "/chapters/chapter2/6";
 
   //PROGRESS VALUE
-  setProgress(40);
+  useEffect(() => {
+    setProgress(40);
+  }, [setProgress]);
 
   //DICA
   const Tip = "Um por cima do outro, como arrumar a casa";
@@ -275,7 +278,7 @@ export default function Chapter2Page5() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-8 flex justify-start items-center text-center flex-col pt-20"
         >
           <p className="text-white font-medium p-6">
@@ -292,7 +295,7 @@ export default function Chapter2Page5() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-2 flex justify-end pe-10"
         >
           <Button
@@ -303,8 +306,8 @@ export default function Chapter2Page5() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ opacity: { duration: 1, delay: 1 } }}
-              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              transition={{ opacity: enterAfter(0.5) }}
+              whileHover={hover}
               className="cursor-pointer text-white"
             >
               Limpar Tentativa
@@ -314,7 +317,7 @@ export default function Chapter2Page5() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-8 flex flex-col items-center justify-center mb-10"
         >
           <DroppingArea
@@ -329,7 +332,7 @@ export default function Chapter2Page5() {
               <motion.div key={picture.id}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
+                transition={enter}
                 className="h-[33.33%] w-full"
               >
                 <PictureStack
@@ -350,12 +353,12 @@ export default function Chapter2Page5() {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ opacity: { duration: 1, delay: 0.5 } }}
-                    whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                    transition={{ opacity: enterAfter(0.25) }}
+                    whileHover={hover}
                     className="group cursor-pointer text-white"
                   >
                     Continuar
-                    <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                    <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
                   </motion.div>
                 </Button>
               </DialogTrigger>

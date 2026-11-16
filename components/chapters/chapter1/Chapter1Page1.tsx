@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { hover } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter1Page1() {
@@ -11,7 +12,9 @@ export default function Chapter1Page1() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE RESET
-  setProgress(0);
+  useEffect(() => {
+    setProgress(0);
+  }, [setProgress]);
 
   return (
     <>
@@ -21,13 +24,13 @@ export default function Chapter1Page1() {
           A nossa primeira paragem é no primeiro dos Quatro Pilares, a <span className=" text-tertiary">Arte</span>.
         </p>
         <motion.div
-          whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+          whileHover={hover}
           className="group"
         >
           <Button asChild className="text-white bg-tertiary hover:bg-hover-tertiary">
             <Link href="/chapters/chapter1/2">
               Começar
-              <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+              <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
             </Link>
           </Button>
         </motion.div>

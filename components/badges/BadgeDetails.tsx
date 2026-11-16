@@ -2,6 +2,7 @@ import React, { useState, Suspense } from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { enter } from "@/lib/motion";
 import { BiQrScan } from "react-icons/bi";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
@@ -177,19 +178,19 @@ export default function BadgeDetails({ number }: { number: number }) {
               className="justify-center items-center backdrop-filter p-4 bg-[#142839] rounded-xl backdrop-blur-xl bg-opacity-80"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
+              transition={enter}
             >
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1 }}
+                transition={enter}
               >
                 <BiQrScan className="text-4xl text-white mx-auto animate-scan" />
                 <motion.p
                   className="text-center text-xl text-white"
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 1 }}
+                  transition={enter}
                 >
                   Aponta o teu telemóvel Android!
                 </motion.p>

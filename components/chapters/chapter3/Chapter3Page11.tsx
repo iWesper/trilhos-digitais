@@ -1,12 +1,13 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
-import { Tilt } from "react-tilt";
+import { Tilt } from "@/components/ui/tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { enter, hover } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter3Page11() {
@@ -14,31 +15,21 @@ export default function Chapter3Page11() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(
-    7.1428571428571428571428571428571 +
+  useEffect(() => {
+    setProgress(
       7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571
-  );
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571
+    );
+  }, [setProgress]);
 
-  //CONTROLO DA ANIMAÇÃO
-  const defaultOptions = {
-    reverse: false, // reverse the tilt direction
-    max: 15, // max tilt rotation (degrees)
-    perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-    scale: 1.1, // 2 = 200%, 1.5 = 150%, etc..
-    speed: 5000, // Speed of the enter/exit transition
-    transition: true, // Set a transition on enter/exit.
-    axis: null, // What axis should be disabled. Can be X or Y.
-    reset: true, // If the tilt effect has to be reset on exit.
-    easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
-  };
 
   return (
     <>
@@ -54,13 +45,13 @@ export default function Chapter3Page11() {
           className="col-span-1 h-full"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
         ></motion.div>
         <motion.div
           className="col-span-6 h-full"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
         >
           <div className="h-full flex flex-col justify-center items-center p-10 ">
             <p className="font-medium mb-10 text-white">
@@ -71,7 +62,7 @@ export default function Chapter3Page11() {
               convenções.
             </p>
             <motion.div
-              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              whileHover={hover}
               className="group"
             >
               <Button
@@ -80,7 +71,7 @@ export default function Chapter3Page11() {
               >
                 <Link href="/chapters/chapter3/12">
                   Continuar
-                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
                 </Link>
               </Button>
             </motion.div>
@@ -90,9 +81,9 @@ export default function Chapter3Page11() {
           className="h-full col-span-4 flex justify-center items-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
         >
-          <Tilt options={defaultOptions}>
+          <Tilt>
             <Image
               src="/img/chapter3/chapter3semiotica.svg"
               alt="Imagem de modalidades de semiótica"
@@ -107,7 +98,7 @@ export default function Chapter3Page11() {
           className="h-full col-span-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
         ></motion.div>
       </div>
     </>

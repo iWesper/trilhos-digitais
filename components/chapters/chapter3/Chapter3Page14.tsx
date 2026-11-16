@@ -18,6 +18,7 @@ import { useAuth } from "@/components/context/AuthContext";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
+import { enter, hover } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter3Page14() {
@@ -40,21 +41,23 @@ export default function Chapter3Page14() {
   const { WillShowToast, willShowToastState, error } = useAuth();
 
   //PROGRESS VALUE
-  setProgress(
-    7.1428571428571428571428571428571 +
+  useEffect(() => {
+    setProgress(
       7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571 +
-      7.1428571428571428571428571428571
-  );
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571 +
+        7.1428571428571428571428571428571
+    );
+  }, [setProgress]);
 
   //ESTADO DA RESPOSTA
   const [resposta, setResposta] = useState<string | null>(null);
@@ -128,7 +131,7 @@ export default function Chapter3Page14() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
+            transition={enter}
             className="flex items-center justify-center col-span-12 mt-32"
           >
             <div className="col-span-2 mb-4"></div>
@@ -143,7 +146,7 @@ export default function Chapter3Page14() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-3 items-center flex justify-center lg:justify-end lg:mb-40"
         >
           {!showButton && (
@@ -162,7 +165,7 @@ export default function Chapter3Page14() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className={`col-span-4 flex flex-col justify-start items-center ${
             showButton ? "mt-28" : ""
           }`}
@@ -180,7 +183,7 @@ export default function Chapter3Page14() {
           />
           {showButton && (
             <motion.div
-              whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+              whileHover={hover}
               className="group p-4"
             >
               <Button
@@ -190,7 +193,7 @@ export default function Chapter3Page14() {
               >
                 <Link href="/chapters/chapter3/14">
                   Continuar
-                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-all duration-150" />
+                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
                 </Link>
               </Button>
             </motion.div>
@@ -202,7 +205,7 @@ export default function Chapter3Page14() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={enter}
           className="col-span-3 items-center flex justify-center lg:justify-start lg:mb-40"
         >
           {!showButton && (

@@ -15,6 +15,7 @@ import {
 } from "@react-three/drei";
 import Wagner2 from "@/public/models/wagner/Wagner2";
 import { motion } from "framer-motion";
+import { enterAfter } from "@/lib/motion";
 
 export default function Chapter1Page4() {
   const router = useRouter();
@@ -32,20 +33,10 @@ export default function Chapter1Page4() {
   const { setProgress } = useProgress();
 
   //PROGRESS VALUE
-  setProgress(16.66 + 16.66 + 16.66);
+  useEffect(() => {
+    setProgress(16.66 + 16.66 + 16.66);
+  }, [setProgress]);
 
-  //CONTROLO DA ANIMAÇÃO
-  const defaultOptions = {
-    reverse: false, // reverse the tilt direction
-    max: 10, // max tilt rotation (degrees)
-    perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-    scale: 1, // 2 = 200%, 1.5 = 150%, etc..
-    speed: 2500, // Speed of the enter/exit transition
-    transition: true, // Set a transition on enter/exit.
-    axis: null, // What axis should be disabled. Can be X or Y.
-    reset: true, // If the tilt effect has to be reset on exit.
-    easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
-  };
 
   // Mudar o cursor quando o Texto 3D está hovered
   useEffect(
@@ -68,7 +59,7 @@ export default function Chapter1Page4() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={enterAfter(0.25)}
           className="col-span-5 flex flex-col justify-center items-center p-10 mt-20 "
         >
           <p className="font-medium mb-10 select-none">
@@ -83,7 +74,7 @@ export default function Chapter1Page4() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={enterAfter(0.25)}
           className="col-span-4 flex justify-center items-center"
         >
           <Canvas>

@@ -22,6 +22,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { motion } from "framer-motion";
+import { enterAfter } from "@/lib/motion";
 
 export default function Chapter2Page2() {
   //Dica
@@ -40,7 +41,9 @@ export default function Chapter2Page2() {
   };
 
   //PROGRESS VALUE
-  setProgress(10);
+  useEffect(() => {
+    setProgress(10);
+  }, [setProgress]);
 
   // Tooltip
   const [tooltipOpen, setTooltipOpen] = useState(false);
@@ -67,7 +70,7 @@ export default function Chapter2Page2() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={enterAfter(0.25)}
           className="col-span-4 h-full"
         >
           <div className="h-full flex flex-col justify-center items-center p-10 text-white ">
@@ -85,7 +88,7 @@ export default function Chapter2Page2() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={enterAfter(0.25)}
           className="h-full col-span-6 flex justify-center items-center"
         >
           <Canvas>
