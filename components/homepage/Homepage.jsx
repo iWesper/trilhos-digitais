@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useAuth } from "../context/AuthContext";
-import { useRouter } from "next/navigation";
 import {
   Dialog,
   DialogContent,
@@ -15,7 +14,6 @@ import Train from "./train/Train";
 import Navbar from "./Navbar";
 
 export default function Homepage() {
-  const router = useRouter();
 
   const {
     currentUser,
@@ -80,8 +78,6 @@ export default function Homepage() {
       goGetUsername(currentUser.uid);
       //Redefine o estado do tutorial
       setHasSkippedTutorial(false);
-    } else {
-      router.push("/authentication");
     }
   }, []);
 
