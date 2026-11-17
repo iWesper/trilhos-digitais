@@ -16,4 +16,4 @@ export default function Model(props) {
   )
 }
 
-useGLTF.preload('models/wagner/wagner-transformed.glb')
+useGLTF.preload('/models/wagner/wagner-transformed.glb')

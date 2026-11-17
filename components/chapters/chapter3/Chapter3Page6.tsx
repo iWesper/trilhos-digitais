@@ -302,7 +302,7 @@ export default function Chapter3Page6() {
           className="col-span-2 flex justify-center items-center relative"
         >
           <Image
-            src="/img/chapter3/chapter3SpiderManFilme.svg"
+            src="/img/chapter3/chapter3SpiderManFilme.webp"
             alt="Imagem de capa The SpiderMan"
             width={150}
             height={150}
@@ -318,7 +318,7 @@ export default function Chapter3Page6() {
           className="col-span-2 flex justify-center items-center relative"
         >
           <Image
-            src="/img/chapter3/chapter3SpiderManGame.svg"
+            src="/img/chapter3/chapter3SpiderManGame.webp"
             alt="Imagem de capa The SpiderMan"
             width={150}
             height={150}
@@ -334,7 +334,7 @@ export default function Chapter3Page6() {
           className="col-span-2 flex justify-center items-center relative"
         >
           <Image
-            src="/img/chapter3/chapter3SpiderManBD.svg"
+            src="/img/chapter3/chapter3SpiderManBD.webp"
             alt="Imagem de capa The SpiderMan"
             width={150}
             height={150}

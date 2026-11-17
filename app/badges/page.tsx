@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState, Suspense } from "react";
 import { IoChevronBack } from "react-icons/io5";
-import { useRouter } from "next/navigation";
 import { Progress } from "@/components/ui/progress";
 import { useAuth } from "@/components/context/AuthContext";
 import BadgeDetails from "@/components/badges/BadgeDetails";
@@ -24,7 +23,6 @@ import Prensa from "@/public/models/prensa/Prensa";
 import { FaStar } from "react-icons/fa";
 
 export default function Badges() {
-  const router = useRouter();
   const {
     currentUser,
     goGetBadges,
@@ -127,11 +125,6 @@ export default function Badges() {
       UpdateBadgesTutorial();
     }
   };
-
-  // Hook para navegar entre páginas
-  if (!currentUser) {
-    router.push("/authentication");
-  }
 
   // Hook para verificar se o tutorial foi visto
   useEffect(() => {

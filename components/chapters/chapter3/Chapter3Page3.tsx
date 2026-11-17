@@ -74,7 +74,7 @@ export default function Chapter3Page3() {
         >
           <Tilt>
             <Image
-              src="/img/chapter3/chapter3GodfatherCover.svg"
+              src="/img/chapter3/chapter3GodfatherCover.webp"
               alt="Imagem de capa deo The Godfather"
               width={350}
               height={350}

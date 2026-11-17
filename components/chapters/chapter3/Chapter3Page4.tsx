@@ -70,7 +70,7 @@ export default function Chapter3Page4() {
         >
           <Tilt>
             <Image
-              src="/img/chapter3/chapter3GodfatherCover.svg"
+              src="/img/chapter3/chapter3GodfatherCover.webp"
               alt="Imagem de capa de  The Godfather"
               width={200}
               height={200}
@@ -87,7 +87,7 @@ export default function Chapter3Page4() {
         >
           <Tilt>
             <Image
-              src="/img/chapter3/chapter3GodfatherCoverXBOX.svg"
+              src="/img/chapter3/chapter3GodfatherCoverXBOX.webp"
               alt="Imagem de capa de The Godfather"
               width={200}
               height={200}

@@ -83,7 +83,7 @@ export default function Chapter3Page10() {
         >
           <Tilt>
             <Image
-              src="/img/chapter3/chapter3instax.svg"
+              src="/img/chapter3/chapter3instax.webp"
               alt="Imagem de uma câmara instantânea"
               width={300}
               height={300}

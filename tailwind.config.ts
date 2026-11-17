@@ -101,19 +101,19 @@ const config = {
       },
       backgroundImage: {
         'comboioParallaxFundo1': "url('/img/comboio/comboioParallaxFundo1.svg')",
-        'comboioParallaxFundo2': "url('/img/comboio/comboioParallaxFundo2.svg')",
+        'comboioParallaxFundo2': "url('/img/comboio/comboioParallaxFundo2.webp')",
         'comboioParallaxFundo3': "url('/img/comboio/comboioParallaxFundo3.svg')",
         'comboioParallaxFundo4': "url('/img/comboio/comboioParallaxFundo4.svg')",
         'comboioParallaxFundo5': "url('/img/comboio/comboioParallaxFundo5.svg')",
         'comboioParallaxEstacao': "url('/img/comboio/comboioParallaxEstacao.svg')",
 
         'BadgesBG': "url('/img/badges/fundo_badges.svg')",
-        'quadroBadges': "url('/img/badges/quadroBadges.svg')",
+        'quadroBadges': "url('/img/badges/quadroBadges.webp')",
         'papelBadges1': "url('/img/badges/fundo_badges_paper1.svg')",
         'papelBadges2': "url('/img/badges/fundo_badges_paper2.svg')",
         'papelBadges3': "url('/img/badges/fundo_badges_paper3.svg')",
         'papelBadges4': "url('/img/badges/fundo_badges_paper4.svg')",
-        'BadgeDetailsBG': "url('/img/badges/fundo_badge_detalhes.svg')",
+        'BadgeDetailsBG': "url('/img/badges/fundo_badge_detalhes.webp')",
         'papelMaisBadges': "url('/img/badges/fundo_mais_badges.svg')",
 
         'chapter1StartBG': "url('/img/fundo_arte_inicial.svg')",

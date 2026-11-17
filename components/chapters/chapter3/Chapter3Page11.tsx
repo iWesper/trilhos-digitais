@@ -85,7 +85,7 @@ export default function Chapter3Page11() {
         >
           <Tilt>
             <Image
-              src="/img/chapter3/chapter3semiotica.svg"
+              src="/img/chapter3/chapter3semiotica.webp"
               alt="Imagem de modalidades de semiótica"
               width={300}
               height={300}

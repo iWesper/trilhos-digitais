@@ -174,7 +174,7 @@ export default function Chapter3Page14() {
             <p className="text-white text-center pb-4">{resposta}</p>
           )}
           <Image
-            src="/img/chapter3/chapter3instax.svg"
+            src="/img/chapter3/chapter3instax.webp"
             alt="Imagem de uma foto instantânea"
             width={300}
             height={300}

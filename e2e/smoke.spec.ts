@@ -73,6 +73,14 @@ test.describe("com sessão", () => {
     }
   });
 
+  test("insígnias abrem sem erros (fundos e modelos 3D)", async ({ page }) => {
+    const errors = collectErrors(page);
+    await page.goto("/badges");
+    await page.waitForLoadState("networkidle");
+    await expect(page).toHaveURL(/\/badges$/);
+    expect(errors).toEqual([]);
+  });
+
   test("capítulo 4: o slider muda de slide com o teclado, nos dois sentidos", async ({ page }) => {
     await page.goto("/chapters/chapter4/2");
     const slider = page.getByRole("slider");

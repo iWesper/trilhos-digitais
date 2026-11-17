@@ -26,8 +26,8 @@ import { hover, move } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 
 import testimg1 from "@/public/img/chapter2/Phone1.svg";
-import testimg2 from "@/public/img/chapter2/Phone2.svg";
-import testimg3 from "@/public/img/chapter2/Phone3.svg";
+import testimg2 from "@/public/img/chapter2/Phone2.webp";
+import testimg3 from "@/public/img/chapter2/Phone3.webp";
 import testimg4 from "@/public/img/chapter2/Phone4.svg";
 
 interface Picture {

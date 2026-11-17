@@ -33,6 +33,14 @@ export function collectErrors(page: Page) {
   page.on("console", (m) => {
     if (m.type() === "error" && !IGNORED.some((r) => r.test(m.text()))) errors.push(`console: ${m.text()}`);
   });
+  // Ficheiros do próprio site que falham (imagem, modelo 3D, vídeo com caminho errado...)
+  page.on("response", (r) => {
+    const url = new URL(r.url());
+    const sameOrigin = url.origin === new URL(page.url() || r.url()).origin;
+    if (sameOrigin && r.status() >= 400 && !url.pathname.startsWith("/_vercel")) {
+      errors.push(`${r.status()} ${url.pathname}`);
+    }
+  });
   return errors;
 }
 
