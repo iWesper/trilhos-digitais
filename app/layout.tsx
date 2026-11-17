@@ -15,7 +15,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Trilhos Digitais",
+  title: { default: "Trilhos Digitais", template: "%s · Trilhos Digitais" },
   description: "Uma viagem pela história da multimédia!",
 };
 

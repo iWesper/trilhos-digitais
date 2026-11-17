@@ -1,6 +1,15 @@
 import { expect, test, devices } from "@playwright/test";
 import { chapterPages, collectErrors, signInForTests } from "./helpers";
 
+test.describe("rotas", () => {
+  for (const path of ["/chapters/chapter9/1", "/chapters/chapter1/99", "/chapters/arte/1", "/ar/9"]) {
+    test(`${path} dá 404 a sério`, async ({ request }) => {
+      const res = await request.get(path);
+      expect(res.status()).toBe(404);
+    });
+  }
+});
+
 test.describe("sem sessão", () => {
   for (const path of ["/", "/chapters/chapter1/1", "/badges"]) {
     test(`${path} redireciona para o login`, async ({ page }) => {
@@ -28,6 +37,7 @@ test.describe("com sessão", () => {
       const errors = collectErrors(page);
       const res = await page.goto(`/chapters/chapter${chapter}/${n}`);
       expect(res?.status()).toBe(200);
+      await expect(page).toHaveTitle(/^Capítulo \d · .+ · Trilhos Digitais$/);
       await expect(page.locator("main")).toBeVisible();
       await page.waitForLoadState("networkidle");
       expect(errors).toEqual([]);

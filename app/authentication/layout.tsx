@@ -1,20 +1,12 @@
-"use client";
+import type { Metadata } from "next";
+import RedirectIfSignedIn from "@/components/auth/RedirectIfSignedIn";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "@/components/context/AuthContext";
-import LoadingScreen from "@/components/ui/loading-screen";
+export const metadata: Metadata = { title: "Entrar" };
 
 export default function AuthenticationLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const { currentUser } = useAuth();
-  const router = useRouter();
-
-  // Quem já tem sessão vai direto para a página inicial
-  useEffect(() => {
-    if (currentUser) router.replace("/");
-  }, [currentUser, router]);
-
-  if (currentUser) return <LoadingScreen />;
-
-  return <main className="overflow-hidden">{children}</main>;
+  return (
+    <RedirectIfSignedIn>
+      <main className="overflow-hidden">{children}</main>
+    </RedirectIfSignedIn>
+  );
 }

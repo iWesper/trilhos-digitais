@@ -1,3 +1,5 @@
+"use client";
+
 import { HomeIcon, TrophyIcon } from "@heroicons/react/24/solid";
 import { MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
