@@ -1,6 +1,6 @@
 "use client";
+import { BackLink } from "@/components/chapters/ChapterNav";
 import React, { useEffect, useState, useRef } from "react";
-import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { useToast } from "@/components/ui/use-toast";
@@ -36,7 +36,7 @@ export default function Chapter4Page4() {
     //TOAAST
     WillShowToast(badgeId);
     setProgress(25 + 25 + 25);
-  }, []);
+  }, [WillShowToast, setProgress]);
 
   const SaveBadgeProgressAndGoToNextPage = () => {
     if (willShowToastState === true) {
@@ -53,13 +53,7 @@ export default function Chapter4Page4() {
   return (
     <>
       <div className="bg-chapter4BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center p-4">
-        <Link
-          href="/chapters/chapter4/3"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter4/3" />
         <div className="col-span-2"></div>
         <div className="col-span-8 flex justify-start items-center text-center flex-col pt-20">
           <motion.h4

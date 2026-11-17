@@ -1,11 +1,11 @@
 "use client";
+import { BackLink } from "@/components/chapters/ChapterNav";
 import React, { Suspense, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { Canvas } from "@react-three/fiber";
-import Bauhaus from "@/public/models/bauhaus/Bauhaus";
+import Bauhaus from "@/components/models/Bauhaus";
 import {
   Center,
   Environment,
@@ -59,13 +59,7 @@ export default function Chapter2Page2() {
   return (
     <>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1">
-        <Link
-          href="/chapters/chapter2/1"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter2/1" />
         <div className="col-span-1 h-full"></div>
         <motion.div
           initial={{ opacity: 0 }}

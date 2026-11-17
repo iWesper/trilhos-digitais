@@ -1,13 +1,10 @@
 "use client";
+import { BackLink, NextButton } from "@/components/chapters/ChapterNav";
 import React, {useEffect} from "react";
-import { IoChevronBack } from "react-icons/io5";
-import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
-import { FaArrowRight } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { enter, hover } from "@/lib/motion";
 
-import { Button } from "@/components/ui/button";
 
 export default function Chapter3Page5() {
   //PROGRESS
@@ -26,13 +23,7 @@ export default function Chapter3Page5() {
   return (
     <>
       <div className="bg-chapter3BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 justify-center items-center p-4">
-        <Link
-          href="/chapters/chapter3/4"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter3/4" />
         <div className="col-span-2"></div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -47,17 +38,7 @@ export default function Chapter3Page5() {
           <p className="text-white font-medium pb-10">
             Clica no continuar para começares um minijogo.
           </p>
-          <motion.div
-            whileHover={hover}
-            className="group"
-          >
-            <Button asChild className="text-white bg-[#142839] hover:bg-hover">
-              <Link href="/chapters/chapter3/6">
-                Continuar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
-              </Link>
-            </Button>
-          </motion.div>
+          <NextButton href="/chapters/chapter3/6" className="text-white bg-[#142839] hover:bg-hover" />
         </motion.div>
         <div className="col-span-2"></div>
       </div>

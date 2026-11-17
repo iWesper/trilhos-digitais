@@ -1,11 +1,9 @@
 "use client";
+import { NextButton } from "@/components/chapters/ChapterNav";
 import React, { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
 import { hover } from "@/lib/motion";
-import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter1Page1() {
   //PROGRESS
@@ -23,17 +21,7 @@ export default function Chapter1Page1() {
         <p className="mb-11 font-medium">
           A nossa primeira paragem é no primeiro dos Quatro Pilares, a <span className=" text-tertiary">Arte</span>.
         </p>
-        <motion.div
-          whileHover={hover}
-          className="group"
-        >
-          <Button asChild className="text-white bg-tertiary hover:bg-hover-tertiary">
-            <Link href="/chapters/chapter1/2">
-              Começar
-              <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
-            </Link>
-          </Button>
-        </motion.div>
+        <NextButton href="/chapters/chapter1/2" label="Começar" className="text-white bg-tertiary hover:bg-hover-tertiary" />
       </div>
     </>
   );

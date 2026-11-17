@@ -1,11 +1,9 @@
 "use client";
+import { NextButton } from "@/components/chapters/ChapterNav";
 import React, { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
 import { enter, hover } from "@/lib/motion";
-import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter4Page1() {
   //PROGRESS
@@ -35,17 +33,7 @@ export default function Chapter4Page1() {
             pois, como dizia <span className="italic text-foreground">Marshall McLuhan</span>, &quot;O
             Meio É A Mensagem&quot;!
           </p>
-          <motion.div
-            whileHover={hover}
-            className="group"
-          >
-            <Button asChild className="text-white bg-[#142839] hover:bg-hover">
-              <Link href="/chapters/chapter3/2">
-                Começar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
-              </Link>
-            </Button>
-          </motion.div>
+          <NextButton href="/chapters/chapter3/2" label="Começar" className="text-white bg-[#142839] hover:bg-hover" />
         </motion.div>
       </div>
       <div className="col-span-2"></div>

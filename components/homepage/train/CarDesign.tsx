@@ -69,7 +69,7 @@ export default function CarDesign() {
         <circle cx={240} cy={112} r={11} fill={b.cream} />
         <rect x={226} y={132} width={28} height={4} fill={b.ink} />
         <rect x={226} y={142} width={20} height={4} fill={b.ink} />
-        <text x={224} y={164} fontFamily="Effra, sans-serif" fontWeight={700} fontSize={8} fill={b.cream} letterSpacing={0.5}>
+        <text x={224} y={164} style={{ fontFamily: "var(--font-effra), sans-serif" }} fontWeight={700} fontSize={8} fill={b.cream} letterSpacing={0.5}>
           bauhaus
         </text>
         <rect x={208} y={170} width={224} height={12} fill={b.grey} />

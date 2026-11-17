@@ -16,6 +16,16 @@ function useIsMobile() {
   );
 }
 
+// Só para testes end-to-end: precisa do build com NEXT_PUBLIC_E2E=1 E de localStorage "e2e-auth" = "1".
+// Em produção NEXT_PUBLIC_E2E não existe, por isso este ramo é eliminado no build.
+function useE2EBypass() {
+  return useSyncExternalStore(
+    () => () => {},
+    () => process.env.NEXT_PUBLIC_E2E === "1" && window.localStorage.getItem("e2e-auth") === "1",
+    () => false
+  );
+}
+
 type Props = {
   children: ReactNode;
   // Só para desktop: em mobile mostra um aviso
@@ -30,13 +40,14 @@ export default function RequireAuth({ children, desktopOnly = false, allowAnonym
   const { currentUser, isLoading } = useAuth();
   const router = useRouter();
   const isMobile = useIsMobile();
-  const allowed = currentUser !== null || (allowAnonymousOnMobile && isMobile);
+  const e2eBypass = useE2EBypass();
+  const allowed = e2eBypass || currentUser !== null || (allowAnonymousOnMobile && isMobile);
 
   useEffect(() => {
     if (!isLoading && !allowed) router.replace("/authentication");
   }, [isLoading, allowed, router]);
 
-  if (isLoading || !allowed) return <LoadingScreen />;
+  if (!e2eBypass && (isLoading || !allowed)) return <LoadingScreen />;
 
   if (desktopOnly && isMobile) {
     return (

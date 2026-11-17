@@ -1,8 +1,7 @@
 "use client";
+import { BackLink } from "@/components/chapters/ChapterNav";
 import React, { useEffect } from "react";
 import { useState, useRef } from "react";
-import { IoChevronBack } from "react-icons/io5";
-import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { Button } from "@/components/ui/button";
@@ -347,13 +346,7 @@ Parece-nos ser algo mais carinhoso, mas as sensações mudam de pessoa para pess
   return (
     <>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center p-4">
-        <Link
-          href="/chapters/chapter2/8"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter2/8" />
         <div className="col-span-2"></div>
         <div className="col-span-8 flex justify-start items-center text-center flex-col">
           <p className="text-white font-medium pb-10">{P1}</p>

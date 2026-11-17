@@ -3,7 +3,8 @@
 import React, { useRef } from "react";
 import { Environment, useGLTF, useAnimations } from "@react-three/drei";
 import ARScene from "./ARScene";
-import { Group, Mesh, MeshStandardMaterial } from "three";
+import { ModelProps, useModel } from "@/components/models/gltf";
+import { Group, MeshStandardMaterial } from "three";
 
 export default function ARPage() {
   return (
@@ -14,9 +15,9 @@ export default function ARPage() {
   );
 }
 
-function PrensaAR(props: any) {
+function PrensaAR(props: ModelProps) {
   const group = useRef<Group>(null);
-  const { nodes, materials, animations } = useGLTF(
+  const { nodes, materials, animations } = useModel(
     "/models/prensaAR/prensaAR-transformed.glb"
   );
   const { actions } = useAnimations(animations, group);
@@ -53,7 +54,7 @@ function PrensaAR(props: any) {
           >
             <mesh
               name="s__1_001"
-              geometry={(nodes.s__1_001 as Mesh).geometry}
+              geometry={nodes.s__1_001.geometry}
               material={
                 materials[
                   "Vintage_Newspaper_Print_Texture_Background_58059866_1.001"
@@ -65,13 +66,13 @@ function PrensaAR(props: any) {
           </group>
           <mesh
             name="Object_2"
-            geometry={(nodes.Object_2 as Mesh).geometry}
+            geometry={nodes.Object_2.geometry}
             material={new MeshStandardMaterial({ color: "#6f4e37" })}
             rotation={[-Math.PI / 2, 0, 0]}
           />
           <mesh
             name="s001"
-            geometry={(nodes.s001 as Mesh).geometry}
+            geometry={nodes.s001.geometry}
             material={
               materials[
                 "DD_Old_Paper_Texture_77722_DD_Old_Paper_Texture_77722.001"
@@ -83,7 +84,7 @@ function PrensaAR(props: any) {
           />
           <mesh
             name="s__2_001"
-            geometry={(nodes.s__2_001 as Mesh).geometry}
+            geometry={nodes.s__2_001.geometry}
             material={
               materials[
                 "Vintage_Newspaper_Print_Texture_Background_58059866_1.001"

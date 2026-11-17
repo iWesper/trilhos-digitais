@@ -1,8 +1,7 @@
 "use client";
+import { BackLink, NextButton } from "@/components/chapters/ChapterNav";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { IoChevronBack } from "react-icons/io5";
-import Link from "next/link";
 import { MdQuestionMark } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -15,7 +14,6 @@ import {
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
 import { enter, hover } from "@/lib/motion";
-import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter3Page13() {
   //PROGRESS
@@ -77,13 +75,7 @@ export default function Chapter3Page13() {
   return (
     <>
       <div className="bg-chapter3BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12">
-        <Link
-          href="/chapters/chapter3/12"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter3/12" />
         <div className="col-span-2 mt-24 mb-4"></div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -170,20 +162,7 @@ export default function Chapter3Page13() {
           )}
 
           {showButton && (
-            <motion.div
-              whileHover={hover}
-              className="group"
-            >
-              <Button
-                asChild
-                className="text-white bg-[#142839] hover:bg-hover"
-              >
-                <Link href="/chapters/chapter3/14">
-                  Continuar
-                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
-                </Link>
-              </Button>
-            </motion.div>
+            <NextButton href="/chapters/chapter3/14" className="text-white bg-[#142839] hover:bg-hover" />
           )}
         </motion.div>
         <div className="fixed bottom-5 left-5">
