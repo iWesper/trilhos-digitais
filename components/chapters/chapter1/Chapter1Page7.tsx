@@ -1,10 +1,9 @@
 "use client";
+import { BackLink } from "@/components/chapters/ChapterNav";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { IoChevronBack } from "react-icons/io5";
-import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
 import { enter, enterAfter, hover } from "@/lib/motion";
@@ -52,13 +51,7 @@ export default function Chapter1Page7() {
   return (
     <>
       <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12">
-        <Link
-          href="/chapters/chapter1/6"
-          className="text-black absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter1/6" tone="dark" />
         <div className="col-span-3"></div>
         <motion.div
           initial={{ opacity: 0 }}

@@ -1,14 +1,11 @@
 "use client";
+import { BackLink, NextButton } from "@/components/chapters/ChapterNav";
 import React, { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { IoChevronBack } from "react-icons/io5";
-import Link from "next/link";
 import Image from "next/image";
 import { Tilt } from "@/components/ui/tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
 import { enter, hover } from "@/lib/motion";
-import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter1Page2() {
   //PROGRESS
@@ -23,13 +20,7 @@ export default function Chapter1Page2() {
   return (
     <>
       <div className="bg-chapter1BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1">
-        <Link
-          href="/chapters/chapter1/1"
-          className="text-black absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter1/1" tone="dark" />
         <motion.div
           className="col-span-1 h-full"
           initial={{ x: -40, opacity: 0 }}
@@ -49,20 +40,7 @@ export default function Chapter1Page2() {
               <span className="italic text-tertiary">Richard Wagner</span> e a sua criação, a{" "}
               <span className="italic text-tertiary">Gesamtkunstwerk</span>.
             </p>
-            <motion.div
-              whileHover={hover}
-              className="group"
-            >
-              <Button
-                asChild
-                className="text-white bg-tertiary hover:bg-hover-tertiary"
-              >
-                <Link href="/chapters/chapter1/3">
-                  Continuar
-                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
-                </Link>
-              </Button>
-            </motion.div>
+            <NextButton href="/chapters/chapter1/3" className="text-white bg-tertiary hover:bg-hover-tertiary" />
           </div>
         </motion.div>
         <motion.div

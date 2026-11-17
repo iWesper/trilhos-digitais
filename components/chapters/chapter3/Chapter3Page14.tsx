@@ -1,7 +1,7 @@
 "use client";
+import { BackLink } from "@/components/chapters/ChapterNav";
 import React from "react";
 import { useState, useEffect } from "react";
-import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { MdQuestionMark } from "react-icons/md";
 import { Button } from "@/components/ui/button";
@@ -119,13 +119,7 @@ export default function Chapter3Page14() {
   return (
     <>
       <div className="bg-chapter3BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12">
-        <Link
-          href="/chapters/chapter3/13"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter3/13" />
 
         {!showButton && (
           <motion.div

@@ -1,8 +1,7 @@
 "use client";
+import { BackLink } from "@/components/chapters/ChapterNav";
 import React, { Suspense, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { IoChevronBack } from "react-icons/io5";
-import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { Canvas } from "@react-three/fiber";
 import {
@@ -48,13 +47,7 @@ export default function Chapter1Page4() {
   return (
     <>
       <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12">
-        <Link
-          href="/chapters/chapter1/3"
-          className="text-black absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter1/3" tone="dark" />
         <div className="col-span-1"></div>
         <motion.div
           initial={{ opacity: 0 }}

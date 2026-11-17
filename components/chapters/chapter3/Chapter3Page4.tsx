@@ -1,10 +1,7 @@
 "use client";
+import { BackLink, NextButton } from "@/components/chapters/ChapterNav";
 import React, { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { IoChevronBack } from "react-icons/io5";
-import Link from "next/link";
 import Image from "next/image";
-import { FaArrowRight } from "react-icons/fa6";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
 import { enter, enterAfter, hover } from "@/lib/motion";
@@ -27,13 +24,7 @@ export default function Chapter3Page4() {
   return (
     <>
       <div className="bg-chapter3BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-3">
-        <Link
-          href="/chapters/chapter3/3"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter3/3" />
         <motion.div
           className="col-span-2 h-full"
           initial={{ x: -40, opacity: 0 }}
@@ -125,17 +116,7 @@ export default function Chapter3Page4() {
           animate={{ opacity: 1 }}
           transition={enter}
         >
-          <motion.div
-            whileHover={hover}
-            className="group"
-          >
-            <Button asChild className="text-white bg-[#142839] hover:bg-hover">
-              <Link href="/chapters/chapter3/5">
-                Continuar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
-              </Link>
-            </Button>
-          </motion.div>
+          <NextButton href="/chapters/chapter3/5" className="text-white bg-[#142839] hover:bg-hover" />
         </motion.div>
         <motion.div
           className="h-full col-span-4"

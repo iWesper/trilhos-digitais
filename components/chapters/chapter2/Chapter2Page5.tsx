@@ -1,9 +1,8 @@
 "use client";
+import { BackLink } from "@/components/chapters/ChapterNav";
 import React from "react";
 import { useCallback, useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { IoChevronBack } from "react-icons/io5";
-import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { MdQuestionMark } from "react-icons/md";
 import Image from "next/image";
@@ -269,13 +268,7 @@ export default function Chapter2Page5() {
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  p-4">
-        <Link
-          href="/chapters/chapter2/4"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter2/4" />
         <div className="col-span-2"></div>
         <motion.div
           initial={{ opacity: 0 }}

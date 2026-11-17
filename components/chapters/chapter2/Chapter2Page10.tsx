@@ -1,7 +1,7 @@
 "use client";
+import { BackLink } from "@/components/chapters/ChapterNav";
 import React from "react";
 import { useEffect, useState, useRef } from "react";
-import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
@@ -478,13 +478,7 @@ export default function Chapter2Page10() {
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="bg-chapter2BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center gap-4">
-        <Link
-          href="/chapters/chapter2/9"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter2/9" />
         <div className="col-span-2"></div>
         <div className="col-span-8 flex justify-start items-center text-center flex-col mt-10 pt-20">
           <p className="text-white font-medium pb-8">{PContent}</p>
