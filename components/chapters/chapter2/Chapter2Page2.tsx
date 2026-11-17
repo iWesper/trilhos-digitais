@@ -5,7 +5,7 @@ import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { Canvas } from "@react-three/fiber";
-import Bauhaus from "@/public/models/bauhaus/Bauhaus";
+import Bauhaus from "@/components/models/Bauhaus";
 import {
   Center,
   Environment,

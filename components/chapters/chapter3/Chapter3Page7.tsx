@@ -11,7 +11,7 @@ import { enterAfter, hover } from "@/lib/motion";
 import { FaArrowRight } from "react-icons/fa6";
 import { Environment, Loader, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import Tv from "@/public/models/tv/Tv";
+import Tv from "@/components/models/Tv";
 
 export default function Chapter3Page7() {
   const router = useRouter();

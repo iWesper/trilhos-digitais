@@ -13,7 +13,7 @@ import {
   Environment,
   Loader,
 } from "@react-three/drei";
-import Wagner2 from "@/public/models/wagner/Wagner2";
+import Wagner2 from "@/components/models/Wagner2";
 import { motion } from "framer-motion";
 import { enterAfter } from "@/lib/motion";
 

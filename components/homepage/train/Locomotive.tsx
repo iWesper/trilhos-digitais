@@ -94,7 +94,7 @@ export default function Locomotive() {
       <text
         x={228}
         y={131}
-        fontFamily="Effra, sans-serif"
+        style={{ fontFamily: "var(--font-effra), sans-serif" }}
         fontWeight={700}
         fontSize={16}
         letterSpacing={1.5}

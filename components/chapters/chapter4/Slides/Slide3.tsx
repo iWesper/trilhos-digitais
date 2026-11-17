@@ -2,7 +2,7 @@ import React, { useState, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment, Loader } from "@react-three/drei";
-import Prensa from "@/public/models/prensa/Prensa";
+import Prensa from "@/components/models/Prensa";
 
 const Slide3 = () => {
   // Estados relativos ao 3D

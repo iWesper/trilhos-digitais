@@ -19,7 +19,7 @@ import {
   Outlines,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import Wagner from "@/public/models/wagner/Wagner";
+import Wagner from "@/components/models/Wagner";
 import { motion } from "framer-motion";
 import { enterAfter } from "@/lib/motion";
 

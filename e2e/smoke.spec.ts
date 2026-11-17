@@ -44,6 +44,20 @@ test.describe("com sessão", () => {
     });
   }
 
+  test("fonte da marca (Effra) carrega via next/font", async ({ page }) => {
+    await page.goto("/chapters/chapter1/1");
+    const heading = page.getByRole("heading", { name: "Arte" });
+    await expect(heading).toBeVisible();
+    const loaded = await heading.evaluate(async (el) => {
+      await document.fonts.ready;
+      const family = getComputedStyle(el).fontFamily.split(",")[0].trim().replace(/"/g, "");
+      const faces = [...document.fonts].filter((f) => f.family.replace(/"/g, "") === family);
+      return { family, bold: faces.some((f) => f.weight === "700" && f.status === "loaded") };
+    });
+    expect(loaded.family).toMatch(/effra/i);
+    expect(loaded.bold, `Effra 700 carregada (${loaded.family})`).toBe(true);
+  });
+
   test("comboio: 4 carruagens com nome e rodas presas ao carril", async ({ page }) => {
     const errors = collectErrors(page);
     await page.goto("/");

@@ -19,10 +19,10 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
-        effra: ["Effra", "sans-serif"],
-        tomatoes: ["Tomatoes", "sans-serif"],
-        lovedays: ["LoveDays", "sans-serif"],
-        beautifulEveryTime:["BeautifulEveryTime", "sans-serif"],
+        effra: ["var(--font-effra)", "sans-serif"],
+        tomatoes: ["var(--font-tomatoes)", "sans-serif"],
+        lovedays: ["var(--font-lovedays)", "sans-serif"],
+        beautifulEveryTime: ["var(--font-beautiful)", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

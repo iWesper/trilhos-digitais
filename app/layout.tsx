@@ -7,6 +7,7 @@ import "./globals.css";
 import { AuthProvider } from "@/components/context/AuthContext";
 import { Toaster } from "@/components/ui/toaster";
 import { MotionProvider } from "@/components/providers/MotionProvider";
+import { beautifulEveryTime, effra, loveDays, tomatoes } from "./fonts";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -29,7 +30,11 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-[#142839] font-sans antialiased",
-          fontSans.variable
+          fontSans.variable,
+          effra.variable,
+          tomatoes.variable,
+          loveDays.variable,
+          beautifulEveryTime.variable
         )}
       >
         <AuthProvider>

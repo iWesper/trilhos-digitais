@@ -46,7 +46,7 @@ export default function CarComunicacao() {
           x={320}
           y={98}
           textAnchor="middle"
-          fontFamily="Effra, sans-serif"
+          style={{ fontFamily: "var(--font-effra), sans-serif" }}
           fontWeight={700}
           fontSize={13}
           letterSpacing={1.5}

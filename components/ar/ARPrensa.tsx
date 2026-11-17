@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { Environment, useGLTF, useAnimations } from "@react-three/drei";
 import ARScene from "./ARScene";
-import { ModelProps, useModel } from "./gltf";
+import { ModelProps, useModel } from "@/components/models/gltf";
 import { Group, MeshStandardMaterial } from "three";
 
 export default function ARPage() {

@@ -197,7 +197,7 @@ export function CarFrame({
           x={-plaqueW / 2 + 19}
           y={4.5}
           textAnchor="middle"
-          fontFamily="Effra, sans-serif"
+          style={{ fontFamily: "var(--font-effra), sans-serif" }}
           fontWeight={700}
           fontSize={14}
           fill={plaque}
@@ -207,7 +207,7 @@ export function CarFrame({
         <text
           x={-plaqueW / 2 + 38}
           y={7}
-          fontFamily="Effra, sans-serif"
+          style={{ fontFamily: "var(--font-effra), sans-serif" }}
           fontWeight={700}
           fontSize={19}
           letterSpacing={2}

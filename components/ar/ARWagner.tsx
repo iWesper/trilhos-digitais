@@ -7,7 +7,7 @@ import {
   useAnimations,
 } from "@react-three/drei";
 import ARScene from "./ARScene";
-import { ModelProps, useModel } from "./gltf";
+import { ModelProps, useModel } from "@/components/models/gltf";
 import { Group, LoopOnce } from "three";
 
 export default function ARPage() {
