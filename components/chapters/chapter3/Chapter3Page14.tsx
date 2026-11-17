@@ -70,7 +70,7 @@ export default function Chapter3Page14() {
 
   useEffect(() => {
     WillShowToast(badgeId);
-  }, []);
+  }, [WillShowToast]);
 
   //TIP
   const Tip =

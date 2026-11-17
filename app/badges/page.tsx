@@ -148,7 +148,7 @@ export default function Badges() {
     goGetBadges();
     //Redefine o estado do tutorial
     setHasSkippedTutorial(false);
-  }, []);
+  }, [goGetBadges, hasSeenBadgeTutorial]);
 
   const handleBadgeClick = (badgeNumber: number) => {
     //Modelo de Badge

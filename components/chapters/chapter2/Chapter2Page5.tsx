@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
-import { useEffect, useState, useRef } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { MdQuestionMark } from "react-icons/md";
 import Image from "next/image";
+import type { StaticImageData } from "next/image";
 import {
   Tooltip,
   TooltipContent,
@@ -32,11 +33,14 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 
 //HOOK QUE PERMITE RECEBER OS DADOS DO ELEMENTO ARRASTADO
 import { useDrop } from "react-dnd";
-import PictureStack from "./Design_Cadeiras_Drop";
+import DraggableImage from "./DraggableImage";
 
 import testimg1 from "@/public/img/chapter2/chair1.svg";
 import testimg2 from "@/public/img/chapter2/chair2.svg";
 import testimg3 from "@/public/img/chapter2/chair3.svg";
+
+// Ordem correta (ids), fixa
+const correctOrder = [3, 2, 1];
 
 export default function Chapter2Page5() {
   //LISTA DE ELEMENTOS ARRASTÁVEIS
@@ -87,7 +91,7 @@ export default function Chapter2Page5() {
   const [PictureListCopy, setPictureListCopy] = useState([...PictureList]);
 
   //STATE DA ÁREA DAS IMAGENS
-  const [board, setBoard] = useState<{ id: number; url: any }[]>([]);
+  const [board, setBoard] = useState<{ id: number; url: StaticImageData | string }[]>([]);
 
   //FEEBACK CERTO OU ERRADO
   const [orderMessage, setOrderMessage] = useState("");
@@ -97,8 +101,6 @@ export default function Chapter2Page5() {
 
   const [showDialog, setShowDialog] = useState<boolean>(false);
 
-  //ORDEM CORRETA DE IMAGENS
-  const correctOrder = [3, 2, 1];
 
   //AO CLIQUE PARA ARRASTAR
   const handleMouseDown = (id: number) => {
@@ -131,7 +133,7 @@ export default function Chapter2Page5() {
   };
 
   //VER SE FORAM ADICONADAS DA FORMA CORRETA
-  const checkOrder = () => {
+  const checkOrder = useCallback(() => {
     //GUARDAR A ORDEM ATUAL
     const currentOrder = board.map((picture) => picture.id);
 
@@ -179,7 +181,7 @@ export default function Chapter2Page5() {
           setOrderMessage(message);
       }
     }
-  };
+  }, [board]);
 
   //LIMPAR TENTATIVA
   const clearBoard = () => {
@@ -194,7 +196,7 @@ export default function Chapter2Page5() {
     if (board.length === 3) {
       checkOrder();
     }
-  }, [board]);
+  }, [board, checkOrder]);
 
   //COMPONENTE DENTRO DE COMPONENTE PARA TER CONTEXT
   function DroppingArea({
@@ -203,7 +205,7 @@ export default function Chapter2Page5() {
     checkOrder,
   }: {
     addImageToBoard: (id: number) => void;
-    board: { id: number; url: any }[];
+    board: { id: number; url: StaticImageData | string }[];
     checkOrder: () => void;
   }): React.JSX.Element {
     //REF PARA O DROP
@@ -216,7 +218,7 @@ export default function Chapter2Page5() {
 
       //FUNÇÃO CHAMADA QUANDO O ELEMENTO É SOLTADO
       //A BOARD FICA COM O QUE LÁ ESTAVA MAIS O NOVO
-      drop: (item: any) => {
+      drop: (item: { id: number }) => {
         //SE TIVER MENOS DE 3
         if (board.length < 3) {
           //ADICIONA MAIS
@@ -335,10 +337,12 @@ export default function Chapter2Page5() {
                 transition={enter}
                 className="h-[33.33%] w-full"
               >
-                <PictureStack
+                <DraggableImage
                   url={picture.url}
                   id={picture.id}
-                  onMouseDown={handleMouseDown}
+                  alt="Cadeira"
+                  className="max-h-full"
+                  onMouseDown={() => handleMouseDown(picture.id)}
                 />
               </motion.div>
             );

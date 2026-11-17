@@ -12,6 +12,7 @@ import { HiCheck } from "react-icons/hi";
 
 export default function Chapter4Page5() {
   const { goGetUsername, username, currentUser, error } = useAuth();
+  const { setProgress } = useProgress();
 
   useEffect(() => {
     //PROGRESS VALUE
@@ -21,10 +22,8 @@ export default function Chapter4Page5() {
       //USERNAME
       goGetUsername(currentUser.uid);
     }
-  }, []);
+  }, [currentUser, goGetUsername, setProgress]);
 
-  //PROGRESS
-  const { setProgress } = useProgress();
 
   return (
     <>

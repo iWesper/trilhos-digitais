@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
+import type { StaticImageData } from "next/image";
 import { useProgress } from "@/components/context/ProgressContext";
 import { Button } from "@/components/ui/button";
 import { MdQuestionMark } from "react-icons/md";
@@ -30,7 +31,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 
 //HOOK QUE PERMITE RECEBER OS DADOS DO ELEMENTO ARRASTADO
 import { useDrop } from "react-dnd";
-import Picture from "./Design_Espremedor_Drop";
+import DraggableImage from "./DraggableImage";
 
 //IMAGENS DO TESTE
 import testimg1 from "@/public/img/chapter2/chapter2frutas_morango.svg";
@@ -94,7 +95,7 @@ export default function Chapter2Page3() {
 
 
   //STATE ATUALIZÁVEL COM OS ELEMENTOS QUE LÁ ESTÃO
-  const [board, setBoard] = useState<{ id: number; url: any }[]>([]);
+  const [board, setBoard] = useState<{ id: number; url: StaticImageData | string }[]>([]);
 
   //FUNÇÃO QUE ATUALIZA O STATE DO BOARD PARA QUE ELE MOSTRE O QUE LÁ FOI POSTO
   const addImageToBoard = (id: number) => {
@@ -115,7 +116,7 @@ export default function Chapter2Page3() {
       //setBoard((board) => [...board, PictureListCopy[0]]);
 
       //SE SÓ QUISERMOS UM ELEMENTO, COLOCA-SE AQUI
-      setBoard([PictureListCopy[0] as { id: number; url: any }]);
+      setBoard([PictureListCopy[0] as { id: number; url: StaticImageData | string }]);
     }
   };
 
@@ -148,7 +149,7 @@ export default function Chapter2Page3() {
     validateId,
   }: {
     addImageToBoard: (id: number) => void;
-    board: { id: number; url: any }[];
+    board: { id: number; url: StaticImageData | string }[];
     validateId: (id: number) => string;
   }) {
     //REFERÊNCIA PARA O ELEMENTO QUE VAI RECEBER OS ELEMENTOS ARRASTÁVEIS
@@ -160,7 +161,7 @@ export default function Chapter2Page3() {
       accept: "image",
 
       //FUNÇÃO QUE É CHAMADA QUANDO O ELEMENTO É SOLTADO
-      drop: (item: any) => addImageToBoard(item.id),
+      drop: (item: { id: number }) => addImageToBoard(item.id),
 
       //A PARTIR DAQUI SABE SE SOLTOU OU NÃO
       collect: (monitor) => ({
@@ -226,7 +227,7 @@ export default function Chapter2Page3() {
           <div className="flex flex-row justify-center">
             {PictureList.map((picture) => {
               return (
-                <Picture url={picture.url} id={picture.id} key={picture.id} />
+                <DraggableImage url={picture.url} id={picture.id} key={picture.id} alt="Fruta" className="mx-4 px-5" />
               );
             })}
           </div>

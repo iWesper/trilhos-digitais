@@ -24,7 +24,7 @@ export default function Chapter4Page3() {
   useEffect(() => {
     //PROGRESS VALUE
     setProgress(25 + 25);
-  }, []);
+  }, [setProgress]);
 
   //REF DO BOTÃO NÃO
   const buttonRef = useRef<HTMLButtonElement>(null);

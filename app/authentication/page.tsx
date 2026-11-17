@@ -126,14 +126,11 @@ if (IsInMobile) {
                   <p className=" text-red-600 text-center text-sm">{error}</p>
                 )}
               </div>
-              <div
-                className="mt-4 text-center text-sm"
-                style={{ cursor: "pointer" }}
-              >
+              <div className="mt-4 text-center text-sm">
                 Ainda não tens uma conta?{" "}
-                <a onClick={ChangeRender} className="underline">
+                <button type="button" onClick={ChangeRender} className="underline">
                   Regista-te!
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -149,7 +146,7 @@ if (IsInMobile) {
           </div>
         </div>
       ) : (
-        Render === false && <Auth />
+        <Auth onShowLogin={() => setRender(true)} />
       )}
     </>
   );

@@ -7,24 +7,17 @@ import { Label } from "@/components/ui/label";
 import { FcGoogle } from "react-icons/fc";
 
 import { useState } from "react";
-import { db, auth, googleProvider } from "../../backend/config/firebase.jsx";
+import { db, auth, googleProvider } from "@/backend/config/firebase";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
-import Homepage from "../homepage/Homepage";
-import Login from "@/app/authentication/page.tsx";
-export const Auth = () => {
+// Formulário de registo. Depois de criar a conta, o layout de /authentication redireciona para "/".
+export const Auth = ({ onShowLogin }: { onShowLogin: () => void }) => {
   //EMAIL E PASSWORD
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   //USERNAME
   const [usernameForm, setUsernameForm] = useState("");
-
-  //GO TO HOMePAGE
-  const [goToHomePage, setGoToHomePage] = useState(false);
-
-  //STATE DO RENDER
-  const [Render, setRender] = useState(true);
 
   //ERROR FEEDBACK
   const [error, setError] = useState("");
@@ -77,8 +70,6 @@ export const Auth = () => {
           userId: NewUserID,
         });
 
-        //ABRE HOMEPAGE
-        setGoToHomePage(true);
       } catch (error) {
         //SE HOUVER ERRO, MOSTRA-O
         setError(`Erro ao criar conta ${error}`);
@@ -115,23 +106,15 @@ export const Auth = () => {
           userId: NewUserID,
         });
 
-        //ABRE HOMEPAGE
-        setGoToHomePage(true);
       } catch (error) {
         //SE HOUVER ERRO, MOSTRA-O
-        setError("Erro ao criar conta", error);
+        setError(`Erro ao criar conta ${error}`);
       }
     }
   };
 
-  //FUNÇÃO QUE TROCA O RENDER
-  const ChangeRender = () => {
-    setRender(false);
-  };
-
   return (
     <>
-      {Render ? (
         <div className="w-full h-screen bg-white lg:grid lg:grid-cols-2 overflow-hidden">
           <div className="flex items-center justify-center">
             <div className="mx-auto grid w-[350px] gap-6">
@@ -190,14 +173,11 @@ export const Auth = () => {
                 </Button>
                 {error && (<p className=" text-red-600 text-center text-sm">{error}</p>)}
               </div>
-              <div
-                className="mt-4 text-center text-sm"
-                style={{ cursor: "pointer" }}
-              >
+              <div className="mt-4 text-center text-sm">
                 Já tens uma conta?{" "}
-                <a onClick={ChangeRender} className="underline">
+                <button type="button" onClick={onShowLogin} className="underline">
                   Entrar
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -211,11 +191,7 @@ export const Auth = () => {
               priority={true}
             />
           </div>
-          {goToHomePage && <Homepage />}
         </div>
-      ) : (
-        <Login />
-      )}
     </>
   );
 };

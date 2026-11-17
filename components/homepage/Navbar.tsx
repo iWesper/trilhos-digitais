@@ -16,7 +16,7 @@ export default function Navbar() {
     if (username === "" && currentUser !== null){
       goGetUsername(currentUser.uid);
     }
-  }, [username, currentUser]);
+  }, [username, currentUser, goGetUsername]);
 
   return (
     <motion.nav

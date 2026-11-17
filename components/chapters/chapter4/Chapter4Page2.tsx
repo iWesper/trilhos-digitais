@@ -45,7 +45,7 @@ export default function Chapter4Page2() {
     //PROGRESS VALUE
 
     setProgress(25);
-  }, []);
+  }, [setProgress]);
 
   //GUARDAR A MUDANÇA DO VALOR DO SLIDER
   // A animação é interrompível, por isso o slider já não precisa de ficar bloqueado entre slides

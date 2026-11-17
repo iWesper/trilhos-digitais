@@ -37,7 +37,7 @@ export default function Homepage() {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
   // Mensagens do tutorial
-  const [tutorialMessages, setTutorialMessages] = useState([]);
+  const [tutorialMessages, setTutorialMessages] = useState<string[]>([]);
 
   useEffect(() => {
     
@@ -79,7 +79,7 @@ export default function Homepage() {
       //Redefine o estado do tutorial
       setHasSkippedTutorial(false);
     }
-  }, []);
+  }, [CheckHasSeenTutorialScript, currentUser, goGetUsername]);
 
   useEffect(() => {
     setTutorialMessages([

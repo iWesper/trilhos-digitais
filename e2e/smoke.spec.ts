@@ -81,6 +81,16 @@ test.describe("com sessão", () => {
     expect(errors).toEqual([]);
   });
 
+  test("capítulo 2: arrastar uma fruta para o espremedor funciona", async ({ page }) => {
+    const errors = collectErrors(page);
+    await page.goto("/chapters/chapter2/3");
+    const feedback = page.locator("p.text-white.font-medium.mt-2");
+    await expect(feedback).toHaveCount(0);
+    await page.getByAltText("Fruta").first().dragTo(page.getByAltText("Foto de Um Espremedor de Citrinos"));
+    await expect(feedback).toHaveCount(1);
+    expect(errors).toEqual([]);
+  });
+
   test("capítulo 4: o slider muda de slide com o teclado, nos dois sentidos", async ({ page }) => {
     await page.goto("/chapters/chapter4/2");
     const slider = page.getByRole("slider");

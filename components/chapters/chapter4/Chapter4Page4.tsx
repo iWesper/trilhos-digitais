@@ -36,7 +36,7 @@ export default function Chapter4Page4() {
     //TOAAST
     WillShowToast(badgeId);
     setProgress(25 + 25 + 25);
-  }, []);
+  }, [WillShowToast, setProgress]);
 
   const SaveBadgeProgressAndGoToNextPage = () => {
     if (willShowToastState === true) {

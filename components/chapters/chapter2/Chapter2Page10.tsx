@@ -18,7 +18,7 @@ import {
 import { useDrop } from "react-dnd";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import PicturePhones from "./Design_Telemoveis_Drop";
+import DraggableImage from "./DraggableImage";
 import { useToast } from "@/components/ui/use-toast";
 import { useAuth } from "@/components/context/AuthContext";
 import { motion } from "framer-motion";
@@ -35,6 +35,30 @@ interface Picture {
   url: string;
 }
 
+//LISTA DE ELEMENTOS ARRASTÁVEIS
+//AQUI, URL É A LOCALIZAÇÃO (dados fixos: fora do componente, não são recriados a cada render)
+const PictureList = [
+  {
+    id: 1,
+    url: testimg1,
+  },
+  {
+    id: 2,
+    url: testimg3,
+  },
+  {
+    id: 3,
+    url: testimg2,
+  },
+  {
+    id: 4,
+    url: testimg4,
+  },
+];
+
+//ORDEM DEFINIDA COMO CORRETA USANDO IDs (fixa)
+const correctOrder = [3, 4, 2, 1];
+
 export default function Chapter2Page10() {
   //TOAST
   const { toast } = useToast();
@@ -42,26 +66,6 @@ export default function Chapter2Page10() {
   //AUTH Se for false tem badge, true não tem
   const { WillShowToast, willShowToastState, error } = useAuth();
 
-  //LISTA DE ELEMENTOS ARRASTÁVEIS
-  //AQUI, URL É A LOCALIZAÇÃO
-  const PictureList = [
-    {
-      id: 1,
-      url: testimg1,
-    },
-    {
-      id: 2,
-      url: testimg3,
-    },
-    {
-      id: 3,
-      url: testimg2,
-    },
-    {
-      id: 4,
-      url: testimg4,
-    },
-  ];
 
   //STATE ATUALIZÁVEL COM OS ELEMENTOS QUE LÁ ESTÃO
   const [board, setBoard] = useState<Picture[]>([]);
@@ -90,7 +94,7 @@ export default function Chapter2Page10() {
     setBoard2([PictureList[1]]);
     setBoard3([PictureList[2]]);
     setBoard4([PictureList[3]]);
-  }, []);
+  }, []); // PictureList é constante (fora do componente)
 
   //BOARDS POSSÍVEIS
   const boards: Record<number, Picture[]> = {
@@ -131,11 +135,10 @@ export default function Chapter2Page10() {
   const nextPage = "/chapters/chapter2/11";
 
   //MENSAGEM A ESCREVER
-  let message = "";
 
   useEffect(() => {
     WillShowToast(badgeId);
-  }, []);
+  }, [WillShowToast]);
 
   //DICA
   const Tip = "Arrasta os telemóveis entre as caixas onde estão para os ordenares.";
@@ -241,11 +244,10 @@ export default function Chapter2Page10() {
     }
   };
 
-  //ORDEM DEFINIDA COMO CORRETA USANDO IDs
-  const correctOrder = [3, 4, 2, 1];
 
   //COMPARAR
   useEffect(() => {
+    let message = "";
     //VER ORDEM
     const allBoardsHaveOnePicture =
       board.length === 1 &&
@@ -285,7 +287,7 @@ export default function Chapter2Page10() {
     }
     //STATE DO FEEDBACK
     setOrderMessage(message);
-  }, [board, board2, board3, board4]);
+  }, [board, board2, board3, board4, toast, willShowToastState]);
 
   //DROP AREAS
   function DropAreas({
@@ -383,11 +385,12 @@ export default function Chapter2Page10() {
                 transition={move}
                 whileHover={hover}
               >
-                <PicturePhones
+                <DraggableImage
                   url={picture.url}
                   id={picture.id}
-                  onDragStart={handleDragStart}
-                  board={board}
+                  alt="Telemóvel"
+                  className="w-40 h-40"
+                  onMouseDown={() => handleDragStart(board)}
                 />
               </motion.div>
             );
@@ -406,11 +409,12 @@ export default function Chapter2Page10() {
                 transition={move}
                 whileHover={hover}
               >
-                <PicturePhones
+                <DraggableImage
                   url={picture.url}
                   id={picture.id}
-                  onDragStart={handleDragStart}
-                  board={board2}
+                  alt="Telemóvel"
+                  className="w-40 h-40"
+                  onMouseDown={() => handleDragStart(board2)}
                 />
               </motion.div>
             );
@@ -429,11 +433,12 @@ export default function Chapter2Page10() {
                 transition={move}
                 whileHover={hover}
               >
-                <PicturePhones
+                <DraggableImage
                   url={picture.url}
                   id={picture.id}
-                  onDragStart={handleDragStart}
-                  board={board3}
+                  alt="Telemóvel"
+                  className="w-40 h-40"
+                  onMouseDown={() => handleDragStart(board3)}
                 />
               </motion.div>
             );
@@ -452,11 +457,12 @@ export default function Chapter2Page10() {
                 transition={move}
                 whileHover={hover}
               >
-                <PicturePhones
+                <DraggableImage
                   url={picture.url}
                   id={picture.id}
-                  onDragStart={handleDragStart}
-                  board={board4}
+                  alt="Telemóvel"
+                  className="w-40 h-40"
+                  onMouseDown={() => handleDragStart(board4)}
                 />
               </motion.div>
             );

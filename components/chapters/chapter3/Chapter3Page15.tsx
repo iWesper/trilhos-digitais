@@ -31,7 +31,7 @@ export default function Chapter3Page15() {
         7.1428571428571428571428571428571 +
         7.1428571428571428571428571428571
     );
-  }, []);
+  }, [setProgress]);
 
   return (
     <>

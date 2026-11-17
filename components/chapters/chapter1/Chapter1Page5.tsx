@@ -51,7 +51,7 @@ export default function Chapter1Page5() {
     setProgress(16.66 + 16.66 + 16.66 + 16.66);
 
     WillShowToast(badgeId);
-  }, []);
+  }, [WillShowToast, setProgress]);
 
   //ESTADO DA RESPOSTA
   const [resposta, setResposta] = useState<string | null>(null);
