@@ -4,7 +4,8 @@ import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Environment, useGLTF, useAnimations } from "@react-three/drei";
 import ARScene from "./ARScene";
-import { Group, Mesh, MeshStandardMaterial, VideoTexture } from "three";
+import { ModelProps, useModel } from "@/components/models/gltf";
+import { Group, MeshStandardMaterial, VideoTexture } from "three";
 
 export default function ARPage() {
   return (
@@ -28,9 +29,9 @@ export default function ARPage() {
   );
 }
 
-function TvAR(props: any) {
+function TvAR(props: ModelProps) {
   const group = useRef<Group>(null);
-  const { nodes, materials, animations } = useGLTF(
+  const { nodes, materials, animations } = useModel(
     "/models/tvAR/tvAR-transformed.glb"
   );
   const video = document.getElementById("video") as HTMLVideoElement;
@@ -54,13 +55,13 @@ function TvAR(props: any) {
     <group onClick={handleInteraction}>
       <group {...props} dispose={null}>
         <mesh
-          geometry={(nodes.body as Mesh).geometry}
+          geometry={nodes.body.geometry}
           material={materials.PaletteMaterial001}
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.004}
         />
         <mesh
-          geometry={(nodes.Cube as Mesh).geometry}
+          geometry={nodes.Cube.geometry}
           material={new MeshStandardMaterial({ map: videoTexture })}
           position={[-0.508, -0.181, 0.058]}
           scale={[0.9, 0.741, 0.07]}

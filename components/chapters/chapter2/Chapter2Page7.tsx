@@ -1,13 +1,10 @@
 "use client";
+import { BackLink, NextButton } from "@/components/chapters/ChapterNav";
 import React, { useEffect } from "react";
-import { IoChevronBack } from "react-icons/io5";
-import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
 import { enter, hover } from "@/lib/motion";
-import { FaArrowRight } from "react-icons/fa6";
 
-import { Button } from "@/components/ui/button";
 
 export default function Chapter2Page7() {
   //PROGRESS
@@ -21,13 +18,7 @@ export default function Chapter2Page7() {
   return (
     <>
       <div className="bg-chapter2BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1  justify-center items-center p-4">
-        <Link
-          href="/chapters/chapter2/6"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter2/6" />
         <div className="col-span-2"></div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -45,20 +36,7 @@ export default function Chapter2Page7() {
             No entanto, o design não deve apenas seguir a função, mas também o
             significado.
           </p>
-          <motion.div
-            whileHover={hover}
-            className="group"
-          >
-            <Button
-              asChild
-              className="text-white bg-secondary hover:bg-hover-secondary"
-            >
-              <Link href="/chapters/chapter2/8">
-                Continuar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
-              </Link>
-            </Button>
-          </motion.div>
+          <NextButton href="/chapters/chapter2/8" className="text-white bg-secondary hover:bg-hover-secondary" />
         </motion.div>
         <div className="col-span-2"></div>
       </div>

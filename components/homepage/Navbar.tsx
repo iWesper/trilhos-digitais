@@ -1,3 +1,5 @@
+"use client";
+
 import { HomeIcon, TrophyIcon } from "@heroicons/react/24/solid";
 import { MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
@@ -16,7 +18,7 @@ export default function Navbar() {
     if (username === "" && currentUser !== null){
       goGetUsername(currentUser.uid);
     }
-  }, [username, currentUser]);
+  }, [username, currentUser, goGetUsername]);
 
   return (
     <motion.nav

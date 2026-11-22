@@ -1,17 +1,17 @@
 "use client";
+import { BackLink } from "@/components/chapters/ChapterNav";
 import React, { useEffect, useState } from "react";
-import { IoChevronBack } from "react-icons/io5";
 import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { useAuth } from "@/components/context/AuthContext";
 import { motion } from "framer-motion";
 import { enter, hover } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
-import { FaArrowRight } from "react-icons/fa6";
 import { HiCheck } from "react-icons/hi";
 
 export default function Chapter4Page5() {
   const { goGetUsername, username, currentUser, error } = useAuth();
+  const { setProgress } = useProgress();
 
   useEffect(() => {
     //PROGRESS VALUE
@@ -21,21 +21,13 @@ export default function Chapter4Page5() {
       //USERNAME
       goGetUsername(currentUser.uid);
     }
-  }, []);
+  }, [currentUser, goGetUsername, setProgress]);
 
-  //PROGRESS
-  const { setProgress } = useProgress();
 
   return (
     <>
       <div className="bg-chapter4BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center p-4">
-        <Link
-          href="/chapters/chapter4/4"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter4/4" />
         <div className="col-span-2"></div>
         <motion.div
           initial={{ opacity: 0 }}

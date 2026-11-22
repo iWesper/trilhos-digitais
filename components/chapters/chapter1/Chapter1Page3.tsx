@@ -1,8 +1,7 @@
 "use client";
+import { BackLink } from "@/components/chapters/ChapterNav";
 import React from "react";
 import { Suspense, useState, useEffect } from "react";
-import { IoChevronBack } from "react-icons/io5";
-import Link from "next/link";
 import { MdQuestionMark } from "react-icons/md";
 import {
   Tooltip,
@@ -19,7 +18,7 @@ import {
   Outlines,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import Wagner from "@/public/models/wagner/Wagner";
+import Wagner from "@/components/models/Wagner";
 import { motion } from "framer-motion";
 import { enterAfter } from "@/lib/motion";
 
@@ -73,13 +72,7 @@ export default function Chapter1Page3() {
   return (
     <>
       <div className="bg-chapter1BG h-screen w-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12">
-        <Link
-          href="/chapters/chapter1/2"
-          className="text-black absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter1/2" tone="dark" />
         <div className="col-span-1"></div>
         <motion.div
           initial={{ opacity: 0 }}

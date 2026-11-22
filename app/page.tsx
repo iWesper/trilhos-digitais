@@ -1,5 +1,3 @@
-"use client";
-
 import RequireAuth from "@/components/auth/RequireAuth";
 import Homepage from "@/components/homepage/Homepage";
 

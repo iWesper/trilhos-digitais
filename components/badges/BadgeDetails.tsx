@@ -6,10 +6,10 @@ import { enter } from "@/lib/motion";
 import { BiQrScan } from "react-icons/bi";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
-import Bauhaus from "@/public/models/bauhaus/Bauhaus";
-import Wagner from "@/public/models/wagner/Wagner";
-import Tv from "@/public/models/tv/Tv";
-import Prensa from "@/public/models/prensa/Prensa";
+import Bauhaus from "@/components/models/Bauhaus";
+import Wagner from "@/components/models/Wagner";
+import Tv from "@/components/models/Tv";
+import Prensa from "@/components/models/Prensa";
 
 export default function BadgeDetails({ number }: { number: number }) {
   //3D ou AR

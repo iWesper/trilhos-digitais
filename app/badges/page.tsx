@@ -1,7 +1,8 @@
 "use client";
+import type { ComponentType } from "react";
+import type { ModelProps } from "@/components/models/gltf";
 import { useEffect, useState, Suspense } from "react";
 import { IoChevronBack } from "react-icons/io5";
-import { useRouter } from "next/navigation";
 import { Progress } from "@/components/ui/progress";
 import { useAuth } from "@/components/context/AuthContext";
 import BadgeDetails from "@/components/badges/BadgeDetails";
@@ -17,14 +18,25 @@ import {
 } from "@/components/ui/dialog";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
-import Bauhaus from "@/public/models/bauhaus/Bauhaus";
-import Wagner from "@/public/models/wagner/Wagner";
-import Tv from "@/public/models/tv/Tv";
-import Prensa from "@/public/models/prensa/Prensa";
+import Bauhaus from "@/components/models/Bauhaus";
+import Wagner from "@/components/models/Wagner";
+import Tv from "@/components/models/Tv";
+import Prensa from "@/components/models/Prensa";
 import { FaStar } from "react-icons/fa";
 
+// Um badge no quadro: o modelo 3D e como é mostrado
+type Vec3 = [number, number, number];
+type BadgeItem = {
+  BadgeName: string;
+  id: number;
+  name: string;
+  modelId: ComponentType<ModelProps & { progress: number }>;
+  scale: number;
+  position: Vec3;
+  rotation: Vec3;
+};
+
 export default function Badges() {
-  const router = useRouter();
   const {
     currentUser,
     goGetBadges,
@@ -52,7 +64,7 @@ export default function Badges() {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
   //Info dos Badges Default
-  const defaultItems = [
+  const defaultItems: BadgeItem[] = [
     {
       BadgeName: "Gesamtkunstwerk",
       id: 1,
@@ -128,11 +140,6 @@ export default function Badges() {
     }
   };
 
-  // Hook para navegar entre páginas
-  if (!currentUser) {
-    router.push("/authentication");
-  }
-
   // Hook para verificar se o tutorial foi visto
   useEffect(() => {
     if (!tutorialBadge && !isDialogOpen && !isCheckingTutorialState) {
@@ -155,7 +162,7 @@ export default function Badges() {
     goGetBadges();
     //Redefine o estado do tutorial
     setHasSkippedTutorial(false);
-  }, []);
+  }, [goGetBadges, hasSeenBadgeTutorial]);
 
   const handleBadgeClick = (badgeNumber: number) => {
     //Modelo de Badge

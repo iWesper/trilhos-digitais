@@ -1,8 +1,9 @@
-"use client";
-
+import type { Metadata } from "next";
 import NavbarChapters from "@/components/chapters/NavbarChapters";
 import { ProgressProvider } from "@/components/context/ProgressContext";
 import RequireAuth from "@/components/auth/RequireAuth";
+
+export const metadata: Metadata = { title: { default: "Capítulos", template: "%s · Trilhos Digitais" } };
 
 export default function ChaptersLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

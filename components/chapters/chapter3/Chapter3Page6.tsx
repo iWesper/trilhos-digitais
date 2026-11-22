@@ -1,7 +1,6 @@
 "use client";
+import { BackLink } from "@/components/chapters/ChapterNav";
 import React, { useEffect, useState } from "react";
-import { IoChevronBack } from "react-icons/io5";
-import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
@@ -253,13 +252,7 @@ export default function Chapter3Page6() {
   return (
     <>
       <div className="bg-chapter3BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 justify-center items-center p-4">
-        <Link
-          href="/chapters/chapter3/5"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter3/5" />
         <div className="col-span-2"></div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -302,7 +295,7 @@ export default function Chapter3Page6() {
           className="col-span-2 flex justify-center items-center relative"
         >
           <Image
-            src="/img/chapter3/chapter3SpiderManFilme.svg"
+            src="/img/chapter3/chapter3SpiderManFilme.webp"
             alt="Imagem de capa The SpiderMan"
             width={150}
             height={150}
@@ -318,7 +311,7 @@ export default function Chapter3Page6() {
           className="col-span-2 flex justify-center items-center relative"
         >
           <Image
-            src="/img/chapter3/chapter3SpiderManGame.svg"
+            src="/img/chapter3/chapter3SpiderManGame.webp"
             alt="Imagem de capa The SpiderMan"
             width={150}
             height={150}
@@ -334,7 +327,7 @@ export default function Chapter3Page6() {
           className="col-span-2 flex justify-center items-center relative"
         >
           <Image
-            src="/img/chapter3/chapter3SpiderManBD.svg"
+            src="/img/chapter3/chapter3SpiderManBD.webp"
             alt="Imagem de capa The SpiderMan"
             width={150}
             height={150}

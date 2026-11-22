@@ -1,7 +1,8 @@
-"use client";
-
+import type { Metadata } from "next";
 import { ProgressProvider } from "@/components/context/ProgressContext";
 import RequireAuth from "@/components/auth/RequireAuth";
+
+export const metadata: Metadata = { title: "Realidade Aumentada" };
 
 export default function ARLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

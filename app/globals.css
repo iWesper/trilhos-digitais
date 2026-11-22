@@ -2,30 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Effra";
-  src: url("/fonts/Effra.ttf") format("truetype");
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Effra";
-  src: url("/fonts/Effra-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Tomatoes";
-  src: url("/fonts/Tomatoes-O8L8.ttf") format("truetype");
-}
-@font-face {
-  font-family: "LoveDays";
-  src: url("/fonts/LoveDays-2v7Oe.ttf") format("truetype");
-}
-@font-face {
-  font-family: "BeautifulEveryTime";
-  src: url("/fonts/BeautifulEveryTime-Dg4m.ttf") format("truetype");
-}
 
 @layer base {
   :root {

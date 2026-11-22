@@ -1,14 +1,11 @@
 "use client";
+import { BackLink, NextButton } from "@/components/chapters/ChapterNav";
 import React, { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { IoChevronBack } from "react-icons/io5";
-import Link from "next/link";
 import Image from "next/image";
 import { Tilt } from "@/components/ui/tilt";
 import { useProgress } from "@/components/context/ProgressContext";
 import { motion } from "framer-motion";
 import { enter, hover } from "@/lib/motion";
-import { FaArrowRight } from "react-icons/fa6";
 
 export default function Chapter3Page10() {
   //PROGRESS
@@ -33,13 +30,7 @@ export default function Chapter3Page10() {
   return (
     <>
       <div className="bg-chapter3BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12 grid-rows-1">
-        <Link
-          href="/chapters/chapter3/9"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter3/9" />
         <motion.div
           className="col-span-1 h-full"
           initial={{ opacity: 0 }}
@@ -59,20 +50,7 @@ export default function Chapter3Page10() {
               um único <span className="italic text-foreground">frame</span> para ler a
               mensagem, mas num filme de 15s já temos mais contexto.
             </p>
-            <motion.div
-              whileHover={hover}
-              className="group"
-            >
-              <Button
-                asChild
-                className="text-white bg-[#142839] hover:bg-hover"
-              >
-                <Link href="/chapters/chapter3/11">
-                  Continuar
-                  <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
-                </Link>
-              </Button>
-            </motion.div>
+            <NextButton href="/chapters/chapter3/11" className="text-white bg-[#142839] hover:bg-hover" />
           </div>
         </motion.div>
         <motion.div
@@ -83,7 +61,7 @@ export default function Chapter3Page10() {
         >
           <Tilt>
             <Image
-              src="/img/chapter3/chapter3instax.svg"
+              src="/img/chapter3/chapter3instax.webp"
               alt="Imagem de uma câmara instantânea"
               width={300}
               height={300}

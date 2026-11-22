@@ -1,17 +1,14 @@
 "use client";
+import { BackLink, NextButton } from "@/components/chapters/ChapterNav";
 import React, { Suspense, useEffect, useState } from "react";
-import { IoChevronBack } from "react-icons/io5";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useProgress } from "@/components/context/ProgressContext";
 
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { enterAfter, hover } from "@/lib/motion";
-import { FaArrowRight } from "react-icons/fa6";
 import { Environment, Loader, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import Tv from "@/public/models/tv/Tv";
+import Tv from "@/components/models/Tv";
 
 export default function Chapter3Page7() {
   const router = useRouter();
@@ -36,13 +33,7 @@ export default function Chapter3Page7() {
   return (
     <>
       <div className="bg-chapter3BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center p-4">
-        <Link
-          href="/chapters/chapter3/6"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter3/6" />
         <div className="col-span-1"></div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -57,20 +48,7 @@ export default function Chapter3Page7() {
           <p className="text-white font-medium pb-10 select-none">
             Vamos descobri-las!
           </p>
-          <motion.div
-            whileHover={hover}
-            className="group"
-          >
-            <Button
-              asChild
-              className="text-white bg-[#142839] hover:bg-hover select-none"
-            >
-              <Link href="/chapters/chapter3/8">
-                Continuar
-                <FaArrowRight className="ps-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-150 ease-out" />
-              </Link>
-            </Button>
-          </motion.div>
+          <NextButton href="/chapters/chapter3/8" className="text-white bg-[#142839] hover:bg-hover select-none" />
         </motion.div>
         <motion.div           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

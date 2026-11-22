@@ -1,7 +1,6 @@
 "use client";
+import { BackLink } from "@/components/chapters/ChapterNav";
 import React, { useEffect, useRef, useState } from "react";
-import { IoChevronBack } from "react-icons/io5";
-import Link from "next/link";
 import { useProgress } from "@/components/context/ProgressContext";
 import SaveBadgeProgressScript from "../../../backend/SaveBadgeProgressScript";
 import { Button } from "@/components/ui/button";
@@ -24,7 +23,7 @@ export default function Chapter4Page3() {
   useEffect(() => {
     //PROGRESS VALUE
     setProgress(25 + 25);
-  }, []);
+  }, [setProgress]);
 
   //REF DO BOTÃO NÃO
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -70,13 +69,7 @@ export default function Chapter4Page3() {
   return (
     <>
       <div className="bg-chapter4BG h-screen bg-origin-border bg-center bg-no-repeat bg-cover grid grid-cols-12  justify-center items-center p-4">
-        <Link
-          href="/chapters/chapter4/2"
-          className="text-white absolute top-28 left-15 flex items-center cursor-pointer"
-        >
-          <IoChevronBack className=" h-8 w-8" />
-          <span>Voltar</span>
-        </Link>
+        <BackLink href="/chapters/chapter4/2" />
         <div className="col-span-2"></div>
         <div className="col-span-8 flex justify-start items-center text-center flex-col pt-20">
           <p className="text-white font-medium p-6 pb-8">
